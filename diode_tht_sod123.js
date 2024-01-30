@@ -1,6 +1,7 @@
 // Copyright (c) 2023 Marco Massarelli
 //
-// Licensed under CC BY-NC-SA 4.0. 
+// SPDX-License-Identifier: CC-BY-NC-SA-4.0
+//
 // To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/
 //
 // Authors: @ergogen + @infused-kim improvements + @ceoloide improvements
