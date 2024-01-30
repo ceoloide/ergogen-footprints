@@ -71,7 +71,7 @@ git clone --recursive git@github.com:your-user/your-keyboard.git
 Alternative they can init and update the submodules in a repo that was already cloned without the `--recursive` argument:
 
 ```bash
-git submodule update --init --recursive
+git submodule update --init --recursive --remote
 ```
 
 ### How to update footprint dependencies
