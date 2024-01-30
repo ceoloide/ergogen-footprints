@@ -92,6 +92,21 @@ Be aware that you will need to commit the submodule update change, or it will re
 git add ergogen/footprints/ceoloide && git commit -m "Update footprint submodule"
 ```
 
+## How to remove footprint dependencies
+
+If you do not longer need the footprint submodule and want to remove it from your repository, you can simply run this command:
+
+```bash
+git rm ergogen/footprints/ceoloide
+```
+
+This will update the `.gitmodules` file to remove the submodule reference and remove the submodule directory. Make sure to commit and push the
+change for it to be persisted and propagated, or it will revert with a subsequent pull:
+
+```bash
+git commit -m "Remove footprint submodule"
+```
+
 ## How to design or modify ergogen footprints
 
 [@infused-kim](https://github.com/infused-kim) wrote a [guide on how to convert KiCad footprints to ergogen](https://www.notion.so/nilnil/Convert-Kicad-Footprint-to-Ergogen-8340ce87ad554c69af4e3f92bc9a0898?pvs=4), which
