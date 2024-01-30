@@ -78,13 +78,13 @@ module.exports = {
 
         let final = standard_opening;
 
-        if(p.side == "F" || p.reversible) {
+        if (p.side == "F" || p.reversible) {
             final += front;
         }
-        if(p.side == "B" || p.reversible) {
+        if (p.side == "B" || p.reversible) {
             final += back;
         }
-        if(p.include_tht) {
+        if (p.include_tht) {
             final += tht;
         }
 

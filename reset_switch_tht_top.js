@@ -64,13 +64,13 @@ module.exports = {
         `
 
         let final = common_start;
-        if(p.side == "F" || p.reversible) {
-            if(p.include_silkscreen){
+        if (p.side == "F" || p.reversible) {
+            if (p.include_silkscreen) {
                 final += silkscreen_front
             }
         }
-        if(p.side == "B" || p.reversible) {
-            if(p.include_silkscreen){
+        if (p.side == "B" || p.reversible) {
+            if (p.include_silkscreen) {
                 final += silkscreen_back
             }
         }

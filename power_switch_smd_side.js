@@ -52,8 +52,8 @@ module.exports = {
     invert_behavior: true,
     include_silkscreen: true,
     include_courtyard: false,
-    from: {type: 'net', value: 'BAT_P'},
-    to: {type: 'net', value: 'RAW'},
+    from: { type: 'net', value: 'BAT_P' },
+    to: { type: 'net', value: 'RAW' },
   },
   body: p => {
     const common_start = `
@@ -163,21 +163,21 @@ module.exports = {
     `
 
     let final = common_start;
-    if(p.side == "F" || p.reversible) {
+    if (p.side == "F" || p.reversible) {
       final += pads_front
-      if(p.include_silkscreen){
+      if (p.include_silkscreen) {
         final += silkscreen_front
       }
-      if(p.include_courtyard){
+      if (p.include_courtyard) {
         final += courtyard_front
       }
     }
-    if(p.side == "B" || p.reversible) {
+    if (p.side == "B" || p.reversible) {
       final += pads_back
-      if(p.include_silkscreen){
+      if (p.include_silkscreen) {
         final += silkscreen_back
       }
-      if(p.include_courtyard){
+      if (p.include_courtyard) {
         final += courtyard_back
       }
     }

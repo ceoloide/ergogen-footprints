@@ -21,10 +21,10 @@
 
 module.exports = {
   params: {
-      designator: 'MH',
-      side: 'F',
-      hole_size: '2.2',
-      hole_drill: '2.2',
+    designator: 'MH',
+    side: 'F',
+    hole_size: '2.2',
+    hole_drill: '2.2',
   },
   body: p => `
   (module "ceoloide:mounting_hole_npth" (layer ${p.side}.Cu) (tedit 5F1B9159)

@@ -142,10 +142,10 @@ module.exports = {
         const keycap_yo = 0.5 * p.keycaps_y
         const keycap_marks = `
             ${'' /* keycap marks - 1u */}
-            (fp_line (start ${ -keycap_xo } ${ -keycap_yo }) (end ${ keycap_xo } ${ -keycap_yo }) (layer Dwgs.User) (width 0.15))
-            (fp_line (start ${ keycap_xo } ${ -keycap_yo }) (end ${ keycap_xo } ${ keycap_yo }) (layer Dwgs.User) (width 0.15))
-            (fp_line (start ${ keycap_xo } ${ keycap_yo }) (end ${ -keycap_xo } ${ keycap_yo }) (layer Dwgs.User) (width 0.15))
-            (fp_line (start ${ -keycap_xo } ${ keycap_yo }) (end ${ -keycap_xo } ${ -keycap_yo }) (layer Dwgs.User) (width 0.15))
+            (fp_line (start ${-keycap_xo} ${-keycap_yo}) (end ${keycap_xo} ${-keycap_yo}) (layer Dwgs.User) (width 0.15))
+            (fp_line (start ${keycap_xo} ${-keycap_yo}) (end ${keycap_xo} ${keycap_yo}) (layer Dwgs.User) (width 0.15))
+            (fp_line (start ${keycap_xo} ${keycap_yo}) (end ${-keycap_xo} ${keycap_yo}) (layer Dwgs.User) (width 0.15))
+            (fp_line (start ${-keycap_xo} ${keycap_yo}) (end ${-keycap_xo} ${-keycap_yo}) (layer Dwgs.User) (width 0.15))
         `
 
         const hotswap_common = `
@@ -203,7 +203,7 @@ module.exports = {
             ${p.reversible ? hotswap_back_pad_cutoff : hotswap_back_pad_full}
 
             ${'' /* Right Pad (not cut off) */}
-            (pad 2 smd rect (at ${8.275 - (2.6 - p.outer_pad_width_back)/2} -3.75 ${p.rot}) (size ${p.outer_pad_width_back} 2.6) (layers B.Cu B.Paste B.Mask) ${p.to.str})
+            (pad 2 smd rect (at ${8.275 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.rot}) (size ${p.outer_pad_width_back} 2.6) (layers B.Cu B.Paste B.Mask) ${p.to.str})
 
             ${'' /* Side Hole */}
             (pad "" np_thru_hole circle (at 5 -3.75 195) (size 3 3) (drill 3) (layers *.Cu *.Mask))            
@@ -229,7 +229,7 @@ module.exports = {
             ${p.reversible ? hotswap_front_pad_cutoff : hotswap_front_pad_full}
 
             ${'' /* Left Pad (not cut off) */}
-            (pad 2 smd rect (at ${-8.275 + (2.6 - p.outer_pad_width_front)/2} -3.75 ${p.rot}) (size ${p.outer_pad_width_front} 2.6) (layers F.Cu F.Paste F.Mask) ${p.to.str})
+            (pad 2 smd rect (at ${-8.275 + (2.6 - p.outer_pad_width_front) / 2} -3.75 ${p.rot}) (size ${p.outer_pad_width_front} 2.6) (layers F.Cu F.Paste F.Mask) ${p.to.str})
 
             ${'' /* Side Hole */}
             (pad "" np_thru_hole circle (at -5 -3.75 195) (size 3 3) (drill 3) (layers *.Cu *.Mask))
@@ -245,7 +245,7 @@ module.exports = {
         let stab_offset_x_front = ''
         let stab_offset_x_back = '-'
         let stab_offset_y = ''
-        if(p.hotswap && p.solder) {
+        if (p.hotswap && p.solder) {
             solder_offset_x_front = ''
             solder_offset_x_back = '-'
             solder_offset_y = ''
@@ -275,57 +275,57 @@ module.exports = {
         const round_corner_stab_back = `
             (pad "" np_thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.rot}) (size 1.6 1.6) (drill 1.6) (layers *.Cu *.SilkS *.Mask))
         `
-        
+
         const common_bottom = `
         )
         `
 
         let final = common_top
-        if(p.choc_v1_support){
+        if (p.choc_v1_support) {
             final += choc_v1_stabilizers
         }
-        if(p.show_corner_marks){
-            if(p.reversible || p.side == "F"){
+        if (p.show_corner_marks) {
+            if (p.reversible || p.side == "F") {
                 final += corner_marks_front
             }
-            if(p.reversible || p.side == "B"){
+            if (p.reversible || p.side == "B") {
                 final += corner_marks_back
             }
         }
-        if(p.show_keycaps){
+        if (p.show_keycaps) {
             final += keycap_marks
         }
-        if(p.include_stabilizer_pad && p.choc_v2_support){
-            if(p.reversible || p.side == "F"){
-                if(p.oval_stabilizer_pad){
+        if (p.include_stabilizer_pad && p.choc_v2_support) {
+            if (p.reversible || p.side == "F") {
+                if (p.oval_stabilizer_pad) {
                     final += oval_corner_stab_front
                 } else {
                     final += round_corner_stab_front
                 }
             }
-            if(p.reversible || p.side == "B"){
-                if(p.oval_stabilizer_pad){
+            if (p.reversible || p.side == "B") {
+                if (p.oval_stabilizer_pad) {
                     final += oval_corner_stab_back
                 } else {
                     final += round_corner_stab_back
                 }
             }
         }
-        if(p.hotswap){
+        if (p.hotswap) {
             final += hotswap_common
-            if(p.reversible || p.side == "F"){
+            if (p.reversible || p.side == "F") {
                 final += hotswap_front
             }
-            if(p.reversible || p.side == "B"){
+            if (p.reversible || p.side == "B") {
                 final += hotswap_back
             }
         }
-        if(p.solder){
+        if (p.solder) {
             final += solder_common
-            if(p.reversible || p.side == "F"){
+            if (p.reversible || p.side == "F") {
                 final += solder_front
             }
-            if(p.reversible || p.side == "B"){
+            if (p.reversible || p.side == "B") {
                 final += solder_back
             }
         }

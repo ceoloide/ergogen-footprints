@@ -44,47 +44,47 @@ module.exports = {
     vcc_trace_width: 0.25,
     signal_trace_width: 0.25,
     display_type: 'both', // Any of ssd1306, nice_view, both
-    P1: {type: 'net', value: 'GND'},
-    P2: {type: 'net', value: 'VCC'},
-    P3: {type: 'net', value: 'SCL'},  // SCK / SCL
-    P4: {type: 'net', value: 'SDA'},  // MOSI / SDA
-    P5: {type: 'net', value: 'CS'},
+    P1: { type: 'net', value: 'GND' },
+    P2: { type: 'net', value: 'VCC' },
+    P3: { type: 'net', value: 'SCL' },  // SCK / SCL
+    P4: { type: 'net', value: 'SDA' },  // MOSI / SDA
+    P5: { type: 'net', value: 'CS' },
   },
   body: p => {
 
     const get_at_coordinates = () => {
-        const pattern = /\(at (-?[\d\.]*) (-?[\d\.]*) (-?[\d\.]*)\)/;
-        const matches = p.at.match(pattern);
-        if (matches && matches.length == 4) {
-            return [parseFloat(matches[1]), parseFloat(matches[2]), parseFloat(matches[3])];
-        } else {
-            return null;
-        }
+      const pattern = /\(at (-?[\d\.]*) (-?[\d\.]*) (-?[\d\.]*)\)/;
+      const matches = p.at.match(pattern);
+      if (matches && matches.length == 4) {
+        return [parseFloat(matches[1]), parseFloat(matches[2]), parseFloat(matches[3])];
+      } else {
+        return null;
+      }
     }
 
     const adjust_point = (x, y) => {
-        const at_l = get_at_coordinates();
-        if(at_l == null) {
-            throw new Error(
-            `Could not get x and y coordinates from p.at: ${p.at}`
-            );
-        }
-        const at_x = at_l[0];
-        const at_y = at_l[1];
-        const at_angle = at_l[2];
-        const adj_x = at_x + x;
-        const adj_y = at_y + y;
+      const at_l = get_at_coordinates();
+      if (at_l == null) {
+        throw new Error(
+          `Could not get x and y coordinates from p.at: ${p.at}`
+        );
+      }
+      const at_x = at_l[0];
+      const at_y = at_l[1];
+      const at_angle = at_l[2];
+      const adj_x = at_x + x;
+      const adj_y = at_y + y;
 
-        const radians = (Math.PI / 180) * at_angle,
-            cos = Math.cos(radians),
-            sin = Math.sin(radians),
-            nx = (cos * (adj_x - at_x)) + (sin * (adj_y - at_y)) + at_x,
-            ny = (cos * (adj_y - at_y)) - (sin * (adj_x - at_x)) + at_y;
+      const radians = (Math.PI / 180) * at_angle,
+        cos = Math.cos(radians),
+        sin = Math.sin(radians),
+        nx = (cos * (adj_x - at_x)) + (sin * (adj_y - at_y)) + at_x,
+        ny = (cos * (adj_y - at_y)) - (sin * (adj_x - at_x)) + at_y;
 
-        const point_str = `${nx.toFixed(3)} ${ny.toFixed(3)}`;
-        return point_str;
+      const point_str = `${nx.toFixed(3)} ${ny.toFixed(3)}`;
+      return point_str;
     }
-    
+
     let dst_nets = [
       p.P1.str, // GND
       p.P2.str, // VCC
@@ -101,17 +101,17 @@ module.exports = {
     ];
 
     let socket_nets = dst_nets;
-    if(p.reversible) {
+    if (p.reversible) {
       socket_nets = local_nets;
-    } else if(p.side == 'B') {
+    } else if (p.side == 'B') {
       socket_nets = dst_nets.slice().reverse();
     }
-    
+
     let jumpers_front_top = dst_nets;
     let jumpers_front_bottom = local_nets;
     let jumpers_back_top = dst_nets;
     let jumpers_back_bottom = local_nets.slice().reverse();
-    
+
     const standard_opening = `
     (module "ceoloide:display_ssd1306_nice_view" (layer ${p.side}.Cu) (tedit 5B24D78E)
       ${p.at /* parametric position */}
@@ -876,14 +876,14 @@ module.exports = {
     `
 
     const oled_reversible_traces = ` 
-    (segment (start ${ adjust_point(-3.81, 0.256)}) (end ${ adjust_point(-3.81, 2.066)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${p.local_net("4").index}))
-    (segment (start ${ adjust_point(-1.27, 0.256)}) (end ${ adjust_point(-1.27, 2.066)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${p.local_net("3").index}))
-    (segment (start ${ adjust_point(1.27, 0.256)}) (end ${ adjust_point(1.27, 2.066)}) (width ${p.vcc_trace_width}) (layer "F.Cu") (net ${p.local_net("2").index}))
-    (segment (start ${ adjust_point(3.81, 0.256)}) (end ${ adjust_point(3.81, 2.066)}) (width ${p.gnd_trace_width}) (layer "F.Cu") (net ${p.local_net("1").index}))
-    (segment (start ${ adjust_point(-3.81, 0.256)}) (end ${ adjust_point(-3.81, 2.066)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${p.local_net("4").index}))
-    (segment (start ${ adjust_point(-1.27, 0.256)}) (end ${ adjust_point(-1.27, 2.066)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${p.local_net("3").index}))
-    (segment (start ${ adjust_point(1.27, 0.256)}) (end ${ adjust_point(1.27, 2.066)}) (width ${p.vcc_trace_width}) (layer "B.Cu") (net ${p.local_net("2").index}))
-    (segment (start ${ adjust_point(3.81, 0.256)}) (end ${ adjust_point(3.81, 2.066)}) (width ${p.gnd_trace_width}) (layer "B.Cu") (net ${p.local_net("1").index}))
+    (segment (start ${adjust_point(-3.81, 0.256)}) (end ${adjust_point(-3.81, 2.066)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${p.local_net("4").index}))
+    (segment (start ${adjust_point(-1.27, 0.256)}) (end ${adjust_point(-1.27, 2.066)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${p.local_net("3").index}))
+    (segment (start ${adjust_point(1.27, 0.256)}) (end ${adjust_point(1.27, 2.066)}) (width ${p.vcc_trace_width}) (layer "F.Cu") (net ${p.local_net("2").index}))
+    (segment (start ${adjust_point(3.81, 0.256)}) (end ${adjust_point(3.81, 2.066)}) (width ${p.gnd_trace_width}) (layer "F.Cu") (net ${p.local_net("1").index}))
+    (segment (start ${adjust_point(-3.81, 0.256)}) (end ${adjust_point(-3.81, 2.066)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${p.local_net("4").index}))
+    (segment (start ${adjust_point(-1.27, 0.256)}) (end ${adjust_point(-1.27, 2.066)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${p.local_net("3").index}))
+    (segment (start ${adjust_point(1.27, 0.256)}) (end ${adjust_point(1.27, 2.066)}) (width ${p.vcc_trace_width}) (layer "B.Cu") (net ${p.local_net("2").index}))
+    (segment (start ${adjust_point(3.81, 0.256)}) (end ${adjust_point(3.81, 2.066)}) (width ${p.gnd_trace_width}) (layer "B.Cu") (net ${p.local_net("1").index}))
     `
 
     const nice_view_reversible_traces = ` 
@@ -894,44 +894,44 @@ module.exports = {
 
     let final = standard_opening;
 
-    if(p.display_type == "ssd1306"){
+    if (p.display_type == "ssd1306") {
       final += oled_standard;
-      if(p.reversible) {
+      if (p.reversible) {
         final += oled_reversible_pads;
         final += oled_reversible_solder_bridges;
       } else {
-        if(p.side == "F") {
+        if (p.side == "F") {
           final += oled_front;
         }
-        if(p.side == "B") {
+        if (p.side == "B") {
           final += oled_back;
         }
       }
-    } else if(p.display_type == "nice_view"){
+    } else if (p.display_type == "nice_view") {
       final += nice_view_standard;
-      if(p.reversible) {
+      if (p.reversible) {
         final += nice_view_reversible;
       } else {
-        if(p.side == "F") {
+        if (p.side == "F") {
           final += nice_view_front;
         }
-        if(p.side == "B") {
+        if (p.side == "B") {
           final += nice_view_back;
         }
       }
-    } else if(p.display_type == "both"){
+    } else if (p.display_type == "both") {
       final += oled_standard;
       final += nice_view_standard;
-      if(p.reversible) {
+      if (p.reversible) {
         final += oled_reversible_pads;
         final += nice_view_reversible;
         final += both_connections;
       } else {
-        if(p.side == "F") {
+        if (p.side == "F") {
           final += oled_front;
           final += nice_view_front;
         }
-        if(p.side == "B") {
+        if (p.side == "B") {
           final += oled_back;
           final += nice_view_back;
         }
@@ -940,15 +940,15 @@ module.exports = {
 
     final += standard_closing;
 
-    if(p.reversible && p.include_traces) {
-      if(p.display_type == "ssd1306") {
+    if (p.reversible && p.include_traces) {
+      if (p.display_type == "ssd1306") {
         final += oled_reversible_traces;
-      } else if(p.display_type == "nice_view") {
+      } else if (p.display_type == "nice_view") {
         final += nice_view_reversible_traces;
-      } else if(p.display_type == "both") {
+      } else if (p.display_type == "both") {
         final += both_reversible_traces;
       }
-    }  
+    }
 
     return final;
   }

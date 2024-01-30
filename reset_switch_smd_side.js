@@ -32,18 +32,18 @@
 //      if true it will include the part courtyard
 
 module.exports = {
-    params: {
-      designator: 'RST',
-      side: 'F',
-      reversible: false,
-      include_bosses: false,
-      include_silkscreen: true,
-      include_courtyard: false,
-      from: {type: 'net', value: 'GND'},
-      to: {type: 'net', value: 'RST'},
-    },
-    body: p => {
-      const common_start = `
+  params: {
+    designator: 'RST',
+    side: 'F',
+    reversible: false,
+    include_bosses: false,
+    include_silkscreen: true,
+    include_courtyard: false,
+    from: { type: 'net', value: 'GND' },
+    to: { type: 'net', value: 'RST' },
+  },
+  body: p => {
+    const common_start = `
         (module "ceoloide:reset_button_smd_side" (layer ${p.side}.Cu) (tedit 64473C6F)
           ${p.at /* parametric position */}
           (attr smd)
@@ -58,7 +58,7 @@ module.exports = {
           (fp_line (start 1.3 -2.75) (end 1.3 -1.75) (width 0.1) (layer "Dwgs.User"))
           (fp_line (start 2.35 -1.75) (end 2.35 1.75) (width 0.1) (layer "Dwgs.User"))
       `
-      const silkscreen_front = `
+    const silkscreen_front = `
         (fp_text reference "${p.ref}" (at 0 0 ${p.rot}) (layer F.SilkS) ${p.ref_hide}
           (effects (font (size 1 1) (thickness 0.15)))
         )
@@ -71,7 +71,7 @@ module.exports = {
         (fp_line (start 2.35 -1.5) (end 2.35 -1.75) (width 0.1) (layer "F.SilkS"))
         (fp_line (start 2.35 1.5) (end 2.35 1.75) (width 0.1) (layer "F.SilkS"))
       `
-      const silkscreen_back = `
+    const silkscreen_back = `
         (fp_text reference "${p.ref}" (at 0 0 ${p.rot}) (layer B.SilkS) ${p.ref_hide}
           (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
         )
@@ -84,63 +84,63 @@ module.exports = {
         (fp_line (start 2.35 -1.5) (end 2.35 -1.75) (width 0.1) (layer "B.SilkS"))
         (fp_line (start 2.35 1.5) (end 2.35 1.75) (width 0.1) (layer "B.SilkS"))
       `
-      const pads_front = `
+    const pads_front = `
         (pad "1" smd rect (at 2.625 -0.85 ${180 + p.rot}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.from.str})
         (pad "2" smd rect (at 2.625 0.85 ${180 + p.rot}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.to.str})
         (pad "3" smd rect (at -2.625 -0.85 ${180 + p.rot}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.from.str})
         (pad "4" smd rect (at -2.625 0.85 ${180 + p.rot}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.to.str})
       `
-      const pads_back = `
+    const pads_back = `
         (pad "1" smd rect (at -2.625 -0.85 ${180 + p.rot}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.from.str})
         (pad "2" smd rect (at -2.625 0.85 ${180 + p.rot}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
         (pad "3" smd rect (at 2.625 -0.85 ${180 + p.rot}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.from.str})
         (pad "4" smd rect (at 2.625 0.85 ${180 + p.rot}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
       `
-      const courtyard_front = `
+    const courtyard_front = `
         (fp_line (start -2.36 -1.75) (end -2.36 1.75) (width 0.05) (layer "F.CrtYd"))
         (fp_line (start -2.36 -1.75) (end 2.36 -1.75) (width 0.05) (layer "F.CrtYd"))
         (fp_line (start 2.36 -1.75) (end 2.36 1.75) (width 0.05) (layer "F.CrtYd"))
         (fp_line (start 2.36 1.75) (end -2.36 1.75) (width 0.05) (layer "F.CrtYd"))
       `
-      const courtyard_back = `
+    const courtyard_back = `
         (fp_line (start -2.36 -1.75) (end -2.36 1.75) (width 0.05) (layer "B.CrtYd"))
         (fp_line (start -2.36 1.75) (end 2.36 1.75) (width 0.05) (layer "B.CrtYd"))
         (fp_line (start 2.36 -1.75) (end -2.36 -1.75) (width 0.05) (layer "B.CrtYd"))
         (fp_line (start 2.36 -1.75) (end 2.36 1.75) (width 0.05) (layer "B.CrtYd"))
       `
-      const bosses = `
+    const bosses = `
         (pad "" np_thru_hole circle (at 0 -1.375 ${180 + p.rot}) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
         (pad "" np_thru_hole circle (at 0 1.375 ${180 + p.rot}) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
       `
-      const common_end = `
+    const common_end = `
       )
       `
 
-      let final = common_start;
-      if(p.include_bosses){
-        final += bosses
-      }
-      if(p.side == "F" || p.reversible) {
-        final += pads_front
-        if(p.include_silkscreen){
-          final += silkscreen_front
-        }
-        if(p.include_courtyard){
-          final += courtyard_front
-        }
-      }
-      if(p.side == "B" || p.reversible) {
-        final += pads_back
-        if(p.include_silkscreen){
-          final += silkscreen_back
-        }
-        if(p.include_courtyard){
-          final += courtyard_back
-        }
-      }
-
-      final += common_end;
-
-      return final;
+    let final = common_start;
+    if (p.include_bosses) {
+      final += bosses
     }
- }
+    if (p.side == "F" || p.reversible) {
+      final += pads_front
+      if (p.include_silkscreen) {
+        final += silkscreen_front
+      }
+      if (p.include_courtyard) {
+        final += courtyard_front
+      }
+    }
+    if (p.side == "B" || p.reversible) {
+      final += pads_back
+      if (p.include_silkscreen) {
+        final += silkscreen_back
+      }
+      if (p.include_courtyard) {
+        final += courtyard_back
+      }
+    }
+
+    final += common_end;
+
+    return final;
+  }
+}

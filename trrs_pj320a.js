@@ -60,10 +60,10 @@ module.exports = {
     side: 'F',
     reversible: false,
     symmetric: false,
-    A: {type: 'net', value: 'A'},
-    B: {type: 'net', value: 'B'},
-    C: {type: 'net', value: 'C'},
-    D: {type: 'net', value: 'D'},
+    A: { type: 'net', value: 'A' },
+    B: { type: 'net', value: 'B' },
+    C: { type: 'net', value: 'C' },
+    D: { type: 'net', value: 'D' },
   },
   body: p => {
 
@@ -101,7 +101,7 @@ module.exports = {
       `
     }
     function pins(def_neg, def_pos) {
-      if(p.symmetric && p.reversible) {
+      if (p.symmetric && p.reversible) {
         return `
           (pad 1 thru_hole oval (at ${def_pos} 10.75 ${p.rot}) (size 1.6 3.3) (drill oval 0.9 2.6) (layers *.Cu *.Mask) ${p.A.str})
           (pad 2 thru_hole oval (at ${def_pos} 6.2 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.C.str})
@@ -116,7 +116,7 @@ module.exports = {
         `
       }
     }
-    if(p.reversible & p.symmetric) {
+    if (p.reversible & p.symmetric) {
       return `
         ${standard_opening}
         ${stabilizers('-2.3')}
@@ -124,8 +124,8 @@ module.exports = {
         ${pins('-4.6', '0')}
         )
       `
-    } else if(p.reversible) {
-        return `
+    } else if (p.reversible) {
+      return `
           ${standard_opening}
           ${stabilizers('-2.3')}
           ${stabilizers('0')}

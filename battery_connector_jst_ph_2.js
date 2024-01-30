@@ -64,12 +64,12 @@ module.exports = {
                 return null;
             }
         }
-    
+
         const adjust_point = (x, y) => {
             const at_l = get_at_coordinates();
-            if(at_l == null) {
+            if (at_l == null) {
                 throw new Error(
-                `Could not get x and y coordinates from p.at: ${p.at}`
+                    `Could not get x and y coordinates from p.at: ${p.at}`
                 );
             }
             const at_x = at_l[0];
@@ -77,13 +77,13 @@ module.exports = {
             const at_angle = at_l[2];
             const adj_x = at_x + x;
             const adj_y = at_y + y;
-    
+
             const radians = (Math.PI / 180) * at_angle,
                 cos = Math.cos(radians),
                 sin = Math.sin(radians),
                 nx = (cos * (adj_x - at_x)) + (sin * (adj_y - at_y)) + at_x,
                 ny = (cos * (adj_y - at_y)) - (sin * (adj_x - at_x)) + at_y;
-    
+
             const point_str = `${nx.toFixed(3)} ${ny.toFixed(3)}`;
             return point_str;
         }
@@ -293,47 +293,47 @@ module.exports = {
         `
 
         const reversible_traces = ` 
-        (segment (start ${ adjust_point(-1, 1.8)}) (end ${ adjust_point(-1,0)}) (width ${p.trace_width}) (layer "F.Cu") (net ${local_nets[0].index}))
-        (segment (start ${ adjust_point(-1, 1.8)}) (end ${ adjust_point(-1,0)}) (width ${p.trace_width}) (layer "B.Cu") (net ${local_nets[0].index}))
-        (segment (start ${ adjust_point(1, 1.8)}) (end ${ adjust_point(1,0)}) (width ${p.trace_width}) (layer "F.Cu") (net ${local_nets[1].index}))
-        (segment (start ${ adjust_point(1, 1.8)}) (end ${ adjust_point(1,0)}) (width ${p.trace_width}) (layer "B.Cu") (net ${local_nets[1].index}))
+        (segment (start ${adjust_point(-1, 1.8)}) (end ${adjust_point(-1, 0)}) (width ${p.trace_width}) (layer "F.Cu") (net ${local_nets[0].index}))
+        (segment (start ${adjust_point(-1, 1.8)}) (end ${adjust_point(-1, 0)}) (width ${p.trace_width}) (layer "B.Cu") (net ${local_nets[0].index}))
+        (segment (start ${adjust_point(1, 1.8)}) (end ${adjust_point(1, 0)}) (width ${p.trace_width}) (layer "F.Cu") (net ${local_nets[1].index}))
+        (segment (start ${adjust_point(1, 1.8)}) (end ${adjust_point(1, 0)}) (width ${p.trace_width}) (layer "B.Cu") (net ${local_nets[1].index}))
         `
 
         let final = standard_opening;
 
-        if(p.side == "F" || p.reversible) {
-            if(p.include_fabrication) {
+        if (p.side == "F" || p.reversible) {
+            if (p.include_fabrication) {
                 final += front_fabrication;
             }
-            if(p.include_courtyard) {
+            if (p.include_courtyard) {
                 final += front_courtyard;
             }
-            if(p.include_silkscreen) {
+            if (p.include_silkscreen) {
                 final += front_silkscreen;
             }
         }
-        if(p.side == "B" || p.reversible) {
-            if(p.include_fabrication) {
+        if (p.side == "B" || p.reversible) {
+            if (p.include_fabrication) {
                 final += back_fabrication;
             }
-            if(p.include_courtyard) {
+            if (p.include_courtyard) {
                 final += back_courtyard;
             }
-            if(p.include_silkscreen) {
+            if (p.include_silkscreen) {
                 final += back_silkscreen;
             }
         }
-        if(p.reversible) {
+        if (p.reversible) {
             final += reversible_pads;
-        } else if(p.side == "F") {
+        } else if (p.side == "F") {
             final += front_pads;
-        } else if(p.side == "B") {
+        } else if (p.side == "B") {
             final += back_pads;
         }
         final += standard_closing;
-        if(p.reversible && p.include_traces) {
+        if (p.reversible && p.include_traces) {
             final += reversible_traces;
-        } 
+        }
         return final;
-      }
+    }
 }

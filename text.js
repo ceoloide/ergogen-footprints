@@ -46,7 +46,7 @@ module.exports = {
     }
 
     let final = '';
-    if(p.reversible) {
+    if (p.reversible) {
       final += generate_text(p.side, false, p.thickness, p.size, p.text);
       final += generate_text((p.side == 'F' ? 'B' : 'F'), true, p.thickness, p.size, p.text);
     } else {
