@@ -76,16 +76,21 @@ git submodule update --init --recursive
 
 ### How to update footprint dependencies
 
-When you add a submodule, it won't automatically be updated, meaning that you will maintain files as long as you don't take specific actions. This is great to avoid
-having to deal with unforseen changes in the source.
+When you add a submodule, it won't automatically be updated, meaning that you will maintain files as long as you don't take specific actions. This is great to avoid having to deal with unforseen changes in the source.
 
 Should you however want to update your footprint dependencies, you can run the following command:
 
 ```bash
-git submodule update --recursive --remote && git pull --recurse-submodules
+git submodule update --recursive --remote
 ```
 
 This will fetch and checkout the latest commits in the source repo and pull the files so they are available.
+
+Be aware that you will need to commit the submodule update change, or it will revert with a subsequent pull. To do so you can run this command:
+
+```bash
+git add ergogen/footprints/ceoloide && git commit -m "Update footprint submodule"
+```
 
 ## How to design or modify ergogen footprints
 
