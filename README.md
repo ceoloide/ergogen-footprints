@@ -86,10 +86,13 @@ git submodule update --recursive --remote
 
 This will fetch and checkout the latest commits in the source repo and pull the files so they are available.
 
-Be aware that you will need to commit the submodule update change, or it will revert with a subsequent pull. To do so you can run this command:
+Be aware that you will need to commit the submodule update change, or it will revert with a subsequent pull. To do so you can run these commands:
 
 ```bash
-git add ergogen/footprints/ceoloide && git commit -m "Update footprint submodule"
+# First add the updated submodule to the staged files
+git add ergogen/footprints/ceoloide
+# Then commit the staged files to persist the update
+git commit -m "Update footprint submodule"
 ```
 
 ## How to remove footprint dependencies
