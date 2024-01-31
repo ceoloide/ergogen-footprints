@@ -126,7 +126,7 @@ Furthermore, all of the work I've done wouldn't have been possible without the i
 
 - [@foostan](https://github.com/foostan) for the original [Corne keyboard](https://github.com/foostan/crkbd)
 - [@flatfootfox](https://github.com/flatfootfox) for the [Ergogen v4 introductory articles](https://flatfootfox.com/ergogen-introduction/)
-- [@infused-kim](https://github.com/infused-kim) for the [amazing work done with the footprints](https://github.com/infused-kim/kb_ergogen_fb) I ~stole from~ got inspired by
+- [@infused-kim](https://github.com/infused-kim) for the [amazing work done with the footprints](https://github.com/infused-kim/kb_ergogen_fp) I ~stole from~ got inspired by
 - MrZealot / [@ergogen](https://github.com/ergogen) for the [amazing tool](https://github.com/ergogen/ergogen) and [amazing community](https://discord.gg/Tj2TUaUW)
 - [@benvallack](https://github.com/benvallack) for the [great video content on YouTube](https://www.youtube.com/watch?v=UKfeJrRIcxw) and getting me started on the Ergogen journey
 
