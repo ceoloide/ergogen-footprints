@@ -12,6 +12,8 @@
 //  opposite side.
 //
 // Params:
+//    side: default is F for Front
+//      the side on which to place the single-side footprint and designator, either F or B
 //    reversible: default is false
 //      Adds a mirrored text on the opposite side of the board
 //    thickness: default is 0.15
