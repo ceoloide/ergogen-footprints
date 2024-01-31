@@ -5,13 +5,14 @@
 > These footprints have only been partially tested and are still under active development. Use them at your own risk.
 
 1. [Installation](#installation)
-    1. [How to add the footprints as a git submodule](#how-to-add-the-footprints-as-a-git-submodule)
-    2. [How to use them in your ergogen config](#how-to-use-them-in-your-ergogen-config)
-    3. [How to update the submodule](#how-to-update-the-submodule)
-    4. [How to clone your ergogen repo](#how-to-clone-your-ergogen-repo)
-2. [How to design or modify ergogen footprints](#how-to-design-or-modify-ergogen-footprints)
-3. [License](#license)
-
+    1. [How to add the footprints as a local git submodule](#how-to-add-the-footprints-as-a-local-git-submodule)
+    1. [How to add the footprints as a GitHub Codespaces git submodule](#how-to-add-the-footprints-as-a-github-codespaces-git-submodule)
+    1. [How to use the footprints in your ergogen config](#how-to-use-the-footprints-in-your-ergogen-config)
+    1. [How to clone your ergogen repo](#how-to-clone-your-ergogen-repo)
+    1. [How to update footprints dependencies](#how-to-update-footprints-dependencies)
+    1. [How to remove footprints dependencies](#how-to-remove-footprints-dependencies)
+1. [How to design or modify ergogen footprints](#how-to-design-or-modify-ergogen-footprints)
+1. [Licenses and recognition](#licenses-and-recognition)
 
 ## Installation
 
@@ -21,7 +22,7 @@
 >
 > If you are using GitHub Codespaces, skip the following instructions and go to the next section.
 
-If you have git setup on your local environment with SSH credentials, you can add the library as a 
+If you have git setup on your local environment with SSH credentials, you can add the library as a
 git submodule. To use custom footprint, ergogen requires them to be located under a folder named
 `footprints` placed alongside a `config.yaml` file containing the board definition.
 
@@ -43,7 +44,7 @@ Due to the limitations on how GitHub Codespaces handle submodules, use this comm
 git submodule add https://github.com/ceoloide/ergogen-footprints.git ergogen/footprints/ceoloide
 ```
 
-### How to use them in your ergogen config
+### How to use the footprints in your ergogen config
 
 Assuming you used `ergogen/footprints/ceoloide` as the destination folder for the submodule, you will be able
 to refer to any footprint contained in that folder as `ceoloide/[footprint_filename]`, which would looks something like this:
@@ -58,11 +59,11 @@ pcbs:
       nice_nano:
         what: ceoloide/nice_nano
         [...]
-``` 
+```
 
 ### How to clone your ergogen repo
 
-Users who clone your ergogen repo, must also include the submodule. So you should instruct them to clone with `--recursive` mode: 
+Users who clone your ergogen repo, must also include the submodule. So you should instruct them to clone with `--recursive` mode:
 
 ```bash
 git clone --recursive git@github.com:your-user/your-keyboard.git
@@ -74,7 +75,7 @@ Alternative they can init and update the submodules in a repo that was already c
 git submodule update --init --recursive --remote
 ```
 
-### How to update footprint dependencies
+### How to update footprints dependencies
 
 When you add a submodule, it won't automatically be updated, meaning that you will maintain files as long as you don't take specific actions. This is great to avoid having to deal with unforseen changes in the source.
 
@@ -95,7 +96,7 @@ git add ergogen/footprints/ceoloide
 git commit -m "Update footprint submodule"
 ```
 
-## How to remove footprint dependencies
+### How to remove footprints dependencies
 
 If you do not longer need the footprint submodule and want to remove it from your repository, you can simply run this command:
 
@@ -115,7 +116,7 @@ git commit -m "Remove footprint submodule"
 [@infused-kim](https://github.com/infused-kim) wrote a [guide on how to convert KiCad footprints to ergogen](https://www.notion.so/nilnil/Convert-Kicad-Footprint-to-Ergogen-8340ce87ad554c69af4e3f92bc9a0898?pvs=4), which
 has been extensively used to create original ergogen footprints in this repository.
 
-## License and recognition
+## Licenses and recognition
 
 All original footprints are licensed under [MIT License][mit]. I also extensively used and modified footprints created by [@infused-kim](https://github.com/infused-kim), which are licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
 
@@ -132,4 +133,3 @@ Furthermore, all of the work I've done wouldn't have been possible without the i
 [mit]: https://opensource.org/license/mit/
 [cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
 [cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
-[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY-NC-SA%204.0-lightgrey.svg
