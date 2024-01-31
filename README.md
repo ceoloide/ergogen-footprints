@@ -47,7 +47,7 @@ git submodule add https://github.com/ceoloide/ergogen-footprints.git ergogen/foo
 ### How to use the footprints in your ergogen config
 
 Assuming you used `ergogen/footprints/ceoloide` as the destination folder for the submodule, you will be able
-to refer to any footprint contained in that folder as `ceoloide/[footprint_filename]`, which would looks something like this:
+to refer to any footprint contained in that folder as `ceoloide/[footprint_filename]`, which would look something like this:
 
 ```yaml
 [...]
