@@ -29,8 +29,8 @@ module.exports = {
         side: 'F',
         reversible: false,
         include_silkscreen: true,
-        from: undefined,
-        to: undefined
+        from: { type: 'net', value: 'GND' },
+        to: { type: 'net', value: 'RST' },
     },
     body: p => {
         const common_start = `
