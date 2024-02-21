@@ -82,8 +82,8 @@ module.exports = {
       ${p.at /* parametric position */}   
 
       ${'' /* footprint reference */}
-      (fp_text reference "${p.ref}" (at 0 14.2) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1 1) (thickness 0.153))))
-      (fp_text value TRRS-PJ-320A-dual (at 0 -5.6) (layer ${p.side}.Fab) (effects (font (size 1 1) (thickness 0.153))))
+      (fp_text reference "${p.ref}" (at 0 14.2 ${p.rot}) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1 1) (thickness 0.153))))
+      (fp_text value TRRS-PJ-320A-dual (at 0 -5.6 ${p.rot}) (layer ${p.side}.Fab) (effects (font (size 1 1) (thickness 0.153))))
 
       ${''/* corner marks */}
       (fp_line (start 0.5 -2) (end -5.1 -2) (layer Dwgs.User) (width 0.15))
@@ -96,8 +96,8 @@ module.exports = {
       `
     function stabilizers(def_pos) {
       return `
-        (pad "" np_thru_hole circle (at ${def_pos} 8.6) (size 1.5 1.5) (drill 1.5) (layers *.Cu *.Mask))
-        (pad "" np_thru_hole circle (at ${def_pos} 1.6) (size 1.5 1.5) (drill 1.5) (layers *.Cu *.Mask))
+        (pad "" np_thru_hole circle (at ${def_pos} 8.6 ${p.rot}) (size 1.5 1.5) (drill 1.5) (layers *.Cu *.Mask))
+        (pad "" np_thru_hole circle (at ${def_pos} 1.6 ${p.rot}) (size 1.5 1.5) (drill 1.5) (layers *.Cu *.Mask))
       `
     }
     function pins(def_neg, def_pos) {
