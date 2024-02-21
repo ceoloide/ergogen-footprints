@@ -262,20 +262,20 @@ module.exports = {
 
       let socket_row_rectangular_jumpers = `
         ${''/* Jumper Pads - Front Left */}
-        (pad ${socket_hole_num_left} smd rect (at -5.48 ${-12.7 + row_offset_y}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_left).str})
-        (pad ${via_num_left} smd rect (at -4.58 ${-12.7 + row_offset_y}) (size 0.6 1.2) (layers F.Cu F.Mask) ${net_left})
+        (pad ${socket_hole_num_left} smd rect (at -5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_left).str})
+        (pad ${via_num_left} smd rect (at -4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${net_left})
 
         ${''/* Jumper Pads - Front Right */}
-        (pad ${via_num_right} smd rect (at 4.58 ${-12.7 + row_offset_y}) (size 0.6 1.2) (layers F.Cu F.Mask) ${net_right})
-        (pad ${socket_hole_num_left} smd rect (at 5.48 ${-12.7 + row_offset_y}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_right).str})
+        (pad ${via_num_right} smd rect (at 4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${net_right})
+        (pad ${socket_hole_num_left} smd rect (at 5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_right).str})
 
         ${''/* Jumper Pads - Back Left */}
-        (pad ${socket_hole_num_left} smd rect (at -5.48 ${-12.7 + row_offset_y}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_left).str})
-        (pad ${via_num_right} smd rect (at -4.58 ${-12.7 + row_offset_y}) (size 0.6 1.2) (layers B.Cu B.Mask) ${net_right})
+        (pad ${socket_hole_num_left} smd rect (at -5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_left).str})
+        (pad ${via_num_right} smd rect (at -4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${net_right})
 
         ${''/* Jumper Pads - Back Right */}
-        (pad ${via_num_left} smd rect (at 4.58 ${-12.7 + row_offset_y}) (size 0.6 1.2) (layers B.Cu B.Mask) ${net_left})
-        (pad ${socket_hole_num_left} smd rect (at 5.48 ${-12.7 + row_offset_y}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_right).str})
+        (pad ${via_num_left} smd rect (at 4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${net_left})
+        (pad ${socket_hole_num_left} smd rect (at 5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_right).str})
         `
 
       let socket_row_chevron_jumpers = `
