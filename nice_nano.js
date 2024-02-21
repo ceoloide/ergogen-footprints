@@ -280,7 +280,7 @@ module.exports = {
 
       let socket_row_chevron_jumpers = `
           ${''/* Jumper Pads - Front Left */}
-          (pad ${socket_hole_num_left} smd custom (at -5.5 ${-12.7 + row_offset_y}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_left).str}
+          (pad ${socket_hole_num_left} smd custom (at -5.5 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_left).str}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -288,7 +288,7 @@ module.exports = {
                 (xy -0.5 -0.625) (xy -0.25 -0.625) (xy 0.25 0) (xy -0.25 0.625) (xy -0.5 0.625)
             ) (width 0))
           ))
-          (pad ${via_num_left} smd custom (at -4.775 ${-12.7 + row_offset_y}) (size 0.2 0.2) (layers F.Cu F.Mask) ${net_left}
+          (pad ${via_num_left} smd custom (at -4.775 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${net_left}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -298,7 +298,7 @@ module.exports = {
           ))
 
           ${''/* Jumper Pads - Front Right */}
-          (pad ${via_num_right} smd custom (at 4.775 ${-12.7 + row_offset_y} 180) (size 0.2 0.2) (layers F.Cu F.Mask) ${net_right}
+          (pad ${via_num_right} smd custom (at 4.775 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${net_right}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -306,7 +306,7 @@ module.exports = {
                 (xy -0.65 -0.625) (xy 0.5 -0.625) (xy 0.5 0.625) (xy -0.65 0.625) (xy -0.15 0)
             ) (width 0))
           ))
-          (pad ${socket_hole_num_right} smd custom (at 5.5 ${-12.7 + row_offset_y} 180) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_right).str}
+          (pad ${socket_hole_num_right} smd custom (at 5.5 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_right).str}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -316,7 +316,7 @@ module.exports = {
           ))
 
           ${''/* Jumper Pads - Back Left */}
-          (pad ${socket_hole_num_left} smd custom (at -5.5 ${-12.7 + row_offset_y}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_left).str}
+          (pad ${socket_hole_num_left} smd custom (at -5.5 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_left).str}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -325,7 +325,7 @@ module.exports = {
             ) (width 0))
           ))
 
-          (pad ${via_num_right} smd custom (at -4.775 ${-12.7 + row_offset_y}) (size 0.2 0.2) (layers B.Cu B.Mask) ${net_right}
+          (pad ${via_num_right} smd custom (at -4.775 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${net_right}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -335,7 +335,7 @@ module.exports = {
           ))
 
           ${''/* Jumper Pads - Back Right */}
-          (pad ${via_num_left} smd custom (at 4.775 ${-12.7 + row_offset_y} 180) (size 0.2 0.2) (layers B.Cu B.Mask) ${net_left}
+          (pad ${via_num_left} smd custom (at 4.775 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${net_left}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -343,7 +343,7 @@ module.exports = {
                 (xy -0.65 0.625) (xy 0.5 0.625) (xy 0.5 -0.625) (xy -0.65 -0.625) (xy -0.15 0)
             ) (width 0))
           ))
-          (pad ${socket_hole_num_right} smd custom (at 5.5 ${-12.7 + row_offset_y} 180) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_right).str}
+          (pad ${socket_hole_num_right} smd custom (at 5.5 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_right).str}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -362,18 +362,18 @@ module.exports = {
         socket_row += `
 
             ${''/* Silkscreen Labels - Front */}
-            (fp_text user ${net_silk_front_left} (at -3 ${-12.7 + row_offset_y}) (layer F.SilkS)
+            (fp_text user ${net_silk_front_left} (at -3 ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
               (effects (font (size 1 1) (thickness 0.15)) (justify left))
             )
-            (fp_text user ${net_silk_front_right} (at 3 ${-12.7 + row_offset_y}) (layer F.SilkS)
+            (fp_text user ${net_silk_front_right} (at 3 ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
               (effects (font (size 1 1) (thickness 0.15)) (justify right))
             )
 
             ${''/* Silkscreen Labels - Back */}
-            (fp_text user ${net_silk_back_left} (at -3 ${-12.7 + row_offset_y} 180) (layer B.SilkS)
+            (fp_text user ${net_silk_back_left} (at -3 ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
               (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
             )
-            (fp_text user ${net_silk_back_right} (at 3 ${-12.7 + row_offset_y} 180) (layer B.SilkS)
+            (fp_text user ${net_silk_back_right} (at 3 ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
               (effects (font (size 1 1) (thickness 0.15)) (justify left mirror))
             )
           `
@@ -382,18 +382,18 @@ module.exports = {
       if (show_via_labels == true) {
         socket_row += `
             ${''/* Via Labels - Front */}
-            (fp_text user ${via_label_left} (at -3.262 ${-13.5 + row_offset_y}) (layer F.Fab)
+            (fp_text user ${via_label_left} (at -3.262 ${-13.5 + row_offset_y} ${p.rot}) (layer F.Fab)
               (effects (font (size 0.5 0.5) (thickness 0.08)))
             )
-            (fp_text user ${via_label_right} (at 3.262 ${-13.5 + row_offset_y}) (layer F.Fab)
+            (fp_text user ${via_label_right} (at 3.262 ${-13.5 + row_offset_y} ${p.rot}) (layer F.Fab)
               (effects (font (size 0.5 0.5) (thickness 0.08)))
             )
 
             ${''/* Via Labels - Back */}
-            (fp_text user ${via_label_left} (at -3.262 ${-13.5 + row_offset_y} 180) (layer B.Fab)
+            (fp_text user ${via_label_left} (at -3.262 ${-13.5 + row_offset_y} ${180 + p.rot}) (layer B.Fab)
               (effects (font (size 0.5 0.5) (thickness 0.08)) (justify mirror))
             )
-            (fp_text user ${via_label_right} (at 3.262 ${-13.5 + row_offset_y} 180) (layer B.Fab)
+            (fp_text user ${via_label_right} (at 3.262 ${-13.5 + row_offset_y} ${180 + p.rot}) (layer B.Fab)
               (effects (font (size 0.5 0.5) (thickness 0.08)) (justify mirror))
             )
           `
@@ -437,7 +437,7 @@ module.exports = {
         (module "ceoloide:nice_nano" (layer F.Cu) (tedit 6451A4F1)
           (attr virtual)
           ${p.at /* parametric position */}
-          (fp_text reference "${p.ref}" (at 0 -15) (layer F.SilkS) ${p.ref_hide}
+          (fp_text reference "${p.ref}" (at 0 -15  ${p.rot}) (layer F.SilkS) ${p.ref_hide}
             (effects (font (size 1 1) (thickness 0.15)))
           )
 
@@ -477,10 +477,10 @@ module.exports = {
       `;
 
     const instructions = `
-          (fp_text user "R. Side - Jumper Here" (at 0 -15.245) (layer F.SilkS)
+          (fp_text user "R. Side - Jumper Here" (at 0 -15.245 ${p.rot}) (layer F.SilkS)
             (effects (font (size 1 1) (thickness 0.15)))
           )
-          (fp_text user "L. Side - Jumper Here" (at 0 -15.245) (layer B.SilkS)
+          (fp_text user "L. Side - Jumper Here" (at 0 -15.245 ${p.rot}) (layer B.SilkS)
             (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
           )
     `
