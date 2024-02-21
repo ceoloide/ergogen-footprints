@@ -43,7 +43,7 @@ module.exports = {
         const standard_opening = `
         (module "ceoloide:diode_tht_sod123" (layer ${p.side}.Cu) (tedit 5B24D78E)
             ${p.at /* parametric position */}
-            (fp_text reference "${p.ref}" (at 0 0) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
+            (fp_text reference "${p.ref}" (at 0 0 ${p.rot}) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
         `
         const front = `
             (fp_line (start 0.25 0) (end 0.75 0) (layer F.SilkS) (width 0.1))
