@@ -36,8 +36,8 @@ module.exports = {
         const common_start = `
             (module "ceoloide:reset_switch_tht_top" (layer ${p.side}.Cu) (tedit 5B9559E6) (tstamp 61905781)
                 ${p.at /* parametric position */}
-                (fp_text value "reset_switch_tht_top" (at 0 -2.55 90) (layer ${p.side}.Fab) (effects (font (size 1 1) (thickness 0.15))))
-                (fp_text reference "${p.ref}" (at 0 2.55 90) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1 1) (thickness 0.15))))
+                (fp_text value "reset_switch_tht_top" (at 0 -2.55 ${90 + p.rot}) (layer ${p.side}.Fab) (effects (font (size 1 1) (thickness 0.15))))
+                (fp_text reference "${p.ref}" (at 0 2.55 ${90 + p.rot}) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1 1) (thickness 0.15))))
             `
         const silkscreen_front = `
                 (fp_text user "RST" (at 0 0 ${p.rot}) (layer F.SilkS) (effects (font (size 1 1) (thickness 0.15))))
