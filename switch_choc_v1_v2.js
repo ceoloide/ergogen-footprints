@@ -102,16 +102,16 @@ module.exports = {
             (attr virtual)
 
             ${'' /* footprint reference */}
-            (fp_text reference "${p.ref}" (at 0 0) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
+            (fp_text reference "${p.ref}" (at 0 0 ${p.rot}) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
 
             ${''/* middle shaft hole */}
-            (pad "" np_thru_hole circle (at 0 0) (size ${p.choc_v2_support ? '5' : '3.4'} ${p.choc_v2_support ? '5' : '3.4'})
+            (pad "" np_thru_hole circle (at 0 0 ${p.rot}) (size ${p.choc_v2_support ? '5' : '3.4'} ${p.choc_v2_support ? '5' : '3.4'})
                 (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers *.Cu))
         `
 
         const choc_v1_stabilizers = `
-            (pad "" np_thru_hole circle (at 5.5 0) (size 1.9 1.9) (drill 1.9) (layers *.Cu))
-            (pad "" np_thru_hole circle (at -5.5 0) (size 1.9 1.9) (drill 1.9) (layers *.Cu))
+            (pad "" np_thru_hole circle (at 5.5 0 ${p.rot}) (size 1.9 1.9) (drill 1.9) (layers *.Cu))
+            (pad "" np_thru_hole circle (at -5.5 0 ${p.rot}) (size 1.9 1.9) (drill 1.9) (layers *.Cu))
         `
 
         const corner_marks_front = `
@@ -150,7 +150,7 @@ module.exports = {
 
         const hotswap_common = `
             ${'' /* Middle Hole */}
-            (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+            (pad "" np_thru_hole circle (at 0 -5.95 ${p.rot}) (size 3 3) (drill 3) (layers *.Cu *.Mask))
         `
 
         const hotswap_front_pad_cutoff = `
@@ -206,7 +206,7 @@ module.exports = {
             (pad 2 smd rect (at ${8.275 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.rot}) (size ${p.outer_pad_width_back} 2.6) (layers B.Cu B.Paste B.Mask) ${p.to.str})
 
             ${'' /* Side Hole */}
-            (pad "" np_thru_hole circle (at 5 -3.75 195) (size 3 3) (drill 3) (layers *.Cu *.Mask))            
+            (pad "" np_thru_hole circle (at 5 -3.75 ${195 + p.rot}) (size 3 3) (drill 3) (layers *.Cu *.Mask))            
         `
 
         const hotswap_front = `
@@ -232,7 +232,7 @@ module.exports = {
             (pad 2 smd rect (at ${-8.275 + (2.6 - p.outer_pad_width_front) / 2} -3.75 ${p.rot}) (size ${p.outer_pad_width_front} 2.6) (layers F.Cu F.Paste F.Mask) ${p.to.str})
 
             ${'' /* Side Hole */}
-            (pad "" np_thru_hole circle (at -5 -3.75 195) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+            (pad "" np_thru_hole circle (at -5 -3.75 ${195 + p.rot}) (size 3 3) (drill 3) (layers *.Cu *.Mask))
         `
 
         // If both hotswap and solder are enabled, move the solder holes
@@ -254,14 +254,14 @@ module.exports = {
             stab_offset_y = ''
         }
         const solder_common = `
-            (pad 2 thru_hole circle (at 0 ${solder_offset_y}5.9 195) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.from.str})
+            (pad 2 thru_hole circle (at 0 ${solder_offset_y}5.9 ${195 + p.rot}) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.from.str})
         `
 
         const solder_front = `
-            (pad 1 thru_hole circle (at ${solder_offset_x_front}5 ${solder_offset_y}3.8 195) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.to.str})
+            (pad 1 thru_hole circle (at ${solder_offset_x_front}5 ${solder_offset_y}3.8 ${195 + p.rot}) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.to.str})
         `
         const solder_back = `
-            (pad 1 thru_hole circle (at ${solder_offset_x_back}5 ${solder_offset_y}3.8 195) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.to.str})  
+            (pad 1 thru_hole circle (at ${solder_offset_x_back}5 ${solder_offset_y}3.8 ${195 + p.rot}) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.to.str})  
         `
         const oval_corner_stab_front = `
             (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.rot}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers *.Cu *.SilkS *.Mask))
