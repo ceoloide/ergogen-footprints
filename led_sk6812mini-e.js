@@ -115,7 +115,7 @@ module.exports = {
         (layer ${p.side}.Cu) (tedit 5F70BC98)
         ${p.at /* parametric position */}
 
-        (fp_text reference "${p.ref}" (at -4.75 0 90) (layer ${p.side}.SilkS) ${p.ref_hide}
+        (fp_text reference "${p.ref}" (at -4.75 0 ${90 + p.rot}) (layer ${p.side}.SilkS) ${p.ref_hide}
           (effects (font (size 1 1) (thickness 0.15)))
         )
 
