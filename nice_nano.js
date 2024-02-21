@@ -252,12 +252,12 @@ module.exports = {
 
       let socket_row_base = `
           ${''/* Socket Holes */}
-          (pad ${socket_hole_num_left} thru_hole circle (at -7.62 ${-12.7 + row_offset_y}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.local_net(socket_hole_num_left).str})
-          (pad ${socket_hole_num_right} thru_hole circle (at 7.62 ${-12.7 + row_offset_y}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.local_net(socket_hole_num_right).str})
+          (pad ${socket_hole_num_left} thru_hole circle (at -7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.local_net(socket_hole_num_left).str})
+          (pad ${socket_hole_num_right} thru_hole circle (at 7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.local_net(socket_hole_num_right).str})
 
           ${''/* Inside VIAS */}
-          (pad ${via_num_right} thru_hole circle (at 3.4 ${-12.7 + row_offset_y}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${net_right})
-          (pad ${via_num_left} thru_hole circle (at -3.4 ${-12.7 + row_offset_y}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${net_left})
+          (pad ${via_num_right} thru_hole circle (at 3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${net_right})
+          (pad ${via_num_left} thru_hole circle (at -3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${net_left})
         `
 
       let socket_row_rectangular_jumpers = `
@@ -437,7 +437,7 @@ module.exports = {
         (module "ceoloide:nice_nano" (layer F.Cu) (tedit 6451A4F1)
           (attr virtual)
           ${p.at /* parametric position */}
-          (fp_text reference "${p.ref}" (at 0 -15  ${p.rot}) (layer F.SilkS) ${p.ref_hide}
+          (fp_text reference "${p.ref}" (at 0 -15 ${p.rot}) (layer F.SilkS) ${p.ref_hide}
             (effects (font (size 1 1) (thickness 0.15)))
           )
 
