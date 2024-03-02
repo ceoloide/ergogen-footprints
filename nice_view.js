@@ -131,10 +131,10 @@ module.exports = {
     let jumpers_back_bottom = local_nets.slice().reverse();
 
     if (p.invert_jumpers_position) {
-      jumpers_offset = 5.7;
+      jumpers_offset = 4.4;
       jumpers_rot = 180;
-      labels_offset = jumpers_offset + 2 + 1 + 0.1;
-      label_vcc_offset = 4.85;
+      labels_offset = jumpers_offset + 2.80 +  0.1;
+      label_vcc_offset = 4.35;
 
       jumpers_front_top = local_nets;
       jumpers_front_bottom = dst_nets;
@@ -173,32 +173,32 @@ module.exports = {
     `
 
     const front_jumpers = `
-        (fp_line (start 5.93 ${12.9 + jumpers_offset}) (end 5.93 ${14.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start -5.93 ${14.9 + jumpers_offset}) (end -5.93 ${12.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start -5.93 ${12.9 + jumpers_offset}) (end -4.23 ${12.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start -4.23 ${14.9 + jumpers_offset}) (end -5.93 ${14.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start -4.23 ${12.9 + jumpers_offset}) (end -4.23 ${14.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start -3.39 ${14.9 + jumpers_offset}) (end -3.39 ${12.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start -3.39 ${12.9 + jumpers_offset}) (end -1.69 ${12.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start -1.69 ${14.9 + jumpers_offset}) (end -3.39 ${14.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start -1.69 ${12.9 + jumpers_offset}) (end -1.69 ${14.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start 3.39 ${12.9 + jumpers_offset}) (end 3.39 ${14.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start 3.39 ${14.9 + jumpers_offset}) (end 1.69 ${14.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start 1.69 ${14.9 + jumpers_offset}) (end 1.69 ${12.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start 1.69 ${12.9 + jumpers_offset}) (end 3.39 ${12.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start 5.93 ${14.9 + jumpers_offset}) (end 4.23 ${14.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start 4.23 ${14.9 + jumpers_offset}) (end 4.23 ${12.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
-        (fp_line (start 4.23 ${12.9 + jumpers_offset}) (end 5.93 ${12.9 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start 5.93 ${13.5 + jumpers_offset}) (end 5.93 ${15.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start -5.93 ${15.5 + jumpers_offset}) (end -5.93 ${13.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start -5.93 ${13.5 + jumpers_offset}) (end -4.23 ${13.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start -4.23 ${15.5 + jumpers_offset}) (end -5.93 ${15.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start -4.23 ${13.5 + jumpers_offset}) (end -4.23 ${15.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start -3.39 ${15.5 + jumpers_offset}) (end -3.39 ${13.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start -3.39 ${13.5 + jumpers_offset}) (end -1.69 ${13.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start -1.69 ${15.5 + jumpers_offset}) (end -3.39 ${15.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start -1.69 ${13.5 + jumpers_offset}) (end -1.69 ${15.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start 3.39 ${13.5 + jumpers_offset}) (end 3.39 ${15.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start 3.39 ${15.5 + jumpers_offset}) (end 1.69 ${15.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start 1.69 ${15.5 + jumpers_offset}) (end 1.69 ${13.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start 1.69 ${13.5 + jumpers_offset}) (end 3.39 ${13.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start 5.93 ${15.5 + jumpers_offset}) (end 4.23 ${15.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start 4.23 ${15.5 + jumpers_offset}) (end 4.23 ${13.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
+        (fp_line (start 4.23 ${13.5 + jumpers_offset}) (end 5.93 ${13.5 + jumpers_offset}) (layer F.Fab) (width 0.15))
 
-        (pad 14 smd rect (at -5.08 ${13.45 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_top[0].str})
-        (pad 15 smd rect (at -2.54 ${13.45 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_top[1].str})
-        (pad 16 smd rect (at 2.54 ${13.45 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_top[3].str})
-        (pad 17 smd rect (at 5.08 ${13.45 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_top[4].str})
+        (pad 14 smd rect (at -5.08 ${14.05 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_top[0].str})
+        (pad 15 smd rect (at -2.54 ${14.05 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_top[1].str})
+        (pad 16 smd rect (at 2.54 ${14.05 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_top[3].str})
+        (pad 17 smd rect (at 5.08 ${14.05 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_top[4].str})
 
-        (pad 10 smd rect (at -5.08 ${14.35 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_bottom[0].str})
-        (pad 11 smd rect (at -2.54 ${14.35 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_bottom[1].str})
-        (pad 12 smd rect (at 2.54 ${14.35 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_bottom[3].str})
-        (pad 13 smd rect (at 5.08 ${14.35 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_bottom[4].str})
+        (pad 10 smd rect (at -5.08 ${14.95 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_bottom[0].str})
+        (pad 11 smd rect (at -2.54 ${14.95 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_bottom[1].str})
+        (pad 12 smd rect (at 2.54 ${14.95 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_bottom[3].str})
+        (pad 13 smd rect (at 5.08 ${14.95 + jumpers_offset} ${90 + p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${jumpers_front_bottom[4].str})
     `
 
     const back = `
@@ -221,63 +221,63 @@ module.exports = {
     `
 
     const back_jumpers = `
-        (fp_line (start -5.93 ${12.9 + jumpers_offset}) (end -5.93 ${14.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start -5.93 ${14.9 + jumpers_offset}) (end -4.23 ${14.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start -4.23 ${12.9 + jumpers_offset}) (end -5.93 ${12.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start -4.23 ${14.9 + jumpers_offset}) (end -4.23 ${12.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start -3.39 ${14.9 + jumpers_offset}) (end -1.69 ${14.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start -1.69 ${12.9 + jumpers_offset}) (end -3.39 ${12.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start 4.23 ${14.9 + jumpers_offset}) (end 5.93 ${14.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start 5.93 ${14.9 + jumpers_offset}) (end 5.93 ${12.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start 3.39 ${12.9 + jumpers_offset}) (end 1.69 ${12.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start -1.69 ${14.9 + jumpers_offset}) (end -1.69 ${12.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start -3.39 ${12.9 + jumpers_offset}) (end -3.39 ${14.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start 1.69 ${12.9 + jumpers_offset}) (end 1.69 ${14.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start 1.69 ${14.9 + jumpers_offset}) (end 3.39 ${14.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start 3.39 ${14.9 + jumpers_offset}) (end 3.39 ${12.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start 5.93 ${12.9 + jumpers_offset}) (end 4.23 ${12.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
-        (fp_line (start 4.23 ${12.9 + jumpers_offset}) (end 4.23 ${14.9 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start -5.93 ${13.5 + jumpers_offset}) (end -5.93 ${15.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start -5.93 ${15.5 + jumpers_offset}) (end -4.23 ${15.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start -4.23 ${13.5 + jumpers_offset}) (end -5.93 ${13.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start -4.23 ${15.5 + jumpers_offset}) (end -4.23 ${13.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start -3.39 ${15.5 + jumpers_offset}) (end -1.69 ${15.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start -1.69 ${13.5 + jumpers_offset}) (end -3.39 ${13.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start 4.23 ${15.5 + jumpers_offset}) (end 5.93 ${15.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start 5.93 ${15.5 + jumpers_offset}) (end 5.93 ${13.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start 3.39 ${13.5 + jumpers_offset}) (end 1.69 ${13.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start -1.69 ${15.5 + jumpers_offset}) (end -1.69 ${13.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start -3.39 ${13.5 + jumpers_offset}) (end -3.39 ${15.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start 1.69 ${13.5 + jumpers_offset}) (end 1.69 ${15.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start 1.69 ${15.5 + jumpers_offset}) (end 3.39 ${15.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start 3.39 ${15.5 + jumpers_offset}) (end 3.39 ${13.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start 5.93 ${13.5 + jumpers_offset}) (end 4.23 ${13.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
+        (fp_line (start 4.23 ${13.5 + jumpers_offset}) (end 4.23 ${15.5 + jumpers_offset}) (layer B.Fab) (width 0.15))
 
-        (pad 24 smd rect (at 5.08 ${13.45 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_top[0].str})
-        (pad 25 smd rect (at 2.54 ${13.45 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_top[1].str})
-        (pad 26 smd rect (at -2.54 ${13.45 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_top[3].str})
-        (pad 27 smd rect (at -5.08 ${13.45 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_top[4].str})
+        (pad 24 smd rect (at 5.08 ${14.05 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_top[0].str})
+        (pad 25 smd rect (at 2.54 ${14.05 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_top[1].str})
+        (pad 26 smd rect (at -2.54 ${14.05 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_top[3].str})
+        (pad 27 smd rect (at -5.08 ${14.05 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_top[4].str})
 
-        (pad 20 smd rect (at 5.08 ${14.35 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_bottom[0].str})
-        (pad 21 smd rect (at 2.54 ${14.35 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_bottom[1].str})
-        (pad 22 smd rect (at -2.54 ${14.35 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_bottom[3].str})
-        (pad 23 smd rect (at -5.08 ${14.35 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_bottom[4].str})
+        (pad 20 smd rect (at 5.08 ${14.95 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_bottom[0].str})
+        (pad 21 smd rect (at 2.54 ${14.95 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_bottom[1].str})
+        (pad 22 smd rect (at -2.54 ${14.95 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_bottom[3].str})
+        (pad 23 smd rect (at -5.08 ${14.95 + jumpers_offset} ${270 + p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${jumpers_back_bottom[4].str})
     `
 
     const labels = `
-        (fp_text user DA (at -5.08 ${12.5 + labels_offset} ${p.rot}) (layer F.SilkS)
+        (fp_text user DA (at -5.08 ${13.1 + labels_offset} ${p.rot}) (layer F.SilkS)
           (effects (font (size 1 1) (thickness 0.15)))
         )
-        (fp_text user CS (at 5.12 ${12.5 + labels_offset} ${p.rot}) (layer F.SilkS)
+        (fp_text user CS (at 5.12 ${13.1 + labels_offset} ${p.rot}) (layer F.SilkS)
           (effects (font (size 1 1) (thickness 0.15)))
         )
-        (fp_text user GND (at 2.62 ${12.5 + labels_offset} ${p.rot}) (layer F.SilkS)
+        (fp_text user GND (at 2.62 ${13.1 + labels_offset} ${p.rot}) (layer F.SilkS)
           (effects (font (size 1 1) (thickness 0.15)))
         )
-        (fp_text user VCC (at 0.15 ${14.4 + label_vcc_offset} ${p.rot}) (layer F.SilkS)
+        (fp_text user VCC (at 0.15 ${14.6 + label_vcc_offset} ${p.rot}) (layer F.SilkS)
           (effects (font (size 1 1) (thickness 0.15)))
         )
-        (fp_text user CL (at -2.48 ${12.5 + labels_offset} ${p.rot}) (layer F.SilkS)
+        (fp_text user CL (at -2.48 ${13.1 + labels_offset} ${p.rot}) (layer F.SilkS)
           (effects (font (size 1 1) (thickness 0.15)))
         )
-        (fp_text user CS (at -4.98 ${12.5 + labels_offset} ${p.rot}) (layer B.SilkS)
+        (fp_text user CS (at -4.98 ${13.1 + labels_offset} ${p.rot}) (layer B.SilkS)
           (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
         )
-        (fp_text user VCC (at 0.15 ${14.4 + label_vcc_offset} ${p.rot}) (layer B.SilkS)
+        (fp_text user VCC (at 0.15 ${14.6 + label_vcc_offset} ${p.rot}) (layer B.SilkS)
           (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
         )
-        (fp_text user DA (at 5.22 ${12.5 + labels_offset} ${p.rot}) (layer B.SilkS)
+        (fp_text user DA (at 5.22 ${13.1 + labels_offset} ${p.rot}) (layer B.SilkS)
           (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
         )
-        (fp_text user CL (at 2.72 ${12.5 + labels_offset} ${p.rot}) (layer B.SilkS)
+        (fp_text user CL (at 2.72 ${13.1 + labels_offset} ${p.rot}) (layer B.SilkS)
           (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
         )
-        (fp_text user GND (at -2.38 ${12.5 + labels_offset} ${p.rot}) (layer B.SilkS)
+        (fp_text user GND (at -2.38 ${13.1 + labels_offset} ${p.rot}) (layer B.SilkS)
           (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
         )
     `
@@ -297,25 +297,25 @@ module.exports = {
     `
 
     const traces_bottom = `
-    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 19.15)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[0].index}))
-    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 19.15)}) (width ${p.gnd_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[1].index}))
-    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 19.15)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[3].index}))
-    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 19.15)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[4].index}))
-    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 19.15)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[0].index}))
-    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 19.15)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[1].index}))
-    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 19.15)}) (width ${p.gnd_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[3].index}))
-    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 19.15)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[4].index}))
+    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 19.85)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[0].index}))
+    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 19.85)}) (width ${p.gnd_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[1].index}))
+    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 19.85)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[3].index}))
+    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 19.85)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[4].index}))
+    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 19.85)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[0].index}))
+    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 19.85)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[1].index}))
+    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 19.85)}) (width ${p.gnd_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[3].index}))
+    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 19.85)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[4].index}))
     `
 
     const traces_top = `
-    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 14.25)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_top[0].index}))
-    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 14.25)}) (width ${p.gnd_trace_width}) (layer "F.Cu") (net ${jumpers_front_top[1].index}))
-    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 14.25)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_top[3].index}))
-    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 14.25)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_top[4].index}))
-    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 14.25)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_top[0].index}))
-    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 14.25)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_top[1].index}))
-    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 14.25)}) (width ${p.gnd_trace_width}) (layer "B.Cu") (net ${jumpers_back_top[3].index}))
-    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 14.25)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_top[4].index}))
+    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 14.95)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_top[0].index}))
+    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 14.95)}) (width ${p.gnd_trace_width}) (layer "F.Cu") (net ${jumpers_front_top[1].index}))
+    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 14.95)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_top[3].index}))
+    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 14.95)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_top[4].index}))
+    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 14.95)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_top[0].index}))
+    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 14.95)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_top[1].index}))
+    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 14.95)}) (width ${p.gnd_trace_width}) (layer "B.Cu") (net ${jumpers_back_top[3].index}))
+    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 14.95)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_top[4].index}))
     `
 
     let final = top;
