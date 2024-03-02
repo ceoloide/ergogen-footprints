@@ -297,14 +297,14 @@ module.exports = {
     `
 
     const traces_bottom = `
-    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 19.85)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[0].index}))
-    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 19.85)}) (width ${p.gnd_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[1].index}))
-    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 19.85)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[3].index}))
-    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 19.85)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[4].index}))
-    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 19.85)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[0].index}))
-    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 19.85)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[1].index}))
-    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 19.85)}) (width ${p.gnd_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[3].index}))
-    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 19.85)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[4].index}))
+    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 18.45)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[0].index}))
+    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 18.45)}) (width ${p.gnd_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[1].index}))
+    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 18.45)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[3].index}))
+    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 18.45)}) (width ${p.signal_trace_width}) (layer "F.Cu") (net ${jumpers_front_bottom[4].index}))
+    (segment (start ${adjust_point(-5.08, 16.7)}) (end ${adjust_point(-5.08, 18.45)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[0].index}))
+    (segment (start ${adjust_point(-2.54, 16.7)}) (end ${adjust_point(-2.54, 18.45)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[1].index}))
+    (segment (start ${adjust_point(2.54, 16.7)}) (end ${adjust_point(2.54, 18.45)}) (width ${p.gnd_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[3].index}))
+    (segment (start ${adjust_point(5.08, 16.7)}) (end ${adjust_point(5.08, 18.45)}) (width ${p.signal_trace_width}) (layer "B.Cu") (net ${jumpers_back_bottom[4].index}))
     `
 
     const traces_top = `
