@@ -17,6 +17,9 @@
 //  https://nicekeyboards.com/docs/nice-nano/pinout-schematic
 //
 // Params:
+//    only_required_jumpers: default is false
+//      if true, it will only place jumpers on the first 4 rows of pins, which can't be
+//      reversed in firmware, i.e. RAW and P1, GND and P0, GND and RST, GND and VCC.
 //    use_rectangular_jumpers: default is false
 //      if true, it will replace chevron-style jumpers with rectangual pads
 //    include_traces: default is true
@@ -40,6 +43,7 @@
 //  - Move vias closer to the pads to clear up more space for silkscreen
 //  - Add ability to use rectangular jumpers instead of chevron-style
 //  - Add ability to control via size, to free up space for routing if needed
+//  - Add ability to only have required jumpers and let the rest be handled in firmware
 //
 // # Placement and soldering of jumpers
 //
@@ -73,6 +77,8 @@
 module.exports = {
   params: {
     designator: 'MCU',
+
+    only_required_jumpers: false,
 
     use_rectangular_jumpers: false,
     include_traces: true,
@@ -220,8 +226,10 @@ module.exports = {
     const gen_traces = () => {
       let traces = '';
       for (let i = 0; i < 12; i++) {
-        row_traces = gen_traces_row(i)
-        traces += row_traces
+        if (i < 4 || !p.only_required_jumpers) {
+          row_traces = gen_traces_row(i)
+          traces += row_traces
+        }
       }
 
       return traces
@@ -251,14 +259,15 @@ module.exports = {
       const net_silk_back_right = via_label_left
 
       let socket_row_base = `
-          ${''/* Socket Holes */}
-          (pad ${socket_hole_num_left} thru_hole circle (at -7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.local_net(socket_hole_num_left).str})
-          (pad ${socket_hole_num_right} thru_hole circle (at 7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.local_net(socket_hole_num_right).str})
-
-          ${''/* Inside VIAS */}
-          (pad ${via_num_right} thru_hole circle (at 3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${net_right})
-          (pad ${via_num_left} thru_hole circle (at -3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${net_left})
-        `
+        ${''/* Socket Holes */}
+        (pad ${socket_hole_num_left} thru_hole circle (at -7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${row_num < 4 || !p.only_required_jumpers ? p.local_net(socket_hole_num_left).str : net_left})
+        (pad ${socket_hole_num_right} thru_hole circle (at 7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${row_num < 4 || !p.only_required_jumpers ? p.local_net(socket_hole_num_right).str : net_right})
+      `
+      let socket_row_vias = `
+        ${''/* Inside VIAS */}
+        (pad ${via_num_right} thru_hole circle (at 3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${net_right})
+        (pad ${via_num_left} thru_hole circle (at -3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${net_left})
+      `
 
       let socket_row_rectangular_jumpers = `
         ${''/* Jumper Pads - Front Left */}
@@ -352,34 +361,37 @@ module.exports = {
             ) (width 0))
           ))
         `
-      let socket_row = socket_row_base
-      if (p.use_rectangular_jumpers) {
-        socket_row += socket_row_rectangular_jumpers
-      } else {
-        socket_row += socket_row_chevron_jumpers
+      let socket_row = socket_row_base;
+      if (row_num < 4 || !p.only_required_jumpers) {
+        socket_row += socket_row_vias;
+        if (p.use_rectangular_jumpers) {
+          socket_row += socket_row_rectangular_jumpers
+        } else {
+          socket_row += socket_row_chevron_jumpers
+        }
       }
       if (show_silk_labels == true) {
         socket_row += `
 
             ${''/* Silkscreen Labels - Front */}
-            (fp_text user ${net_silk_front_left} (at -3 ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
+            (fp_text user ${net_silk_front_left} (at -${row_num < 4 || !p.only_required_jumpers ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
               (effects (font (size 1 1) (thickness 0.15)) (justify left))
             )
-            (fp_text user ${net_silk_front_right} (at 3 ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
+            (fp_text user ${net_silk_front_right} (at ${row_num < 4 || !p.only_required_jumpers ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
               (effects (font (size 1 1) (thickness 0.15)) (justify right))
             )
 
             ${''/* Silkscreen Labels - Back */}
-            (fp_text user ${net_silk_back_left} (at -3 ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
+            (fp_text user ${net_silk_back_left} (at -${row_num < 4 || !p.only_required_jumpers ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
               (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
             )
-            (fp_text user ${net_silk_back_right} (at 3 ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
+            (fp_text user ${net_silk_back_right} (at ${row_num < 4 || !p.only_required_jumpers ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
               (effects (font (size 1 1) (thickness 0.15)) (justify left mirror))
             )
           `
       }
 
-      if (show_via_labels == true) {
+      if (show_via_labels && (row_num < 4 || !p.only_required_jumpers)) {
         socket_row += `
             ${''/* Via Labels - Front */}
             (fp_text user ${via_label_left} (at -3.262 ${-13.5 + row_offset_y} ${p.rot}) (layer F.Fab)
