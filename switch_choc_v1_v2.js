@@ -264,16 +264,16 @@ module.exports = {
             (pad 1 thru_hole circle (at ${solder_offset_x_back}5 ${solder_offset_y}3.8 ${195 + p.rot}) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.to.str})  
         `
         const oval_corner_stab_front = `
-            (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.rot}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers *.Cu *.SilkS *.Mask))
+            (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.rot}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
         `
         const oval_corner_stab_back = `
-            (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.rot}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers *.Cu *.SilkS *.Mask))
+            (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.rot}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
         `
         const round_corner_stab_front = `
-            (pad "" np_thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.rot}) (size 1.6 1.6) (drill 1.6) (layers *.Cu *.SilkS *.Mask))
+            (pad "" np_thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.rot}) (size 1.6 1.6) (drill 1.6) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
         `
         const round_corner_stab_back = `
-            (pad "" np_thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.rot}) (size 1.6 1.6) (drill 1.6) (layers *.Cu *.SilkS *.Mask))
+            (pad "" np_thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.rot}) (size 1.6 1.6) (drill 1.6) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
         `
 
         const common_bottom = `
