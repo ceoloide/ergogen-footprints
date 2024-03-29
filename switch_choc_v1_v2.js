@@ -67,6 +67,19 @@
 //    switch_3dmodel_xyz_rotation: default is [0, 0, 0]
 //      xyz rotation (in degrees), used to adjust the orientation of the 3d
 //      model relative the footprint.
+//    hotswap_3dmodel_filename: default is ''
+//      Allows you to specify the path to a 3D model to be used when rendering
+//      the PCB. Allows for paths using a configured path by using the
+//      ${VAR_NAME} syntax.
+//    hotswap_3dmodel_xyz_offset: default is [0, 0, 0]
+//      xyz offset (in mm), used to adjust the position of the 3d model
+//      relative the footprint.
+//    hotswap_3dmodel_xyz_scale: default is [1, 1, 1]
+//      xyz scale, used to adjust the size of the 3d model relative its
+//      original size.
+//    hotswap_3dmodel_xyz_rotation: default is [0, 0, 0]
+//      xyz rotation (in degrees), used to adjust the orientation of the 3d
+//      model relative the footprint.
 //
 // Notes:
 // - Hotswap and solder can be used together. The solder holes will then be
@@ -109,6 +122,10 @@ module.exports = {
         switch_3dmodel_xyz_offset: [0, 0, 0],
         switch_3dmodel_xyz_rotation: [0, 0, 0],
         switch_3dmodel_xyz_scale: [1, 1, 1],
+        hotswap_3dmodel_filename: '',
+        hotswap_3dmodel_xyz_offset: [0, 0, 0],
+        hotswap_3dmodel_xyz_rotation: [0, 0, 0],
+        hotswap_3dmodel_xyz_scale: [1, 1, 1],
         from: undefined,
         to: undefined
     },
@@ -294,9 +311,16 @@ module.exports = {
         `
         const switch_3dmodel = `
             (model ${p.switch_3dmodel_filename}
-              (at (xyz ${p.switch_3dmodel_xyz_offset[0]} ${p.switch_3dmodel_xyz_offset[1]} ${p.switch_3dmodel_xyz_offset[2]}))
+              (offset (xyz ${p.switch_3dmodel_xyz_offset[0]} ${p.switch_3dmodel_xyz_offset[1]} ${p.switch_3dmodel_xyz_offset[2]}))
               (scale (xyz ${p.switch_3dmodel_xyz_scale[0]} ${p.switch_3dmodel_xyz_scale[1]} ${p.switch_3dmodel_xyz_scale[2]}))
               (rotate (xyz ${p.switch_3dmodel_xyz_rotation[0]} ${p.switch_3dmodel_xyz_rotation[1]} ${p.switch_3dmodel_xyz_rotation[2]})))
+	`
+
+	const hotswap_3dmodel = `
+            (model ${p.hotswap_3dmodel_filename}
+              (offset (xyz ${p.hotswap_3dmodel_xyz_offset[0]} ${p.hotswap_3dmodel_xyz_offset[1]} ${p.hotswap_3dmodel_xyz_offset[2]}))
+              (scale (xyz ${p.hotswap_3dmodel_xyz_scale[0]} ${p.hotswap_3dmodel_xyz_scale[1]} ${p.hotswap_3dmodel_xyz_scale[2]}))
+              (rotate (xyz ${p.hotswap_3dmodel_xyz_rotation[0]} ${p.hotswap_3dmodel_xyz_rotation[1]} ${p.hotswap_3dmodel_xyz_rotation[2]})))
 	`
 
         const common_bottom = `
@@ -341,6 +365,9 @@ module.exports = {
             }
             if (p.reversible || p.side == "B") {
                 final += hotswap_back
+            }
+            if (p.hotswap_3dmodel_filename) {
+                final += hotswap_3dmodel
             }
         }
         if (p.solder) {
