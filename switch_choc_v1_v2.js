@@ -54,6 +54,19 @@
 //    keycaps_y: default is 18
 //      Allows you to adjust the width of the keycap outline. For example,
 //      to show a 1.5u outline for easier aligning.
+//    switch_3dmodel_filename: default is ''
+//      Allows you to specify the path to a 3D model step file to be used when
+//      rendering the PCB. Allows for paths using a configured path by using
+//      the ${VAR_NAME} syntax.
+//    switch_3dmodel_xyz_offset: default is [0, 0, 0]
+//      xyz offset (in mm), used to adjust the position of the 3d model
+//      relative the footprint.
+//    switch_3dmodel_xyz_scale: default is [1, 1, 1]
+//      xyz scale, used to adjust the size of the 3d model relative its
+//      original size.
+//    switch_3dmodel_xyz_rotation: default is [0, 0, 0]
+//      xyz rotation (in degrees), used to adjust the orientation of the 3d
+//      model relative the footprint.
 //
 // Notes:
 // - Hotswap and solder can be used together. The solder holes will then be
@@ -92,6 +105,10 @@ module.exports = {
         choc_v2_support: true,
         keycaps_x: 18,
         keycaps_y: 18,
+        switch_3dmodel_filename: '',
+        switch_3dmodel_xyz_offset: [0, 0, 0],
+        switch_3dmodel_xyz_rotation: [0, 0, 0],
+        switch_3dmodel_xyz_scale: [1, 1, 1],
         from: undefined,
         to: undefined
     },
@@ -275,6 +292,12 @@ module.exports = {
         const round_corner_stab_back = `
             (pad "" np_thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.rot}) (size 1.6 1.6) (drill 1.6) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
         `
+        const switch_3dmodel = `
+            (model ${p.switch_3dmodel_filename}
+              (at (xyz ${p.switch_3dmodel_xyz_offset[0]} ${p.switch_3dmodel_xyz_offset[1]} ${p.switch_3dmodel_xyz_offset[2]}))
+              (scale (xyz ${p.switch_3dmodel_xyz_scale[0]} ${p.switch_3dmodel_xyz_scale[1]} ${p.switch_3dmodel_xyz_scale[2]}))
+              (rotate (xyz ${p.switch_3dmodel_xyz_rotation[0]} ${p.switch_3dmodel_xyz_rotation[1]} ${p.switch_3dmodel_xyz_rotation[2]})))
+	`
 
         const common_bottom = `
         )
@@ -328,6 +351,10 @@ module.exports = {
             if (p.reversible || p.side == "B") {
                 final += solder_back
             }
+        }
+
+        if (p.switch_3dmodel_filename) {
+            final += switch_3dmodel
         }
         final += common_bottom
 
