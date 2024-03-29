@@ -29,7 +29,7 @@
 //      if true, will include holes to solder switches (works with hotswap too)
 //    outer_pad_width_front: default 2.6
 //    outer_pad_width_back: default 2.6
-//      Allow you to make the outer hotswap pads smaller to silence DRC
+//      Allows you to make the outer hotswap pads smaller to silence DRC
 //      warnings when the sockets are too close to the edge cuts. It's not
 //      recommended to go below 1.6mm to ensure the hotswap socket can be
 //      properly soldered.
@@ -55,14 +55,14 @@
 //      Allows you to adjust the width of the keycap outline. For example,
 //      to show a 1.5u outline for easier aligning.
 //    switch_3dmodel_filename: default is ''
-//      Allows you to specify the path to a 3D model step file to be used when
-//      rendering the PCB. Allows for paths using a configured path by using
-//      the ${VAR_NAME} syntax.
+//      Allows you to specify the path to a 3D model STEP or WRL file to be
+//      used when rendering the PCB. Use the ${VAR_NAME} syntax to point to
+//      a KiCad configured path.
 //    switch_3dmodel_xyz_offset: default is [0, 0, 0]
 //      xyz offset (in mm), used to adjust the position of the 3d model
 //      relative the footprint.
 //    switch_3dmodel_xyz_scale: default is [1, 1, 1]
-//      xyz scale, used to adjust the size of the 3d model relative its
+//      xyz scale, used to adjust the size of the 3d model relative to its
 //      original size.
 //    switch_3dmodel_xyz_rotation: default is [0, 0, 0]
 //      xyz rotation (in degrees), used to adjust the orientation of the 3d
@@ -87,6 +87,9 @@
 //  - Add ability to specify board side
 //  - Add ability to include stabilizer pad
 //  - Add ability to use an oval stabilizer pad
+//
+// @grazfather's improvements:
+//  - Add support for switch 3D model
 
 module.exports = {
     params: {
@@ -297,7 +300,7 @@ module.exports = {
               (at (xyz ${p.switch_3dmodel_xyz_offset[0]} ${p.switch_3dmodel_xyz_offset[1]} ${p.switch_3dmodel_xyz_offset[2]}))
               (scale (xyz ${p.switch_3dmodel_xyz_scale[0]} ${p.switch_3dmodel_xyz_scale[1]} ${p.switch_3dmodel_xyz_scale[2]}))
               (rotate (xyz ${p.switch_3dmodel_xyz_rotation[0]} ${p.switch_3dmodel_xyz_rotation[1]} ${p.switch_3dmodel_xyz_rotation[2]})))
-	`
+	    `
 
         const common_bottom = `
         )
