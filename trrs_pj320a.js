@@ -131,7 +131,7 @@ module.exports = {
     } else if (p.reversible) {
       return `
         ${standard_opening}
-        ${corner_marks(-1.15)}
+        ${corner_marks(1.15)}
         ${stabilizers(-1.15)}
         ${stabilizers(1.15)}
         ${pins(-1.15, 3.45)}
@@ -141,9 +141,9 @@ module.exports = {
     } else {
       return `
         ${standard_opening}
-        ${corner_marks(-1.15)}
-        ${stabilizers(-1.15)}
-        ${pins(-3.45, 1.15)}
+        ${corner_marks(0)}
+        ${stabilizers(0)}
+        ${pins(-2.3, 2.3)}
       )
     `
     }
