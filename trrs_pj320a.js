@@ -12,33 +12,38 @@
 //  customization options.
 //
 //  Normal / single side
-//     _________________
-//    |   (B)   (C) (D)|_
-//    |                | |
-//    | (A)            |_|
-//    |________________|
+//     ____________________
+//    |   (TP)   (R2) (SL)|_
+//    |                   | |
+//    | (R1)              |_|
+//    |___________________|
 // 
 //  Reversible
-//     _________________
-//    |   (B)   (C) (D)|_
-//    | (A)            | |
-//    | (A)            |_|
-//    |___(B)___(C)_(D)|
+//     ____________________
+//    |   (TP)   (R2) (SL)|_
+//    | (R1)              | |
+//    | (R1)              |_|
+//    |___(TP)___(R2)_(SL)|
 //
 // Reversible & symmetrical
-//     _________________
-//    | ( A ) (C)   (D)|_
-//    |                |_|
-//    |_( A )_(C)___(D)|
+//     ___________________
+//    | ( TP) (R2)   (SL)|_
+//    |                  |_|
+//    |_( TP)_(R2)___(SL)|
 //
 // Datasheet:
 //  https://datasheet.lcsc.com/lcsc/2311241628_Hong-Cheng-HC-PJ-320A_C7501806.pdf
 //
 // Nets:
-//    A: corresponds to pin 1
-//    B: corresponds to pin 2
-//    C: corresponds to pin 3 (pin 2 symmetrical)
-//    D: corresponds to pin 4 (pin 3 symmetrical)
+//    SL: corresponds to pin 2 (Sleeve)
+//    R2: corresponds to pin 3 (Ring 2)
+//    R1: corresponds to pin 1 (Ring 1)
+//    TP: corresponds to pin 4 (Tip)
+//
+// Warning:
+//    TRRS cables should never be hotswapped (removed or inserted when the MCU is turned on).
+//    To minimize the chance of damaging the MCU, connect VCC to the tip (TP) and GND on the
+//    sleeve (SL).
 //
 // Params:
 //    side: default is F for Front
@@ -47,12 +52,14 @@
 //      if true, the footprint will be placed on both sides so that the PCB can be
 //      reversible
 //    symmetric: default is false
-//      if true, will only work if reversible is also true
-//      this will cause the footprint to be symmetrical on each half, however
-//      reducing the footprint to three pins, A, C, and D
+//      if true, it will only work if reversible is also true. This will cause the
+//      footprint to be symmetrical on each half, however reducing the footprint
+//      to three pins: TP, R2, and SL
 //
 // @ceoloide's improvements:
 //  - Add oval pad when symmetrical
+//  - Adjust positioning to be symmetrical
+//  - Revamp pinout and nets
 
 module.exports = {
   params: {
@@ -60,10 +67,10 @@ module.exports = {
     side: 'F',
     reversible: false,
     symmetric: false,
-    A: { type: 'net', value: 'A' },
-    B: { type: 'net', value: 'B' },
-    C: { type: 'net', value: 'C' },
-    D: { type: 'net', value: 'D' },
+    TP: { type: 'net', value: 'TP' },
+    R1: { type: 'net', value: 'R1' },
+    R2: { type: 'net', value: 'R2' },
+    SL: { type: 'net', value: 'SL' },
   },
   body: p => {
 
@@ -106,16 +113,16 @@ module.exports = {
     function pins(def_neg, def_pos) {
       if (p.symmetric && p.reversible) {
         return `
-          (pad 1 thru_hole oval (at ${def_pos} 10.75 ${p.rot}) (size 1.6 3.3) (drill oval 0.9 2.6) (layers *.Cu *.Mask) ${p.A.str})
-          (pad 2 thru_hole oval (at ${def_pos} 6.2 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.C.str})
-          (pad 3 thru_hole oval (at ${def_pos} 3.2 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.D.str})
+          (pad 2 thru_hole oval (at ${def_pos} 3.2 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.SL.str})
+          (pad 3 thru_hole oval (at ${def_pos} 6.2 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.R2.str})
+          (pad 4 thru_hole oval (at ${def_pos} 10.75 ${p.rot}) (size 1.6 3.3) (drill oval 0.9 2.6) (layers *.Cu *.Mask) ${p.TP.str})
         `
       } else {
         return `
-          (pad 1 thru_hole oval (at ${def_neg} 11.3 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.A.str})
-          (pad 2 thru_hole oval (at ${def_pos} 10.2 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.B.str})
-          (pad 3 thru_hole oval (at ${def_pos} 6.2 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.C.str})
-          (pad 4 thru_hole oval (at ${def_pos} 3.2 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.D.str})
+          (pad 2 thru_hole oval (at ${def_pos} 3.2 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.SL.str})
+          (pad 3 thru_hole oval (at ${def_pos} 6.2 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.R2.str})
+          (pad 4 thru_hole oval (at ${def_pos} 10.2 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.TP.str})
+          (pad 5 thru_hole oval (at ${def_neg} 11.3 ${p.rot}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.R1.str})
         `
       }
     }
