@@ -56,6 +56,19 @@
 //      if true it will include the part courtyard
 //    include_keepout: default is false
 //      if true it will include the part keepout area
+//    led_3dmodel_filename: default is ''
+//      Allows you to specify the path to a 3D model STEP or WRL file to be
+//      used when rendering the PCB. Use the ${VAR_NAME} syntax to point to
+//      a KiCad configured path.
+//    led_3dmodel_xyz_offset: default is [0, 0, 0]
+//      xyz offset (in mm), used to adjust the position of the 3d model
+//      relative the footprint.
+//    led_3dmodel_xyz_scale: default is [1, 1, 1]
+//      xyz scale, used to adjust the size of the 3d model relative to its
+//      original size.
+//    led_3dmodel_xyz_rotation: default is [0, 0, 0]
+//      xyz rotation (in degrees), used to adjust the orientation of the 3d
+//      model relative the footprint.
 
 module.exports = {
   params: {
@@ -71,6 +84,10 @@ module.exports = {
     via_drill: 0.4,
     include_courtyard: true,
     include_keepout: false,
+    led_3dmodel_filename: '',
+    led_3dmodel_xyz_offset: [0, 0, 0],
+    led_3dmodel_xyz_rotation: [0, 0, 0],
+    led_3dmodel_xyz_scale: [1, 1, 1],
     P1: { type: 'net', value: 'VCC' },
     P2: undefined,
     P3: { type: 'net', value: 'GND' },
@@ -315,6 +332,13 @@ module.exports = {
       )
     `
 
+    const led_3dmodel = `
+      (model ${p.led_3dmodel_filename}
+        (offset (xyz ${p.led_3dmodel_xyz_offset[0]} ${p.led_3dmodel_xyz_offset[1]} ${p.led_3dmodel_xyz_offset[2]}))
+        (scale (xyz ${p.led_3dmodel_xyz_scale[0]} ${p.led_3dmodel_xyz_scale[1]} ${p.led_3dmodel_xyz_scale[2]}))
+        (rotate (xyz ${p.led_3dmodel_xyz_rotation[0]} ${p.led_3dmodel_xyz_rotation[1]} ${p.led_3dmodel_xyz_rotation[2]})))
+      `
+
     let final = standard_opening;
 
     if (p.side == "F" || p.reversible) {
@@ -340,6 +364,10 @@ module.exports = {
       if (p.include_courtyard) {
         final += courtyard_back;
       }
+    }
+
+    if (p.led_3dmodel_filename) {
+        final += led_3dmodel
     }
 
     final += standard_closing;
