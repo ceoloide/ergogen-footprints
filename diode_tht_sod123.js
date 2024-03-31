@@ -21,6 +21,19 @@
 //      reversible
 //    include_tht: default is false
 //      if true it includes through-hole pads alongside SMD ones
+//    diode_3dmodel_filename: default is ''
+//      Allows you to specify the path to a 3D model STEP or WRL file to be
+//      used when rendering the PCB. Use the ${VAR_NAME} syntax to point to
+//      a KiCad configured path.
+//    diode_3dmodel_xyz_offset: default is [0, 0, 0]
+//      xyz offset (in mm), used to adjust the position of the 3d model
+//      relative the footprint.
+//    diode_3dmodel_xyz_scale: default is [1, 1, 1]
+//      xyz scale, used to adjust the size of the 3d model relative to its
+//      original size.
+//    diode_3dmodel_xyz_rotation: default is [0, 0, 0]
+//      xyz rotation (in degrees), used to adjust the orientation of the 3d
+//      model relative the footprint.
 //
 // @infused-kim's improvements:
 //  - Add option to hide thru-holes
@@ -28,6 +41,9 @@
 //
 // @ceoloide's improvements:
 //  - Add single side support
+//
+// @grazfather's improvements:
+//  - Add support for switch 3D model
 
 module.exports = {
     params: {
@@ -35,6 +51,10 @@ module.exports = {
         side: 'B',
         reversible: false,
         include_tht: false,
+        diode_3dmodel_filename: '',
+        diode_3dmodel_xyz_offset: [0, 0, 0],
+        diode_3dmodel_xyz_rotation: [0, 0, 0],
+        diode_3dmodel_xyz_scale: [1, 1, 1],
         from: undefined,
         to: undefined
     },
@@ -72,6 +92,13 @@ module.exports = {
             (pad 1 thru_hole rect (at -3.81 0 ${p.rot}) (size 1.778 1.778) (drill 0.9906) (layers *.Cu *.Mask) ${p.to.str})
             (pad 2 thru_hole circle (at 3.81 0 ${p.rot}) (size 1.905 1.905) (drill 0.9906) (layers *.Cu *.Mask) ${p.from.str})
         `
+
+        const diode_3dmodel = `
+            (model ${p.diode_3dmodel_filename}
+                (offset (xyz ${p.diode_3dmodel_xyz_offset[0]} ${p.diode_3dmodel_xyz_offset[1]} ${p.diode_3dmodel_xyz_offset[2]}))
+                (scale (xyz ${p.diode_3dmodel_xyz_scale[0]} ${p.diode_3dmodel_xyz_scale[1]} ${p.diode_3dmodel_xyz_scale[2]}))
+                (rotate (xyz ${p.diode_3dmodel_xyz_rotation[0]} ${p.diode_3dmodel_xyz_rotation[1]} ${p.diode_3dmodel_xyz_rotation[2]})))
+        `
         const standard_closing = `
         )
         `
@@ -86,6 +113,10 @@ module.exports = {
         }
         if (p.include_tht) {
             final += tht;
+        }
+
+        if (p.diode_3dmodel_filename) {
+            final += diode_3dmodel
         }
 
         final += standard_closing;
