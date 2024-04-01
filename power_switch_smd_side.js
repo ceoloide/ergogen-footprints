@@ -63,11 +63,11 @@ module.exports = {
         (fp_text value "power_switch" (at 0 2.5 ${p.rot}) (layer ${p.side}.Fab)
           (effects (font (size 1 1) (thickness 0.15)))
         )
-    `
-    const silkscreen_front = `
         (fp_text reference "${p.ref}" (at -3.6 0 ${-90 + p.rot}) (layer F.SilkS) ${p.ref_hide}
           (effects (font (size 1 1) (thickness 0.15)))
         )
+    `
+    const silkscreen_front = `
         (fp_text user "ON" (at 0 ${p.invert_behavior ? '-' : ''}4.5 ${p.rot}) (layer "F.SilkS")
           (effects (font (size 1 1) (thickness 0.15)) (justify ${p.invert_behavior ? 'bottom' : 'top'}))
         )
