@@ -50,6 +50,9 @@ module.exports = {
           (fp_text value "reset_button_smd_side" (at 0 2.5 ${p.rot}) (layer ${p.side}.Fab)
             (effects (font (size 1 1) (thickness 0.15)))
           )
+          (fp_text reference "${p.ref}" (at 0 0 ${p.rot}) (layer F.SilkS) ${p.ref_hide}
+            (effects (font (size 1 1) (thickness 0.15)))
+          )
           (fp_line (start -2.35 -1.75) (end -2.35 1.75) (width 0.1) (layer "Dwgs.User"))
           (fp_line (start -2.35 -1.75) (end 2.35 -1.75) (width 0.1) (layer "Dwgs.User"))
           (fp_line (start -2.35 1.75) (end 2.35 1.75) (width 0.1) (layer "Dwgs.User"))
@@ -59,9 +62,6 @@ module.exports = {
           (fp_line (start 2.35 -1.75) (end 2.35 1.75) (width 0.1) (layer "Dwgs.User"))
       `
     const silkscreen_front = `
-        (fp_text reference "${p.ref}" (at 0 0 ${p.rot}) (layer F.SilkS) ${p.ref_hide}
-          (effects (font (size 1 1) (thickness 0.15)))
-        )
         (fp_line (start -2.35 -1.5) (end -2.35 -1.75) (width 0.1) (layer "F.SilkS"))
         (fp_line (start -2.35 1.5) (end -2.35 1.75) (width 0.1) (layer "F.SilkS"))
         (fp_line (start -2.1 -1.75) (end -2.35 -1.75) (width 0.1) (layer "F.SilkS"))
