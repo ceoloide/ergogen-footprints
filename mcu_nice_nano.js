@@ -446,7 +446,7 @@ module.exports = {
     }
 
     const common_top = `
-        (module "ceoloide:nice_nano" (layer F.Cu) (tedit 6451A4F1)
+        (module "ceoloide:mcu_nice_nano" (layer F.Cu) (tedit 6451A4F1)
           (attr virtual)
           ${p.at /* parametric position */}
           (fp_text reference "${p.ref}" (at 0 -15 ${p.rot}) (layer F.SilkS) ${p.ref_hide}

@@ -143,7 +143,7 @@ module.exports = {
     }
 
     const top = `
-      (module "ceoloide:nice_view" (layer ${p.side}.Cu) (tedit 6448AF5B)
+      (module "ceoloide:display_nice_view" (layer ${p.side}.Cu) (tedit 6448AF5B)
         ${p.at /* parametric position */}
         (attr virtual)
         (fp_text reference "${p.ref}" (at 0 20 ${p.rot}) (layer ${p.side}.SilkS) ${p.ref_hide}
