@@ -94,7 +94,7 @@ module.exports = {
         ];
 
         const standard_opening = `
-            (module "ceoloide/battery_connector_jst_ph_2" (layer ${p.side}.Cu) (tedit 6135B927)
+            (module "ceoloide:battery_connector_jst_ph_2" (layer ${p.side}.Cu) (tedit 6135B927)
                 ${p.at /* parametric position */}
 
                 (descr "JST PH series connector, S2B-PH-K (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf)")
