@@ -30,6 +30,9 @@
 //    include_traces: default is true
 //      if true it will include traces that connect the jumper pads to the vias
 //      and the through-holes for the MCU
+//    include_extra_pins: default is false
+//      if true and if not reversible it will include nice!nano extra pin sockets (P1.01,
+//      P1.02, P1.07)
 //    only_required_jumpers: default is false
 //      if true, it will only place jumpers on the first 4 rows of pins, which can't be
 //      reversed in firmware, i.e. RAW and P1, GND and P0, GND and RST, GND and VCC.
@@ -57,6 +60,7 @@
 //  - Add single side (non-reversible) support
 //  - Add ability to mount with MCU facing towards or away from PCB
 //  - Add ability to show silkscreen labels on both sides for single side footprint
+//  - Add extra pins (P1.01, P1.02, P1.07) when footprint is single-side
 //
 // # Placement and soldering of jumpers
 //
@@ -94,6 +98,7 @@ module.exports = {
     reversible: true,
     reverse_mount: false,
     include_traces: true,
+    include_extra_pins: false,
     invert_jumpers_position: false,
     only_required_jumpers: false,
     use_rectangular_jumpers: false,
@@ -129,6 +134,10 @@ module.exports = {
     P8_label: '',
     P9_label: '',
 
+    P101_label: '',
+    P102_label: '',
+    P107_label: '',
+
     RAW: { type: 'net', value: 'RAW' },
     GND: { type: 'net', value: 'GND' },
     RST: { type: 'net', value: 'RST' },
@@ -152,6 +161,10 @@ module.exports = {
     P7: { type: 'net', value: 'P7' },
     P8: { type: 'net', value: 'P8' },
     P9: { type: 'net', value: 'P9' },
+
+    P101: { type: 'net', value: 'P101' },
+    P102: { type: 'net', value: 'P102' },
+    P107: { type: 'net', value: 'P107' },
   },
   body: p => {
     const get_pin_net_name = (p, pin_name) => {
@@ -250,6 +263,8 @@ module.exports = {
 
       return traces
     }
+
+    const invert_pins = (p.side == 'B' && !p.reverse_mount && !p.reversible) || (p.side == 'F' && p.reverse_mount) || (p.reverse_mount && p.reversible)
 
     const gen_socket_row = (row_num, pin_name_left, pin_name_right, show_via_labels, show_silk_labels) => {
       const row_offset_y = 2.54 * row_num
@@ -386,26 +401,38 @@ module.exports = {
       }
       if (show_silk_labels == true) {
         if(p.reversible || p.show_silk_labels_on_both_sides || p.side == 'F') {
-          socket_row += `
-              ${''/* Silkscreen Labels - Front */}
-              (fp_text user ${net_silk_front_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
-                (effects (font (size 1 1) (thickness 0.15)) (justify left))
-              )
-              (fp_text user ${net_silk_front_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
-                (effects (font (size 1 1) (thickness 0.15)) (justify right))
-              )
-          `
+          // Silkscreen labels - front
+          if(p.reversible || row_num != 10 || invert_pins) {
+            socket_row += `
+                (fp_text user ${net_silk_front_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
+                  (effects (font (size 1 1) (thickness 0.15)) (justify left))
+                )
+            `
+          }
+          if(p.reversible || row_num != 10 || !invert_pins) {
+            socket_row += `
+                (fp_text user ${net_silk_front_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
+                  (effects (font (size 1 1) (thickness 0.15)) (justify right))
+                )
+            `
+          }
         }
         if(p.reversible || p.show_silk_labels_on_both_sides || p.side == 'B') {
-          socket_row += `
-              ${''/* Silkscreen Labels - Back */}
-              (fp_text user ${net_silk_back_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
-                (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
-              )
-              (fp_text user ${net_silk_back_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
-                (effects (font (size 1 1) (thickness 0.15)) (justify left mirror))
-              )
+          // Silkscreen labels - front
+          if(p.reversible || row_num != 10 || invert_pins) {
+            socket_row += `
+                (fp_text user ${net_silk_back_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
+                  (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
+                )
             `
+          }
+          if(p.reversible || row_num != 10 || !invert_pins) {
+            socket_row += `
+                (fp_text user ${net_silk_back_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
+                  (effects (font (size 1 1) (thickness 0.15)) (justify left mirror))
+                )
+            `
+          }
         }
       }
 
@@ -431,7 +458,6 @@ module.exports = {
 
       return socket_row
     }
-
     const gen_socket_rows = (show_via_labels, show_silk_labels) => {
       const pin_names = [
         // The pin matrix below assumes PCB is mounted with the MCU
@@ -451,7 +477,7 @@ module.exports = {
         ['P8', 'P16'],
         ['P9', 'P10'],
       ]
-      let invert_pins = (p.side == 'B' && !p.reverse_mount && !p.reversible) || (p.side == 'F' && p.reverse_mount) || (p.reverse_mount && p.reversible)
+      
       let socket_rows = '';
       for (let i = 0; i < pin_names.length; i++) {
         pin_name_left = pin_names[i][invert_pins ? 1 : 0]
@@ -532,11 +558,17 @@ module.exports = {
     )
     const traces = gen_traces()
 
+    const extra_pins = `
+      (pad 25 thru_hole circle (at ${invert_pins ? '' : '-'}5.08 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P101})
+      (pad 26 thru_hole circle (at ${invert_pins ? '' : '-'}2.54 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P102})
+      (pad 27 thru_hole circle (at 0 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P107})
+    ` 
 
     return `
           ${''/* Controller*/}
           ${common_top}
           ${socket_rows}
+          ${!p.reversible && p.include_extra_pins ? extra_pins : ''}
           ${p.reversible && p.show_instructions ? instructions : ''}
         )
 
