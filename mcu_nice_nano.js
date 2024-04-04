@@ -17,14 +17,24 @@
 //  https://nicekeyboards.com/docs/nice-nano/pinout-schematic
 //
 // Params:
+//    side: default is F for Front
+//      the side on which to place the single-side footprint and designator, either F or B
+//    reversible: default is false
+//      if true, the footprint will be placed on both sides so that the PCB can be
+//      reversible
+//    reverse_mount: default is true (MCU facing the PCB)
+//      if true, the sockets will be oriented so that the MCU faces the PCB (RAW / B+ is the
+//      top left pin). This is the most common mounting option for the nice!nano.
+//      When set to false, the pads will match the datasheet and assume the MCU faces away
+//      from the PCB (RAW / B+ is the top right pin).
+//    include_traces: default is true
+//      if true it will include traces that connect the jumper pads to the vias
+//      and the through-holes for the MCU
 //    only_required_jumpers: default is false
 //      if true, it will only place jumpers on the first 4 rows of pins, which can't be
 //      reversed in firmware, i.e. RAW and P1, GND and P0, GND and RST, GND and VCC.
 //    use_rectangular_jumpers: default is false
 //      if true, it will replace chevron-style jumpers with rectangual pads
-//    include_traces: default is true
-//      if true it will include traces that connect the jumper pads to the vias
-//      and the through-holes for the MCU
 //    via_size: default is 0.8
 //      allows to define the size of the via. Not recommended below 0.56 (JLCPCB minimum),
 //      or above 0.8 (KiCad default), to avoid overlap or DRC errors.
@@ -44,6 +54,9 @@
 //  - Add ability to use rectangular jumpers instead of chevron-style
 //  - Add ability to control via size, to free up space for routing if needed
 //  - Add ability to only have required jumpers and let the rest be handled in firmware
+//  - Add single side (non-reversible) support
+//  - Add ability to mount with MCU facing towards or away from PCB
+//  - Add ability to show silkscreen labels on both sides for single side footprint
 //
 // # Placement and soldering of jumpers
 //
@@ -68,8 +81,8 @@
 //
 // # Further credits
 //
-// This footprint was created from scratch by @infused-kim, but is based on the ideas from
-// these footprints:
+// The original footprint was created from scratch by @infused-kim, but was based on the ideas from
+// these other footprints:
 //
 // https://github.com/Albert-IV/ergogen-contrib/blob/main/src/footprints/promicro_pretty.js
 // https://github.com/50an6xy06r6n/keyboard_reversible.pretty
@@ -77,16 +90,19 @@
 module.exports = {
   params: {
     designator: 'MCU',
-
-    only_required_jumpers: false,
-
-    use_rectangular_jumpers: false,
+    side: 'F',
+    reversible: true,
+    reverse_mount: false,
     include_traces: true,
+    invert_jumpers_position: false,
+    only_required_jumpers: false,
+    use_rectangular_jumpers: false,
     via_size: 0.8, // JLCPC min is 0.56 for 1-2 layer boards, KiCad defaults to 0.8
     via_drill: 0.4, // JLCPC min is 0.3 for 1-2 layer boards, KiCad defaults to 0.4
 
     show_instructions: true,
     show_silk_labels: true,
+    show_silk_labels_on_both_sides: true,
     show_via_labels: true,
 
     RAW_label: '',
@@ -249,41 +265,39 @@ module.exports = {
       const via_label_right = get_pin_label(p, pin_name_right)
 
       // These are the silkscreen labels that will be printed on the PCB.
-      // They tell us the orientation if the controller is placed with
-      // the components down, on top of the PCB and the jumpers are
-      // soldered on the opposite side than the controller, when seen on
-      // the opposite side of the controller.
-      const net_silk_front_left = via_label_left
-      const net_silk_front_right = via_label_right
-      const net_silk_back_left = via_label_right
-      const net_silk_back_right = via_label_left
+      // If the footprint is reversible, they will be aligned with the pins
+      // on the opposite side of where the MCU board is mounted.
+      const net_silk_front_left = (p.reversible && (row_num < 4 || !p.only_required_jumpers) ? via_label_right : via_label_left)
+      const net_silk_front_right = (p.reversible && (row_num < 4 || !p.only_required_jumpers) ? via_label_left : via_label_right)
+      const net_silk_back_left = (p.reversible && (row_num < 4 || !p.only_required_jumpers) ? via_label_right : via_label_left)
+      const net_silk_back_right = (p.reversible && (row_num < 4 || !p.only_required_jumpers) ? via_label_left : via_label_right)
 
       let socket_row_base = `
         ${''/* Socket Holes */}
-        (pad ${socket_hole_num_left} thru_hole circle (at -7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${row_num < 4 || !p.only_required_jumpers ? p.local_net(socket_hole_num_left).str : net_left})
-        (pad ${socket_hole_num_right} thru_hole circle (at 7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${row_num < 4 || !p.only_required_jumpers ? p.local_net(socket_hole_num_right).str : net_right})
+        (pad ${socket_hole_num_left} thru_hole circle (at -7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? p.local_net(socket_hole_num_left).str : net_left})
+        (pad ${socket_hole_num_right} thru_hole circle (at 7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? p.local_net(socket_hole_num_right).str : net_right})
       `
       let socket_row_vias = `
         ${''/* Inside VIAS */}
-        (pad ${via_num_right} thru_hole circle (at 3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${net_right})
-        (pad ${via_num_left} thru_hole circle (at -3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${net_left})
+        (pad ${via_num_right} thru_hole circle (at 3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${p.reverse_mount ? net_right : net_left})
+        (pad ${via_num_left} thru_hole circle (at -3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${p.reverse_mount ? net_left : net_right})
       `
 
       let socket_row_rectangular_jumpers = `
         ${''/* Jumper Pads - Front Left */}
         (pad ${socket_hole_num_left} smd rect (at -5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_left).str})
-        (pad ${via_num_left} smd rect (at -4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${net_left})
+        (pad ${via_num_left} smd rect (at -4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_left : net_right})
 
         ${''/* Jumper Pads - Front Right */}
-        (pad ${via_num_right} smd rect (at 4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${net_right})
+        (pad ${via_num_right} smd rect (at 4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_right : net_left})
         (pad ${socket_hole_num_left} smd rect (at 5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_right).str})
 
         ${''/* Jumper Pads - Back Left */}
         (pad ${socket_hole_num_left} smd rect (at -5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_left).str})
-        (pad ${via_num_right} smd rect (at -4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${net_right})
+        (pad ${via_num_right} smd rect (at -4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_right : net_left})
 
         ${''/* Jumper Pads - Back Right */}
-        (pad ${via_num_left} smd rect (at 4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${net_left})
+        (pad ${via_num_left} smd rect (at 4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_left : net_right})
         (pad ${socket_hole_num_left} smd rect (at 5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_right).str})
         `
 
@@ -297,7 +311,7 @@ module.exports = {
                 (xy -0.5 -0.625) (xy -0.25 -0.625) (xy 0.25 0) (xy -0.25 0.625) (xy -0.5 0.625)
             ) (width 0))
           ))
-          (pad ${via_num_left} smd custom (at -4.775 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${net_left}
+          (pad ${via_num_left} smd custom (at -4.775 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_left : net_right}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -307,7 +321,7 @@ module.exports = {
           ))
 
           ${''/* Jumper Pads - Front Right */}
-          (pad ${via_num_right} smd custom (at 4.775 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${net_right}
+          (pad ${via_num_right} smd custom (at 4.775 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_right : net_left}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -334,7 +348,7 @@ module.exports = {
             ) (width 0))
           ))
 
-          (pad ${via_num_right} smd custom (at -4.775 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${net_right}
+          (pad ${via_num_right} smd custom (at -4.775 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_right : net_left}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -344,7 +358,7 @@ module.exports = {
           ))
 
           ${''/* Jumper Pads - Back Right */}
-          (pad ${via_num_left} smd custom (at 4.775 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${net_left}
+          (pad ${via_num_left} smd custom (at 4.775 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_left : net_right}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -362,7 +376,7 @@ module.exports = {
           ))
         `
       let socket_row = socket_row_base;
-      if (row_num < 4 || !p.only_required_jumpers) {
+      if (p.reversible && (row_num < 4 || !p.only_required_jumpers)) {
         socket_row += socket_row_vias;
         if (p.use_rectangular_jumpers) {
           socket_row += socket_row_rectangular_jumpers
@@ -371,27 +385,31 @@ module.exports = {
         }
       }
       if (show_silk_labels == true) {
-        socket_row += `
-
-            ${''/* Silkscreen Labels - Front */}
-            (fp_text user ${net_silk_front_left} (at -${row_num < 4 || !p.only_required_jumpers ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
-              (effects (font (size 1 1) (thickness 0.15)) (justify left))
-            )
-            (fp_text user ${net_silk_front_right} (at ${row_num < 4 || !p.only_required_jumpers ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
-              (effects (font (size 1 1) (thickness 0.15)) (justify right))
-            )
-
-            ${''/* Silkscreen Labels - Back */}
-            (fp_text user ${net_silk_back_left} (at -${row_num < 4 || !p.only_required_jumpers ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
-              (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
-            )
-            (fp_text user ${net_silk_back_right} (at ${row_num < 4 || !p.only_required_jumpers ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
-              (effects (font (size 1 1) (thickness 0.15)) (justify left mirror))
-            )
+        if(p.reversible || p.show_silk_labels_on_both_sides || p.side == 'F') {
+          socket_row += `
+              ${''/* Silkscreen Labels - Front */}
+              (fp_text user ${net_silk_front_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
+                (effects (font (size 1 1) (thickness 0.15)) (justify left))
+              )
+              (fp_text user ${net_silk_front_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
+                (effects (font (size 1 1) (thickness 0.15)) (justify right))
+              )
           `
+        }
+        if(p.reversible || p.show_silk_labels_on_both_sides || p.side == 'B') {
+          socket_row += `
+              ${''/* Silkscreen Labels - Back */}
+              (fp_text user ${net_silk_back_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
+                (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
+              )
+              (fp_text user ${net_silk_back_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
+                (effects (font (size 1 1) (thickness 0.15)) (justify left mirror))
+              )
+            `
+        }
       }
 
-      if (show_via_labels && (row_num < 4 || !p.only_required_jumpers)) {
+      if (show_via_labels && (p.reversible && (row_num < 4 || !p.only_required_jumpers))) {
         socket_row += `
             ${''/* Via Labels - Front */}
             (fp_text user ${via_label_left} (at -3.262 ${-13.5 + row_offset_y} ${p.rot}) (layer F.Fab)
@@ -416,6 +434,10 @@ module.exports = {
 
     const gen_socket_rows = (show_via_labels, show_silk_labels) => {
       const pin_names = [
+        // The pin matrix below assumes PCB is mounted with the MCU
+        // facing away from the PCB (reverse_mount = false) on the
+        // Front side. It should be inverted for reverse_mount = true
+        // or when mounted on teh Back
         ['P1', 'RAW'],
         ['P0', 'GND'],
         ['GND', 'RST'],
@@ -429,10 +451,11 @@ module.exports = {
         ['P8', 'P16'],
         ['P9', 'P10'],
       ]
+      let invert_pins = (p.side == 'B' && !p.reverse_mount && !p.reversible) || (p.side == 'F' && p.reverse_mount) || (p.reverse_mount && p.reversible)
       let socket_rows = '';
       for (let i = 0; i < pin_names.length; i++) {
-        pin_name_left = pin_names[i][0]
-        pin_name_right = pin_names[i][1]
+        pin_name_left = pin_names[i][invert_pins ? 1 : 0]
+        pin_name_right = pin_names[i][invert_pins ? 0 : 1]
 
         const socket_row = gen_socket_row(
           i, pin_name_left, pin_name_right,
@@ -441,7 +464,36 @@ module.exports = {
 
         socket_rows += socket_row
       }
-
+      // Socket silkscreen
+      // P1 / D1 / P0.06 is marked according to orientation
+      if (show_silk_labels == true) {
+        if(p.reversible || p.show_silk_labels_on_both_sides || p.side == 'F') {
+          socket_rows += `
+            (fp_line (start 6.29 -14.03) (end 8.95 -14.03) (layer F.SilkS) (width 0.12))
+            (fp_line (start 6.29 -14.03) (end 6.29 16.57) (layer F.SilkS) (width 0.12))
+            (fp_line (start 6.29 16.57) (end 8.95 16.57) (layer F.SilkS) (width 0.12))
+            (fp_line (start -6.29 -14.03) (end -6.29 16.57) (layer F.SilkS) (width 0.12))
+            (fp_line (start 8.95 -14.03) (end 8.95 16.57) (layer F.SilkS) (width 0.12))
+            (fp_line (start -8.95 -14.03) (end -6.29 -14.03) (layer F.SilkS) (width 0.12))
+            (fp_line (start -8.95 -14.03) (end -8.95 16.57) (layer F.SilkS) (width 0.12))
+            (fp_line (start -8.95 16.57) (end -6.29 16.57) (layer F.SilkS) (width 0.12))
+            (fp_line (start ${invert_pins ? '' : '-'}6.29 -11.43) (end ${invert_pins ? '' : '-'}8.95 -11.43) (layer F.SilkS) (width 0.12))
+          `
+        }
+        if(p.reversible || p.show_silk_labels_on_both_sides || p.side == 'B') {
+          socket_rows += `
+            (fp_line (start -6.29 -14.03) (end -8.95 -14.03) (layer B.SilkS) (width 0.12))
+            (fp_line (start -6.29 -14.03) (end -6.29 16.57) (layer B.SilkS) (width 0.12))
+            (fp_line (start -6.29 16.57) (end -8.95 16.57) (layer B.SilkS) (width 0.12))
+            (fp_line (start -8.95 -14.03) (end -8.95 16.57) (layer B.SilkS) (width 0.12))
+            (fp_line (start 8.95 -14.03) (end 6.29 -14.03) (layer B.SilkS) (width 0.12))
+            (fp_line (start 8.95 -14.03) (end 8.95 16.57) (layer B.SilkS) (width 0.12))
+            (fp_line (start 8.95 16.57) (end 6.29 16.57) (layer B.SilkS) (width 0.12))
+            (fp_line (start 6.29 -14.03) (end 6.29 16.57) (layer B.SilkS) (width 0.12))
+            (fp_line (start ${invert_pins ? (p.reversible ? '-' : '') : (p.reversible ? '' : '-')}8.95 -11.43) (end ${invert_pins ? (p.reversible ? '-' : '') : (p.reversible ? '' : '-')}6.29 -11.43) (layer B.SilkS) (width 0.12))
+          `
+        }
+      }
       return socket_rows
     }
 
@@ -449,50 +501,28 @@ module.exports = {
         (module "ceoloide:mcu_nice_nano" (layer F.Cu) (tedit 6451A4F1)
           (attr virtual)
           ${p.at /* parametric position */}
-          (fp_text reference "${p.ref}" (at 0 -15 ${p.rot}) (layer F.SilkS) ${p.ref_hide}
+          (fp_text reference "${p.ref}" (at 0 -15 ${p.rot}) (layer ${p.side}.SilkS) ${p.ref_hide}
             (effects (font (size 1 1) (thickness 0.15)))
           )
 
-          ${''/* USB Socket Outline */}
+          ${''/* USB socket outline */}
           (fp_line (start 3.556 -18.034) (end 3.556 -16.51) (layer Dwgs.User) (width 0.15))
           (fp_line (start -3.81 -16.51) (end -3.81 -18.034) (layer Dwgs.User) (width 0.15))
           (fp_line (start -3.81 -18.034) (end 3.556 -18.034) (layer Dwgs.User) (width 0.15))
 
 
-          ${''/* Controller top part outline */}
-          (fp_line (start -8.89 -16.51) (end 8.89 -16.51) (layer F.Fab) (width 0.12))
-          (fp_line (start -8.89 -16.51) (end -8.89 -14) (layer F.Fab) (width 0.12))
-          (fp_line (start 8.89 -16.51) (end 8.89 -14) (layer F.Fab) (width 0.12))
-          (fp_line (start -8.89 -16.5) (end -8.89 -13.99) (layer B.Fab) (width 0.12))
-          (fp_line (start 8.89 -16.51) (end 8.89 -14) (layer B.Fab) (width 0.12))
-          (fp_line (start -8.89 -16.51) (end 8.89 -16.51) (layer B.Fab) (width 0.12))
-
-          ${''/* Socket outlines */}
-          (fp_line (start 6.29 -11.43) (end 8.95 -11.43) (layer F.SilkS) (width 0.12))
-          (fp_line (start 6.29 -14.03) (end 8.95 -14.03) (layer F.SilkS) (width 0.12))
-          (fp_line (start 6.29 -14.03) (end 6.29 16.57) (layer F.SilkS) (width 0.12))
-          (fp_line (start 6.29 16.57) (end 8.95 16.57) (layer F.SilkS) (width 0.12))
-          (fp_line (start 8.95 -14.03) (end 8.95 16.57) (layer F.SilkS) (width 0.12))
-          (fp_line (start -8.95 -14.03) (end -6.29 -14.03) (layer F.SilkS) (width 0.12))
-          (fp_line (start -8.95 -14.03) (end -8.95 16.57) (layer F.SilkS) (width 0.12))
-          (fp_line (start -8.95 16.57) (end -6.29 16.57) (layer F.SilkS) (width 0.12))
-          (fp_line (start -6.29 -14.03) (end -6.29 16.57) (layer F.SilkS) (width 0.12))
-          (fp_line (start -8.95 -11.43) (end -6.29 -11.43) (layer B.SilkS) (width 0.12))
-          (fp_line (start -6.29 -14.03) (end -8.95 -14.03) (layer B.SilkS) (width 0.12))
-          (fp_line (start -6.29 -14.03) (end -6.29 16.57) (layer B.SilkS) (width 0.12))
-          (fp_line (start -6.29 16.57) (end -8.95 16.57) (layer B.SilkS) (width 0.12))
-          (fp_line (start -8.95 -14.03) (end -8.95 16.57) (layer B.SilkS) (width 0.12))
-          (fp_line (start 8.95 -14.03) (end 6.29 -14.03) (layer B.SilkS) (width 0.12))
-          (fp_line (start 8.95 -14.03) (end 8.95 16.57) (layer B.SilkS) (width 0.12))
-          (fp_line (start 8.95 16.57) (end 6.29 16.57) (layer B.SilkS) (width 0.12))
-          (fp_line (start 6.29 -14.03) (end 6.29 16.57) (layer B.SilkS) (width 0.12))
+          ${''/* Controller outline */}
+          (fp_line (start -8.89 -16.51) (end 8.89 -16.51) (layer Dwgs.User) (width 0.15))
+          (fp_line (start -8.89 -16.51) (end -8.89 16.57) (layer Dwgs.User) (width 0.15))
+          (fp_line (start 8.89 -16.51) (end 8.89 16.57) (layer Dwgs.User) (width 0.15))
+          (fp_line (start -8.89 16.57) (end 8.89 16.57) (layer Dwgs.User) (width 0.15))
       `;
 
     const instructions = `
-          (fp_text user "R. Side - Jumper Here" (at 0 -15.245 ${p.rot}) (layer F.SilkS)
+          (fp_text user "Right Side Jumpers" (at 0 -15.245 ${p.rot}) (layer F.SilkS)
             (effects (font (size 1 1) (thickness 0.15)))
           )
-          (fp_text user "L. Side - Jumper Here" (at 0 -15.245 ${p.rot}) (layer B.SilkS)
+          (fp_text user "Left Side Jumpers" (at 0 -15.245 ${p.rot}) (layer B.SilkS)
             (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
           )
     `
@@ -507,11 +537,11 @@ module.exports = {
           ${''/* Controller*/}
           ${common_top}
           ${socket_rows}
-          ${p.show_instructions ? instructions : ''}
+          ${p.reversible && p.show_instructions ? instructions : ''}
         )
 
         ${''/* Traces */}
-        ${p.include_traces ? traces : ''}
+        ${p.reversible && p.include_traces ? traces : ''}
     `;
   }
 }
