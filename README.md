@@ -4,6 +4,7 @@
 >
 > These footprints have only been partially tested and are still under active development. Use them at your own risk.
 
+1. [How to use these footprints in Ergogen](#how-to-use-these-footprints-in-ergogen)
 1. [Installation](#installation)
     1. [How to add the footprints as a local git submodule](#how-to-add-the-footprints-as-a-local-git-submodule)
     1. [How to add the footprints as a GitHub Codespaces git submodule](#how-to-add-the-footprints-as-a-github-codespaces-git-submodule)
