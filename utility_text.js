@@ -16,7 +16,6 @@
 //      the side on which to place the single-side footprint and designator, either F or B
 //    layer: default is 'SilkS' (Silkscreen layer)
 //      the layer where the text will be placed, useful to have copper + soldermask texts
-//      use ()
 //    reversible: default is false
 //      adds a mirrored text on the opposite side of the board with the same style and text
 //    thickness: default is 0.15
