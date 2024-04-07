@@ -7,8 +7,11 @@
 // Author: @infused-kim + @ceoloide improvements
 //
 // Description:
-//  A reversible footprint for the nice!nano (or any pro-micro compatible
+//  A single-side or reversible footprint for the nice!nano (or any pro-micro compatible
 //  controller) that uses jumpers instead of two socket rows to be reversible.
+//
+//  Note that the extra pins are *ONLY* compatible with nice!nano boards and not with
+//  clones like the Supermini, which has pins in a slightly different position.
 //
 //  This is a re-implementation of the promicro_pretty footprint made popular
 //  by @benvallack.
@@ -60,28 +63,17 @@
 //  - Add single side (non-reversible) support
 //  - Add ability to mount with MCU facing towards or away from PCB
 //  - Add ability to show silkscreen labels on both sides for single side footprint
-//  - Add extra pins (P1.01, P1.02, P1.07) when footprint is single-side
+//  - Add extra pins (P1.01, P1.02, P1.07) when footprint is single-side or reversible
+//    (only required jumpers)
 //
 // # Placement and soldering of jumpers
 //
-// The footprint is meant to be used with a nice!nano (or any other pro micro
-// compatible board) that is placed on the top side of the PCB with the
-// components facing down.
-//
-// This means when you look down at it, the RAW pin is in the upper left
-// corner and the 006 pin in the upper right corner.
-//
-// To make it work in this configuration, you solder the jumpers on the
-// OPPOSITE side.
-//
-// The silkscreen labels are displayed on the opposite side of the MCU, when
-// it's facing down. This is so that one can solder all components and jumpers
-// on the back side, and be able to read the correct labels to do tests.
-//
-// Due to the way how this footprint works, you can also place it with the
-// components facing up or even at the bottom. You just need to make sure you
-// solder the jumpers on the correct side. Remember that the silkscreen matches
-// what the jumpers enable for every through-hole.
+// The reversible footprint is meant to be used with jumpers on the
+// OPPOSITE side of where the nice!nano (or pro-micro compatible board) is
+// installed. The silkscreen labels will also match the board when read on
+// the opposite side. This is to have all jumpers and components to solder on
+// the same side, and be able to read the correct labels of the MCU to do
+// tests with a multimeter.
 //
 // # Further credits
 //
@@ -402,14 +394,14 @@ module.exports = {
       if (show_silk_labels == true) {
         if(p.reversible || p.show_silk_labels_on_both_sides || p.side == 'F') {
           // Silkscreen labels - front
-          if(p.reversible || row_num != 10 || invert_pins) {
+          if(row_num != 10 || (!p.include_extra_pins && p.reversible) || (invert_pins && !p.reversible)) {
             socket_row += `
                 (fp_text user ${net_silk_front_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
                   (effects (font (size 1 1) (thickness 0.15)) (justify left))
                 )
             `
           }
-          if(p.reversible || row_num != 10 || !invert_pins) {
+          if(row_num != 10 || (!p.include_extra_pins && p.reversible) || (!invert_pins && !p.reversible)) {
             socket_row += `
                 (fp_text user ${net_silk_front_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
                   (effects (font (size 1 1) (thickness 0.15)) (justify right))
@@ -417,16 +409,16 @@ module.exports = {
             `
           }
         }
-        if(p.reversible || p.show_silk_labels_on_both_sides || p.side == 'B') {
-          // Silkscreen labels - front
-          if(p.reversible || row_num != 10 || invert_pins) {
+        if(p.reversible && !p.include_extra_pins || p.show_silk_labels_on_both_sides || p.side == 'B') {
+          // Silkscreen labels - back
+          if(!p.include_extra_pins && (p.reversible || row_num != 10 || invert_pins)) {
             socket_row += `
                 (fp_text user ${net_silk_back_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
                   (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
                 )
             `
           }
-          if(p.reversible || row_num != 10 || !invert_pins) {
+          if(!p.include_extra_pins && (p.reversible || row_num != 10 || !invert_pins)) {
             socket_row += `
                 (fp_text user ${net_silk_back_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
                   (effects (font (size 1 1) (thickness 0.15)) (justify left mirror))
@@ -562,13 +554,18 @@ module.exports = {
       (pad 25 thru_hole circle (at ${invert_pins ? '' : '-'}5.08 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P101})
       (pad 26 thru_hole circle (at ${invert_pins ? '' : '-'}2.54 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P102})
       (pad 27 thru_hole circle (at 0 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P107})
-    ` 
+    `
+    const extra_pins_reversible = `
+      (pad 28 thru_hole circle (at ${invert_pins ? '-' : ''}5.08 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P101})
+      (pad 29 thru_hole circle (at ${invert_pins ? '-' : ''}2.54 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P102})
+    `
 
     return `
           ${''/* Controller*/}
           ${common_top}
           ${socket_rows}
-          ${!p.reversible && p.include_extra_pins ? extra_pins : ''}
+          ${p.include_extra_pins && (!p.reversible || (p.reversible && p.only_required_jumpers)) ? extra_pins : ''}
+          ${p.include_extra_pins && p.reversible && p.only_required_jumpers ? extra_pins_reversible : ''}
           ${p.reversible && p.show_instructions ? instructions : ''}
         )
 
