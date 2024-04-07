@@ -18,11 +18,18 @@
 //      the layer where the text will be placed, useful to have copper + soldermask texts
 //      use ()
 //    reversible: default is false
-//      Adds a mirrored text on the opposite side of the board
+//      adds a mirrored text on the opposite side of the board with the same style and text
 //    thickness: default is 0.15
-//      The thickness of the stroke for the text
-//    size: default is 1
-//      The text size both vertical and horizontal
+//      set the thickness of the stroke for the text (only applicable to the default font)
+//    width: default is 1
+//      set the text width
+//    height: default is 1
+//      set the text height
+//    mirror: default is false
+//      mirror the text, useful when text is added to the back. A reversible text is mirrored
+//      by default on the backside.
+//    knockout: default is false
+//      add the knockout effect to the text
 //    bold: default is false
 //      adds bold effect to the text
 //    italic: default is false
@@ -37,6 +44,7 @@
 // @ceoloide's improvements:
 //  - Add ability to set text on both sides
 //  - Add ability to adjust font thickness and size
+//  - Add mirror and knockout effects
 //
 // @diseltravis's improvements:
 //  - Add option to customizer the font face
@@ -50,7 +58,10 @@ module.exports = {
     layer: 'SilkS',
     reversible: false,
     thickness: 0.15,
-    size: 1,
+    height: 1,
+    width: 1,
+    mirror: false,
+    knockout: false,
     bold: false,
     italic: false,
     align: '',
@@ -58,24 +69,33 @@ module.exports = {
     text: ''
   },
   body: p => {
-    const generate_text = (side, layer, mirror, thickness, size, text, face, bold, italic) => {
+    const generate_text = (side, layer, mirror, thickness, height, width, text, face, bold, italic, knockout) => {
       let justify = '';
       if (p.align || (mirror && side != p.side)) {
         justify = ` (justify ${p.align}${mirror && side != p.side ? ' mirror' : ''})`;
       }
       const gr_text = `
-      (gr_text "${text}" ${p.at} (layer ${side}.${layer})
-        (effects (font${face && face.length ? " (face \"" + face + "\")" : ""} (size ${size} ${size}) (thickness ${thickness})${bold ? " (bold yes)" : ""}${italic ? " (italic yes)" : ""})${justify})
+      (gr_text "${text}"
+        ${p.at}
+        (layer ${side}.${layer}${knockout ? ' knockout' : ''})
+        (effects
+          (font ${face && face.length ? '(face "' + face + '")' : ''}
+            (size ${height} ${width})
+            (thickness ${thickness})
+            ${bold ? '(bold yes)' : ''}
+            ${italic ? '(italic yes)' : ''})
+            ${justify}
+          )
       )`;
       return gr_text;
     };
 
     let final = '';
     if (p.reversible) {
-      final += generate_text(p.side, p.layer, false, p.thickness, p.size, p.text, p.face, p.bold, p.italic);
-      final += generate_text((p.side == 'F' ? 'B' : 'F'), p.layer, true, p.thickness, p.size, p.text, p.face, p.bold, p.italic);
+      final += generate_text(p.side, p.layer, false, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
+      final += generate_text((p.side == 'F' ? 'B' : 'F'), p.layer, true, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic);
     } else {
-      final += generate_text(p.side, p.layer, false, p.thickness, p.size, p.text, p.face, p.bold, p.italic);
+      final += generate_text(p.side, p.layer, p.mirror, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
     }
     return final;
   }
