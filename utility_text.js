@@ -69,22 +69,19 @@ module.exports = {
     text: ''
   },
   body: p => {
-    const generate_text = (side, layer, mirror, thickness, height, width, text, face, bold, italic, knockout) => {
-      let justify = '';
-      if (p.align || (mirror && side != p.side)) {
-        justify = ` (justify ${p.align}${mirror && side != p.side ? ' mirror' : ''})`;
-      }
+    const generate_text = (side, layer, align, mirror, thickness, height, width, text, face, bold, italic, knockout) => {
+      let justify = `(justify ${align}${mirror ? ' mirror' : ''})`;
       const gr_text = `
       (gr_text "${text}"
         ${p.at}
         (layer ${side}.${layer}${knockout ? ' knockout' : ''})
         (effects
-          (font ${face && face.length ? '(face "' + face + '")' : ''}
+          (font ${face != '' ? '(face "' + face + '")' : ''}
             (size ${height} ${width})
             (thickness ${thickness})
             ${bold ? '(bold yes)' : ''}
             ${italic ? '(italic yes)' : ''})
-            ${justify}
+            ${align != '' || mirror ? justify : ''}
           )
       )`;
       return gr_text;
@@ -92,10 +89,10 @@ module.exports = {
 
     let final = '';
     if (p.reversible) {
-      final += generate_text(p.side, p.layer, false, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
-      final += generate_text((p.side == 'F' ? 'B' : 'F'), p.layer, true, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic);
+      final += generate_text('F', p.layer, p.align, false, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
+      final += generate_text('B', p.layer, p.align, true, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
     } else {
-      final += generate_text(p.side, p.layer, p.mirror, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
+      final += generate_text(p.side, p.layer, p.align, p.mirror, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
     }
     return final;
   }
