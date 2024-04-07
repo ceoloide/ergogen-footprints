@@ -25,7 +25,7 @@
 //      set the text width
 //    height: default is 1
 //      set the text height
-//    mirror: default is false
+//    mirrored: default is false
 //      mirror the text, useful when text is added to the back. A reversible text is mirrored
 //      by default on the backside.
 //    knockout: default is false
@@ -44,7 +44,7 @@
 // @ceoloide's improvements:
 //  - Add ability to set text on both sides
 //  - Add ability to adjust font thickness and size
-//  - Add mirror and knockout effects
+//  - Add mirrored and knockout effects
 //
 // @diseltravis's improvements:
 //  - Add option to customizer the font face
@@ -60,7 +60,7 @@ module.exports = {
     thickness: 0.15,
     height: 1,
     width: 1,
-    mirror: false,
+    mirrored: false,
     knockout: false,
     bold: false,
     italic: false,
@@ -69,8 +69,8 @@ module.exports = {
     text: ''
   },
   body: p => {
-    const generate_text = (side, layer, align, mirror, thickness, height, width, text, face, bold, italic, knockout) => {
-      let justify = `(justify ${align}${mirror ? ' mirror' : ''})`;
+    const generate_text = (side, layer, align, mirrored, thickness, height, width, text, face, bold, italic, knockout) => {
+      let justify = `(justify ${align}${mirrored ? ' mirror' : ''})`;
       const gr_text = `
       (gr_text "${text}"
         ${p.at}
@@ -81,7 +81,7 @@ module.exports = {
             (thickness ${thickness})
             ${bold ? '(bold yes)' : ''}
             ${italic ? '(italic yes)' : ''})
-            ${align != '' || mirror ? justify : ''}
+            ${align != '' || mirrored ? justify : ''}
           )
       )`;
       return gr_text;
@@ -92,7 +92,7 @@ module.exports = {
       final += generate_text('F', p.layer, p.align, false, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
       final += generate_text('B', p.layer, p.align, true, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
     } else {
-      final += generate_text(p.side, p.layer, p.align, p.mirror, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
+      final += generate_text(p.side, p.layer, p.align, p.mirrored, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
     }
     return final;
   }
