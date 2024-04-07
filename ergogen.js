@@ -7,7 +7,7 @@ module.exports = {
         scale: 1.0
     },
     body: p => `
-    (module "travis:ergogen" (layer "${p.side}.Cu")
+    (module "ceoloide:ergogen" (layer "${p.side}.Cu")
     ${p.at /* parametric position */}
     (attr virtual)
     (fp_text reference "${p.ref}" (at ${p.scale * 4.572} 0 0) (layer "${p.side}.${p.layer}") hide
