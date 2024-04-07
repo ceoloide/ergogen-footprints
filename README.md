@@ -14,6 +14,21 @@
 1. [How to design or modify ergogen footprints](#how-to-design-or-modify-ergogen-footprints)
 1. [Licenses and recognition](#licenses-and-recognition)
 
+## How to use these footprints in Ergogen
+
+> **Note**
+>
+> Custom footprints cannot be used in the Ergogen UI as of yet, you will need to run Ergogen on your local machine.
+
+Using custom footprints with a local Ergogen setup is relatively straightforward. You can follow the steps outlined in [this amazing guide](https://flatfootfox.com/ergogen-part4-footprints-cases/) if you want an easy tutorial.
+
+If you are already comfortable running Ergogen locally, you just need to:
+
+1. rename your Ergogen YAML file to `config.yaml`,
+1. create a `footprints` folder alongside it
+1. clone this repo into the `footprints` folder using a folder name of your choice (see instructions below)
+1. now run Ergogen by passing a folder instead of a YAML file, for example `ergogen .`
+
 ## Installation
 
 ### How to add the footprints as a local git submodule
