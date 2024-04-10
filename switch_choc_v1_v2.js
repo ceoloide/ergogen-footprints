@@ -4,7 +4,7 @@
 //
 // To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/
 //
-// Authors: @ergogen + @infused-kim improvements + @ceoloide improvements
+// Authors: @ergogen + @infused-kim, @ceoloide, @grazfather, @nxtk improvements
 //
 // Description:
 //    Kailh Choc PG1350 (v1) + Kailh Choc PG1353 (v2) reversible and hotswappable footprint.
@@ -103,6 +103,9 @@
 //
 // @grazfather's improvements:
 //  - Add support for switch 3D model
+//
+// @nxtk's improvements:
+//  - Convert `fp_arc` to a series of `fp_line` for forward KiCad 8 compatibility
 
 module.exports = {
     params: {
@@ -222,19 +225,45 @@ module.exports = {
 
         const hotswap_back = `
             ${'' /* Silkscreen outline */}
-            (fp_line (start 1.5 -8.2) (end 2 -7.7) (layer B.SilkS) (width 0.15))
-            (fp_line (start 7 -1.5) (end 7 -2) (layer B.SilkS) (width 0.15))
-            (fp_line (start -1.5 -8.2) (end 1.5 -8.2) (layer B.SilkS) (width 0.15))
-            (fp_line (start 7 -6.2) (end 2.5 -6.2) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.5 -2.2) (end 2.5 -1.5) (layer B.SilkS) (width 0.15))
-            (fp_line (start -2 -7.7) (end -1.5 -8.2) (layer B.SilkS) (width 0.15))
-            (fp_line (start -1.5 -3.7) (end 1 -3.7) (layer B.SilkS) (width 0.15))
-            (fp_line (start 7 -5.6) (end 7 -6.2) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2 -6.7) (end 2 -7.7) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.5 -1.5) (end 7 -1.5) (layer B.SilkS) (width 0.15))
-            (fp_line (start -2 -4.2) (end -1.5 -3.7) (layer B.SilkS) (width 0.15))
-            (fp_arc (start 2.499999 -6.7) (end 2 -6.690001) (angle -88.9) (layer B.SilkS) (width 0.15))
-            (fp_arc (start 0.97 -2.17) (end 2.5 -2.17) (angle -90) (layer B.SilkS) (width 0.15))
+            ${'' /* back top */}
+            (fp_line (start -1.5 -8.2) (end -2 -7.7) (layer B.SilkS) (width 0.15))
+            (fp_line (start 1.5 -8.2) (end -1.5 -8.2) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2 -7.7) (end 1.5 -8.2) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2 -7.7) (end 2 -6.78) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.52 -6.2) (end 7 -6.2) (layer B.SilkS) (width 0.15))
+            (fp_line (start 7 -6.2) (end 7 -5.6) (layer B.SilkS) (width 0.15))
+            ${''
+            /* arc
+               (fp_arc (start 2.52 -6.2) (mid 2.139878 -6.382304) (end 2 -6.78) (layer B.SilkS) (width 0.15))
+            */}
+            (fp_line (start 1.997856 -6.707729) (end 2 -6.78) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.02761 -6.566264) (end 1.997856 -6.707729) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.092964 -6.43732) (end 2.02761 -6.566264) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.189465 -6.329685) (end 2.092964 -6.43732) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.310535 -6.250694) (end 2.189465 -6.329685) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.447925 -6.205729) (end 2.310535 -6.250694) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.52 -6.2) (end 2.447925 -6.205729) (layer B.SilkS) (width 0.15))
+          
+            ${'' /* back bottom */}
+            (fp_line (start -1.5 -3.7) (end -2 -4.2) (layer B.SilkS) (width 0.15))
+            (fp_line (start 0.8 -3.7) (end -1.5 -3.7) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.5 -1.5) (end 2.5 -2.2) (layer B.SilkS) (width 0.15))
+            (fp_line (start 7 -1.5) (end 2.5 -1.5) (layer B.SilkS) (width 0.15))
+            (fp_line (start 7 -2) (end 7 -1.5) (layer B.SilkS) (width 0.15))
+            ${''
+            /* arc
+               (fp_arc (start 0.8 -3.7) (mid 1.956518 -3.312082) (end 2.5 -2.22) (layer B.SilkS) (width 0.15))
+            */}
+            (fp_line (start 0.795 -3.7) (end 1.04 -3.7) (layer B.SilkS) (width 0.15))
+            (fp_line (start 1.04 -3.7) (end 1.29 -3.66) (layer B.SilkS) (width 0.15))
+            (fp_line (start 1.29 -3.66) (end 1.53 -3.58) (layer B.SilkS) (width 0.15))
+            (fp_line (start 1.53 -3.58) (end 1.74 -3.47) (layer B.SilkS) (width 0.15))
+            (fp_line (start 1.74 -3.47) (end 1.92 -3.34) (layer B.SilkS) (width 0.15))
+            (fp_line (start 1.92 -3.34) (end 2.1 -3.17) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.1 -3.17) (end 2.25 -2.97) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.25 -2.97) (end 2.37 -2.756455) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.37 -2.756455) (end 2.460139 -2.49) (layer B.SilkS) (width 0.15))
+            (fp_line (start 2.460139 -2.49) (end 2.5 -2.22) (layer B.SilkS) (width 0.15))
 
             ${'' /* Left Pad*/}
             ${p.reversible ? hotswap_back_pad_cutoff : hotswap_back_pad_full}
@@ -248,19 +277,45 @@ module.exports = {
 
         const hotswap_front = `
             ${'' /* Silkscreen outline */}
-            (fp_line (start 2 -4.2) (end 1.5 -3.7) (layer F.SilkS) (width 0.15))
-            (fp_line (start 2 -7.7) (end 1.5 -8.2) (layer F.SilkS) (width 0.15))
+            ${'' /* front top */}
             (fp_line (start -7 -5.6) (end -7 -6.2) (layer F.SilkS) (width 0.15))
-            (fp_line (start 1.5 -3.7) (end -1 -3.7) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.5 -2.2) (end -2.5 -1.5) (layer F.SilkS) (width 0.15))
+            (fp_line (start -7 -6.2) (end -2.52 -6.2) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2 -6.78) (end -2 -7.7) (layer F.SilkS) (width 0.15))
             (fp_line (start -1.5 -8.2) (end -2 -7.7) (layer F.SilkS) (width 0.15))
             (fp_line (start 1.5 -8.2) (end -1.5 -8.2) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.5 -1.5) (end -7 -1.5) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2 -6.7) (end -2 -7.7) (layer F.SilkS) (width 0.15))
+            (fp_line (start 2 -7.7) (end 1.5 -8.2) (layer F.SilkS) (width 0.15))
+            ${''
+            /* arc
+               (fp_arc (start -2 -6.78) (mid -2.139878 -6.382304) (end -2.52 -6.2) (layer F.SilkS) (width 0.15))
+            */}
+            (fp_line (start -2.447925 -6.205729) (end -2.52 -6.2) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2.310535 -6.250694) (end -2.447925 -6.205729) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2.189465 -6.329685) (end -2.310535 -6.250694) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2.092964 -6.43732) (end -2.189465 -6.329685) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2.02761 -6.566264) (end -2.092964 -6.43732) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2 -6.78) (end -1.997856 -6.707729) (layer F.SilkS) (width 0.15))
+            (fp_line (start -1.997856 -6.707729) (end -2.02761 -6.566264) (layer F.SilkS) (width 0.15))
+          
+            ${'' /* front bottom */}
             (fp_line (start -7 -1.5) (end -7 -2) (layer F.SilkS) (width 0.15))
-            (fp_line (start -7 -6.2) (end -2.5 -6.2) (layer F.SilkS) (width 0.15))
-            (fp_arc (start -0.91 -2.11) (end -0.8 -3.7) (angle -90) (layer F.SilkS) (width 0.15))
-            (fp_arc (start -2.55 -6.75) (end -2.52 -6.2) (angle -90) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2.5 -1.5) (end -7 -1.5) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2.5 -2.2) (end -2.5 -1.5) (layer F.SilkS) (width 0.15))
+            (fp_line (start 1.5 -3.7) (end -0.8 -3.7) (layer F.SilkS) (width 0.15))
+            (fp_line (start 2 -4.2) (end 1.5 -3.7) (layer F.SilkS) (width 0.15))
+            ${''
+            /* arc
+               (fp_arc (start -2.5 -2.22) (mid -1.956518 -3.312082) (end -0.8 -3.7) (layer F.SilkS) (width 0.15))
+            */}
+            (fp_line (start -2.5 -2.22) (end -2.460139 -2.49) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2.460139 -2.49) (end -2.37 -2.756455) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2.37 -2.756455) (end -2.25 -2.97) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2.25 -2.97) (end -2.1 -3.17) (layer F.SilkS) (width 0.15))
+            (fp_line (start -2.1 -3.17) (end -1.92 -3.34) (layer F.SilkS) (width 0.15))
+            (fp_line (start -1.92 -3.34) (end -1.74 -3.47) (layer F.SilkS) (width 0.15))
+            (fp_line (start -1.74 -3.47) (end -1.53 -3.58) (layer F.SilkS) (width 0.15))
+            (fp_line (start -1.53 -3.58) (end -1.29 -3.66) (layer F.SilkS) (width 0.15))
+            (fp_line (start -1.29 -3.66) (end -1.04 -3.7) (layer F.SilkS) (width 0.15))
+            (fp_line (start -1.04 -3.7) (end -0.795 -3.7) (layer F.SilkS) (width 0.15))
 
             ${'' /* Right Pad (cut off) */}
             ${p.reversible ? hotswap_front_pad_cutoff : hotswap_front_pad_full}
