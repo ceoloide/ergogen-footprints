@@ -99,40 +99,40 @@ module.exports = {
       polygon_pts += `(xy ${p.points[i][0]} ${p.points[i][1]}) `
     }
     return `
-    (zone
-      (net ${p.net.index})
-      (net_name "${p.net.name}")
-      (locked ${p.locked ? 'yes' : 'no'})
-      (layers "${p.side}.Cu")
-      ${p.name ? '(name "' + p.name + '")' : ''}
-      (hatch edge 0.5)
-      ${p.prority > 0 ? '(priority ' + p.priority + ')' : ''}
-      (connect_pads ${p.connect_pads}
-        (clearance ${p.pad_clearance})
-      )
-      (min_thickness ${p.min_thickness})
-      (filled_areas_thickness no)
-      (fill yes
-        (thermal_gap ${p.thermal_gap})
-        (thermal_bridge_width ${p.thermal_bridge_width})
-        ${p.corner_smoothing != '' ? '(smoothing ' + p.corner_smoothing + ')' : ''}
-        ${p.corner_smoothing != '' ? '(radius ' + p.smoothing_radius + ')' : ''}
-        ${p.remove_islands == 'always' ? '' : '(island_removal_mode ' + (p.remove_islands == 'never' ? 1 : 2) + ')'}
-        ${p.remove_islands == 'always' ? '' : '(island_area_min ' + p.min_island_size + ')'}
-        ${p.fill_type == 'solid' ? '' : '(hatch_thickness 1)'}
-        ${p.fill_type == 'solid' ? '' : '(hatch_gap 1.5)'}
-        ${p.fill_type == 'solid' ? '' : '(hatch_orientation 0)'}
-        ${p.fill_type == 'solid' || p.hatch_smoothing_level < 1 ? '' : '(hatch_smoothing_level ' + p.hatch_smoothing_level + ')'}
-        ${p.fill_type == 'solid' || p.hatch_smoothing_level < 1 ? '' : '(hatch_smoothing_value ' + p.hatch_smoothing_value + ')'}
-        ${p.fill_type == 'solid' ? '' : '(hatch_border_algorithm hatch_thickness)'}
-        ${p.fill_type == 'solid' ? '' : '(hatch_min_hole_area 0.3)'}
-      )
-      (polygon
-        (pts
-          ${polygon_pts}
-        )
+  (zone
+    (net ${p.net.index})
+    (net_name "${p.net.name}")
+    (locked ${p.locked ? 'yes' : 'no'})
+    (layers "${p.side}.Cu")
+    ${p.name ? '(name "' + p.name + '")' : ''}
+    (hatch edge 0.5)
+    ${p.prority > 0 ? '(priority ' + p.priority + ')' : ''}
+    (connect_pads ${p.connect_pads}
+      (clearance ${p.pad_clearance})
+    )
+    (min_thickness ${p.min_thickness})
+    (filled_areas_thickness no)
+    (fill yes
+      (thermal_gap ${p.thermal_gap})
+      (thermal_bridge_width ${p.thermal_bridge_width})
+      ${p.corner_smoothing != '' ? '(smoothing ' + p.corner_smoothing + ')' : ''}
+      ${p.corner_smoothing != '' ? '(radius ' + p.smoothing_radius + ')' : ''}
+      ${p.remove_islands == 'always' ? '' : '(island_removal_mode ' + (p.remove_islands == 'never' ? 1 : 2) + ')'}
+      ${p.remove_islands == 'always' ? '' : '(island_area_min ' + p.min_island_size + ')'}
+      ${p.fill_type == 'solid' ? '' : '(hatch_thickness 1)'}
+      ${p.fill_type == 'solid' ? '' : '(hatch_gap 1.5)'}
+      ${p.fill_type == 'solid' ? '' : '(hatch_orientation 0)'}
+      ${p.fill_type == 'solid' || p.hatch_smoothing_level < 1 ? '' : '(hatch_smoothing_level ' + p.hatch_smoothing_level + ')'}
+      ${p.fill_type == 'solid' || p.hatch_smoothing_level < 1 ? '' : '(hatch_smoothing_value ' + p.hatch_smoothing_value + ')'}
+      ${p.fill_type == 'solid' ? '' : '(hatch_border_algorithm hatch_thickness)'}
+      ${p.fill_type == 'solid' ? '' : '(hatch_min_hole_area 0.3)'}
+    )
+    (polygon
+      (pts
+        ${polygon_pts}
       )
     )
+  )
     `
   }
 }
