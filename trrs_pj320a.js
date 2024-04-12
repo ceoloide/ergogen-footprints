@@ -60,6 +60,7 @@
 //  - Add oval pad when symmetrical
 //  - Adjust positioning to be symmetrical
 //  - Revamp pinout and nets
+//  - Upgrade to KiCad 8
 
 module.exports = {
   params: {
@@ -84,74 +85,75 @@ module.exports = {
     }
 
     const standard_opening = `
-      (module "ceoloide:${footprint_name}" (layer ${p.side}.Cu) (tedit 5970F8E5)
-
-      ${p.at}   
-
-      ${''}
-      (fp_text reference "${p.ref}" (at 0 14.2 ${p.r}) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1 1) (thickness 0.153))))
-      (fp_text value TRRS-PJ-320A-dual (at 0 -5.6 ${p.r}) (layer ${p.side}.Fab) (effects (font (size 1 1) (thickness 0.153))))
-      `
+  (footprint "ceoloide:${footprint_name}"
+    (layer "${p.side}.Cu")
+    ${p.at}
+    (property "Reference" "${p.ref}"
+      (at 0 14.2 ${p.r})
+      (layer "${p.side}.SilkS")
+      ${p.ref_hide}
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    `
     function corner_marks(offset_x) {
       return `
-        (fp_line (start ${2.8 + offset_x} -2) (end ${-2.8 + offset_x} -2) (layer Dwgs.User) (width 0.15))
-        (fp_line (start ${-2.8 + offset_x} 0) (end ${-2.8 + offset_x} -2) (layer Dwgs.User) (width 0.15))
-        (fp_line (start ${2.8 + offset_x} 0) (end ${2.8 + offset_x} -2) (layer Dwgs.User) (width 0.15))
-        (fp_line (start ${-3.05 + offset_x} 0) (end ${-3.05 + offset_x} 12.1) (layer Dwgs.User) (width 0.15))
-        (fp_line (start ${3.05 + offset_x} 0) (end ${3.05 + offset_x} 12.1) (layer Dwgs.User) (width 0.15))
-        (fp_line (start ${3.05 + offset_x} 12.1) (end ${-3.05 + offset_x} 12.1) (layer Dwgs.User) (width 0.15))
-        (fp_line (start ${3.05 + offset_x} 0) (end ${-3.05 + offset_x} 0) (layer Dwgs.User) (width 0.15))
+    (fp_line (start ${2.8 + offset_x} -2) (end ${-2.8 + offset_x} -2) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start ${-2.8 + offset_x} 0) (end ${-2.8 + offset_x} -2) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start ${2.8 + offset_x} 0) (end ${2.8 + offset_x} -2) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start ${-3.05 + offset_x} 0) (end ${-3.05 + offset_x} 12.1) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start ${3.05 + offset_x} 0) (end ${3.05 + offset_x} 12.1) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start ${3.05 + offset_x} 12.1) (end ${-3.05 + offset_x} 12.1) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start ${3.05 + offset_x} 0) (end ${-3.05 + offset_x} 0) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
       `
-
     }
     function stabilizers(def_pos) {
       return `
-        (pad "" np_thru_hole circle (at ${def_pos} 8.6 ${p.r}) (size 1.5 1.5) (drill 1.5) (layers *.Cu *.Mask))
-        (pad "" np_thru_hole circle (at ${def_pos} 1.6 ${p.r}) (size 1.5 1.5) (drill 1.5) (layers *.Cu *.Mask))
+    (pad "" np_thru_hole circle (at ${def_pos} 8.6 ${p.r}) (size 1.5 1.5) (drill 1.5) (layers "*.Cu" "*.Mask"))
+    (pad "" np_thru_hole circle (at ${def_pos} 1.6 ${p.r}) (size 1.5 1.5) (drill 1.5) (layers "*.Cu" "*.Mask"))
       `
     }
     function pins(def_neg, def_pos) {
       if (p.symmetric && p.reversible) {
         return `
-          (pad 2 thru_hole oval (at ${def_pos} 3.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.SL.str})
-          (pad 3 thru_hole oval (at ${def_pos} 6.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.R2.str})
-          (pad 4 thru_hole oval (at ${def_pos} 10.75 ${p.r}) (size 1.6 3.3) (drill oval 0.9 2.6) (layers *.Cu *.Mask) ${p.TP.str})
+    (pad 2 thru_hole oval (at ${def_pos} 3.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers "*.Cu" "*.Mask") ${p.SL.str})
+    (pad 3 thru_hole oval (at ${def_pos} 6.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers "*.Cu" "*.Mask") ${p.R2.str})
+    (pad 4 thru_hole oval (at ${def_pos} 10.75 ${p.r}) (size 1.6 3.3) (drill oval 0.9 2.6) (layers "*.Cu" "*.Mask") ${p.TP.str})
         `
       } else {
         return `
-          (pad 2 thru_hole oval (at ${def_pos} 3.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.SL.str})
-          (pad 3 thru_hole oval (at ${def_pos} 6.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.R2.str})
-          (pad 4 thru_hole oval (at ${def_pos} 10.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.TP.str})
-          (pad 5 thru_hole oval (at ${def_neg} 11.3 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.R1.str})
+    (pad 2 thru_hole oval (at ${def_pos} 3.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers "*.Cu" "*.Mask") ${p.SL.str})
+    (pad 3 thru_hole oval (at ${def_pos} 6.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers "*.Cu" "*.Mask") ${p.R2.str})
+    (pad 4 thru_hole oval (at ${def_pos} 10.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers "*.Cu" "*.Mask") ${p.TP.str})
+    (pad 5 thru_hole oval (at ${def_neg} 11.3 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers "*.Cu" "*.Mask") ${p.R1.str})
         `
       }
     }
     if (p.reversible & p.symmetric) {
       return `
-        ${standard_opening}
-        ${corner_marks(0)}
-        ${stabilizers(0)}
-        ${pins(2.3, -2.3)}
-        ${pins(-2.3, 2.3)}
-        )
+    ${standard_opening}
+    ${corner_marks(0)}
+    ${stabilizers(0)}
+    ${pins(2.3, -2.3)}
+    ${pins(-2.3, 2.3)}
+  )
       `
     } else if (p.reversible) {
       return `
-        ${standard_opening}
-        ${corner_marks(1.15)}
-        ${stabilizers(-1.15)}
-        ${stabilizers(1.15)}
-        ${pins(-1.15, 3.45)}
-        ${pins(1.15, -3.45)}
-        )
+    ${standard_opening}
+    ${corner_marks(1.15)}
+    ${stabilizers(-1.15)}
+    ${stabilizers(1.15)}
+    ${pins(-1.15, 3.45)}
+    ${pins(1.15, -3.45)}
+  )
       `
     } else {
       return `
-        ${standard_opening}
-        ${corner_marks(0)}
-        ${stabilizers(0)}
-        ${pins(-2.3, 2.3)}
-      )
+    ${standard_opening}
+    ${corner_marks(0)}
+    ${stabilizers(0)}
+    ${pins(-2.3, 2.3)}
+  )
     `
     }
   }
