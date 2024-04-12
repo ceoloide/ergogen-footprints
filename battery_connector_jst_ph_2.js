@@ -41,25 +41,25 @@
 //      connector and wires.
 
 module.exports = {
-    params: {
-        designator: 'JST',
-        side: 'F',
-        reversible: false,
-        include_traces: true,
-        trace_width: 0.250,
-        include_silkscreen: true,
-        include_fabrication: true,
-        include_courtyard: true,
-        BAT_P: { type: 'net', value: 'BAT_P' },
-        BAT_N: { type: 'net', value: 'GND' },
-    },
-    body: p => {
-        let local_nets = [
-            p.local_net("1"),
-            p.local_net("2"),
-        ];
+  params: {
+    designator: 'JST',
+    side: 'F',
+    reversible: false,
+    include_traces: true,
+    trace_width: 0.250,
+    include_silkscreen: true,
+    include_fabrication: true,
+    include_courtyard: true,
+    BAT_P: { type: 'net', value: 'BAT_P' },
+    BAT_N: { type: 'net', value: 'GND' },
+  },
+  body: p => {
+    let local_nets = [
+      p.local_net("1"),
+      p.local_net("2"),
+    ];
 
-        const standard_opening = `
+    const standard_opening = `
     (footprint "ceoloide:battery_connector_jst_ph_2"
         (layer "${p.side}.Cu")
         ${p.at}
@@ -70,7 +70,7 @@ module.exports = {
             (effects (font (size 1 1) (thickness 0.15)))
         )
         `
-        const front_fabrication = `
+    const front_fabrication = `
         (fp_line (start -2.95 -1.35) (end -2.95 6.25) (stroke (width 0.1) (type solid)) (layer "F.Fab"))
         (fp_line (start -2.95 6.25) (end 2.95 6.25) (stroke (width 0.1) (type solid)) (layer "F.Fab"))
         (fp_line (start -2.25 -1.35) (end -2.95 -1.35) (stroke (width 0.1) (type solid)) (layer "F.Fab"))
@@ -80,13 +80,13 @@ module.exports = {
         (fp_line (start 2.95 -1.35) (end 2.25 -1.35) (stroke (width 0.1) (type solid)) (layer "F.Fab"))
         (fp_line (start 2.95 6.25) (end 2.95 -1.35) (stroke (width 0.1) (type solid)) (layer "F.Fab"))
         `
-        const front_courtyard = `
+    const front_courtyard = `
         (fp_line (start -3.45 -1.85) (end -3.45 10.5) (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
         (fp_line (start -3.45 10.5) (end 3.45 10.5) (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
         (fp_line (start 3.45 -1.85) (end -3.45 -1.85) (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
         (fp_line (start 3.45 10.5) (end 3.45 -1.85) (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
         `
-        const front_silkscreen = `
+    const front_silkscreen = `
         (fp_line (start -1.5 7.40) (end -0.5 7.40) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
         (fp_line (start 1.5 7.40) (end 0.5 7.40) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
         (fp_line (start 1 6.90) (end 1 7.90) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
@@ -99,7 +99,7 @@ module.exports = {
         (fp_line (start 2.14 6.36) (end 3.06 6.36) (stroke (width 0.12) (type solid)) (layer "F.SilkS"))
         (fp_line (start 3.06 6.36) (end 3.06 5.36) (stroke (width 0.12) (type solid)) (layer "F.SilkS"))
         `
-        const back_fabrication = `
+    const back_fabrication = `
         (fp_line (start -2.95 -1.35) (end -2.25 -1.35) (stroke (width 0.1) (type solid)) (layer "B.Fab"))
         (fp_line (start -2.95 6.25) (end -2.95 -1.35) (stroke (width 0.1) (type solid)) (layer "B.Fab"))
         (fp_line (start -2.25 -1.35) (end -2.25 0.25) (stroke (width 0.1) (type solid)) (layer "B.Fab"))
@@ -109,13 +109,13 @@ module.exports = {
         (fp_line (start 2.95 -1.35) (end 2.95 6.25) (stroke (width 0.1) (type solid)) (layer "B.Fab"))
         (fp_line (start 2.95 6.25) (end -2.95 6.25) (stroke (width 0.1) (type solid)) (layer "B.Fab"))
         `
-        const back_courtyard = `
+    const back_courtyard = `
         (fp_line (start -3.45 -1.85) (end -3.45 10.5) (stroke (width 0.05) (type solid)) (layer "B.CrtYd"))
         (fp_line (start -3.45 10.5) (end 3.45 10.5) (stroke (width 0.05) (type solid)) (layer "B.CrtYd"))
         (fp_line (start 3.45 -1.85) (end -3.45 -1.85) (stroke (width 0.05) (type solid)) (layer "B.CrtYd"))
         (fp_line (start 3.45 10.5) (end 3.45 -1.85) (stroke (width 0.05) (type solid)) (layer "B.CrtYd"))
         `
-        const back_silkscreen = `
+    const back_silkscreen = `
         (fp_line (start 1.5 7.40) (end 0.5 7.40) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
         (fp_line (start -1.5 7.40) (end -0.5 7.40) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
         (fp_line (start -1 6.90) (end -1 7.90) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
@@ -128,15 +128,15 @@ module.exports = {
         (fp_line (start 2.14 6.36) (end 3.06 6.36) (stroke (width 0.12) (type solid)) (layer "B.SilkS"))
         (fp_line (start 3.06 6.36) (end 3.06 5.36) (stroke (width 0.12) (type solid)) (layer "B.SilkS"))
         `
-        const front_pads = `
+    const front_pads = `
         (pad "1" thru_hole roundrect (at -1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") (roundrect_rratio 0.20) ${p.BAT_N.str})
         (pad "2" thru_hole oval (at 1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") ${p.BAT_P.str})
         `
-        const back_pads = `
+    const back_pads = `
         (pad "1" thru_hole roundrect (at 1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") (roundrect_rratio 0.20) ${p.BAT_N.str})
         (pad "2" thru_hole oval (at -1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") ${p.BAT_P.str})
         `
-        const reversible_pads = `
+    const reversible_pads = `
         (pad "11" thru_hole oval (at -1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") ${local_nets[0].str})
         (pad "12" thru_hole oval (at 1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") ${local_nets[1].str})
         (pad "21" smd custom (at -1 1.8 ${180 + p.r}) (size 0.1 0.1) (layers "F.Cu" "F.Mask" "F.Paste")
@@ -280,52 +280,52 @@ module.exports = {
             ) 
         )
         `
-        const standard_closing = `
+    const standard_closing = `
     )
         `
 
-        const reversible_traces = ` 
+    const reversible_traces = ` 
     (segment (start ${p.eaxy(-1, 1.8)}) (end ${p.eaxy(-1, 0)}) (width ${p.trace_width}) (layer "F.Cu") (net ${local_nets[0].index}))
     (segment (start ${p.eaxy(-1, 1.8)}) (end ${p.eaxy(-1, 0)}) (width ${p.trace_width}) (layer "B.Cu") (net ${local_nets[0].index}))
     (segment (start ${p.eaxy(1, 1.8)}) (end ${p.eaxy(1, 0)}) (width ${p.trace_width}) (layer "F.Cu") (net ${local_nets[1].index}))
     (segment (start ${p.eaxy(1, 1.8)}) (end ${p.eaxy(1, 0)}) (width ${p.trace_width}) (layer "B.Cu") (net ${local_nets[1].index}))
         `
 
-        let final = standard_opening;
+    let final = standard_opening;
 
-        if (p.side == "F" || p.reversible) {
-            if (p.include_fabrication) {
-                final += front_fabrication;
-            }
-            if (p.include_courtyard) {
-                final += front_courtyard;
-            }
-            if (p.include_silkscreen) {
-                final += front_silkscreen;
-            }
-        }
-        if (p.side == "B" || p.reversible) {
-            if (p.include_fabrication) {
-                final += back_fabrication;
-            }
-            if (p.include_courtyard) {
-                final += back_courtyard;
-            }
-            if (p.include_silkscreen) {
-                final += back_silkscreen;
-            }
-        }
-        if (p.reversible) {
-            final += reversible_pads;
-        } else if (p.side == "F") {
-            final += front_pads;
-        } else if (p.side == "B") {
-            final += back_pads;
-        }
-        final += standard_closing;
-        if (p.reversible && p.include_traces) {
-            final += reversible_traces;
-        }
-        return final;
+    if (p.side == "F" || p.reversible) {
+      if (p.include_fabrication) {
+        final += front_fabrication;
+      }
+      if (p.include_courtyard) {
+        final += front_courtyard;
+      }
+      if (p.include_silkscreen) {
+        final += front_silkscreen;
+      }
     }
+    if (p.side == "B" || p.reversible) {
+      if (p.include_fabrication) {
+        final += back_fabrication;
+      }
+      if (p.include_courtyard) {
+        final += back_courtyard;
+      }
+      if (p.include_silkscreen) {
+        final += back_silkscreen;
+      }
+    }
+    if (p.reversible) {
+      final += reversible_pads;
+    } else if (p.side == "F") {
+      final += front_pads;
+    } else if (p.side == "B") {
+      final += back_pads;
+    }
+    final += standard_closing;
+    if (p.reversible && p.include_traces) {
+      final += reversible_traces;
+    }
+    return final;
+  }
 }

@@ -108,35 +108,35 @@
 //  - Convert `fp_arc` to a series of `fp_line` for forward KiCad 8 compatibility
 
 module.exports = {
-    params: {
-        designator: 'S',
-        side: 'B',
-        reversible: false,
-        hotswap: true,
-        solder: false,
-        outer_pad_width_front: 2.6,
-        outer_pad_width_back: 2.6,
-        show_keycaps: false,
-        show_corner_marks: false,
-        include_stabilizer_pad: true,
-        oval_stabilizer_pad: false,
-        choc_v1_support: true,
-        choc_v2_support: true,
-        keycaps_x: 18,
-        keycaps_y: 18,
-        switch_3dmodel_filename: '',
-        switch_3dmodel_xyz_offset: [0, 0, 0],
-        switch_3dmodel_xyz_rotation: [0, 0, 0],
-        switch_3dmodel_xyz_scale: [1, 1, 1],
-        hotswap_3dmodel_filename: '',
-        hotswap_3dmodel_xyz_offset: [0, 0, 0],
-        hotswap_3dmodel_xyz_rotation: [0, 0, 0],
-        hotswap_3dmodel_xyz_scale: [1, 1, 1],
-        from: undefined,
-        to: undefined
-    },
-    body: p => {
-        const common_top = `
+  params: {
+    designator: 'S',
+    side: 'B',
+    reversible: false,
+    hotswap: true,
+    solder: false,
+    outer_pad_width_front: 2.6,
+    outer_pad_width_back: 2.6,
+    show_keycaps: false,
+    show_corner_marks: false,
+    include_stabilizer_pad: true,
+    oval_stabilizer_pad: false,
+    choc_v1_support: true,
+    choc_v2_support: true,
+    keycaps_x: 18,
+    keycaps_y: 18,
+    switch_3dmodel_filename: '',
+    switch_3dmodel_xyz_offset: [0, 0, 0],
+    switch_3dmodel_xyz_rotation: [0, 0, 0],
+    switch_3dmodel_xyz_scale: [1, 1, 1],
+    hotswap_3dmodel_filename: '',
+    hotswap_3dmodel_xyz_offset: [0, 0, 0],
+    hotswap_3dmodel_xyz_rotation: [0, 0, 0],
+    hotswap_3dmodel_xyz_scale: [1, 1, 1],
+    from: undefined,
+    to: undefined
+  },
+  body: p => {
+    const common_top = `
         (module "ceoloide:switch_choc_v1_v2" (layer ${p.side}.Cu) (tedit 5DD50112)
             ${p.at /* parametric position */}
             (attr virtual)
@@ -149,12 +149,12 @@ module.exports = {
                 (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers *.Cu))
         `
 
-        const choc_v1_stabilizers = `
+    const choc_v1_stabilizers = `
             (pad "" np_thru_hole circle (at 5.5 0 ${p.r}) (size 1.9 1.9) (drill 1.9) (layers *.Cu))
             (pad "" np_thru_hole circle (at -5.5 0 ${p.r}) (size 1.9 1.9) (drill 1.9) (layers *.Cu))
         `
 
-        const corner_marks_front = `
+    const corner_marks_front = `
             ${''/* corner marks - front */}
             (fp_line (start -7 -6) (end -7 -7) (layer F.SilkS) (width 0.15))
             (fp_line (start -7 7) (end -6 7) (layer F.SilkS) (width 0.15))
@@ -166,7 +166,7 @@ module.exports = {
             (fp_line (start 7 -7) (end 7 -6) (layer F.SilkS) (width 0.15))
         `
 
-        const corner_marks_back = `
+    const corner_marks_back = `
             ${''/* corner marks - back */}
             (fp_line (start -7 -6) (end -7 -7) (layer B.SilkS) (width 0.15))
             (fp_line (start -7 7) (end -6 7) (layer B.SilkS) (width 0.15))
@@ -178,9 +178,9 @@ module.exports = {
             (fp_line (start 7 -7) (end 7 -6) (layer B.SilkS) (width 0.15))
         `
 
-        const keycap_xo = 0.5 * p.keycaps_x
-        const keycap_yo = 0.5 * p.keycaps_y
-        const keycap_marks = `
+    const keycap_xo = 0.5 * p.keycaps_x
+    const keycap_yo = 0.5 * p.keycaps_y
+    const keycap_marks = `
             ${'' /* keycap marks - 1u */}
             (fp_line (start ${-keycap_xo} ${-keycap_yo}) (end ${keycap_xo} ${-keycap_yo}) (layer Dwgs.User) (width 0.15))
             (fp_line (start ${keycap_xo} ${-keycap_yo}) (end ${keycap_xo} ${keycap_yo}) (layer Dwgs.User) (width 0.15))
@@ -188,12 +188,12 @@ module.exports = {
             (fp_line (start ${-keycap_xo} ${keycap_yo}) (end ${-keycap_xo} ${-keycap_yo}) (layer Dwgs.User) (width 0.15))
         `
 
-        const hotswap_common = `
+    const hotswap_common = `
             ${'' /* Middle Hole */}
             (pad "" np_thru_hole circle (at 0 -5.95 ${p.r}) (size 3 3) (drill 3) (layers *.Cu *.Mask))
         `
 
-        const hotswap_front_pad_cutoff = `
+    const hotswap_front_pad_cutoff = `
             (pad 1 connect custom (at 3.275 -5.95 ${p.r}) (size 0.5 0.5) (layers F.Cu F.Paste F.Mask)
                 (zone_connect 0)
                 (options (clearance outline) (anchor rect))
@@ -204,11 +204,11 @@ module.exports = {
             ) ${p.from.str})
         `
 
-        const hotswap_front_pad_full = `
+    const hotswap_front_pad_full = `
             (pad 1 smd rect (at 3.275 -5.95 ${p.r}) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  ${p.from.str})
         `
 
-        const hotswap_back_pad_cutoff = `
+    const hotswap_back_pad_cutoff = `
             (pad 1 smd custom (at -3.275 -5.95 ${p.r}) (size 1 1) (layers B.Cu B.Paste B.Mask)
                 (zone_connect 0)
                 (options (clearance outline) (anchor rect))
@@ -219,11 +219,11 @@ module.exports = {
             ) ${p.from.str})
         `
 
-        const hotswap_back_pad_full = `
+    const hotswap_back_pad_full = `
             (pad 1 smd rect (at -3.275 -5.95 ${p.r}) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  ${p.from.str})
         `
 
-        const hotswap_back = `
+    const hotswap_back = `
             ${'' /* Silkscreen outline */}
             ${'' /* back top */}
             (fp_line (start -1.5 -8.2) (end -2 -7.7) (layer B.SilkS) (width 0.15))
@@ -275,7 +275,7 @@ module.exports = {
             (pad "" np_thru_hole circle (at 5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers *.Cu *.Mask))            
         `
 
-        const hotswap_front = `
+    const hotswap_front = `
             ${'' /* Silkscreen outline */}
             ${'' /* front top */}
             (fp_line (start -7 -5.6) (end -7 -6.2) (layer F.SilkS) (width 0.15))
@@ -327,122 +327,122 @@ module.exports = {
             (pad "" np_thru_hole circle (at -5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers *.Cu *.Mask))
         `
 
-        // If both hotswap and solder are enabled, move the solder holes
-        // "down" to the opposite side of the switch.
-        // Since switches can be rotated by 90 degrees, this won't be a
-        // problem as long as we switch the side the holes are on.
-        let solder_offset_x_front = '-'
-        let solder_offset_x_back = ''
-        let solder_offset_y = '-'
-        let stab_offset_x_front = ''
-        let stab_offset_x_back = '-'
-        let stab_offset_y = ''
-        if (p.hotswap && p.solder) {
-            solder_offset_x_front = ''
-            solder_offset_x_back = '-'
-            solder_offset_y = ''
-            stab_offset_x_front = '-'
-            stab_offset_x_back = ''
-            stab_offset_y = ''
-        }
-        const solder_common = `
+    // If both hotswap and solder are enabled, move the solder holes
+    // "down" to the opposite side of the switch.
+    // Since switches can be rotated by 90 degrees, this won't be a
+    // problem as long as we switch the side the holes are on.
+    let solder_offset_x_front = '-'
+    let solder_offset_x_back = ''
+    let solder_offset_y = '-'
+    let stab_offset_x_front = ''
+    let stab_offset_x_back = '-'
+    let stab_offset_y = ''
+    if (p.hotswap && p.solder) {
+      solder_offset_x_front = ''
+      solder_offset_x_back = '-'
+      solder_offset_y = ''
+      stab_offset_x_front = '-'
+      stab_offset_x_back = ''
+      stab_offset_y = ''
+    }
+    const solder_common = `
             (pad 2 thru_hole circle (at 0 ${solder_offset_y}5.9 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.from.str})
         `
 
-        const solder_front = `
+    const solder_front = `
             (pad 1 thru_hole circle (at ${solder_offset_x_front}5 ${solder_offset_y}3.8 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.to.str})
         `
-        const solder_back = `
+    const solder_back = `
             (pad 1 thru_hole circle (at ${solder_offset_x_back}5 ${solder_offset_y}3.8 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.to.str})  
         `
-        const oval_corner_stab_front = `
+    const oval_corner_stab_front = `
             (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
         `
-        const oval_corner_stab_back = `
+    const oval_corner_stab_back = `
             (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
         `
-        const round_corner_stab_front = `
+    const round_corner_stab_front = `
             (pad "" np_thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.6 1.6) (drill 1.6) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
         `
-        const round_corner_stab_back = `
+    const round_corner_stab_back = `
             (pad "" np_thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.6 1.6) (drill 1.6) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
         `
-        const switch_3dmodel = `
+    const switch_3dmodel = `
             (model ${p.switch_3dmodel_filename}
               (offset (xyz ${p.switch_3dmodel_xyz_offset[0]} ${p.switch_3dmodel_xyz_offset[1]} ${p.switch_3dmodel_xyz_offset[2]}))
               (scale (xyz ${p.switch_3dmodel_xyz_scale[0]} ${p.switch_3dmodel_xyz_scale[1]} ${p.switch_3dmodel_xyz_scale[2]}))
               (rotate (xyz ${p.switch_3dmodel_xyz_rotation[0]} ${p.switch_3dmodel_xyz_rotation[1]} ${p.switch_3dmodel_xyz_rotation[2]})))
 	    `
 
-        const hotswap_3dmodel = `
+    const hotswap_3dmodel = `
             (model ${p.hotswap_3dmodel_filename}
               (offset (xyz ${p.hotswap_3dmodel_xyz_offset[0]} ${p.hotswap_3dmodel_xyz_offset[1]} ${p.hotswap_3dmodel_xyz_offset[2]}))
               (scale (xyz ${p.hotswap_3dmodel_xyz_scale[0]} ${p.hotswap_3dmodel_xyz_scale[1]} ${p.hotswap_3dmodel_xyz_scale[2]}))
               (rotate (xyz ${p.hotswap_3dmodel_xyz_rotation[0]} ${p.hotswap_3dmodel_xyz_rotation[1]} ${p.hotswap_3dmodel_xyz_rotation[2]})))
 	`
 
-        const common_bottom = `
+    const common_bottom = `
         )
         `
 
-        let final = common_top
-        if (p.choc_v1_support) {
-            final += choc_v1_stabilizers
-        }
-        if (p.show_corner_marks) {
-            if (p.reversible || p.side == "F") {
-                final += corner_marks_front
-            }
-            if (p.reversible || p.side == "B") {
-                final += corner_marks_back
-            }
-        }
-        if (p.show_keycaps) {
-            final += keycap_marks
-        }
-        if (p.include_stabilizer_pad && p.choc_v2_support) {
-            if (p.reversible || p.side == "F") {
-                if (p.oval_stabilizer_pad) {
-                    final += oval_corner_stab_front
-                } else {
-                    final += round_corner_stab_front
-                }
-            }
-            if (p.reversible || p.side == "B") {
-                if (p.oval_stabilizer_pad) {
-                    final += oval_corner_stab_back
-                } else {
-                    final += round_corner_stab_back
-                }
-            }
-        }
-        if (p.hotswap) {
-            final += hotswap_common
-            if (p.reversible || p.side == "F") {
-                final += hotswap_front
-            }
-            if (p.reversible || p.side == "B") {
-                final += hotswap_back
-            }
-            if (p.hotswap_3dmodel_filename) {
-                final += hotswap_3dmodel
-            }
-        }
-        if (p.solder) {
-            final += solder_common
-            if (p.reversible || p.side == "F") {
-                final += solder_front
-            }
-            if (p.reversible || p.side == "B") {
-                final += solder_back
-            }
-        }
-
-        if (p.switch_3dmodel_filename) {
-            final += switch_3dmodel
-        }
-        final += common_bottom
-
-        return final
+    let final = common_top
+    if (p.choc_v1_support) {
+      final += choc_v1_stabilizers
     }
+    if (p.show_corner_marks) {
+      if (p.reversible || p.side == "F") {
+        final += corner_marks_front
+      }
+      if (p.reversible || p.side == "B") {
+        final += corner_marks_back
+      }
+    }
+    if (p.show_keycaps) {
+      final += keycap_marks
+    }
+    if (p.include_stabilizer_pad && p.choc_v2_support) {
+      if (p.reversible || p.side == "F") {
+        if (p.oval_stabilizer_pad) {
+          final += oval_corner_stab_front
+        } else {
+          final += round_corner_stab_front
+        }
+      }
+      if (p.reversible || p.side == "B") {
+        if (p.oval_stabilizer_pad) {
+          final += oval_corner_stab_back
+        } else {
+          final += round_corner_stab_back
+        }
+      }
+    }
+    if (p.hotswap) {
+      final += hotswap_common
+      if (p.reversible || p.side == "F") {
+        final += hotswap_front
+      }
+      if (p.reversible || p.side == "B") {
+        final += hotswap_back
+      }
+      if (p.hotswap_3dmodel_filename) {
+        final += hotswap_3dmodel
+      }
+    }
+    if (p.solder) {
+      final += solder_common
+      if (p.reversible || p.side == "F") {
+        final += solder_front
+      }
+      if (p.reversible || p.side == "B") {
+        final += solder_back
+      }
+    }
+
+    if (p.switch_3dmodel_filename) {
+      final += switch_3dmodel
+    }
+    final += common_bottom
+
+    return final
+  }
 }
