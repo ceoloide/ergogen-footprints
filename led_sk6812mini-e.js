@@ -104,6 +104,7 @@ module.exports = {
       ${p.ref_hide}
       (effects (font (size 1 1) (thickness 0.15)))
     )
+    (attr smd)
 
     (fp_line (start -1.6 -1.4) (end 1.6 -1.4) (layer "Dwgs.User") (stroke (width 0.12) (type solid)))
     (fp_line (start -1.6 1.4) (end 1.6 1.4) (layer "Dwgs.User") (stroke (width 0.12) (type solid)))

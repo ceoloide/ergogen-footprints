@@ -67,6 +67,7 @@ module.exports = {
       ${p.ref_hide}
       (effects (font (size 1 1) (thickness 0.15)))
     )
+    (attr smd)
     `
     const silkscreen_front = `
     (fp_text user "ON" (at 0 ${p.invert_behavior ? '-' : ''}4.5 ${p.r}) (layer "F.SilkS")
