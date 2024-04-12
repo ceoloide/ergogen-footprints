@@ -67,9 +67,9 @@ module.exports = {
     }
     const common_top = `
       (module "ceoloide:ergogen_logo" (layer "${p.side}.Cu")
-        ${p.at /* parametric position */}
+        ${p.at}
         (attr virtual)
-        (fp_text reference "${p.ref}" (at ${p.scale * 4.572} 0 ${p.rot}) (layer "${p.side}.Fab") ${p.ref_hide}
+        (fp_text reference "${p.ref}" (at ${p.scale * 4.572} 0 ${p.r}) (layer "${p.side}.Fab") ${p.ref_hide}
           (effects (font (size 1 1) (thickness 0.1)))
         )
     `
