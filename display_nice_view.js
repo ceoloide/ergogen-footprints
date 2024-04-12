@@ -38,13 +38,13 @@
 //    invert_jumpers_position default is false
 //      allows to change the position of the jumper pads, from their default to the opposite
 //      side of the pins. See the description above for more details.
-//    silkscreen: default is true
+//    include_silkscreen: default is true
 //      if true it will include the silkscreen layer.
 //    include_labels default is true
 //      if true and Silkscreen layer is included, it will include the pin labels. The labels
 //      will match the *opposite* side of the board when the footprint is set to be reversible, 
 //      since they are meant to match the solder jumpers behavior and aid testing.
-//    courtyard: default is true
+//    include_courtyard: default is true
 //      if true it will include a courtyard outline around the pin header.
 //
 // @ceoloide's improvements:
@@ -61,9 +61,9 @@ module.exports = {
     gnd_trace_width: 0.25,
     signal_trace_width: 0.25,
     invert_jumpers_position: false,
-    silkscreen: true,
+    include_silkscreen: true,
     include_labels: true,
-    courtyard: true,
+    include_courtyard: true,
     MOSI: { type: 'net', value: 'MOSI' },
     SCK: { type: 'net', value: 'SCK' },
     VCC: { type: 'net', value: 'VCC' },
@@ -258,18 +258,18 @@ module.exports = {
     let final = top;
 
     if (p.side == "F" || p.reversible) {
-      if (p.silkscreen) {
+      if (p.include_silkscreen) {
         final += front_silkscreen;
         if (p.include_labels) final += silkscreen_labels_front;
       }
-      if (p.courtyard) final += front_courtyard;
+      if (p.include_courtyard) final += front_courtyard;
     }
     if (p.side == "B" || p.reversible) {
-      if (p.silkscreen) {
-        if (p.silkscreen) final += back_silkscreen;
+      if (p.include_silkscreen) {
+        final += back_silkscreen;
         if (p.include_labels) final += silkscreen_labels_back;
       }
-      if (p.courtyard) final += back_courtyard;
+      if (p.include_courtyard) final += back_courtyard;
     }
     if (p.reversible) {
       final += front_jumpers;

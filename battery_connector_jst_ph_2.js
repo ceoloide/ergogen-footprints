@@ -29,12 +29,12 @@
 //    trace_width: default is 0.250mm
 //      allows to override the trace width that connects the jumper pads to the connector
 //      pins. Not recommended to go below 0.25mm.
-//    silkscreen: default is true
+//    include_silkscreen: default is true
 //      if true it will include the silkscreen. Recommended to be true to ensure connector
 //      polarity is not reversed, which can lead to shorting and damage to the MCU
-//    fabrication: default is true
+//    include_fabrication: default is true
 //      if true it will include the outline of the connector in the fabrication layer
-//    courtyard: default is true
+//    include_courtyard: default is true
 //      if true it will include a courtyard outline around the connector and in front of it
 //      to also account for the male connector plug and the wires. Recommended to be true
 //      at least once in the development of a board to confirm sufficient clearance for the
