@@ -27,10 +27,21 @@ module.exports = {
     hole_drill: '2.2',
   },
   body: p => `
-  (module "ceoloide:mounting_hole_npth" (layer ${p.side}.Cu) (tedit 5F1B9159)
-      ${p.at /* parametric position */}
-      (fp_text reference "${p.ref}" (at 0 2.55 ${p.r}) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1 1) (thickness 0.15))))
-      (pad "" np_thru_hole circle (at 0 0 ${p.r}) (size ${p.hole_size} ${p.hole_size}) (drill ${p.hole_drill}) (layers *.Cu *.Mask))
+  (footprint "ceoloide:mounting_hole_npth"
+    (layer "${p.side}.Cu")
+    ${p.at}
+    (property "Reference" "${p.ref}"
+      (at 0 2.55 ${p.r})
+      (layer "${p.side}.SilkS")
+      ${p.ref_hide}
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (pad "" np_thru_hole circle
+      (at 0 0 ${p.r})
+      (size ${p.hole_size} ${p.hole_size})
+      (drill ${p.hole_drill})
+      (layers "*.Cu" "*.Mask")
+    )
   )
   `
 }
