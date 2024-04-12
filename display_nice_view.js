@@ -123,26 +123,21 @@ module.exports = {
       (at 0 20 ${p.r})
       (layer "${p.side}.SilkS")
       ${p.ref_hide}
-      (effects
-        (font
-          (size 1 1)
-          (thickness 0.15)
-        )
-      )
+      (effects (font (size 1 1) (thickness 0.15)))
     )
     (attr exclude_from_pos_files exclude_from_bom)
     `
     const front_silkscreen = `
-    (fp_line (start -6.41 15.37) (end -6.41 18.03) (layer "F.SilkS") (width 0.12))
-    (fp_line (start 6.41 18.03) (end -6.41 18.03) (layer "F.SilkS") (width 0.12))
-    (fp_line (start 6.41 15.37) (end 6.41 18.03) (layer "F.SilkS") (width 0.12))
-    (fp_line (start 6.41 15.37) (end -6.41 15.37) (layer "F.SilkS") (width 0.12))
+    (fp_line (start -6.41 15.37) (end -6.41 18.03) (layer "F.SilkS") (stroke (width 0.12) (type solid)))
+    (fp_line (start 6.41 18.03) (end -6.41 18.03) (layer "F.SilkS") (stroke (width 0.12) (type solid)))
+    (fp_line (start 6.41 15.37) (end 6.41 18.03) (layer "F.SilkS") (stroke (width 0.12) (type solid)))
+    (fp_line (start 6.41 15.37) (end -6.41 15.37) (layer "F.SilkS") (stroke (width 0.12) (type solid)))
     `
     const front_courtyard = `
-    (fp_line (start 6.88 14.9) (end 6.88 18.45) (layer "F.CrtYd") (width 0.15))
-    (fp_line (start 6.88 18.45) (end -6.82 18.45) (layer "F.CrtYd") (width 0.15))
-    (fp_line (start -6.82 18.45) (end -6.82 14.9) (layer "F.CrtYd") (width 0.15))
-    (fp_line (start -6.82 14.9) (end 6.88 14.9) (layer "F.CrtYd") (width 0.15))
+    (fp_line (start 6.88 14.9) (end 6.88 18.45) (layer "F.CrtYd") (stroke (width 0.15) (type solid)))
+    (fp_line (start 6.88 18.45) (end -6.82 18.45) (layer "F.CrtYd") (stroke (width 0.15) (type solid)))
+    (fp_line (start -6.82 18.45) (end -6.82 14.9) (layer "F.CrtYd") (stroke (width 0.15) (type solid)))
+    (fp_line (start -6.82 14.9) (end 6.88 14.9) (layer "F.CrtYd") (stroke (width 0.15) (type solid)))
     `
 
     const front_jumpers = `
@@ -158,17 +153,17 @@ module.exports = {
     `
 
     const back_silkscreen = `
-    (fp_line (start 6.41 15.37) (end 6.41 18.03) (layer "B.SilkS") (width 0.12))
-    (fp_line (start 6.41 15.37) (end -6.41 15.37) (layer "B.SilkS") (width 0.12))
-    (fp_line (start 6.41 18.03) (end -6.41 18.03) (layer "B.SilkS") (width 0.12))
-    (fp_line (start -6.41 15.37) (end -6.41 18.03) (layer "B.SilkS") (width 0.12))
+    (fp_line (start 6.41 15.37) (end 6.41 18.03) (layer "B.SilkS") (stroke (width 0.12) (type solid)))
+    (fp_line (start 6.41 15.37) (end -6.41 15.37) (layer "B.SilkS") (stroke (width 0.12) (type solid)))
+    (fp_line (start 6.41 18.03) (end -6.41 18.03) (layer "B.SilkS") (stroke (width 0.12) (type solid)))
+    (fp_line (start -6.41 15.37) (end -6.41 18.03) (layer "B.SilkS") (stroke (width 0.12) (type solid)))
     `
 
     const back_courtyard = `
-    (fp_line (start 6.88 14.9) (end 6.88 18.45) (layer "B.CrtYd") (width 0.15))
-    (fp_line (start 6.88 18.45) (end -6.82 18.45) (layer "B.CrtYd") (width 0.15))
-    (fp_line (start -6.82 18.45) (end -6.82 14.9) (layer "B.CrtYd") (width 0.15))
-    (fp_line (start -6.82 14.9) (end 6.88 14.9) (layer "B.CrtYd") (width 0.15))
+    (fp_line (start 6.88 14.9) (end 6.88 18.45) (layer "B.CrtYd") (stroke (width 0.15) (type solid)))
+    (fp_line (start 6.88 18.45) (end -6.82 18.45) (layer "B.CrtYd") (stroke (width 0.15) (type solid)))
+    (fp_line (start -6.82 18.45) (end -6.82 14.9) (layer "B.CrtYd") (stroke (width 0.15) (type solid)))
+    (fp_line (start -6.82 14.9) (end 6.88 14.9) (layer "B.CrtYd") (stroke (width 0.15) (type solid)))
     `
 
     const back_jumpers = `
@@ -226,15 +221,15 @@ module.exports = {
     (pad "4" thru_hole oval (at 2.54 16.7 ${270 + p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${socket_nets[3].str})
     (pad "5" thru_hole circle (at 5.08 16.7 ${270 + p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${socket_nets[4].str})
 
-    (fp_line (start 5.4 13.4) (end 5.4 -11.9) (layer Dwgs.User) (width 0.15))
-    (fp_line (start -5.4 13.4) (end -5.4 -11.9) (layer Dwgs.User) (width 0.15))
-    (fp_line (start 5.4 -11.9) (end -5.4 -11.9) (layer Dwgs.User) (width 0.15))
-    (fp_line (start -5.4 13.4) (end 5.4 13.4) (layer Dwgs.User) (width 0.15))
+    (fp_line (start 5.4 13.4) (end 5.4 -11.9) (layer Dwgs.User) (stroke (width 0.15) (type solid)))
+    (fp_line (start -5.4 13.4) (end -5.4 -11.9) (layer Dwgs.User) (stroke (width 0.15) (type solid)))
+    (fp_line (start 5.4 -11.9) (end -5.4 -11.9) (layer Dwgs.User) (stroke (width 0.15) (type solid)))
+    (fp_line (start -5.4 13.4) (end 5.4 13.4) (layer Dwgs.User) (stroke (width 0.15) (type solid)))
 
-    (fp_line (start -7 -18) (end 7 -18) (layer Dwgs.User) (width 0.15))
-    (fp_line (start 7 18) (end -7 18) (layer Dwgs.User) (width 0.15))
-    (fp_line (start -7 18) (end -7 -18) (layer Dwgs.User) (width 0.15))
-    (fp_line (start 7 18) (end 7 -18) (layer Dwgs.User) (width 0.15))
+    (fp_line (start -7 -18) (end 7 -18) (layer Dwgs.User) (stroke (width 0.15) (type solid)))
+    (fp_line (start 7 18) (end -7 18) (layer Dwgs.User) (stroke (width 0.15) (type solid)))
+    (fp_line (start -7 18) (end -7 -18) (layer Dwgs.User) (stroke (width 0.15) (type solid)))
+    (fp_line (start 7 18) (end 7 -18) (layer Dwgs.User) (stroke (width 0.15) (type solid)))
   )
     `
 
