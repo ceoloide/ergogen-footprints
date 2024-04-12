@@ -69,20 +69,22 @@ module.exports = {
   },
   body: p => {
     const generate_text = (side, layer, align, mirrored, thickness, height, width, text, face, bold, italic, knockout) => {
-      let justify = `(justify ${align}${mirrored ? ' mirror' : ''})`;
+      let justify = `(justify ${align} ${mirrored ? 'mirror' : ''})`;
       const gr_text = `
-      (gr_text "${text}"
-        ${p.at}
-        (layer ${side}.${layer}${knockout ? ' knockout' : ''})
-        (effects
-          (font ${face != '' ? '(face "' + face + '")' : ''}
-            (size ${height} ${width})
-            (thickness ${thickness})
-            ${bold ? '(bold yes)' : ''}
-            ${italic ? '(italic yes)' : ''})
-            ${align != '' || mirrored ? justify : ''}
-          )
-      )`;
+  (gr_text "${text}"
+    ${p.at}
+    (layer "${side}.${layer}" ${knockout ? 'knockout' : ''})
+    (effects
+      (font ${face != '' ? '(face "' + face + '")' : ''}
+        (size ${height} ${width})
+        (thickness ${thickness})
+        ${bold ? '(bold yes)' : ''}
+        ${italic ? '(italic yes)' : ''}
+      )
+      ${align != '' || mirrored ? justify : ''}
+    )
+  )
+      `;
       return gr_text;
     };
 
