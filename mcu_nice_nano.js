@@ -185,60 +185,27 @@ module.exports = {
       return label;
     };
 
-    const get_at_coordinates = () => {
-      const pattern = /\(at (-?[\d\.]*) (-?[\d\.]*) (-?[\d\.]*)\)/;
-      const matches = p.at.match(pattern);
-      if (matches && matches.length == 4) {
-        return [parseFloat(matches[1]), parseFloat(matches[2]), parseFloat(matches[3])];
-      } else {
-        return null;
-      }
-    }
-
-    const adjust_point = (x, y) => {
-      const at_l = get_at_coordinates();
-      if (at_l == null) {
-        throw new Error(
-          `Could not get x and y coordinates from p.at: ${p.at}`
-        );
-      }
-      const at_x = at_l[0];
-      const at_y = at_l[1];
-      const at_angle = at_l[2];
-      const adj_x = at_x + x;
-      const adj_y = at_y + y;
-
-      const radians = (Math.PI / 180) * at_angle,
-        cos = Math.cos(radians),
-        sin = Math.sin(radians),
-        nx = (cos * (adj_x - at_x)) + (sin * (adj_y - at_y)) + at_x,
-        ny = (cos * (adj_y - at_y)) - (sin * (adj_x - at_x)) + at_y;
-
-      const point_str = `${nx.toFixed(3)} ${ny.toFixed(3)}`;
-      return point_str;
-    }
-
     const gen_traces_row = (row_num) => {
       const traces = `
-          (segment (start ${adjust_point((p.use_rectangular_jumpers ? 4.58 : 4.775), -12.7 + (row_num * 2.54))}) (end ${adjust_point(3.4, -12.7 + (row_num * 2.54))}) (width 0.25) (layer F.Cu) (net 1))
-          (segment (start ${adjust_point((p.use_rectangular_jumpers ? -4.58 : -4.775), -12.7 + (row_num * 2.54))}) (end ${adjust_point(-3.4, -12.7 + (row_num * 2.54))}) (width 0.25) (layer F.Cu) (net 13))
+          (segment (start ${p.eaxy((p.use_rectangular_jumpers ? 4.58 : 4.775), -12.7 + (row_num * 2.54))}) (end ${p.eaxy(3.4, -12.7 + (row_num * 2.54))}) (width 0.25) (layer F.Cu) (net 1))
+          (segment (start ${p.eaxy((p.use_rectangular_jumpers ? -4.58 : -4.775), -12.7 + (row_num * 2.54))}) (end ${p.eaxy(-3.4, -12.7 + (row_num * 2.54))}) (width 0.25) (layer F.Cu) (net 13))
           
-          (segment (start ${adjust_point(-7.62, -12.7 + (row_num * 2.54))}) (end ${adjust_point(-5.5, -12.7 + (row_num * 2.54))}) (width 0.25) (layer F.Cu) (net 23))
-          (segment (start ${adjust_point(-7.62, -12.7 + (row_num * 2.54))}) (end ${adjust_point(-5.5, -12.7 + (row_num * 2.54))}) (width 0.25) (layer B.Cu) (net 23))
-          (segment (start ${adjust_point(5.5, -12.7 + (row_num * 2.54))}) (end ${adjust_point(7.62, -12.7 + (row_num * 2.54))}) (width 0.25) (layer F.Cu) (net 24))
-          (segment (start ${adjust_point(7.62, -12.7 + (row_num * 2.54))}) (end ${adjust_point(5.5, -12.7 + (row_num * 2.54))}) (width 0.25) (layer B.Cu) (net 24))
+          (segment (start ${p.eaxy(-7.62, -12.7 + (row_num * 2.54))}) (end ${p.eaxy(-5.5, -12.7 + (row_num * 2.54))}) (width 0.25) (layer F.Cu) (net 23))
+          (segment (start ${p.eaxy(-7.62, -12.7 + (row_num * 2.54))}) (end ${p.eaxy(-5.5, -12.7 + (row_num * 2.54))}) (width 0.25) (layer B.Cu) (net 23))
+          (segment (start ${p.eaxy(5.5, -12.7 + (row_num * 2.54))}) (end ${p.eaxy(7.62, -12.7 + (row_num * 2.54))}) (width 0.25) (layer F.Cu) (net 24))
+          (segment (start ${p.eaxy(7.62, -12.7 + (row_num * 2.54))}) (end ${p.eaxy(5.5, -12.7 + (row_num * 2.54))}) (width 0.25) (layer B.Cu) (net 24))
           
-          (segment (start ${adjust_point(-2.604695, 0.23 + (row_num * 2.54) - 12.7)}) (end ${adjust_point(3.17, 0.23 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 2))
-          (segment (start ${adjust_point(-4.775, 0 + (row_num * 2.54) - 12.7)}) (end ${adjust_point(-4.425305, 0 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 2))
-          (segment (start ${adjust_point(-3.700305, 0.725 + (row_num * 2.54) - 12.7)}) (end ${adjust_point(-3.099695, 0.725 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 2))
-          (segment (start ${adjust_point(-4.425305, 0 + (row_num * 2.54) - 12.7)}) (end ${adjust_point(-3.700305, 0.725 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 2))
-          (segment (start ${adjust_point(-3.099695, 0.725 + (row_num * 2.54) - 12.7)}) (end ${adjust_point(-2.604695, 0.23 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 2))
+          (segment (start ${p.eaxy(-2.604695, 0.23 + (row_num * 2.54) - 12.7)}) (end ${p.eaxy(3.17, 0.23 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 2))
+          (segment (start ${p.eaxy(-4.775, 0 + (row_num * 2.54) - 12.7)}) (end ${p.eaxy(-4.425305, 0 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 2))
+          (segment (start ${p.eaxy(-3.700305, 0.725 + (row_num * 2.54) - 12.7)}) (end ${p.eaxy(-3.099695, 0.725 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 2))
+          (segment (start ${p.eaxy(-4.425305, 0 + (row_num * 2.54) - 12.7)}) (end ${p.eaxy(-3.700305, 0.725 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 2))
+          (segment (start ${p.eaxy(-3.099695, 0.725 + (row_num * 2.54) - 12.7)}) (end ${p.eaxy(-2.604695, 0.23 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 2))
 
-          (segment (start ${adjust_point(4.775, 0 + (row_num * 2.54) - 12.7)}) (end ${adjust_point(4.425305, 0 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 20))
-          (segment (start ${adjust_point(2.594695, -0.22 + (row_num * 2.54) - 12.7)}) (end ${adjust_point(-3.18, -0.22 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 20))
-          (segment (start ${adjust_point(4.425305, 0 + (row_num * 2.54) - 12.7)}) (end ${adjust_point(3.700305, -0.725 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 20))
-          (segment (start ${adjust_point(3.700305, -0.725 + (row_num * 2.54) - 12.7)}) (end ${adjust_point(3.099695, -0.725 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 20))
-          (segment (start ${adjust_point(3.099695, -0.725 + (row_num * 2.54) - 12.7)}) (end ${adjust_point(2.594695, -0.22 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 20))
+          (segment (start ${p.eaxy(4.775, 0 + (row_num * 2.54) - 12.7)}) (end ${p.eaxy(4.425305, 0 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 20))
+          (segment (start ${p.eaxy(2.594695, -0.22 + (row_num * 2.54) - 12.7)}) (end ${p.eaxy(-3.18, -0.22 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 20))
+          (segment (start ${p.eaxy(4.425305, 0 + (row_num * 2.54) - 12.7)}) (end ${p.eaxy(3.700305, -0.725 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 20))
+          (segment (start ${p.eaxy(3.700305, -0.725 + (row_num * 2.54) - 12.7)}) (end ${p.eaxy(3.099695, -0.725 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 20))
+          (segment (start ${p.eaxy(3.099695, -0.725 + (row_num * 2.54) - 12.7)}) (end ${p.eaxy(2.594695, -0.22 + (row_num * 2.54) - 12.7)}) (width 0.25) (layer "B.Cu") (net 20))
         `
 
       return traces
@@ -281,36 +248,36 @@ module.exports = {
 
       let socket_row_base = `
         ${''/* Socket Holes */}
-        (pad ${socket_hole_num_left} thru_hole circle (at -7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? p.local_net(socket_hole_num_left).str : net_left})
-        (pad ${socket_hole_num_right} thru_hole circle (at 7.62 ${-12.7 + row_offset_y} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? p.local_net(socket_hole_num_right).str : net_right})
+        (pad ${socket_hole_num_left} thru_hole circle (at -7.62 ${-12.7 + row_offset_y} ${p.r}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? p.local_net(socket_hole_num_left).str : net_left})
+        (pad ${socket_hole_num_right} thru_hole circle (at 7.62 ${-12.7 + row_offset_y} ${p.r}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? p.local_net(socket_hole_num_right).str : net_right})
       `
       let socket_row_vias = `
         ${''/* Inside VIAS */}
-        (pad ${via_num_right} thru_hole circle (at 3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${p.reverse_mount ? net_right : net_left})
-        (pad ${via_num_left} thru_hole circle (at -3.4 ${-12.7 + row_offset_y} ${p.rot}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${p.reverse_mount ? net_left : net_right})
+        (pad ${via_num_right} thru_hole circle (at 3.4 ${-12.7 + row_offset_y} ${p.r}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${p.reverse_mount ? net_right : net_left})
+        (pad ${via_num_left} thru_hole circle (at -3.4 ${-12.7 + row_offset_y} ${p.r}) (size ${p.via_size} ${p.via_size}) (drill ${p.via_drill}) (layers *.Cu *.Mask) ${p.reverse_mount ? net_left : net_right})
       `
 
       let socket_row_rectangular_jumpers = `
         ${''/* Jumper Pads - Front Left */}
-        (pad ${socket_hole_num_left} smd rect (at -5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_left).str})
-        (pad ${via_num_left} smd rect (at -4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_left : net_right})
+        (pad ${socket_hole_num_left} smd rect (at -5.48 ${-12.7 + row_offset_y} ${p.r}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_left).str})
+        (pad ${via_num_left} smd rect (at -4.58 ${-12.7 + row_offset_y} ${p.r}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_left : net_right})
 
         ${''/* Jumper Pads - Front Right */}
-        (pad ${via_num_right} smd rect (at 4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_right : net_left})
-        (pad ${socket_hole_num_left} smd rect (at 5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_right).str})
+        (pad ${via_num_right} smd rect (at 4.58 ${-12.7 + row_offset_y} ${p.r}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_right : net_left})
+        (pad ${socket_hole_num_left} smd rect (at 5.48 ${-12.7 + row_offset_y} ${p.r}) (size 0.6 1.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_right).str})
 
         ${''/* Jumper Pads - Back Left */}
-        (pad ${socket_hole_num_left} smd rect (at -5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_left).str})
-        (pad ${via_num_right} smd rect (at -4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_right : net_left})
+        (pad ${socket_hole_num_left} smd rect (at -5.48 ${-12.7 + row_offset_y} ${p.r}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_left).str})
+        (pad ${via_num_right} smd rect (at -4.58 ${-12.7 + row_offset_y} ${p.r}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_right : net_left})
 
         ${''/* Jumper Pads - Back Right */}
-        (pad ${via_num_left} smd rect (at 4.58 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_left : net_right})
-        (pad ${socket_hole_num_left} smd rect (at 5.48 ${-12.7 + row_offset_y} ${p.rot}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_right).str})
+        (pad ${via_num_left} smd rect (at 4.58 ${-12.7 + row_offset_y} ${p.r}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_left : net_right})
+        (pad ${socket_hole_num_left} smd rect (at 5.48 ${-12.7 + row_offset_y} ${p.r}) (size 0.6 1.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_right).str})
         `
 
       let socket_row_chevron_jumpers = `
           ${''/* Jumper Pads - Front Left */}
-          (pad ${socket_hole_num_left} smd custom (at -5.5 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_left).str}
+          (pad ${socket_hole_num_left} smd custom (at -5.5 ${-12.7 + row_offset_y} ${p.r}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_left).str}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -318,7 +285,7 @@ module.exports = {
                 (xy -0.5 -0.625) (xy -0.25 -0.625) (xy 0.25 0) (xy -0.25 0.625) (xy -0.5 0.625)
             ) (width 0))
           ))
-          (pad ${via_num_left} smd custom (at -4.775 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_left : net_right}
+          (pad ${via_num_left} smd custom (at -4.775 ${-12.7 + row_offset_y} ${p.r}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_left : net_right}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -328,7 +295,7 @@ module.exports = {
           ))
 
           ${''/* Jumper Pads - Front Right */}
-          (pad ${via_num_right} smd custom (at 4.775 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_right : net_left}
+          (pad ${via_num_right} smd custom (at 4.775 ${-12.7 + row_offset_y} ${180 + p.r}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.reverse_mount ? net_right : net_left}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -336,7 +303,7 @@ module.exports = {
                 (xy -0.65 -0.625) (xy 0.5 -0.625) (xy 0.5 0.625) (xy -0.65 0.625) (xy -0.15 0)
             ) (width 0))
           ))
-          (pad ${socket_hole_num_right} smd custom (at 5.5 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_right).str}
+          (pad ${socket_hole_num_right} smd custom (at 5.5 ${-12.7 + row_offset_y} ${180 + p.r}) (size 0.2 0.2) (layers F.Cu F.Mask) ${p.local_net(socket_hole_num_right).str}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -346,7 +313,7 @@ module.exports = {
           ))
 
           ${''/* Jumper Pads - Back Left */}
-          (pad ${socket_hole_num_left} smd custom (at -5.5 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_left).str}
+          (pad ${socket_hole_num_left} smd custom (at -5.5 ${-12.7 + row_offset_y} ${p.r}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_left).str}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -355,7 +322,7 @@ module.exports = {
             ) (width 0))
           ))
 
-          (pad ${via_num_right} smd custom (at -4.775 ${-12.7 + row_offset_y} ${p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_right : net_left}
+          (pad ${via_num_right} smd custom (at -4.775 ${-12.7 + row_offset_y} ${p.r}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_right : net_left}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -365,7 +332,7 @@ module.exports = {
           ))
 
           ${''/* Jumper Pads - Back Right */}
-          (pad ${via_num_left} smd custom (at 4.775 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_left : net_right}
+          (pad ${via_num_left} smd custom (at 4.775 ${-12.7 + row_offset_y} ${180 + p.r}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.reverse_mount ? net_left : net_right}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -373,7 +340,7 @@ module.exports = {
                 (xy -0.65 0.625) (xy 0.5 0.625) (xy 0.5 -0.625) (xy -0.65 -0.625) (xy -0.15 0)
             ) (width 0))
           ))
-          (pad ${socket_hole_num_right} smd custom (at 5.5 ${-12.7 + row_offset_y} ${180 + p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_right).str}
+          (pad ${socket_hole_num_right} smd custom (at 5.5 ${-12.7 + row_offset_y} ${180 + p.r}) (size 0.2 0.2) (layers B.Cu B.Mask) ${p.local_net(socket_hole_num_right).str}
             (zone_connect 2)
             (options (clearance outline) (anchor rect))
             (primitives
@@ -392,35 +359,35 @@ module.exports = {
         }
       }
       if (show_silk_labels == true) {
-        if(p.reversible || p.show_silk_labels_on_both_sides || p.side == 'F') {
+        if (p.reversible || p.show_silk_labels_on_both_sides || p.side == 'F') {
           // Silkscreen labels - front
-          if(row_num != 10 || (!p.include_extra_pins && p.reversible) || (invert_pins && !p.reversible)) {
+          if (row_num != 10 || (!p.include_extra_pins && p.reversible) || (invert_pins && !p.reversible)) {
             socket_row += `
-                (fp_text user ${net_silk_front_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
+                (fp_text user ${net_silk_front_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.r}) (layer F.SilkS)
                   (effects (font (size 1 1) (thickness 0.15)) (justify left))
                 )
             `
           }
-          if(row_num != 10 || (!p.include_extra_pins && p.reversible) || (!invert_pins && !p.reversible)) {
+          if (row_num != 10 || (!p.include_extra_pins && p.reversible) || (!invert_pins && !p.reversible)) {
             socket_row += `
-                (fp_text user ${net_silk_front_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.rot}) (layer F.SilkS)
+                (fp_text user ${net_silk_front_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${p.r}) (layer F.SilkS)
                   (effects (font (size 1 1) (thickness 0.15)) (justify right))
                 )
             `
           }
         }
-        if(p.reversible && !p.include_extra_pins || p.show_silk_labels_on_both_sides || p.side == 'B') {
+        if (p.reversible && !p.include_extra_pins || p.show_silk_labels_on_both_sides || p.side == 'B') {
           // Silkscreen labels - back
-          if(!p.include_extra_pins && (p.reversible || row_num != 10 || invert_pins)) {
+          if (!p.include_extra_pins && (p.reversible || row_num != 10 || invert_pins)) {
             socket_row += `
-                (fp_text user ${net_silk_back_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
+                (fp_text user ${net_silk_back_left} (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.r}) (layer B.SilkS)
                   (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
                 )
             `
           }
-          if(!p.include_extra_pins && (p.reversible || row_num != 10 || !invert_pins)) {
+          if (!p.include_extra_pins && (p.reversible || row_num != 10 || !invert_pins)) {
             socket_row += `
-                (fp_text user ${net_silk_back_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.rot}) (layer B.SilkS)
+                (fp_text user ${net_silk_back_right} (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.r}) (layer B.SilkS)
                   (effects (font (size 1 1) (thickness 0.15)) (justify left mirror))
                 )
             `
@@ -431,18 +398,18 @@ module.exports = {
       if (show_via_labels && (p.reversible && (row_num < 4 || !p.only_required_jumpers))) {
         socket_row += `
             ${''/* Via Labels - Front */}
-            (fp_text user ${via_label_left} (at -3.262 ${-13.5 + row_offset_y} ${p.rot}) (layer F.Fab)
+            (fp_text user ${via_label_left} (at -3.262 ${-13.5 + row_offset_y} ${p.r}) (layer F.Fab)
               (effects (font (size 0.5 0.5) (thickness 0.08)))
             )
-            (fp_text user ${via_label_right} (at 3.262 ${-13.5 + row_offset_y} ${p.rot}) (layer F.Fab)
+            (fp_text user ${via_label_right} (at 3.262 ${-13.5 + row_offset_y} ${p.r}) (layer F.Fab)
               (effects (font (size 0.5 0.5) (thickness 0.08)))
             )
 
             ${''/* Via Labels - Back */}
-            (fp_text user ${via_label_left} (at -3.262 ${-13.5 + row_offset_y} ${180 + p.rot}) (layer B.Fab)
+            (fp_text user ${via_label_left} (at -3.262 ${-13.5 + row_offset_y} ${180 + p.r}) (layer B.Fab)
               (effects (font (size 0.5 0.5) (thickness 0.08)) (justify mirror))
             )
-            (fp_text user ${via_label_right} (at 3.262 ${-13.5 + row_offset_y} ${180 + p.rot}) (layer B.Fab)
+            (fp_text user ${via_label_right} (at 3.262 ${-13.5 + row_offset_y} ${180 + p.r}) (layer B.Fab)
               (effects (font (size 0.5 0.5) (thickness 0.08)) (justify mirror))
             )
           `
@@ -469,7 +436,7 @@ module.exports = {
         ['P8', 'P16'],
         ['P9', 'P10'],
       ]
-      
+
       let socket_rows = '';
       for (let i = 0; i < pin_names.length; i++) {
         pin_name_left = pin_names[i][invert_pins ? 1 : 0]
@@ -485,7 +452,7 @@ module.exports = {
       // Socket silkscreen
       // P1 / D1 / P0.06 is marked according to orientation
       if (show_silk_labels == true) {
-        if(p.reversible || p.show_silk_labels_on_both_sides || p.side == 'F') {
+        if (p.reversible || p.show_silk_labels_on_both_sides || p.side == 'F') {
           socket_rows += `
             (fp_line (start 6.29 -14.03) (end 8.95 -14.03) (layer F.SilkS) (width 0.12))
             (fp_line (start 6.29 -14.03) (end 6.29 16.57) (layer F.SilkS) (width 0.12))
@@ -498,7 +465,7 @@ module.exports = {
             (fp_line (start ${invert_pins ? '' : '-'}6.29 -11.43) (end ${invert_pins ? '' : '-'}8.95 -11.43) (layer F.SilkS) (width 0.12))
           `
         }
-        if(p.reversible || p.show_silk_labels_on_both_sides || p.side == 'B') {
+        if (p.reversible || p.show_silk_labels_on_both_sides || p.side == 'B') {
           socket_rows += `
             (fp_line (start -6.29 -14.03) (end -8.95 -14.03) (layer B.SilkS) (width 0.12))
             (fp_line (start -6.29 -14.03) (end -6.29 16.57) (layer B.SilkS) (width 0.12))
@@ -519,7 +486,7 @@ module.exports = {
         (module "ceoloide:mcu_nice_nano" (layer F.Cu) (tedit 6451A4F1)
           (attr virtual)
           ${p.at /* parametric position */}
-          (fp_text reference "${p.ref}" (at 0 -15 ${p.rot}) (layer ${p.side}.SilkS) ${p.ref_hide}
+          (fp_text reference "${p.ref}" (at 0 -15 ${p.r}) (layer ${p.side}.SilkS) ${p.ref_hide}
             (effects (font (size 1 1) (thickness 0.15)))
           )
 
@@ -537,10 +504,10 @@ module.exports = {
       `;
 
     const instructions = `
-          (fp_text user "Right Side Jumpers" (at 0 -15.245 ${p.rot}) (layer F.SilkS)
+          (fp_text user "Right Side Jumpers" (at 0 -15.245 ${p.r}) (layer F.SilkS)
             (effects (font (size 1 1) (thickness 0.15)))
           )
-          (fp_text user "Left Side Jumpers" (at 0 -15.245 ${p.rot}) (layer B.SilkS)
+          (fp_text user "Left Side Jumpers" (at 0 -15.245 ${p.r}) (layer B.SilkS)
             (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
           )
     `
@@ -551,13 +518,13 @@ module.exports = {
     const traces = gen_traces()
 
     const extra_pins = `
-      (pad 25 thru_hole circle (at ${invert_pins ? '' : '-'}5.08 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P101})
-      (pad 26 thru_hole circle (at ${invert_pins ? '' : '-'}2.54 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P102})
-      (pad 27 thru_hole circle (at 0 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P107})
+      (pad 25 thru_hole circle (at ${invert_pins ? '' : '-'}5.08 ${-12.7 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P101})
+      (pad 26 thru_hole circle (at ${invert_pins ? '' : '-'}2.54 ${-12.7 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P102})
+      (pad 27 thru_hole circle (at 0 ${-12.7 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P107})
     `
     const extra_pins_reversible = `
-      (pad 28 thru_hole circle (at ${invert_pins ? '-' : ''}5.08 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P101})
-      (pad 29 thru_hole circle (at ${invert_pins ? '-' : ''}2.54 ${-12.7 + 25.4} ${p.rot}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P102})
+      (pad 28 thru_hole circle (at ${invert_pins ? '-' : ''}5.08 ${-12.7 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P101})
+      (pad 29 thru_hole circle (at ${invert_pins ? '-' : ''}2.54 ${-12.7 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask) ${p.P102})
     `
 
     return `

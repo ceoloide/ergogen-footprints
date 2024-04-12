@@ -36,11 +36,11 @@ module.exports = {
         const common_start = `
             (module "ceoloide:reset_switch_tht_top" (layer ${p.side}.Cu) (tedit 5B9559E6) (tstamp 61905781)
                 ${p.at /* parametric position */}
-                (fp_text value "reset_switch_tht_top" (at 0 -2.55 ${90 + p.rot}) (layer ${p.side}.Fab) (effects (font (size 1 1) (thickness 0.15))))
-                (fp_text reference "${p.ref}" (at 0 2.55 ${90 + p.rot}) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1 1) (thickness 0.15))))
+                (fp_text value "reset_switch_tht_top" (at 0 -2.55 ${90 + p.r}) (layer ${p.side}.Fab) (effects (font (size 1 1) (thickness 0.15))))
+                (fp_text reference "${p.ref}" (at 0 2.55 ${90 + p.r}) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1 1) (thickness 0.15))))
             `
         const silkscreen_front = `
-                (fp_text user "RST" (at 0 0 ${p.rot}) (layer F.SilkS) (effects (font (size 1 1) (thickness 0.15))))
+                (fp_text user "RST" (at 0 0 ${p.r}) (layer F.SilkS) (effects (font (size 1 1) (thickness 0.15))))
                 (fp_line (start -3 1.75) (end 3 1.75) (layer F.SilkS) (width 0.15))
                 (fp_line (start 3 1.75) (end 3 1.5) (layer F.SilkS) (width 0.15))
                 (fp_line (start -3 1.75) (end -3 1.5) (layer F.SilkS) (width 0.15))
@@ -49,7 +49,7 @@ module.exports = {
                 (fp_line (start 3 -1.75) (end 3 -1.5) (layer F.SilkS) (width 0.15))
             `
         const silkscreen_back = `
-                (fp_text user "RST" (at 0 0 ${p.rot}) (layer B.SilkS) (effects (font (size 1 1) (thickness 0.15)) (justify mirror)))
+                (fp_text user "RST" (at 0 0 ${p.r}) (layer B.SilkS) (effects (font (size 1 1) (thickness 0.15)) (justify mirror)))
                 (fp_line (start 3 1.5) (end 3 1.75) (layer B.SilkS) (width 0.15))
                 (fp_line (start 3 1.75) (end -3 1.75) (layer B.SilkS) (width 0.15))
                 (fp_line (start -3 1.75) (end -3 1.5) (layer B.SilkS) (width 0.15))
@@ -58,8 +58,8 @@ module.exports = {
                 (fp_line (start 3 -1.75) (end 3 -1.5) (layer B.SilkS) (width 0.15))
             `
         const common_end = `
-                (pad 2 thru_hole circle (at -3.25 0 ${p.rot}) (size 2 2) (drill 1.3) (layers *.Cu *.Mask) ${p.from.str})
-                (pad 1 thru_hole circle (at 3.25 0 ${p.rot}) (size 2 2) (drill 1.3) (layers *.Cu *.Mask) ${p.to.str})
+                (pad 2 thru_hole circle (at -3.25 0 ${p.r}) (size 2 2) (drill 1.3) (layers *.Cu *.Mask) ${p.from.str})
+                (pad 1 thru_hole circle (at 3.25 0 ${p.r}) (size 2 2) (drill 1.3) (layers *.Cu *.Mask) ${p.to.str})
             )
         `
 

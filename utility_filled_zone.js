@@ -91,7 +91,7 @@ module.exports = {
     hatch_orientation: 0,
     hatch_smoothing_level: 0,
     hatch_smoothing_value: 0.1,
-    points: [[0,0],[420,0],[420,297],[0,297]],
+    points: [[0, 0], [420, 0], [420, 297], [0, 297]],
   },
   body: p => {
     let polygon_pts = ''
