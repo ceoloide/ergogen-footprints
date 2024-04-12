@@ -194,7 +194,7 @@ module.exports = {
         `
 
         const hotswap_front_pad_cutoff = `
-            (pad 1 connect custom (at 3.275 -5.95 ${p.rot}) (size 0.5 0.5) (layers F.Cu F.Mask)
+            (pad 1 connect custom (at 3.275 -5.95 ${p.rot}) (size 0.5 0.5) (layers F.Cu F.Paste F.Mask)
                 (zone_connect 0)
                 (options (clearance outline) (anchor rect))
                 (primitives
