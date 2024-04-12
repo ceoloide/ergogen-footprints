@@ -100,6 +100,7 @@
 //  - Add ability to specify board side
 //  - Add ability to include stabilizer pad
 //  - Add ability to use an oval stabilizer pad
+//  - Upgrade to KiCad 8
 //
 // @grazfather's improvements:
 //  - Add support for switch 3D model
@@ -137,195 +138,164 @@ module.exports = {
   },
   body: p => {
     const common_top = `
-        (module "ceoloide:switch_choc_v1_v2" (layer ${p.side}.Cu) (tedit 5DD50112)
-            ${p.at /* parametric position */}
-            (attr virtual)
+  (footprint "ceoloide:switch_choc_v1_v2"
+    (layer "${p.side}.Cu")
+    ${p.at}
+    (property "Reference" "${p.ref}"
+      (at 0 0 ${p.r})
+      (layer "${p.side}.SilkS")
+      ${p.ref_hide}
+      (effects (font (size 1.27 1.27) (thickness 0.15)))
+    )
+    (attr exclude_from_pos_files exclude_from_bom)
 
-            ${'' /* footprint reference */}
-            (fp_text reference "${p.ref}" (at 0 0 ${p.r}) (layer ${p.side}.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
-
-            ${''/* middle shaft hole */}
-            (pad "" np_thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5' : '3.4'} ${p.choc_v2_support ? '5' : '3.4'})
-                (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers *.Cu))
-        `
+    ${''/* middle shaft hole */}
+    (pad "" np_thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5' : '3.4'} ${p.choc_v2_support ? '5' : '3.4'}) (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers "*.Cu" "*.Mask"))
+    `
 
     const choc_v1_stabilizers = `
-            (pad "" np_thru_hole circle (at 5.5 0 ${p.r}) (size 1.9 1.9) (drill 1.9) (layers *.Cu))
-            (pad "" np_thru_hole circle (at -5.5 0 ${p.r}) (size 1.9 1.9) (drill 1.9) (layers *.Cu))
-        `
+    (pad "" np_thru_hole circle (at 5.5 0 ${p.r}) (size 1.9 1.9) (drill 1.9) (layers "*.Cu" "*.Mask"))
+    (pad "" np_thru_hole circle (at -5.5 0 ${p.r}) (size 1.9 1.9) (drill 1.9) (layers "*.Cu" "*.Mask"))
+    `
 
     const corner_marks_front = `
-            ${''/* corner marks - front */}
-            (fp_line (start -7 -6) (end -7 -7) (layer F.SilkS) (width 0.15))
-            (fp_line (start -7 7) (end -6 7) (layer F.SilkS) (width 0.15))
-            (fp_line (start -6 -7) (end -7 -7) (layer F.SilkS) (width 0.15))
-            (fp_line (start -7 7) (end -7 6) (layer F.SilkS) (width 0.15))
-            (fp_line (start 7 6) (end 7 7) (layer F.SilkS) (width 0.15))
-            (fp_line (start 7 -7) (end 6 -7) (layer F.SilkS) (width 0.15))
-            (fp_line (start 6 7) (end 7 7) (layer F.SilkS) (width 0.15))
-            (fp_line (start 7 -7) (end 7 -6) (layer F.SilkS) (width 0.15))
-        `
+    ${''/* corner marks - front */}
+    (fp_line (start -7 -6) (end -7 -7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start -7 7) (end -6 7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start -6 -7) (end -7 -7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start -7 7) (end -7 6) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 7 6) (end 7 7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 7 -7) (end 6 -7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 6 7) (end 7 7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 7 -7) (end 7 -6) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    `
 
     const corner_marks_back = `
-            ${''/* corner marks - back */}
-            (fp_line (start -7 -6) (end -7 -7) (layer B.SilkS) (width 0.15))
-            (fp_line (start -7 7) (end -6 7) (layer B.SilkS) (width 0.15))
-            (fp_line (start -6 -7) (end -7 -7) (layer B.SilkS) (width 0.15))
-            (fp_line (start -7 7) (end -7 6) (layer B.SilkS) (width 0.15))
-            (fp_line (start 7 6) (end 7 7) (layer B.SilkS) (width 0.15))
-            (fp_line (start 7 -7) (end 6 -7) (layer B.SilkS) (width 0.15))
-            (fp_line (start 6 7) (end 7 7) (layer B.SilkS) (width 0.15))
-            (fp_line (start 7 -7) (end 7 -6) (layer B.SilkS) (width 0.15))
-        `
+    ${''/* corner marks - back */}
+    (fp_line (start -7 -6) (end -7 -7) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start -7 7) (end -6 7) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start -6 -7) (end -7 -7) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start -7 7) (end -7 6) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 7 6) (end 7 7) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 7 -7) (end 6 -7) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 6 7) (end 7 7) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 7 -7) (end 7 -6) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    `
 
     const keycap_xo = 0.5 * p.keycaps_x
     const keycap_yo = 0.5 * p.keycaps_y
     const keycap_marks = `
-            ${'' /* keycap marks - 1u */}
-            (fp_line (start ${-keycap_xo} ${-keycap_yo}) (end ${keycap_xo} ${-keycap_yo}) (layer Dwgs.User) (width 0.15))
-            (fp_line (start ${keycap_xo} ${-keycap_yo}) (end ${keycap_xo} ${keycap_yo}) (layer Dwgs.User) (width 0.15))
-            (fp_line (start ${keycap_xo} ${keycap_yo}) (end ${-keycap_xo} ${keycap_yo}) (layer Dwgs.User) (width 0.15))
-            (fp_line (start ${-keycap_xo} ${keycap_yo}) (end ${-keycap_xo} ${-keycap_yo}) (layer Dwgs.User) (width 0.15))
-        `
+    ${'' /* keycap marks - 1u */}
+    (fp_line (start ${-keycap_xo} ${-keycap_yo}) (end ${keycap_xo} ${-keycap_yo}) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start ${keycap_xo} ${-keycap_yo}) (end ${keycap_xo} ${keycap_yo}) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start ${keycap_xo} ${keycap_yo}) (end ${-keycap_xo} ${keycap_yo}) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start ${-keycap_xo} ${keycap_yo}) (end ${-keycap_xo} ${-keycap_yo}) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    `
 
     const hotswap_common = `
-            ${'' /* Middle Hole */}
-            (pad "" np_thru_hole circle (at 0 -5.95 ${p.r}) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-        `
+    ${'' /* Middle Hole */}
+    (pad "" np_thru_hole circle (at 0 -5.95 ${p.r}) (size 3 3) (drill 3) (layers "*.Cu" "*.Mask"))
+    `
 
     const hotswap_front_pad_cutoff = `
-            (pad 1 connect custom (at 3.275 -5.95 ${p.r}) (size 0.5 0.5) (layers F.Cu F.Paste F.Mask)
-                (zone_connect 0)
-                (options (clearance outline) (anchor rect))
-                (primitives
-                (gr_poly (pts
-                    (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
-                ) (width 0))
-            ) ${p.from.str})
-        `
+    (pad "1" connect custom (at 3.275 -5.95 ${p.r}) (size 0.5 0.5) (layers "F.Cu" "F.Paste" "F.Mask")
+      (zone_connect 0)
+      (options (clearance outline) (anchor rect))
+      (primitives
+        (gr_poly
+          (pts
+            (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+          )
+          (width 0)
+          (fill yes)
+        )
+      )
+      ${p.from.str}
+    )
+    `
 
     const hotswap_front_pad_full = `
-            (pad 1 smd rect (at 3.275 -5.95 ${p.r}) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  ${p.from.str})
-        `
+    (pad "1" smd rect (at 3.275 -5.95 ${p.r}) (size 2.6 2.6) (layers "F.Cu" "F.Paste" "F.Mask") ${p.from.str})
+    `
 
     const hotswap_back_pad_cutoff = `
-            (pad 1 smd custom (at -3.275 -5.95 ${p.r}) (size 1 1) (layers B.Cu B.Paste B.Mask)
-                (zone_connect 0)
-                (options (clearance outline) (anchor rect))
-                (primitives
-                    (gr_poly (pts
-                    (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
-                ) (width 0))
-            ) ${p.from.str})
-        `
+    (pad "1" smd custom (at -3.275 -5.95 ${p.r}) (size 1 1) (layers "B.Cu" "B.Paste" "B.Mask")
+      (zone_connect 0)
+      (options (clearance outline) (anchor rect))
+      (primitives
+        (gr_poly
+          (pts
+            (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+          )
+          (width 0)
+          (fill yes)
+        )
+      )
+      ${p.from.str}
+    )
+    `
 
     const hotswap_back_pad_full = `
-            (pad 1 smd rect (at -3.275 -5.95 ${p.r}) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  ${p.from.str})
-        `
+    (pad "1" smd rect (at -3.275 -5.95 ${p.r}) (size 2.6 2.6) (layers "B.Cu" "B.Paste" "B.Mask") ${p.from.str})
+    `
 
     const hotswap_back = `
-            ${'' /* Silkscreen outline */}
-            ${'' /* back top */}
-            (fp_line (start -1.5 -8.2) (end -2 -7.7) (layer B.SilkS) (width 0.15))
-            (fp_line (start 1.5 -8.2) (end -1.5 -8.2) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2 -7.7) (end 1.5 -8.2) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2 -7.7) (end 2 -6.78) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.52 -6.2) (end 7 -6.2) (layer B.SilkS) (width 0.15))
-            (fp_line (start 7 -6.2) (end 7 -5.6) (layer B.SilkS) (width 0.15))
-            ${''
-            /* arc
-               (fp_arc (start 2.52 -6.2) (mid 2.139878 -6.382304) (end 2 -6.78) (layer B.SilkS) (width 0.15))
-            */}
-            (fp_line (start 1.997856 -6.707729) (end 2 -6.78) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.02761 -6.566264) (end 1.997856 -6.707729) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.092964 -6.43732) (end 2.02761 -6.566264) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.189465 -6.329685) (end 2.092964 -6.43732) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.310535 -6.250694) (end 2.189465 -6.329685) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.447925 -6.205729) (end 2.310535 -6.250694) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.52 -6.2) (end 2.447925 -6.205729) (layer B.SilkS) (width 0.15))
-          
-            ${'' /* back bottom */}
-            (fp_line (start -1.5 -3.7) (end -2 -4.2) (layer B.SilkS) (width 0.15))
-            (fp_line (start 0.8 -3.7) (end -1.5 -3.7) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.5 -1.5) (end 2.5 -2.2) (layer B.SilkS) (width 0.15))
-            (fp_line (start 7 -1.5) (end 2.5 -1.5) (layer B.SilkS) (width 0.15))
-            (fp_line (start 7 -2) (end 7 -1.5) (layer B.SilkS) (width 0.15))
-            ${''
-            /* arc
-               (fp_arc (start 0.8 -3.7) (mid 1.956518 -3.312082) (end 2.5 -2.22) (layer B.SilkS) (width 0.15))
-            */}
-            (fp_line (start 0.795 -3.7) (end 1.04 -3.7) (layer B.SilkS) (width 0.15))
-            (fp_line (start 1.04 -3.7) (end 1.29 -3.66) (layer B.SilkS) (width 0.15))
-            (fp_line (start 1.29 -3.66) (end 1.53 -3.58) (layer B.SilkS) (width 0.15))
-            (fp_line (start 1.53 -3.58) (end 1.74 -3.47) (layer B.SilkS) (width 0.15))
-            (fp_line (start 1.74 -3.47) (end 1.92 -3.34) (layer B.SilkS) (width 0.15))
-            (fp_line (start 1.92 -3.34) (end 2.1 -3.17) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.1 -3.17) (end 2.25 -2.97) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.25 -2.97) (end 2.37 -2.756455) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.37 -2.756455) (end 2.460139 -2.49) (layer B.SilkS) (width 0.15))
-            (fp_line (start 2.460139 -2.49) (end 2.5 -2.22) (layer B.SilkS) (width 0.15))
+    ${'' /* Silkscreen outline */}
+    ${'' /* back top */}
+    (fp_line (start -1.5 -8.2) (end -2 -7.7) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 1.5 -8.2) (end -1.5 -8.2) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 2 -7.7) (end 1.5 -8.2) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 2 -7.7) (end 2 -6.78) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 2.52 -6.2) (end 7 -6.2) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 7 -6.2) (end 7 -5.6) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_arc (start 2.52 -6.2) (mid 2.139878 -6.382304) (end 2 -6.78) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+  
+    ${'' /* back bottom */}
+    (fp_line (start -1.5 -3.7) (end -2 -4.2) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 0.8 -3.7) (end -1.5 -3.7) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 2.5 -1.5) (end 2.5 -2.2) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 7 -1.5) (end 2.5 -1.5) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 7 -2) (end 7 -1.5) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_arc (start 0.8 -3.7) (mid 1.956518 -3.312082) (end 2.5 -2.22) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
 
-            ${'' /* Left Pad*/}
-            ${p.reversible ? hotswap_back_pad_cutoff : hotswap_back_pad_full}
+    ${'' /* Left Pad*/}
+    ${p.reversible ? hotswap_back_pad_cutoff : hotswap_back_pad_full}
 
-            ${'' /* Right Pad (not cut off) */}
-            (pad 2 smd rect (at ${8.275 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back} 2.6) (layers B.Cu B.Paste B.Mask) ${p.to.str})
+    ${'' /* Right Pad (not cut off) */}
+    (pad "2" smd rect (at ${8.275 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back} 2.6) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
 
-            ${'' /* Side Hole */}
-            (pad "" np_thru_hole circle (at 5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers *.Cu *.Mask))            
-        `
+    ${'' /* Side Hole */}
+    (pad "" np_thru_hole circle (at 5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers "*.Cu" "*.Mask"))            
+    `
 
     const hotswap_front = `
-            ${'' /* Silkscreen outline */}
-            ${'' /* front top */}
-            (fp_line (start -7 -5.6) (end -7 -6.2) (layer F.SilkS) (width 0.15))
-            (fp_line (start -7 -6.2) (end -2.52 -6.2) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2 -6.78) (end -2 -7.7) (layer F.SilkS) (width 0.15))
-            (fp_line (start -1.5 -8.2) (end -2 -7.7) (layer F.SilkS) (width 0.15))
-            (fp_line (start 1.5 -8.2) (end -1.5 -8.2) (layer F.SilkS) (width 0.15))
-            (fp_line (start 2 -7.7) (end 1.5 -8.2) (layer F.SilkS) (width 0.15))
-            ${''
-            /* arc
-               (fp_arc (start -2 -6.78) (mid -2.139878 -6.382304) (end -2.52 -6.2) (layer F.SilkS) (width 0.15))
-            */}
-            (fp_line (start -2.447925 -6.205729) (end -2.52 -6.2) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.310535 -6.250694) (end -2.447925 -6.205729) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.189465 -6.329685) (end -2.310535 -6.250694) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.092964 -6.43732) (end -2.189465 -6.329685) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.02761 -6.566264) (end -2.092964 -6.43732) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2 -6.78) (end -1.997856 -6.707729) (layer F.SilkS) (width 0.15))
-            (fp_line (start -1.997856 -6.707729) (end -2.02761 -6.566264) (layer F.SilkS) (width 0.15))
-          
-            ${'' /* front bottom */}
-            (fp_line (start -7 -1.5) (end -7 -2) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.5 -1.5) (end -7 -1.5) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.5 -2.2) (end -2.5 -1.5) (layer F.SilkS) (width 0.15))
-            (fp_line (start 1.5 -3.7) (end -0.8 -3.7) (layer F.SilkS) (width 0.15))
-            (fp_line (start 2 -4.2) (end 1.5 -3.7) (layer F.SilkS) (width 0.15))
-            ${''
-            /* arc
-               (fp_arc (start -2.5 -2.22) (mid -1.956518 -3.312082) (end -0.8 -3.7) (layer F.SilkS) (width 0.15))
-            */}
-            (fp_line (start -2.5 -2.22) (end -2.460139 -2.49) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.460139 -2.49) (end -2.37 -2.756455) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.37 -2.756455) (end -2.25 -2.97) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.25 -2.97) (end -2.1 -3.17) (layer F.SilkS) (width 0.15))
-            (fp_line (start -2.1 -3.17) (end -1.92 -3.34) (layer F.SilkS) (width 0.15))
-            (fp_line (start -1.92 -3.34) (end -1.74 -3.47) (layer F.SilkS) (width 0.15))
-            (fp_line (start -1.74 -3.47) (end -1.53 -3.58) (layer F.SilkS) (width 0.15))
-            (fp_line (start -1.53 -3.58) (end -1.29 -3.66) (layer F.SilkS) (width 0.15))
-            (fp_line (start -1.29 -3.66) (end -1.04 -3.7) (layer F.SilkS) (width 0.15))
-            (fp_line (start -1.04 -3.7) (end -0.795 -3.7) (layer F.SilkS) (width 0.15))
+    ${'' /* Silkscreen outline */}
+    ${'' /* front top */}
+    (fp_line (start -7 -5.6) (end -7 -6.2) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start -7 -6.2) (end -2.52 -6.2) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start -2 -6.78) (end -2 -7.7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start -1.5 -8.2) (end -2 -7.7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 1.5 -8.2) (end -1.5 -8.2) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 2 -7.7) (end 1.5 -8.2) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_arc (start -2 -6.78) (mid -2.139878 -6.382304) (end -2.52 -6.2) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+  
+    ${'' /* front bottom */}
+    (fp_line (start -7 -1.5) (end -7 -2) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start -2.5 -1.5) (end -7 -1.5) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start -2.5 -2.2) (end -2.5 -1.5) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 1.5 -3.7) (end -0.8 -3.7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_line (start 2 -4.2) (end 1.5 -3.7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    (fp_arc (start -2.5 -2.22) (mid -1.956518 -3.312082) (end -0.8 -3.7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
 
-            ${'' /* Right Pad (cut off) */}
-            ${p.reversible ? hotswap_front_pad_cutoff : hotswap_front_pad_full}
+    ${'' /* Right Pad (cut off) */}
+    ${p.reversible ? hotswap_front_pad_cutoff : hotswap_front_pad_full}
 
-            ${'' /* Left Pad (not cut off) */}
-            (pad 2 smd rect (at ${-8.275 + (2.6 - p.outer_pad_width_front) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_front} 2.6) (layers F.Cu F.Paste F.Mask) ${p.to.str})
+    ${'' /* Left Pad (not cut off) */}
+    (pad "2" smd rect (at ${-8.275 + (2.6 - p.outer_pad_width_front) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_front} 2.6) (layers "F.Cu" "F.Paste" "F.Mask") ${p.to.str})
 
-            ${'' /* Side Hole */}
-            (pad "" np_thru_hole circle (at -5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-        `
+    ${'' /* Side Hole */}
+    (pad "" np_thru_hole circle (at -5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers "*.Cu" "*.Mask"))
+    `
 
     // If both hotswap and solder are enabled, move the solder holes
     // "down" to the opposite side of the switch.
@@ -346,44 +316,46 @@ module.exports = {
       stab_offset_y = ''
     }
     const solder_common = `
-            (pad 2 thru_hole circle (at 0 ${solder_offset_y}5.9 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.from.str})
-        `
+    (pad "2" thru_hole circle (at 0 ${solder_offset_y}5.9 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers "*.Cu" "*.Mask") ${p.from.str})
+    `
 
     const solder_front = `
-            (pad 1 thru_hole circle (at ${solder_offset_x_front}5 ${solder_offset_y}3.8 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.to.str})
-        `
+    (pad "1" thru_hole circle (at ${solder_offset_x_front}5 ${solder_offset_y}3.8 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers "*.Cu" "*.Mask") ${p.to.str})
+    `
     const solder_back = `
-            (pad 1 thru_hole circle (at ${solder_offset_x_back}5 ${solder_offset_y}3.8 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) ${p.to.str})  
-        `
+    (pad "1" thru_hole circle (at ${solder_offset_x_back}5 ${solder_offset_y}3.8 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers "*.Cu" "*.Mask") ${p.to.str})  
+    `
     const oval_corner_stab_front = `
-            (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
-        `
+    (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : ''})
+    `
     const oval_corner_stab_back = `
-            (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
-        `
+    (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : ''})
+    `
     const round_corner_stab_front = `
-            (pad "" np_thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.6 1.6) (drill 1.6) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
-        `
+    (pad "" np_thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.6 1.6) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : ''})
+    `
     const round_corner_stab_back = `
-            (pad "" np_thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.6 1.6) (drill 1.6) (layers *.Cu *.Mask) ${p.solder && p.hotswap ? p.to.str : ''})
-        `
+    (pad "" np_thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.6 1.6) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : ''})
+    `
     const switch_3dmodel = `
-            (model ${p.switch_3dmodel_filename}
-              (offset (xyz ${p.switch_3dmodel_xyz_offset[0]} ${p.switch_3dmodel_xyz_offset[1]} ${p.switch_3dmodel_xyz_offset[2]}))
-              (scale (xyz ${p.switch_3dmodel_xyz_scale[0]} ${p.switch_3dmodel_xyz_scale[1]} ${p.switch_3dmodel_xyz_scale[2]}))
-              (rotate (xyz ${p.switch_3dmodel_xyz_rotation[0]} ${p.switch_3dmodel_xyz_rotation[1]} ${p.switch_3dmodel_xyz_rotation[2]})))
-	    `
+    (model ${p.switch_3dmodel_filename}
+      (offset (xyz ${p.switch_3dmodel_xyz_offset[0]} ${p.switch_3dmodel_xyz_offset[1]} ${p.switch_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.switch_3dmodel_xyz_scale[0]} ${p.switch_3dmodel_xyz_scale[1]} ${p.switch_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.switch_3dmodel_xyz_rotation[0]} ${p.switch_3dmodel_xyz_rotation[1]} ${p.switch_3dmodel_xyz_rotation[2]}))
+    )
+    `
 
     const hotswap_3dmodel = `
-            (model ${p.hotswap_3dmodel_filename}
-              (offset (xyz ${p.hotswap_3dmodel_xyz_offset[0]} ${p.hotswap_3dmodel_xyz_offset[1]} ${p.hotswap_3dmodel_xyz_offset[2]}))
-              (scale (xyz ${p.hotswap_3dmodel_xyz_scale[0]} ${p.hotswap_3dmodel_xyz_scale[1]} ${p.hotswap_3dmodel_xyz_scale[2]}))
-              (rotate (xyz ${p.hotswap_3dmodel_xyz_rotation[0]} ${p.hotswap_3dmodel_xyz_rotation[1]} ${p.hotswap_3dmodel_xyz_rotation[2]})))
-	`
+    (model ${p.hotswap_3dmodel_filename}
+      (offset (xyz ${p.hotswap_3dmodel_xyz_offset[0]} ${p.hotswap_3dmodel_xyz_offset[1]} ${p.hotswap_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.hotswap_3dmodel_xyz_scale[0]} ${p.hotswap_3dmodel_xyz_scale[1]} ${p.hotswap_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.hotswap_3dmodel_xyz_rotation[0]} ${p.hotswap_3dmodel_xyz_rotation[1]} ${p.hotswap_3dmodel_xyz_rotation[2]}))
+    )
+	  `
 
     const common_bottom = `
-        )
-        `
+  )
+    `
 
     let final = common_top
     if (p.choc_v1_support) {
