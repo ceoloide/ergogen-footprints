@@ -44,77 +44,69 @@ module.exports = {
   },
   body: p => {
     const common_start = `
-        (module "ceoloide:reset_button_smd_side" (layer ${p.side}.Cu) (tedit 64473C6F)
-          ${p.at /* parametric position */}
-          (attr smd)
-          (fp_text value "reset_button_smd_side" (at 0 2.5 ${p.r}) (layer ${p.side}.Fab)
-            (effects (font (size 1 1) (thickness 0.15)))
-          )
-          (fp_text reference "${p.ref}" (at 0 0 ${p.r}) (layer F.SilkS) ${p.ref_hide}
-            (effects (font (size 1 1) (thickness 0.15)))
-          )
-          (fp_line (start -2.35 -1.75) (end -2.35 1.75) (width 0.1) (layer "Dwgs.User"))
-          (fp_line (start -2.35 -1.75) (end 2.35 -1.75) (width 0.1) (layer "Dwgs.User"))
-          (fp_line (start -2.35 1.75) (end 2.35 1.75) (width 0.1) (layer "Dwgs.User"))
-          (fp_line (start -1.3 -2.75) (end -1.3 -1.75) (width 0.1) (layer "Dwgs.User"))
-          (fp_line (start -1.3 -2.75) (end 1.3 -2.75) (width 0.1) (layer "Dwgs.User"))
-          (fp_line (start 1.3 -2.75) (end 1.3 -1.75) (width 0.1) (layer "Dwgs.User"))
-          (fp_line (start 2.35 -1.75) (end 2.35 1.75) (width 0.1) (layer "Dwgs.User"))
-      `
+  (footprint "ceoloide:reset_button_smd_side"
+    (layer "${p.side}.Cu")
+    ${p.at}
+    (property "Reference" "${p.ref}"
+      (at 0 0 ${p.r})
+      (layer "${p.side}.SilkS")
+      ${p.ref_hide}
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (attr smd)
+    (fp_line (start -2.35 -1.75) (end -2.35 1.75) (stroke (width 0.1) (type solid)) (layer "Dwgs.User"))
+    (fp_line (start -2.35 -1.75) (end 2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "Dwgs.User"))
+    (fp_line (start -2.35 1.75) (end 2.35 1.75) (stroke (width 0.1) (type solid)) (layer "Dwgs.User"))
+    (fp_line (start -1.3 -2.75) (end -1.3 -1.75) (stroke (width 0.1) (type solid)) (layer "Dwgs.User"))
+    (fp_line (start -1.3 -2.75) (end 1.3 -2.75) (stroke (width 0.1) (type solid)) (layer "Dwgs.User"))
+    (fp_line (start 1.3 -2.75) (end 1.3 -1.75) (stroke (width 0.1) (type solid)) (layer "Dwgs.User"))
+    (fp_line (start 2.35 -1.75) (end 2.35 1.75) (stroke (width 0.1) (type solid)) (layer "Dwgs.User"))
+    `
     const silkscreen_front = `
-        (fp_line (start -2.35 -1.5) (end -2.35 -1.75) (width 0.1) (layer "F.SilkS"))
-        (fp_line (start -2.35 1.5) (end -2.35 1.75) (width 0.1) (layer "F.SilkS"))
-        (fp_line (start -2.1 -1.75) (end -2.35 -1.75) (width 0.1) (layer "F.SilkS"))
-        (fp_line (start -2.1 1.75) (end -2.35 1.75) (width 0.1) (layer "F.SilkS"))
-        (fp_line (start 2.1 -1.75) (end 2.35 -1.75) (width 0.1) (layer "F.SilkS"))
-        (fp_line (start 2.1 1.75) (end 2.35 1.75) (width 0.1) (layer "F.SilkS"))
-        (fp_line (start 2.35 -1.5) (end 2.35 -1.75) (width 0.1) (layer "F.SilkS"))
-        (fp_line (start 2.35 1.5) (end 2.35 1.75) (width 0.1) (layer "F.SilkS"))
-      `
+    (fp_line (start -2.35 -1.5) (end -2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
+    (fp_line (start -2.35 1.5) (end -2.35 1.75) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
+    (fp_line (start -2.1 -1.75) (end -2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
+    (fp_line (start -2.1 1.75) (end -2.35 1.75) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
+    (fp_line (start 2.1 -1.75) (end 2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
+    (fp_line (start 2.1 1.75) (end 2.35 1.75) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
+    (fp_line (start 2.35 -1.5) (end 2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
+    (fp_line (start 2.35 1.5) (end 2.35 1.75) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
+    `
     const silkscreen_back = `
-        (fp_text reference "${p.ref}" (at 0 0 ${p.r}) (layer B.SilkS) ${p.ref_hide}
-          (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
-        )
-        (fp_line (start -2.35 -1.5) (end -2.35 -1.75) (width 0.1) (layer "B.SilkS"))
-        (fp_line (start -2.35 1.5) (end -2.35 1.75) (width 0.1) (layer "B.SilkS"))
-        (fp_line (start -2.1 -1.75) (end -2.35 -1.75) (width 0.1) (layer "B.SilkS"))
-        (fp_line (start -2.1 1.75) (end -2.35 1.75) (width 0.1) (layer "B.SilkS"))
-        (fp_line (start 2.1 -1.75) (end 2.35 -1.75) (width 0.1) (layer "B.SilkS"))
-        (fp_line (start 2.1 1.75) (end 2.35 1.75) (width 0.1) (layer "B.SilkS"))
-        (fp_line (start 2.35 -1.5) (end 2.35 -1.75) (width 0.1) (layer "B.SilkS"))
-        (fp_line (start 2.35 1.5) (end 2.35 1.75) (width 0.1) (layer "B.SilkS"))
-      `
+    (fp_line (start -2.35 -1.5) (end -2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
+    (fp_line (start -2.35 1.5) (end -2.35 1.75) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
+    (fp_line (start -2.1 -1.75) (end -2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
+    (fp_line (start -2.1 1.75) (end -2.35 1.75) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
+    (fp_line (start 2.1 -1.75) (end 2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
+    (fp_line (start 2.1 1.75) (end 2.35 1.75) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
+    (fp_line (start 2.35 -1.5) (end 2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
+    (fp_line (start 2.35 1.5) (end 2.35 1.75) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
+    `
     const pads_front = `
-        (pad "1" smd rect (at 2.625 -0.85 ${180 + p.r}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.from.str})
-        (pad "2" smd rect (at 2.625 0.85 ${180 + p.r}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.to.str})
-        (pad "3" smd rect (at -2.625 -0.85 ${180 + p.r}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.from.str})
-        (pad "4" smd rect (at -2.625 0.85 ${180 + p.r}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.to.str})
-      `
+    (pad "1" smd rect (at 2.625 -0.85 ${180 + p.r}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.from.str})
+    (pad "2" smd rect (at 2.625 0.85 ${180 + p.r}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.to.str})
+    (pad "3" smd rect (at -2.625 -0.85 ${180 + p.r}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.from.str})
+    (pad "4" smd rect (at -2.625 0.85 ${180 + p.r}) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.to.str})
+    `
     const pads_back = `
-        (pad "1" smd rect (at -2.625 -0.85 ${180 + p.r}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.from.str})
-        (pad "2" smd rect (at -2.625 0.85 ${180 + p.r}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
-        (pad "3" smd rect (at 2.625 -0.85 ${180 + p.r}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.from.str})
-        (pad "4" smd rect (at 2.625 0.85 ${180 + p.r}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
-      `
+    (pad "1" smd rect (at -2.625 -0.85 ${180 + p.r}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.from.str})
+    (pad "2" smd rect (at -2.625 0.85 ${180 + p.r}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
+    (pad "3" smd rect (at 2.625 -0.85 ${180 + p.r}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.from.str})
+    (pad "4" smd rect (at 2.625 0.85 ${180 + p.r}) (size 1.55 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
+    `
     const courtyard_front = `
-        (fp_line (start -2.36 -1.75) (end -2.36 1.75) (width 0.05) (layer "F.CrtYd"))
-        (fp_line (start -2.36 -1.75) (end 2.36 -1.75) (width 0.05) (layer "F.CrtYd"))
-        (fp_line (start 2.36 -1.75) (end 2.36 1.75) (width 0.05) (layer "F.CrtYd"))
-        (fp_line (start 2.36 1.75) (end -2.36 1.75) (width 0.05) (layer "F.CrtYd"))
-      `
+    (fp_rect (start 2.36 1.75) (end -2.36 -1.75) (stroke (width 0.05) (type solid)) (fill none) (layer "F.CrtYd"))
+    `
     const courtyard_back = `
-        (fp_line (start -2.36 -1.75) (end -2.36 1.75) (width 0.05) (layer "B.CrtYd"))
-        (fp_line (start -2.36 1.75) (end 2.36 1.75) (width 0.05) (layer "B.CrtYd"))
-        (fp_line (start 2.36 -1.75) (end -2.36 -1.75) (width 0.05) (layer "B.CrtYd"))
-        (fp_line (start 2.36 -1.75) (end 2.36 1.75) (width 0.05) (layer "B.CrtYd"))
-      `
+    (fp_rect (start 2.36 1.75) (end -2.36 -1.75) (stroke (width 0.05) (type solid)) (fill none) (layer "B.CrtYd"))
+    `
     const bosses = `
-        (pad "" np_thru_hole circle (at 0 -1.375 ${180 + p.r}) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
-        (pad "" np_thru_hole circle (at 0 1.375 ${180 + p.r}) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
-      `
+    (pad "" np_thru_hole circle (at 0 -1.375 ${180 + p.r}) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
+    (pad "" np_thru_hole circle (at 0 1.375 ${180 + p.r}) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
+    `
     const common_end = `
-      )
-      `
+  )
+    `
 
     let final = common_start;
     if (p.include_bosses) {
