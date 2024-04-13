@@ -169,12 +169,12 @@ module.exports = {
     };
 
     const get_pin_label_override = (p, pin_name) => {
-      prop_name = `${pin_name}_label`;
+      let prop_name = `${pin_name}_label`;
       return p[prop_name];
     };
 
     const get_pin_label = (p, pin_name) => {
-      label = get_pin_label_override(p, pin_name);
+      let label = get_pin_label_override(p, pin_name);
       if (label == '') {
         label = get_pin_net_name(p, pin_name);
       }
@@ -216,7 +216,7 @@ module.exports = {
       let traces = '';
       for (let i = 0; i < 12; i++) {
         if (i < 4 || !p.only_required_jumpers) {
-          row_traces = gen_traces_row(i)
+          let row_traces = gen_traces_row(i)
           traces += row_traces
         }
       }
