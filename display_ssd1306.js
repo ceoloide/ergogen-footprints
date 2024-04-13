@@ -60,7 +60,7 @@ module.exports = {
       p.SDA,
     ];
 
-    local_nets = [
+    let local_nets = [
       p.local_net("1"),
       p.local_net("2"),
       p.local_net("3"),

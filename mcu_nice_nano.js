@@ -440,8 +440,8 @@ module.exports = {
 
       let socket_rows = '';
       for (let i = 0; i < pin_names.length; i++) {
-        pin_name_left = pin_names[i][invert_pins ? 1 : 0]
-        pin_name_right = pin_names[i][invert_pins ? 0 : 1]
+        let pin_name_left = pin_names[i][invert_pins ? 1 : 0]
+        let pin_name_right = pin_names[i][invert_pins ? 0 : 1]
 
         const socket_row = gen_socket_row(
           i, pin_name_left, pin_name_right,

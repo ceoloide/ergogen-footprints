@@ -79,7 +79,7 @@ module.exports = {
       p.MOSI,
     ];
 
-    local_nets = [
+    let local_nets = [
       p.local_net("1"),
       p.local_net("2"),
       p.VCC,
