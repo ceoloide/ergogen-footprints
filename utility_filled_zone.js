@@ -112,8 +112,8 @@ module.exports = {
     )
     (min_thickness ${p.min_thickness})
     (filled_areas_thickness no)
-    (fill yes
-      (mode ${p.fill_type})
+    (fill 
+      ${p.fill_type == 'solid' ? 'yes' : '(mode ' + p.fill_type + ')'}
       (thermal_gap ${p.thermal_gap})
       (thermal_bridge_width ${p.thermal_bridge_width})
       ${p.corner_smoothing != '' ? '(smoothing ' + p.corner_smoothing + ')' : ''}
