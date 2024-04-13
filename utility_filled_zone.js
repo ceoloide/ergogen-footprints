@@ -113,15 +113,16 @@ module.exports = {
     (min_thickness ${p.min_thickness})
     (filled_areas_thickness no)
     (fill yes
+      (mode ${p.fill_type})
       (thermal_gap ${p.thermal_gap})
       (thermal_bridge_width ${p.thermal_bridge_width})
       ${p.corner_smoothing != '' ? '(smoothing ' + p.corner_smoothing + ')' : ''}
       ${p.corner_smoothing != '' ? '(radius ' + p.smoothing_radius + ')' : ''}
       ${p.remove_islands == 'always' ? '' : '(island_removal_mode ' + (p.remove_islands == 'never' ? 1 : 2) + ')'}
       ${p.remove_islands == 'always' ? '' : '(island_area_min ' + p.min_island_size + ')'}
-      ${p.fill_type == 'solid' ? '' : '(hatch_thickness 1)'}
-      ${p.fill_type == 'solid' ? '' : '(hatch_gap 1.5)'}
-      ${p.fill_type == 'solid' ? '' : '(hatch_orientation 0)'}
+      ${p.fill_type == 'solid' ? '' : '(hatch_thickness ' + p.hatch_thickness + ')'}
+      ${p.fill_type == 'solid' ? '' : '(hatch_gap ' + p.hatch_gap + ')'}
+      ${p.fill_type == 'solid' ? '' : '(hatch_orientation ' + p.hatch_orientation + ')'}
       ${p.fill_type == 'solid' || p.hatch_smoothing_level < 1 ? '' : '(hatch_smoothing_level ' + p.hatch_smoothing_level + ')'}
       ${p.fill_type == 'solid' || p.hatch_smoothing_level < 1 ? '' : '(hatch_smoothing_value ' + p.hatch_smoothing_value + ')'}
       ${p.fill_type == 'solid' ? '' : '(hatch_border_algorithm hatch_thickness)'}
