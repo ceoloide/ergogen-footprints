@@ -88,7 +88,7 @@ module.exports = {
   params: {
     designator: 'MCU',
     side: 'F',
-    reversible: true,
+    reversible: false,
     reverse_mount: false,
     include_traces: true,
     include_extra_pins: false,
