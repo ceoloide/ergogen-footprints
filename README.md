@@ -134,7 +134,7 @@ has been extensively used to create original ergogen footprints in this reposito
 
 ## Licenses and recognition
 
-All original footprints are licensed under [MIT License][mit]. I also extensively used and modified footprints created by [@infused-kim](https://github.com/infused-kim), which are licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+All original footprints and those copied from [@MrZealot](https://github.com/mrzealot), [@TildeWill](https://github.com/tildewill), and [@virginia2244](https://github.com/virginia2244) are licensed under [MIT License][mit]. I also extensively used and modified footprints created by [@infused-kim](https://github.com/infused-kim), which are licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
 
@@ -143,7 +143,8 @@ Furthermore, all of the work I've done wouldn't have been possible without the i
 - [@foostan](https://github.com/foostan) for the original [Corne keyboard](https://github.com/foostan/crkbd)
 - [@flatfootfox](https://github.com/flatfootfox) for the [Ergogen v4 introductory articles](https://flatfootfox.com/ergogen-introduction/)
 - [@infused-kim](https://github.com/infused-kim) for the [amazing work done with the footprints](https://github.com/infused-kim/kb_ergogen_fp) I ~stole from~ got inspired by
-- MrZealot / [@ergogen](https://github.com/ergogen) for the [amazing tool](https://github.com/ergogen/ergogen) and [amazing community](https://discord.gg/Tj2TUaUW)
+- [@MrZealot](https://github.com/mrzealot) / [@ergogen](https://github.com/ergogen) for the [amazing tool](https://github.com/ergogen/ergogen) and [amazing community](https://discord.gg/Tj2TUaUW)
+- [@virginia2244](https://github.com/virginia2244) for the [incredible work on MCU footprints](https://github.com/Virginia2244/ergogen_footprints)
 - [@benvallack](https://github.com/benvallack) for the [great video content on YouTube](https://www.youtube.com/watch?v=UKfeJrRIcxw) and getting me started on the Ergogen journey
 
 [mit]: https://opensource.org/license/mit/
