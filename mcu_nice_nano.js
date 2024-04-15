@@ -25,7 +25,7 @@
 //    reversible: default is false
 //      if true, the footprint will be placed on both sides so that the PCB can be
 //      reversible
-//    reverse_mount: default is true (MCU facing the PCB)
+//    reverse_mount: default is false (MCU facing away from the PCB)
 //      if true, the sockets will be oriented so that the MCU faces the PCB (RAW / B+ is the
 //      top left pin). This is the most common mounting option for the nice!nano.
 //      When set to false, the pads will match the datasheet and assume the MCU faces away
@@ -509,10 +509,10 @@ module.exports = {
     `;
 
     const instructions = `
-    (fp_text user "Right Side Jumpers" (at 0 -15.245 ${p.r}) (layer "F.SilkS")
+    (fp_text user "R Jumpers, MCU ${!p.reverse_mount ? 'Up' : 'Down'}" (at 0 -15.245 ${p.r}) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text user "Left Side Jumpers" (at 0 -15.245 ${p.r}) (layer "B.SilkS")
+    (fp_text user "L Jumpers, MCU ${!p.reverse_mount ? 'Up' : 'Down'}" (at 0 -15.245 ${p.r}) (layer "B.SilkS")
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     `
