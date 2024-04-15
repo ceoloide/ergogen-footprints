@@ -1,3 +1,29 @@
+/*
+
+Author: @Virginia2244
+
+Description:
+  A reversable footprint for the elite-c microcontroller.
+
+Datasheet: (really just a wiki but it was the closest I could find)
+  https://deskthority.net/wiki/Elite-C
+
+Params
+  reversable: default is false
+    When enabled the PCB is reversable
+  label: default is true
+    Turns on and off the elite-c label
+  instructions: default is true
+    turns on and off the instructions about which side to solder the
+  jumpers traces: default is true
+    Turns on and off auto tracing for the reversable pins
+  reversable_pins: default is 5
+    How many pins need to be reversable? Only the top 5 need to
+    be reversable because they aren't GPIO. After that the pins are changable in
+    the firmware.
+*/
+
+
 module.exports = {
   params : {
     reversable : {type : 'boolean', value : false},
