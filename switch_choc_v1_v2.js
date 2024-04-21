@@ -27,6 +27,10 @@
 //      if true, will include holes and pads for Kailh choc hotswap sockets
 //    solder: default is false
 //      if true, will include holes to solder switches (works with hotswap too)
+//    plated: default is false
+//      Alternate version of the footprint compatible with side, reversible, hotswap, solder options in any combination.
+//      Pretty, allows for connecting ground fill zones via center hole, 
+//      allows for setting nets to Choc v2 stabilizers and them for your routing needs.
 //    outer_pad_width_front: default 2.6
 //    outer_pad_width_back: default 2.6
 //      Allows you to make the outer hotswap pads smaller to silence DRC
@@ -43,6 +47,8 @@
 //    oval_stabilizer_pad: default is false
 //      if false, will add an oval pad for the stabilizer leg, and a round one
 //      if true. Note that the datasheet calls for a round one.
+//    choc_v1_stabilizers_diameter: default is 1.9
+//      Allows you to narrow Choc v1 stabilizer\boss holes diameter for tighter fit, not recommended to set below 1.7
 //    choc_v1_support: default is true
 //      if true, will add lateral stabilizer holes that are required for
 //      Choc v1 footprints.
@@ -107,6 +113,13 @@
 //
 // @nxtk's improvements:
 //  - Convert `fp_arc` to a series of `fp_line` for forward KiCad 8 compatibility
+//  - Add plated version, inspired by @daprice and @ssbb
+//  - Add ability to adjust v1 stabilizer\boss holes
+//  - Add ability to assign nets to v2 stabilizer\boss holes (useful for routing diode in place of backlight led)
+//  - Add ability to set a net to central hole (useful for connecting ground fill zones)
+//  - Add opposite stabilizer\boss holes when (choc_v2_support & solder & hotswap) options enabled together
+//  - Change v2 stabilizer\boss holes to plated
+
 
 module.exports = {
   params: {
@@ -114,6 +127,7 @@ module.exports = {
     side: 'B',
     reversible: false,
     hotswap: true,
+    plated: false,
     solder: false,
     outer_pad_width_front: 2.6,
     outer_pad_width_back: 2.6,
@@ -123,6 +137,7 @@ module.exports = {
     oval_stabilizer_pad: false,
     choc_v1_support: true,
     choc_v2_support: true,
+    choc_v1_stabilizers_diameter: 1.9,
     keycaps_x: 18,
     keycaps_y: 18,
     switch_3dmodel_filename: '',
@@ -134,28 +149,40 @@ module.exports = {
     hotswap_3dmodel_xyz_rotation: [0, 0, 0],
     hotswap_3dmodel_xyz_scale: [1, 1, 1],
     from: undefined,
-    to: undefined
+    to: undefined,
+    CENTERHOLE: { type: 'net', value: 'GND' },
+    LEFTSTAB: { type: 'net', value: 'D2' },
+    RIGHTSTAB: { type: 'net', value: 'D1' }
   },
   body: p => {
     const common_top = `
-  (footprint "ceoloide:switch_choc_v1_v2"
-    (layer "${p.side}.Cu")
-    ${p.at}
-    (property "Reference" "${p.ref}"
-      (at 0 0 ${p.r})
-      (layer "${p.side}.SilkS")
-      ${p.ref_hide}
-      (effects (font (size 1 1) (thickness 0.15)))
-    )
-    (attr exclude_from_pos_files exclude_from_bom)
+    (footprint "ceoloide:switch_choc_v1_v2"
+      (layer "${p.side}.Cu")
+      ${p.at}
+      (property "Reference" "${p.ref}"
+        (at 0 0 ${p.r})
+        (layer "${p.side}.SilkS")
+        ${p.ref_hide}
+        (effects (font (size 1 1) (thickness 0.15)))
+      )
+      (attr exclude_from_pos_files exclude_from_bom)
 
     ${''/* middle shaft hole */}
-    (pad "" np_thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5' : '3.4'} ${p.choc_v2_support ? '5' : '3.4'}) (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers "*.Cu" "*.Mask"))
+    ${p.plated ? `
+    (pad "" thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5.3 5.3' : '3.7 3.7'}) (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers "*.Cu" "*.Mask") ${p.CENTERHOLE})
+    `: `
+    (pad "" np_thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5 5' : '3.4 3.4'}) (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers "*.Cu" "*.Mask"))
+    `}
     `
 
     const choc_v1_stabilizers = `
-    (pad "" np_thru_hole circle (at 5.5 0 ${p.r}) (size 1.9 1.9) (drill 1.9) (layers "*.Cu" "*.Mask"))
-    (pad "" np_thru_hole circle (at -5.5 0 ${p.r}) (size 1.9 1.9) (drill 1.9) (layers "*.Cu" "*.Mask"))
+    ${p.plated ? `
+    (pad "" thru_hole circle (at 5.5 0 ${p.r}) (size ${p.choc_v1_stabilizers_diameter + 0.3} ${p.choc_v1_stabilizers_diameter + 0.3}) (drill ${p.choc_v1_stabilizers_diameter}) (layers "*.Cu" "*.Mask"))
+    (pad "" thru_hole circle (at -5.5 0 ${p.r}) (size ${p.choc_v1_stabilizers_diameter + 0.3} ${p.choc_v1_stabilizers_diameter + 0.3}) (drill ${p.choc_v1_stabilizers_diameter}) (layers "*.Cu" "*.Mask"))
+    `: `
+    (pad "" np_thru_hole circle (at 5.5 0 ${p.r}) (size ${p.choc_v1_stabilizers_diameter} ${p.choc_v1_stabilizers_diameter}) (drill ${p.choc_v1_stabilizers_diameter}) (layers "*.Cu" "*.Mask"))
+    (pad "" np_thru_hole circle (at -5.5 0 ${p.r}) (size ${p.choc_v1_stabilizers_diameter} ${p.choc_v1_stabilizers_diameter}) (drill ${p.choc_v1_stabilizers_diameter}) (layers "*.Cu" "*.Mask"))
+    `}
     `
 
     const corner_marks_front = `
@@ -194,7 +221,37 @@ module.exports = {
 
     const hotswap_common = `
     ${'' /* Middle Hole */}
+    ${p.plated ? `
+    (pad ${p.reversible ? '""' : 1} thru_hole circle (at 0 -5.95 ${p.r}) (size 3.3 3.3) (drill 3) (layers "*.Cu" "*.Mask") ${p.reversible ? '' : p.from.str})
+    `: `
     (pad "" np_thru_hole circle (at 0 -5.95 ${p.r}) (size 3 3) (drill 3) (layers "*.Cu" "*.Mask"))
+    `}
+    `
+
+    const hotswap_back_pads_plated = `
+    (pad "1" smd roundrect (at -2.648 -5.95 ${p.r}) (size 3.8 2.15) (layers "B.Cu") (roundrect_rratio 0.1) ${p.from.str})
+    (pad "" smd roundrect (at -3.248 -5.95 ${p.r}) (size 2.6 2.15) (layers "B.Paste" "B.Mask") (roundrect_rratio 0.1))
+    (pad "2" smd roundrect (at ${7.6475 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back + 1.2} 2.15) (layers "B.Cu") (roundrect_rratio 0.1) ${p.to.str})
+    (pad "" smd roundrect (at ${8.2475 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back} 2.15) (layers "B.Paste" "B.Mask") (roundrect_rratio ${(2.15 / p.outer_pad_width_back) <= 1 ? 0.1 : 0.1 * (2.15 / p.outer_pad_width_back)}))
+    `
+
+    const hotswap_front_pads_plated = `
+    (pad "1" smd roundrect (at 2.648 -5.95 ${p.r}) (size 3.8 2.15) (layers "F.Cu") (roundrect_rratio 0.1) ${p.from.str})
+    (pad "" smd roundrect (at 3.248 -5.95 ${p.r}) (size 2.6 2.15) (layers "F.Paste" "F.Mask") (roundrect_rratio 0.1) ${p.from.str}) 
+    (pad "2" smd roundrect (at ${-7.6475 + (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back + 1.2} 2.15) (layers "F.Cu") (roundrect_rratio 0.1) ${p.to.str})
+    (pad "" smd roundrect (at ${-8.2475 + (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back} 2.15) (layers "F.Paste" "F.Mask") (roundrect_rratio ${(2.15 / p.outer_pad_width_back) <= 1 ? 0.1 : 0.1 * (2.15 / p.outer_pad_width_back)}) ${p.to.str})
+    `
+
+    const hotswap_back_pads_plated_reversible = `
+    (pad "1" smd roundrect (at -3.245 -5.95 ${p.r}) (size 2.65 2.15) (layers "B.Cu" "B.Paste" "B.Mask") (roundrect_rratio 0.1) ${p.from.str})
+    (pad "2" smd roundrect (at ${7.6475 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back + 1.2} 2.15) (layers "B.Cu") (roundrect_rratio 0.1) ${p.to.str})
+    (pad "" smd roundrect (at ${8.2475 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back} 2.15) (layers "B.Paste" "B.Mask") (roundrect_rratio ${(2.15 / p.outer_pad_width_back) <= 1 ? 0.1 : 0.1 * (2.15 / p.outer_pad_width_back)}) ${p.to.str})
+    `
+
+    const hotswap_front_pads_plated_reversible = `
+    (pad "2" smd roundrect (at 3.245 -5.95 ${p.r}) (size 2.65 2.15) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.1) ${p.to.str})
+    (pad "1" smd roundrect (at ${-7.6475 + (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back + 1.2} 2.15) (layers "F.Cu") (roundrect_rratio 0.1) ${p.from.str})
+    (pad "" smd roundrect (at ${-8.2475 + (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back} 2.15) (layers "F.Paste" "F.Mask") (roundrect_rratio ${(2.15 / p.outer_pad_width_back) <= 1 ? 0.1 : 0.1 * (2.15 / p.outer_pad_width_back)}) ${p.from.str})
     `
 
     const hotswap_front_pad_cutoff = `
@@ -258,6 +315,18 @@ module.exports = {
     (fp_line (start 7 -2) (end 7 -1.5) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
     (fp_arc (start 0.8 -3.7) (mid 1.956518 -3.312082) (end 2.5 -2.22) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
 
+    ${p.plated ? `
+    ${'' /* Side Hole */}
+      ${p.reversible ? `
+      (pad "2" thru_hole circle (at 5 -3.75 ${195 + p.r}) (size 3.3 3.3) (drill 3) (layers "*.Cu" "*.Mask") ${p.to.str})
+      ${'' /* Pads */}
+      ${hotswap_back_pads_plated_reversible}
+      `:`
+      (pad "2" thru_hole circle (at 5 -3.75 ${195 + p.r}) (size 3.3 3.3) (drill 3) (layers "*.Cu" "*.Mask") ${p.to.str})
+      ${'' /* Pads */}
+      ${hotswap_back_pads_plated}
+      `}
+    `: `
     ${'' /* Left Pad*/}
     ${p.reversible ? hotswap_back_pad_cutoff : hotswap_back_pad_full}
 
@@ -265,7 +334,8 @@ module.exports = {
     (pad "2" smd rect (at ${8.275 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back} 2.6) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
 
     ${'' /* Side Hole */}
-    (pad "" np_thru_hole circle (at 5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers "*.Cu" "*.Mask"))            
+    (pad "" np_thru_hole circle (at 5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers "*.Cu" "*.Mask"))
+    `}
     `
 
     const hotswap_front = `
@@ -286,15 +356,28 @@ module.exports = {
     (fp_line (start 1.5 -3.7) (end -0.8 -3.7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
     (fp_line (start 2 -4.2) (end 1.5 -3.7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
     (fp_arc (start -2.5 -2.22) (mid -1.956518 -3.312082) (end -0.8 -3.7) (layer "F.SilkS") (stroke (width 0.15) (type solid)))
+    
+    ${p.plated ? `
+    ${'' /* Side Hole */}
+    ${p.reversible ? `
+    (pad "1" thru_hole circle (at -5 -3.75 ${195 + p.r}) (size 3.3 3.3) (drill 3) (layers "*.Cu" "*.Mask") ${p.from.str})
+    ${'' /* Pads */}
+    ${hotswap_front_pads_plated_reversible}
+    `:`
+    (pad "2" thru_hole circle (at -5 -3.75 ${195 + p.r}) (size 3.3 3.3) (drill 3) (layers "*.Cu" "*.Mask") ${p.to.str})
+    ${'' /* Pads */}
+    ${hotswap_front_pads_plated}
+    `}
+    `: `
+    ${'' /* Side Hole */}
+    (pad "" np_thru_hole circle (at -5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers "*.Cu" "*.Mask"))
 
     ${'' /* Right Pad (cut off) */}
     ${p.reversible ? hotswap_front_pad_cutoff : hotswap_front_pad_full}
 
     ${'' /* Left Pad (not cut off) */}
     (pad "2" smd rect (at ${-8.275 + (2.6 - p.outer_pad_width_front) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_front} 2.6) (layers "F.Cu" "F.Paste" "F.Mask") ${p.to.str})
-
-    ${'' /* Side Hole */}
-    (pad "" np_thru_hole circle (at -5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers "*.Cu" "*.Mask"))
+    `}
     `
 
     // If both hotswap and solder are enabled, move the solder holes
@@ -315,6 +398,7 @@ module.exports = {
       stab_offset_x_back = ''
       stab_offset_y = ''
     }
+
     const solder_common = `
     (pad "2" thru_hole circle (at 0 ${solder_offset_y}5.9 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers "*.Cu" "*.Mask") ${p.from.str})
     `
@@ -322,21 +406,43 @@ module.exports = {
     const solder_front = `
     (pad "1" thru_hole circle (at ${solder_offset_x_front}5 ${solder_offset_y}3.8 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers "*.Cu" "*.Mask") ${p.to.str})
     `
+    
     const solder_back = `
-    (pad "1" thru_hole circle (at ${solder_offset_x_back}5 ${solder_offset_y}3.8 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers "*.Cu" "*.Mask") ${p.to.str})  
+    (pad "1" thru_hole circle (at ${solder_offset_x_back}5 ${solder_offset_y}3.8 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers "*.Cu" "*.Mask") ${p.to.str})
     `
+
+    const corner_stab_opposite_front = `
+    ${(p.solder && p.hotswap) ? `(pad "" ${p.plated ? 'thru_hole' : `${p.reversible ? 'np_thru_hole' : 'thru_hole'}`} circle (at 5.00 -5.15 ${p.r}) (size ${(p.plated) ? '1.9 1.9' : `${p.reversible ? '1.6 1.6' : '1.9 1.9'}`}) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.reversible ? p.to.str : p.from.str})` : ''}
+    `
+
+    const oval_corner_stab_opposite_back = `
+    ${(p.solder && p.hotswap) ? `(pad "" ${p.plated ? 'thru_hole' : `${p.reversible ? 'np_thru_hole' : 'thru_hole'}`} circle (at -5.00 -5.15 ${p.r}) (size ${(p.plated) ? '1.9 1.9' : `${p.reversible ? '1.6 1.6' : '1.9 1.9'}`}) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.from.str})` : ''}
+    `
+
+    const round_corner_stab_opposite_back = `
+    ${(p.solder && p.hotswap) ? `(pad "" ${p.plated ? 'thru_hole' : `${p.reversible ? 'np_thru_hole' : 'thru_hole'}`} circle (at -5.00 -5.15 ${p.r}) (size ${(p.plated) ? '1.9 1.9' : `${p.reversible ? '1.6 1.6' : '1.9 1.9'}`}) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.reversible ? p.from.str : p.from.str})` : ''}
+    `
+
     const oval_corner_stab_front = `
-    (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : ''})
+    (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.LEFTSTAB})
+    ${corner_stab_opposite_front}
     `
+
     const oval_corner_stab_back = `
-    (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : ''})
+    (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.RIGHTSTAB})
+    ${oval_corner_stab_opposite_back}
     `
+
     const round_corner_stab_front = `
-    (pad "" np_thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.6 1.6) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : ''})
+    (pad "" thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.plated ? p.LEFTSTAB : ''})
+    ${corner_stab_opposite_front}
     `
+
     const round_corner_stab_back = `
-    (pad "" np_thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.6 1.6) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : ''})
+    (pad "" thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : ''})
+    ${round_corner_stab_opposite_back}
     `
+
     const switch_3dmodel = `
     (model ${p.switch_3dmodel_filename}
       (offset (xyz ${p.switch_3dmodel_xyz_offset[0]} ${p.switch_3dmodel_xyz_offset[1]} ${p.switch_3dmodel_xyz_offset[2]}))
