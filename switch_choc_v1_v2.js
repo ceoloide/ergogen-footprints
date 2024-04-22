@@ -47,6 +47,13 @@
 //    oval_stabilizer_pad: default is false
 //      if false, will add an oval pad for the stabilizer leg, and a round one
 //      if true. Note that the datasheet calls for a round one.
+//    enable_stabilizer_nets: default is false
+//      if true, will add adjustable nets to choc v2 plated stabilizer holes, 
+//      LEFTSTAB: default is "D1"
+//      RIGHTSTAB: default is "D2"
+//    enable_centerhole_net: default is false
+//      if true, will add adjustable net to the center hole
+//      CENTERHOLE: default is "GND"
 //    choc_v1_stabilizers_diameter: default is 1.9
 //      Allows you to narrow Choc v1 stabilizer\boss holes diameter for tighter fit, not recommended to set below 1.7
 //    choc_v1_support: default is true
@@ -120,7 +127,6 @@
 //  - Add opposite stabilizer\boss holes when (choc_v2_support & solder & hotswap) options enabled together
 //  - Change v2 stabilizer\boss holes to plated
 
-
 module.exports = {
   params: {
     designator: 'S',
@@ -135,6 +141,7 @@ module.exports = {
     show_corner_marks: false,
     include_stabilizer_pad: true,
     oval_stabilizer_pad: false,
+    enable_stabilizer_nets: false,
     choc_v1_support: true,
     choc_v2_support: true,
     choc_v1_stabilizers_diameter: 1.9,
@@ -150,9 +157,9 @@ module.exports = {
     hotswap_3dmodel_xyz_scale: [1, 1, 1],
     from: undefined,
     to: undefined,
-    CENTERHOLE: { type: 'net', value: 'GND' },
-    LEFTSTAB: { type: 'net', value: 'D2' },
-    RIGHTSTAB: { type: 'net', value: 'D1' }
+    CENTERHOLE: { type: 'net', value: 'GND'},
+    LEFTSTAB: { type: 'net', value: 'D1' },
+    RIGHTSTAB: { type: 'net', value: 'D2' }
   },
   body: p => {
     const common_top = `
@@ -169,7 +176,7 @@ module.exports = {
 
     ${''/* middle shaft hole */}
     ${p.plated ? `
-    (pad "" thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5.3 5.3' : '3.7 3.7'}) (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers "*.Cu" "*.Mask") ${p.CENTERHOLE})
+    (pad "" thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5.3 5.3' : '3.7 3.7'}) (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers "*.Cu" "*.Mask") ${p.enable_centerhole_net ? p.CENTERHOLE : ''})
     `: `
     (pad "" np_thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5 5' : '3.4 3.4'}) (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers "*.Cu" "*.Mask"))
     `}
@@ -412,35 +419,35 @@ module.exports = {
     `
 
     const corner_stab_opposite_front = `
-    ${(p.solder && p.hotswap) ? `(pad "" ${p.plated ? 'thru_hole' : `${p.reversible ? 'np_thru_hole' : 'thru_hole'}`} circle (at 5.00 -5.15 ${p.r}) (size ${(p.plated) ? '1.9 1.9' : `${p.reversible ? '1.6 1.6' : '1.9 1.9'}`}) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.reversible ? p.to.str : p.from.str})` : ''}
+    (pad "" thru_hole circle (at 5.00 -5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.plated ? p.to.str : p.from.str})
     `
 
     const oval_corner_stab_opposite_back = `
-    ${(p.solder && p.hotswap) ? `(pad "" ${p.plated ? 'thru_hole' : `${p.reversible ? 'np_thru_hole' : 'thru_hole'}`} circle (at -5.00 -5.15 ${p.r}) (size ${(p.plated) ? '1.9 1.9' : `${p.reversible ? '1.6 1.6' : '1.9 1.9'}`}) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.from.str})` : ''}
+    (pad "" thru_hole circle (at -5.00 -5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.from.str})
     `
 
     const round_corner_stab_opposite_back = `
-    ${(p.solder && p.hotswap) ? `(pad "" ${p.plated ? 'thru_hole' : `${p.reversible ? 'np_thru_hole' : 'thru_hole'}`} circle (at -5.00 -5.15 ${p.r}) (size ${(p.plated) ? '1.9 1.9' : `${p.reversible ? '1.6 1.6' : '1.9 1.9'}`}) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.reversible ? p.from.str : p.from.str})` : ''}
+    (pad "" thru_hole circle (at -5.00 -5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.from.str})
     `
 
     const oval_corner_stab_front = `
-    (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.LEFTSTAB})
-    ${corner_stab_opposite_front}
+    (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.enable_stabilizer_nets ? p.RIGHTSTAB : ''})
+    ${(p.solder && p.hotswap) ? corner_stab_opposite_front : ''}
     `
 
     const oval_corner_stab_back = `
-    (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.RIGHTSTAB})
-    ${oval_corner_stab_opposite_back}
+    (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.enable_stabilizer_nets ? p.LEFTSTAB : ''})
+    ${(p.solder && p.hotswap) ? oval_corner_stab_opposite_back : ''}
     `
 
     const round_corner_stab_front = `
-    (pad "" thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.plated ? p.LEFTSTAB : ''})
-    ${corner_stab_opposite_front}
+    (pad "" thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.enable_stabilizer_nets ? p.RIGHTSTAB : ''})
+    ${(p.solder && p.hotswap) ? corner_stab_opposite_front : ''}
     `
 
     const round_corner_stab_back = `
-    (pad "" thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : ''})
-    ${round_corner_stab_opposite_back}
+    (pad "" thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.enable_stabilizer_nets ? p.LEFTSTAB : ''})
+    ${(p.solder && p.hotswap) ? round_corner_stab_opposite_back : ''}
     `
 
     const switch_3dmodel = `
