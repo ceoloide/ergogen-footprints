@@ -70,7 +70,8 @@
 //      Allows you to adjust the height of the keycap outline.
 //    allow_soldermask_bridges: default is true
 //      Disables 'solder mask aperture bridges items with different nets' DRC check when set to true
-//      setting this option to false may be useful for debugging purposes
+//      setting this option to false may be useful for debugging purposes, (applied locally to this footprint only)
+//      for global setting see `allow_soldermask_bridges_in_footprints` in a kicad template
 //    switch_3dmodel_filename: default is ''
 //      Allows you to specify the path to a 3D model STEP or WRL file to be
 //      used when rendering the PCB. Use the ${VAR_NAME} syntax to point to
@@ -178,7 +179,7 @@ module.exports = {
       ${p.ref_hide}
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (attr exclude_from_pos_files exclude_from_bom${allow_soldermask_bridges ? ' allow_soldermask_bridges' : ''})
+    (attr exclude_from_pos_files exclude_from_bom${p.allow_soldermask_bridges ? ' allow_soldermask_bridges' : ''})
 
     ${''/* middle shaft hole */}
     ${p.include_plated_holes ? `
