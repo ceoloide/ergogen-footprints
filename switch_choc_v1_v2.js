@@ -402,36 +402,20 @@ module.exports = {
     (pad "1" thru_hole circle (at ${solder_offset_x_back}5 ${solder_offset_y}3.8 ${195 + p.r}) (size 2.032 2.032) (drill 1.27) (layers "*.Cu" "*.Mask") ${p.to.str})
     `
 
-    const corner_stab_opposite_front = `
-    (pad "" thru_hole circle (at 5.00 -5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.plated ? p.to.str : p.from.str})
-    `
-
-    const oval_corner_stab_opposite_back = `
-    (pad "" thru_hole circle (at -5.00 -5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.from.str})
-    `
-
-    const round_corner_stab_opposite_back = `
-    (pad "" thru_hole circle (at -5.00 -5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.from.str})
-    `
-
     const oval_corner_stab_front = `
     (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.enable_stabilizer_nets ? p.RIGHTSTAB : ''})
-    ${(p.solder && p.hotswap) ? corner_stab_opposite_front : ''}
     `
 
     const oval_corner_stab_back = `
     (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.enable_stabilizer_nets ? p.LEFTSTAB : ''})
-    ${(p.solder && p.hotswap) ? oval_corner_stab_opposite_back : ''}
     `
 
     const round_corner_stab_front = `
     (pad "" thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.enable_stabilizer_nets ? p.RIGHTSTAB : ''})
-    ${(p.solder && p.hotswap) ? corner_stab_opposite_front : ''}
     `
 
     const round_corner_stab_back = `
     (pad "" thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.enable_stabilizer_nets ? p.LEFTSTAB : ''})
-    ${(p.solder && p.hotswap) ? round_corner_stab_opposite_back : ''}
     `
 
     const switch_3dmodel = `
