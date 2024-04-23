@@ -54,8 +54,8 @@
 //    enable_centerhole_net: default is false
 //      if true, will add adjustable net to the center hole
 //      CENTERHOLE: default is "GND"
-//    choc_v1_stabilizers_diameter: default is 1.9
-//      Allows you to narrow Choc v1 stabilizer\boss holes diameter for tighter fit, not recommended to set below 1.7
+//    choc_v1_stabilizers_diameter: default is 1.9 (mm)
+//      Allows you to narrow Choc v1 stabilizer / boss holes diameter for tighter fit, not recommended to set below 1.7
 //    choc_v1_support: default is true
 //      if true, will add lateral stabilizer holes that are required for
 //      Choc v1 footprints.
@@ -121,11 +121,11 @@
 //
 // @nxtk's improvements:
 //  - Add plated version, inspired by @daprice and @ssbb
-//  - Add ability to adjust v1 stabilizer\boss holes
-//  - Add ability to assign nets to v2 stabilizer\boss holes (useful for routing diode in place of backlight led)
+//  - Add ability to adjust v1 stabilizer / boss holes
+//  - Add ability to assign nets to v2 stabilizer / boss holes (useful for routing diode in place of backlight led)
 //  - Add ability to set a net to central hole (useful for connecting ground fill zones)
-//  - Add opposite stabilizer\boss holes when (choc_v2_support & solder & hotswap) options enabled together
-//  - Change v2 stabilizer\boss holes to plated
+//  - Add opposite stabilizer / boss holes when (choc_v2_support & solder & hotswap) options enabled together
+//  - Change v2 stabilizer / boss holes to plated
 
 module.exports = {
   params: {
@@ -167,7 +167,7 @@ module.exports = {
     (layer "${p.side}.Cu")
     ${p.at}
     (property "Reference" "${p.ref}"
-      (at 0 0 ${p.r})
+      (at 0 8.8 ${p.r})
       (layer "${p.side}.SilkS")
       ${p.ref_hide}
       (effects (font (size 1 1) (thickness 0.15)))
