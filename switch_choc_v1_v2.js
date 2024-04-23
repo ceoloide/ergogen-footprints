@@ -37,9 +37,9 @@
 //      warnings when the sockets are too close to the edge cuts. It's not
 //      recommended to go below 1.6mm to ensure the hotswap socket can be
 //      properly soldered.
-//    show_keycaps: default is false
+//    include_keycap: default is false
 //      if true, will add mx sized keycap box around the footprint (18mm)
-//    show_corner_marks: default is false
+//    include_corner_marks: default is false
 //      if true, will add corner marks to indicate plate hole size and position
 //    include_stabilizer_pad: default is true
 //      if true, will add a corner pad for the stabilizer leg present in some
@@ -63,10 +63,11 @@
 //      if true, will make the central hole bigger to as required for
 //      Choc v2 footprints. If false it will also disable the corner stabilizer
 //      pad even if include_stabilizer_pad is true.
-//    keycaps_x: default is 18
-//    keycaps_y: default is 18
+//    keycaps_height: default is 18
 //      Allows you to adjust the width of the keycap outline. For example,
 //      to show a 1.5u outline for easier aligning.
+//    keycaps_width: default is 18
+//      Allows you to adjust the height of the keycap outline.
 //    switch_3dmodel_filename: default is ''
 //      Allows you to specify the path to a 3D model STEP or WRL file to be
 //      used when rendering the PCB. Use the ${VAR_NAME} syntax to point to
@@ -136,16 +137,16 @@ module.exports = {
     solder: false,
     outer_pad_width_front: 2.6,
     outer_pad_width_back: 2.6,
-    show_keycaps: false,
-    show_corner_marks: false,
+    include_keycap: false,
+    keycaps_width: 18,
+    keycaps_height: 18,
+    include_corner_marks: false,
     include_stabilizer_pad: true,
     oval_stabilizer_pad: false,
     enable_stabilizer_nets: false,
     choc_v1_support: true,
     choc_v2_support: true,
     choc_v1_stabilizers_diameter: 1.9,
-    keycaps_x: 18,
-    keycaps_y: 18,
     switch_3dmodel_filename: '',
     switch_3dmodel_xyz_offset: [0, 0, 0],
     switch_3dmodel_xyz_rotation: [0, 0, 0],
@@ -215,8 +216,8 @@ module.exports = {
     (fp_line (start 7 -7) (end 7 -6) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
     `
 
-    const keycap_xo = 0.5 * p.keycaps_x
-    const keycap_yo = 0.5 * p.keycaps_y
+    const keycap_xo = 0.5 * p.keycaps_width
+    const keycap_yo = 0.5 * p.keycaps_height
     const keycap_marks = `
     ${'' /* keycap marks - 1u */}
     (fp_line (start ${-keycap_xo} ${-keycap_yo}) (end ${keycap_xo} ${-keycap_yo}) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
@@ -473,7 +474,7 @@ module.exports = {
     if (p.choc_v1_support) {
       final += choc_v1_stabilizers
     }
-    if (p.show_corner_marks) {
+    if (p.include_corner_marks) {
       if (p.reversible || p.side == "F") {
         final += corner_marks_front
       }
@@ -481,7 +482,7 @@ module.exports = {
         final += corner_marks_back
       }
     }
-    if (p.show_keycaps) {
+    if (p.include_keycap) {
       final += keycap_marks
     }
     if (p.include_stabilizer_pad && p.choc_v2_support) {
