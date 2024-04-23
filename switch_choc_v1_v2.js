@@ -119,7 +119,6 @@
 //  - Add support for switch 3D model
 //
 // @nxtk's improvements:
-//  - Convert `fp_arc` to a series of `fp_line` for forward KiCad 8 compatibility
 //  - Add plated version, inspired by @daprice and @ssbb
 //  - Add ability to adjust v1 stabilizer\boss holes
 //  - Add ability to assign nets to v2 stabilizer\boss holes (useful for routing diode in place of backlight led)
@@ -163,16 +162,16 @@ module.exports = {
   },
   body: p => {
     const common_top = `
-    (footprint "ceoloide:switch_choc_v1_v2"
-      (layer "${p.side}.Cu")
-      ${p.at}
-      (property "Reference" "${p.ref}"
-        (at 0 0 ${p.r})
-        (layer "${p.side}.SilkS")
-        ${p.ref_hide}
-        (effects (font (size 1 1) (thickness 0.15)))
-      )
-      (attr exclude_from_pos_files exclude_from_bom)
+  (footprint "ceoloide:switch_choc_v1_v2"
+    (layer "${p.side}.Cu")
+    ${p.at}
+    (property "Reference" "${p.ref}"
+      (at 0 0 ${p.r})
+      (layer "${p.side}.SilkS")
+      ${p.ref_hide}
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    (attr exclude_from_pos_files exclude_from_bom)
 
     ${''/* middle shaft hole */}
     ${p.plated ? `
