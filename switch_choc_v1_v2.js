@@ -63,10 +63,10 @@
 //      if true, will make the central hole bigger to as required for
 //      Choc v2 footprints. If false it will also disable the corner stabilizer
 //      pad even if include_stabilizer_pad is true.
-//    keycaps_height: default is 18
+//    keycap_height: default is 18
 //      Allows you to adjust the width of the keycap outline. For example,
 //      to show a 1.5u outline for easier aligning.
-//    keycaps_width: default is 18
+//    keycap_width: default is 18
 //      Allows you to adjust the height of the keycap outline.
 //    switch_3dmodel_filename: default is ''
 //      Allows you to specify the path to a 3D model STEP or WRL file to be
@@ -138,8 +138,8 @@ module.exports = {
     outer_pad_width_front: 2.6,
     outer_pad_width_back: 2.6,
     include_keycap: false,
-    keycaps_width: 18,
-    keycaps_height: 18,
+    keycap_width: 18,
+    keycap_height: 18,
     include_corner_marks: false,
     include_stabilizer_pad: true,
     oval_stabilizer_pad: false,
@@ -204,14 +204,10 @@ module.exports = {
     (fp_line (start 7 -7) (end 7 -6) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
     `
 
-    const keycap_xo = 0.5 * p.keycaps_width
-    const keycap_yo = 0.5 * p.keycaps_height
+    const keycap_xo = 0.5 * p.keycap_width
+    const keycap_yo = 0.5 * p.keycap_height
     const keycap_marks = `
-    ${'' /* keycap marks - 1u */}
-    (fp_line (start ${-keycap_xo} ${-keycap_yo}) (end ${keycap_xo} ${-keycap_yo}) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
-    (fp_line (start ${keycap_xo} ${-keycap_yo}) (end ${keycap_xo} ${keycap_yo}) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
-    (fp_line (start ${keycap_xo} ${keycap_yo}) (end ${-keycap_xo} ${keycap_yo}) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
-    (fp_line (start ${-keycap_xo} ${keycap_yo}) (end ${-keycap_xo} ${-keycap_yo}) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_rect (start ${keycap_xo} ${keycap_yo}) (end ${-keycap_xo} ${-keycap_yo}) (layer "Dwgs.User") (stroke (width 0.15) (type solid)) (fill none))
     `
 
     const hotswap_common = `
