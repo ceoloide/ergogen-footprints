@@ -35,7 +35,7 @@ pcbs:
 
 > **Note**
 >
-> You can directly use these custom footprints in the experimental GUI at [ergogen.ceoloide.com](https://ergogen.ceoloide.com). Just refer to them as `ceoloide/<footprint_name>`, for example: `ceoloide/switch_mx`. The official GUI doesn't support loading custom footprints yet.
+> You can directly use these custom footprints in the experimental GUI at [ergogen.ceoloide.com](https://ergogen.ceoloide.com). Just refer to them as `ceoloide/[footprint_filename]`, for example: `ceoloide/switch_mx`. The official GUI doesn't support loading custom footprints yet.
 
 Using custom footprints with a local Ergogen setup is relatively straightforward. You can follow the steps outlined in [this amazing guide](https://flatfootfox.com/ergogen-part4-footprints-cases/) if you want an easy tutorial.
 
@@ -85,11 +85,12 @@ to refer to any footprint contained in that folder as `ceoloide/[footprint_filen
 [...]
 pcbs:
   your_keyboard:
+    template: kicad8 # Required, since footprints are KiCad 8 only
     outlines:
       [...]
     footprints:
       nice_nano:
-        what: ceoloide/nice_nano
+        what: ceoloide/switch_mx
         [...]
 ```
 
