@@ -36,7 +36,10 @@ Params:
     properly soldered.
   outer_pad_height: default 2.5 (mm)
     Allows you to make the outer hotswap pad vertically shorter, e.g. to make room for 
-    encoder pads to be colocated with the switch (use 2.0mm for EC12).
+    encoder pads to be colocated with the switch (use 2.0mm for EC12).  
+   stabilizers_diameter: default is 1.9 (mm)
+     Allows you to narrow stabilizer / boss holes diameter for tighter fit, not
+     recommended to set below 1.7mm.
   include_keycap: default is false
     if true, will add mx sized keycap box around the footprint (18mm)
   keycap_width: default is 18 (mm - defualt MX size)
@@ -87,6 +90,7 @@ module.exports = {
     outer_pad_width_front: 2.6,
     outer_pad_width_back: 2.6,
     outer_pad_height: 2.5,
+    stabilizers_diameter: 1.9,
     include_keycap: false,
     keycap_width: 18,
     keycap_height: 18,
@@ -116,8 +120,8 @@ module.exports = {
     )
     
     (pad "" np_thru_hole circle (at 0 0 90) (size 4.1 4.1) (drill 4.1) (layers "*.Cu" "*.Mask"))
-    (pad "" np_thru_hole circle (at 5.08 0 180) (size 1.9 1.9) (drill 1.9) (layers "*.Cu" "*.Mask"))
-    (pad "" np_thru_hole circle (at -5.08 0 180) (size 1.9 1.9) (drill 1.9) (layers "*.Cu" "*.Mask"))
+    (pad "" np_thru_hole circle (at 5.08 0 180) (size ${p.stabilizers_diameter} ${p.stabilizers_diameter}) (drill ${p.stabilizers_diameter}) (layers "*.Cu" "*.Mask"))
+    (pad "" np_thru_hole circle (at -5.08 0 180) (size ${p.stabilizers_diameter} ${p.stabilizers_diameter}) (drill ${p.stabilizers_diameter}) (layers "*.Cu" "*.Mask"))
     `
     const corner_marks = `
     (fp_line (start -7 -6) (end -7 -7) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
