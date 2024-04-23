@@ -31,6 +31,13 @@
 //      Alternate version of the footprint compatible with side, reversible, hotswap, solder options in any combination.
 //      Pretty, allows for connecting ground fill zones via center hole, 
 //      allows for setting nets to Choc v2 stabilizers and them for your routing needs.
+//    include_stabilizer_nets: default is false
+//      if true, will add adjustable nets to choc v2 plated stabilizer holes, 
+//      LEFTSTAB: default is "D1"
+//      RIGHTSTAB: default is "D2"
+//    include_centerhole_net: default is false
+//      if true, will add adjustable net to the center hole
+//      CENTERHOLE: default is "GND"
 //    outer_pad_width_front: default 2.6
 //    outer_pad_width_back: default 2.6
 //      Allows you to make the outer hotswap pads smaller to silence DRC
@@ -47,13 +54,6 @@
 //    oval_stabilizer_pad: default is false
 //      if false, will add an oval pad for the stabilizer leg, and a round one
 //      if true. Note that the datasheet calls for a round one.
-//    include_stabilizer_nets: default is false
-//      if true, will add adjustable nets to choc v2 plated stabilizer holes, 
-//      LEFTSTAB: default is "D1"
-//      RIGHTSTAB: default is "D2"
-//    include_centerhole_net: default is false
-//      if true, will add adjustable net to the center hole
-//      CENTERHOLE: default is "GND"
 //    choc_v1_stabilizers_diameter: default is 1.9 (mm)
 //      Allows you to narrow Choc v1 stabilizer / boss holes diameter for tighter fit, not recommended to set below 1.7
 //    choc_v1_support: default is true
@@ -138,7 +138,9 @@ module.exports = {
     side: 'B',
     reversible: false,
     hotswap: true,
-    include_plated_holes: true,
+    include_plated_holes: false,
+    include_stabilizer_nets: false,
+    include_centerhole_net: false,
     solder: false,
     outer_pad_width_front: 2.6,
     outer_pad_width_back: 2.6,
@@ -148,8 +150,6 @@ module.exports = {
     include_corner_marks: false,
     include_stabilizer_pad: true,
     oval_stabilizer_pad: false,
-    include_stabilizer_nets: true,
-    include_centerhole_net: true,
     choc_v1_support: true,
     choc_v2_support: true,
     choc_v1_stabilizers_diameter: 1.9,
