@@ -4,6 +4,22 @@
 >
 > These footprints have only been partially tested and are still under active development. Use them at your own risk.
 
+> **Warning**
+>
+> These footprints have been upgraded to KiCad 8 and are only compatible with Ergogen v4.1.0 and above. You can still include some KiCad 5 footprints, provided they don't have incompatible elements (e.g. `fp_arc`).
+> To activate the KiCad 8 PCB template in ergogen, set the `template: kicad8` option in each PCB definition. See example below.
+
+```yaml
+[...]
+pcbs:
+  main_pcb:
+    template: kicad8
+    outlines:
+      [...]
+    footprints:
+      [...]
+```
+
 1. [How to use these footprints in Ergogen](#how-to-use-these-footprints-in-ergogen)
 1. [Installation](#installation)
     1. [How to add the footprints as a local git submodule](#how-to-add-the-footprints-as-a-local-git-submodule)
@@ -19,7 +35,7 @@
 
 > **Note**
 >
-> Custom footprints cannot be used in the Ergogen UI as of yet, you will need to run Ergogen on your local machine.
+> You can directly use these custom footprints in the experimental GUI at [ergogen.ceoloide.com](https://ergogen.ceoloide.com). Just refer to them as `ceoloide/<footprint_name>`, for example: `ceoloide/switch_mx`. The official GUI doesn't support loading custom footprints yet.
 
 Using custom footprints with a local Ergogen setup is relatively straightforward. You can follow the steps outlined in [this amazing guide](https://flatfootfox.com/ergogen-part4-footprints-cases/) if you want an easy tutorial.
 
