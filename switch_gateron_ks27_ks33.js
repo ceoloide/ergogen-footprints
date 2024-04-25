@@ -1,4 +1,5 @@
 // Copyright (c) 2023 Marco Massarelli
+//
 // SPDX-License-Identifier: MIT
 //
 // To view a copy of this license, visit https://spdx.org/licenses/MIT.html, https://opensource.org/license/mit
@@ -12,9 +13,11 @@
 //
 //    With the set defaults it will include support for hotswap, single side (Back).
 //
-// Nets:
-//    from: corresponds to pin 1
-//    to: corresponds to pin 2
+// Notes:
+//   - Hotswap and solder can be used together. The solder holes will then be
+//     added above the hotswap holes.
+//   - Soldered reversible mode has alternate custom pads enabled by `include_custom_solder_pads` option.
+//     Compatible with hotswap mode.
 //
 // Params:
 //    side: default is B for Back
@@ -85,12 +88,6 @@
 //    hotswap_3dmodel_xyz_rotation: default is [0, 0, 0]
 //      xyz rotation (in degrees), used to adjust the orientation of the 3d
 //      model relative the footprint.
-//
-// Notes:
-// - Hotswap and solder can be used together. The solder holes will then be
-//   added above the hotswap holes.
-// - Soldered reversible mode has alternate custom pads enabled by `include_custom_solder_pads` option.
-//   Compatible with hotswap mode.
 
 module.exports = {
   params: {
