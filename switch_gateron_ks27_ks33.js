@@ -1,14 +1,14 @@
-// Copyright (c) 2023 Marco Massarelli
+// Copyright (c) 2024 Ivan Koz
+// SPDX-License-Identifier: MIT
 //
-// SPDX-License-Identifier: CC-BY-NC-SA-4.0
+// To view a copy of this license, visit https://spdx.org/licenses/MIT.html, https://opensource.org/license/mit
 //
-// To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// Authors: @nxtk, @ceoloide, @infused-kim, @grazfather
+// Authors: @nxtk
 //
 // Description:
 //    Gateron LP KS27 (v1) P\N: KS-27H10B050NN + Gateron LP KS33 (v2) P\N: KS-33H10B050NN reversible and hotswappable footprint.
 //    This includes support for NuPhy low profile switches Wisteria (T55), Aloe (L37), Daisy (L48), Cowberry, Moss
+//    Hotswap socket: Gateron LP HS 2.0 P\N KS-2P02B01-02
 //
 //    With the set defaults it will include support for hotswap, single side (Back).
 //
@@ -36,16 +36,16 @@
 //      if true, will add mx sized keycap box around the footprint (18mm)
 //    include_corner_marks: default is false
 //      if true, will add corner marks to indicate plate hole size and position
-//    include_stem: default is false
+//    include_stem_outline: default is false
 //      if true, will add switch stem outline
-//    include_led: default is false
+//    include_led_outline: default is false
 //      if true, will add switch led cutout outline (changes alignment based on the `side` option)
 //    include_socket_silks: default is false
 //      if true, will add hotswap sockets silkscreens (follows `reversible` and `side` options)
 //    include_socket_fabs: default is false
 //      if true, will add hotswap socket outlines to *.Fab layers which might be helful for new users
 //    include_custom_solder_pads: default is false
-//      if true, replaces reversible solder pads with alternate version 
+//      if true, replaces reversible solder pads with alternate version
 //      (disabled in non reversible mode)
 //    include_centerhole_net: default is false
 //      if true, will add adjustable net to the center hole
@@ -92,20 +92,8 @@
 // - Soldered reversible mode has alternate custom pads enabled by `include_custom_solder_pads` option.
 //   Compatible with hotswap mode.
 //
-//
 // @nxtk's improvements:
 //  - Initial release
-//
-// @infused-kim's improvements:
-//  - Add option to adjust keycap size outlines (to show 1.5u outline)
-//  - Add option to add hotswap sockets and direct soldering holes at the
-//    same time
-//
-// @ceoloide's improvements:
-//  - Add ability to specify board side
-//
-// @grazfather's improvements:
-//  - Add support for switch 3D model
 
 module.exports = {
   params: {
@@ -119,8 +107,8 @@ module.exports = {
     include_corner_marks: false,
     include_centerhole_net: false,
     include_keycap: false,
-    include_stem: false,
-    include_led: false,
+    include_stem_outline: false,
+    include_led_outline: false,
     include_socket_silks: false,
     include_socket_fabs: false,
     include_custom_solder_pads: false,
@@ -455,11 +443,11 @@ module.exports = {
       final += keycap_marks
     }
 
-    if (p.include_led) {
+    if (p.include_led_outline) {
       final += led_outline
     }
 
-    if (p.include_stem) {
+    if (p.include_stem_outline) {
       final += stem_outline
       final += stem_cross_outline
     }
