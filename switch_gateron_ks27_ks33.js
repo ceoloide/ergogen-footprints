@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Ivan Koz
+// Copyright (c) 2023 Marco Massarelli
 // SPDX-License-Identifier: MIT
 //
 // To view a copy of this license, visit https://spdx.org/licenses/MIT.html, https://opensource.org/license/mit
@@ -91,9 +91,6 @@
 //   added above the hotswap holes.
 // - Soldered reversible mode has alternate custom pads enabled by `include_custom_solder_pads` option.
 //   Compatible with hotswap mode.
-//
-// @nxtk's improvements:
-//  - Initial release
 
 module.exports = {
   params: {
