@@ -159,9 +159,9 @@ module.exports = {
     const led_outline = `
     ${''/* led outline - front */}
     ${p.side == 'B' ? `
-    (fp_rect (start -3.2 -6.3) (end 1.8 -4.05) (stroke (width 0.001) (type solid)) (fill none) (layer "Dwgs.User"))
+    (fp_rect (start -3.2 -6.3) (end 1.8 -4.05) (stroke (width 0.15) (type solid)) (fill none) (layer "Dwgs.User"))
     `:`
-    (fp_rect (start -1.8 -6.3) (end 3.2 -4.05) (stroke (width 0.001) (type solid)) (fill none) (layer "Dwgs.User"))
+    (fp_rect (start -1.8 -6.3) (end 3.2 -4.05) (stroke (width 0.15) (type solid)) (fill none) (layer "Dwgs.User"))
     `}
     `
 
