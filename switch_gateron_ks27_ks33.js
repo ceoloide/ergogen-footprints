@@ -126,7 +126,7 @@ module.exports = {
   },
   body: p => {
     const common_top = `
-  (footprint "ceoloide:switch_gateron_ks33_27"
+  (footprint "ceoloide:switch_gateron_ks27_ks33"
     (layer "${p.side}.Cu")
     ${p.at}
     (property "Reference" "${p.ref}"
