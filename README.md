@@ -10,6 +10,8 @@
 > To activate the KiCad 8 PCB template in ergogen, set the `template: kicad8` option in each PCB definition. See example below.
 
 ```yaml
+meta:
+  engine: 4.1.0 # Min Ergogen version for KiCad 8 footprints
 [...]
 pcbs:
   main_pcb:
@@ -82,6 +84,8 @@ Assuming you used `ergogen/footprints/ceoloide` as the destination folder for th
 to refer to any footprint contained in that folder as `ceoloide/[footprint_filename]`, which would look something like this:
 
 ```yaml
+meta:
+  engine: 4.1.0 # Min Ergogen version for KiCad 8 footprints
 [...]
 pcbs:
   your_keyboard:
