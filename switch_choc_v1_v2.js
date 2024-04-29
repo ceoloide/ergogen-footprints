@@ -253,18 +253,13 @@ module.exports = {
     `
 
     const hotswap_front_pad_cutoff = `
-    (pad "1" connect custom (at 3.275 -5.95 ${p.r}) (size 0.5 0.5) (layers "F.Cu" "F.Paste" "F.Mask")
-      (zone_connect 0)
-      (options (clearance outline) (anchor rect))
-      (primitives
-        (gr_poly
-          (pts
-            (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
-          )
-          (width 0)
-          (fill yes)
-        )
-      )
+    (pad "1" smd roundrect
+      (at 3.275 -5.95 ${p.r})
+      (size 2.6 2.6)
+      (layers "F.Cu" "F.Paste" "F.Mask")
+      (roundrect_rratio 0)
+			(chamfer_ratio 0.455)
+			(chamfer bottom_right)
       ${p.from.str}
     )
     `
@@ -274,18 +269,13 @@ module.exports = {
     `
 
     const hotswap_back_pad_cutoff = `
-    (pad "1" smd custom (at -3.275 -5.95 ${p.r}) (size 1 1) (layers "B.Cu" "B.Paste" "B.Mask")
-      (zone_connect 0)
-      (options (clearance outline) (anchor rect))
-      (primitives
-        (gr_poly
-          (pts
-            (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
-          )
-          (width 0)
-          (fill yes)
-        )
-      )
+    (pad "1" smd roundrect
+      (at -3.275 -5.95 ${p.r})
+      (size 2.6 2.6)
+      (layers "B.Cu" "B.Paste" "B.Mask")
+      (roundrect_rratio 0)
+			(chamfer_ratio 0.455)
+			(chamfer bottom_left)
       ${p.from.str}
     )
     `
