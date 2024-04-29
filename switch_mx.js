@@ -159,7 +159,7 @@ module.exports = {
 		(pad "" np_thru_hole circle (at -3.81 -2.54 180) (size 3 3) (drill 3) (layers "F&B.Cu" "*.Mask"))
 		(pad "1" smd rect (at -7.085 -2.54 ${p.r}) (size 2.55 ${p.outer_pad_height}) (layers "B.Cu" "B.Paste" "B.Mask") ${p.from})
 		(pad "2" smd roundrect
-      (at 5.842 -5.0 ${p.r})
+      (at 5.842 -5.08 ${p.r})
       (size 2.55 2.5)
       (layers "B.Cu" "B.Paste" "B.Mask")
 			(roundrect_rratio 0)
