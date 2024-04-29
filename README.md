@@ -1,26 +1,7 @@
 # @ceoloide's ergogen PCB footprints
 
-> **Warning**
->
+> [!WARNING]
 > These footprints have only been partially tested and are still under active development. Use them at your own risk.
-
-> **Warning**
->
-> These footprints have been upgraded to KiCad 8 and are only compatible with Ergogen v4.1.0 and above. You can still include some KiCad 5 footprints, provided they don't have incompatible elements (e.g. `fp_arc`).
-> To activate the KiCad 8 PCB template in ergogen, set the `template: kicad8` option in each PCB definition. See example below.
-
-```yaml
-meta:
-  engine: 4.1.0 # Min Ergogen version for KiCad 8 footprints
-[...]
-pcbs:
-  main_pcb:
-    template: kicad8
-    outlines:
-      [...]
-    footprints:
-      [...]
-```
 
 1. [How to use these footprints in Ergogen](#how-to-use-these-footprints-in-ergogen)
 1. [Installation](#installation)
@@ -35,9 +16,24 @@ pcbs:
 
 ## How to use these footprints in Ergogen
 
-> **Note**
->
-> You can directly use these custom footprints in the experimental GUI at [ergogen.ceoloide.com](https://ergogen.ceoloide.com). Just refer to them as `ceoloide/[footprint_filename]`, for example: `ceoloide/switch_mx`. The official GUI doesn't support loading custom footprints yet.
+> [!WARNING]
+> These footprints have been upgraded to KiCad 8 and are only compatible with Ergogen v4.1.0 and above. Make sure to set the `template: kicad8` option in each PCB definition:
+
+```yaml
+meta:
+  engine: 4.1.0 # Min Ergogen version for KiCad 8 footprints
+[...]
+pcbs:
+  main_pcb:
+    template: kicad8 # Required, since footprints are KiCad 8 only
+    outlines:
+      [...]
+    footprints:
+      [...]
+```
+
+> [!NOTE]
+> You can directly use these custom footprints in the experimental GUI at [ergogen.ceoloide.com](https://ergogen.ceoloide.com). Just refer to them as `ceoloide/[footprint_filename]`, for example: `ceoloide/switch_mx`.
 
 Using custom footprints with a local Ergogen setup is relatively straightforward. You can follow the steps outlined in [this amazing guide](https://flatfootfox.com/ergogen-part4-footprints-cases/) if you want an easy tutorial.
 
@@ -52,8 +48,7 @@ If you are already comfortable running Ergogen locally, you just need to:
 
 ### How to add the footprints as a local git submodule
 
-> **Warning**
->
+> [!WARNING]
 > If you are using GitHub Codespaces, skip the following instructions and go to the next section.
 
 If you have git setup on your local environment with SSH credentials, you can add the library as a
