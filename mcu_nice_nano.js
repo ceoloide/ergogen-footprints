@@ -379,14 +379,14 @@ module.exports = {
         }
         if (p.reversible && !p.include_extra_pins || p.show_silk_labels_on_both_sides || p.side == 'B') {
           // Silkscreen labels - back
-          if (!p.include_extra_pins && (p.reversible || row_num != 10 || invert_pins)) {
+          if (row_num != 10 || (!p.include_extra_pins && p.reversible) || (invert_pins && !p.reversible)) {
             socket_row += `
     (fp_text user "${net_silk_back_left}" (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.r}) (layer "B.SilkS")
       (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
     )
             `
           }
-          if (!p.include_extra_pins && (p.reversible || row_num != 10 || !invert_pins)) {
+          if (row_num != 10 || (!p.include_extra_pins && p.reversible) || (!invert_pins && !p.reversible)) {
             socket_row += `
     (fp_text user "${net_silk_back_right}" (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? 3 : 6} ${-12.7 + row_offset_y} ${180 + p.r}) (layer "B.SilkS")
       (effects (font (size 1 1) (thickness 0.15)) (justify left mirror))
