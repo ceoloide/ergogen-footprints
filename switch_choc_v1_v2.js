@@ -48,6 +48,10 @@
 //      if true, will add mx sized keycap box around the footprint (18mm)
 //    include_corner_marks: default is false
 //      if true, will add corner marks to indicate plate hole size and position
+//    include_choc_v1_led_cutout_marks: default is false
+//      if true, will add marks for the led cutout in choc v1 switch body
+//    include_choc_v2_led_cutout_marks: default is false
+//      if true, will add marks for the led cutout in choc v2 switch body
 //    include_stabilizer_pad: default is true
 //      if true, will add a corner pad for the stabilizer leg present in some
 //      Choc switches, unless choc_v2_support is false.
@@ -131,6 +135,9 @@
 //  - Add opposite stabilizer / boss holes when (choc_v2_support & solder & hotswap) options enabled together
 //  - Change v2 stabilizer / boss holes to plated
 //  - Add allow_soldermask_bridges option, which disables 'solder mask aperture bridges items with different nets' DRC check
+//
+// @mlilley's improvements:
+//  - Add options to include marks for the led cutout in choc v1 and v2 switch bodies
 
 module.exports = {
   params: {
@@ -148,6 +155,8 @@ module.exports = {
     keycap_width: 18,
     keycap_height: 18,
     include_corner_marks: false,
+    include_choc_v1_led_cutout_marks: false,
+    include_choc_v2_led_cutout_marks: false,
     include_stabilizer_pad: true,
     oval_stabilizer_pad: false,
     choc_v1_support: true,
@@ -209,6 +218,21 @@ module.exports = {
     (fp_line (start 7 -7) (end 6 -7) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
     (fp_line (start 6 7) (end 7 7) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
     (fp_line (start 7 -7) (end 7 -6) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    `
+
+    const choc_v1_led_cutout_marks = `
+    ${''/* choc v1 led cutout marks */}
+    (fp_line (start -2.65 6.325) (end 2.65 6.325) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start 2.65 6.325) (end 2.65 3.075) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start 2.65 3.075) (end -2.65 3.075) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start -2.65 3.075) (end -2.65 6.325) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    `
+    const choc_v2_led_cutout_marks = `
+    ${''/* choc v2 led cutout marks */}
+    (fp_line (start -2.75 6.405) (end 2.75 6.405) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start 2.75 6.405) (end 2.75 3.455) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start 2.75 3.455) (end -2.75 3.455) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start -2.75 3.455) (end -2.75 6.405) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
     `
 
     const keycap_xo = 0.5 * p.keycap_width
@@ -460,6 +484,12 @@ module.exports = {
           final += round_corner_stab_back
         }
       }
+    }
+    if (p.include_choc_v1_led_cutout_marks) {
+      final += choc_v1_led_cutout_marks
+    }
+    if (p.include_choc_v2_led_cutout_marks) {
+      final += choc_v2_led_cutout_marks
     }
     if (p.hotswap) {
       final += hotswap_common
