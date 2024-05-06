@@ -220,20 +220,20 @@ module.exports = {
     (fp_line (start 7 -7) (end 7 -6) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
     `
 
-    const choc_v1_led_cutout_marks = `
-    ${''/* choc v1 led cutout marks */}
-    (fp_line (start -2.65 6.325) (end 2.65 3.075) (layer "Dwgs.User") (width 0.15) (stroke (width 0.15) (type solid)))
-    `
-
-    const choc_v2_led_cutout_marks = `
-    ${''/* choc v2 led cutout marks */}
-    (fp_line (start -2.75 6.405) (end 2.75 3.455) (layer "Dwgs.User") (width 0.15) (stroke (width 0.15) (type solid)))
-    `
-
     const keycap_xo = 0.5 * p.keycap_width
     const keycap_yo = 0.5 * p.keycap_height
     const keycap_marks = `
     (fp_rect (start ${keycap_xo} ${keycap_yo}) (end ${-keycap_xo} ${-keycap_yo}) (layer "Dwgs.User") (stroke (width 0.15) (type solid)) (fill none))
+    `
+
+    const choc_v1_led_cutout_marks = `
+    ${''/* choc v1 led cutout marks */}
+    (fp_rect (start -2.65 6.325) (end 2.65 3.075) (layer "Dwgs.User") (width 0.15) (stroke (width 0.15) (type solid)))
+    `
+
+    const choc_v2_led_cutout_marks = `
+    ${''/* choc v2 led cutout marks */}
+    (fp_rect (start -2.75 6.405) (end 2.75 3.455) (layer "Dwgs.User") (width 0.15) (stroke (width 0.15) (type solid)))
     `
 
     const hotswap_common = `
