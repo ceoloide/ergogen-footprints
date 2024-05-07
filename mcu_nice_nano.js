@@ -49,6 +49,19 @@
 //      or above 0.4 (KiCad default), to avoid overlap or DRC errors. 
 //    Pxx_label, VCC_label, RAW_label, GND_label, RST_label: default is ''
 //      allows to override the label for each pin
+//    mcu_3dmodel_filename: default is ''
+//      Allows you to specify the path to a 3D model STEP or WRL file to be
+//      used when rendering the PCB. Use the ${VAR_NAME} syntax to point to
+//      a KiCad configured path.
+//    mcu_3dmodel_xyz_offset: default is [0, 0, 0]
+//      xyz offset (in mm), used to adjust the position of the 3d model
+//      relative the footprint.
+//    mcu_3dmodel_xyz_scale: default is [1, 1, 1]
+//      xyz scale, used to adjust the size of the 3d model relative to its
+//      original size.
+//    mcu_3dmodel_xyz_rotation: default is [0, 0, 0]
+//      xyz rotation (in degrees), used to adjust the orientation of the 3d
+//      model relative the footprint.
 //
 // @infused-kim's improvements:
 //  - Use real traces instead of pads, which gets rid of hundreds of DRC errors.
@@ -102,6 +115,11 @@ module.exports = {
     show_silk_labels: true,
     show_silk_labels_on_both_sides: true,
     show_via_labels: true,
+
+    mcu_3dmodel_filename: '',
+    mcu_3dmodel_xyz_offset: [0, 0, 0],
+    mcu_3dmodel_xyz_rotation: [0, 0, 0],
+    mcu_3dmodel_xyz_scale: [1, 1, 1],
 
     RAW_label: '',
     GND_label: '',
@@ -532,6 +550,14 @@ module.exports = {
     (pad "29" thru_hole circle (at ${invert_pins ? '-' : ''}2.54 ${-12.7 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P102})
     `
 
+    const mcu_3dmodel = `
+    (model ${p.mcu_3dmodel_filename}
+      (offset (xyz ${p.mcu_3dmodel_xyz_offset[0]} ${p.mcu_3dmodel_xyz_offset[1]} ${p.mcu_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.mcu_3dmodel_xyz_scale[0]} ${p.mcu_3dmodel_xyz_scale[1]} ${p.mcu_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.mcu_3dmodel_xyz_rotation[0]} ${p.mcu_3dmodel_xyz_rotation[1]} ${p.mcu_3dmodel_xyz_rotation[2]}))
+    )
+    `
+
     return `
     ${''/* Controller*/}
     ${common_top}
@@ -539,6 +565,7 @@ module.exports = {
     ${p.include_extra_pins && (!p.reversible || (p.reversible && p.only_required_jumpers)) ? extra_pins : ''}
     ${p.include_extra_pins && p.reversible && p.only_required_jumpers ? extra_pins_reversible : ''}
     ${p.reversible && p.show_instructions ? instructions : ''}
+    ${p.mcu_3dmodel_filename ? mcu_3dmodel : ''}
   )
 
   ${''/* Traces */}

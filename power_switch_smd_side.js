@@ -36,6 +36,19 @@
 //      connects Bat+ to RAW.
 //    include_courtyard: default is false
 //      if true it will include the courtyard around the component
+//    switch_3dmodel_filename: default is ''
+//      Allows you to specify the path to a 3D model STEP or WRL file to be
+//      used when rendering the PCB. Use the ${VAR_NAME} syntax to point to
+//      a KiCad configured path.
+//    switch_3dmodel_xyz_offset: default is [0, 0, 0]
+//      xyz offset (in mm), used to adjust the position of the 3d model
+//      relative the footprint.
+//    switch_3dmodel_xyz_scale: default is [1, 1, 1]
+//      xyz scale, used to adjust the size of the 3d model relative to its
+//      original size.
+//    switch_3dmodel_xyz_rotation: default is [0, 0, 0]
+//      xyz rotation (in degrees), used to adjust the orientation of the 3d
+//      model relative the footprint.
 //
 // @ceoloide's improvements:
 //  - Add ability to set text on both sides
@@ -53,6 +66,10 @@ module.exports = {
     invert_behavior: true,
     include_silkscreen: true,
     include_courtyard: false,
+    switch_3dmodel_filename: '',
+    switch_3dmodel_xyz_offset: [0, 0, 0],
+    switch_3dmodel_xyz_rotation: [0, 0, 0],
+    switch_3dmodel_xyz_scale: [1, 1, 1],
     from: { type: 'net', value: 'BAT_P' },
     to: { type: 'net', value: 'RAW' },
   },
@@ -163,6 +180,14 @@ module.exports = {
   )
     `
 
+    const switch_3dmodel = `
+    (model ${p.switch_3dmodel_filename}
+      (offset (xyz ${p.switch_3dmodel_xyz_offset[0]} ${p.switch_3dmodel_xyz_offset[1]} ${p.switch_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.switch_3dmodel_xyz_scale[0]} ${p.switch_3dmodel_xyz_scale[1]} ${p.switch_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.switch_3dmodel_xyz_rotation[0]} ${p.switch_3dmodel_xyz_rotation[1]} ${p.switch_3dmodel_xyz_rotation[2]}))
+    )
+    `
+
     let final = common_start;
     if (p.side == "F" || p.reversible) {
       final += pads_front
@@ -182,6 +207,11 @@ module.exports = {
         final += courtyard_back
       }
     }
+
+    if (p.switch_3dmodel_filename) {
+      final += switch_3dmodel
+    }
+
     final += common_end;
     return final;
   }
