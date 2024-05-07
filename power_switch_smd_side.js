@@ -70,10 +70,10 @@ module.exports = {
     (attr smd)
     `
     const silkscreen_front = `
-    (fp_text user "ON" (at 0 ${p.invert_behavior ? '-' : ''}4.5 ${p.r}) (layer "F.SilkS")
+    (fp_text user "ON" (at 0 ${p.invert_behavior ? '-' : ''}5.7 ${p.r}) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)) (justify ${p.invert_behavior ? 'bottom' : 'top'}))
     )
-    (fp_text user "OFF" (at 0 ${p.invert_behavior ? '' : '-'}4.5 ${p.r}) (layer "F.SilkS")
+    (fp_text user "OFF" (at 0 ${p.invert_behavior ? '' : '-'}5.7 ${p.r}) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)) (justify ${p.invert_behavior ? 'top' : 'bottom'}))
     )
     (fp_line (start 0.415 -3.45) (end -0.375 -3.45) (layer "F.SilkS") (stroke (width 0.12) (type solid)))
@@ -86,10 +86,10 @@ module.exports = {
     (fp_text user "${p.ref}" (at -3.5 0 ${90 + p.r}) (layer "B.SilkS") ${p.ref_hide}
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
-    (fp_text user "ON" (at 0 ${p.invert_behavior ? '-' : ''}4.5 ${p.r}) (layer "B.SilkS")
+    (fp_text user "ON" (at 0 ${p.invert_behavior ? '-' : ''}5.7 ${p.r}) (layer "B.SilkS")
       (effects (font (size 1 1) (thickness 0.15)) (justify ${p.invert_behavior ? 'bottom' : 'top'} mirror))
     )
-    (fp_text user "OFF" (at 0 ${p.invert_behavior ? '' : '-'}4.5 ${p.r}) (layer "B.SilkS")
+    (fp_text user "OFF" (at 0 ${p.invert_behavior ? '' : '-'}5.7 ${p.r}) (layer "B.SilkS")
       (effects (font (size 1 1) (thickness 0.15)) (justify ${p.invert_behavior ? 'top' : 'bottom'} mirror))
     )
     (fp_line (start -1.425 1.4) (end -1.425 1.6) (layer "B.SilkS") (stroke (width 0.12) (type solid)))
