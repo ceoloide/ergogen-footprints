@@ -72,7 +72,7 @@ module.exports = {
       `
     }
     const common_top = `
-  (footprint "ceoloide:ergogen_logo"
+  (footprint "ceoloide:utility_ergogen_logo"
     (layer "${p.side}.Cu")
     ${p.at}
     (property "Reference" "${p.ref}"
