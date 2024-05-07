@@ -78,6 +78,19 @@ Params:
   hotswap_3dmodel_xyz_rotation: default is [0, 0, 0]
     xyz rotation (in degrees), used to adjust the orientation of the 3d
     model relative the footprint.
+  keycap_3dmodel_filename: default is ''
+    Allows you to specify the path to a 3D model STEP or WRL file to be
+    used when rendering the PCB. Use the ${VAR_NAME} syntax to point to
+    a KiCad configured path.
+  keycap_3dmodel_xyz_offset: default is [0, 0, 0]
+    xyz offset (in mm), used to adjust the position of the 3d model
+    relative the footprint.
+  keycap_3dmodel_xyz_scale: default is [1, 1, 1]
+    xyz scale, used to adjust the size of the 3d model relative to its
+    original size.
+  keycap_3dmodel_xyz_rotation: default is [0, 0, 0]
+    xyz rotation (in degrees), used to adjust the orientation of the 3d
+    model relative the footprint.
 */
 
 module.exports = {
@@ -104,6 +117,10 @@ module.exports = {
     hotswap_3dmodel_xyz_offset: [0, 0, 0],
     hotswap_3dmodel_xyz_rotation: [0, 0, 0],
     hotswap_3dmodel_xyz_scale: [1, 1, 1],
+    keycap_3dmodel_filename: '',
+    keycap_3dmodel_xyz_offset: [0, 0, 0],
+    keycap_3dmodel_xyz_rotation: [0, 0, 0],
+    keycap_3dmodel_xyz_scale: [1, 1, 1],
     from: undefined,
     to: undefined
   },
@@ -230,6 +247,13 @@ module.exports = {
     )
 	  `
 
+    const keycap_3dmodel = `
+    (model ${p.keycap_3dmodel_filename}
+      (offset (xyz ${p.keycap_3dmodel_xyz_offset[0]} ${p.keycap_3dmodel_xyz_offset[1]} ${p.keycap_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.keycap_3dmodel_xyz_scale[0]} ${p.keycap_3dmodel_xyz_scale[1]} ${p.keycap_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.keycap_3dmodel_xyz_rotation[0]} ${p.keycap_3dmodel_xyz_rotation[1]} ${p.keycap_3dmodel_xyz_rotation[2]}))
+    )
+	  `
     const common_bottom = `
   )
     `
@@ -273,6 +297,11 @@ module.exports = {
     if (p.switch_3dmodel_filename) {
       final += switch_3dmodel
     }
+
+    if (p.keycap_3dmodel_filename) {
+      final += keycap_3dmodel
+    }
+
     final += common_bottom
 
     return final
