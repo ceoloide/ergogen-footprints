@@ -44,7 +44,7 @@ module.exports = {
   },
   body: p => {
     const common_start = `
-  (footprint "ceoloide:reset_button_smd_side"
+  (footprint "ceoloide:reset_switch_smd_side"
     (layer "${p.side}.Cu")
     ${p.at}
     (property "Reference" "${p.ref}"
