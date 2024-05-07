@@ -227,13 +227,11 @@ module.exports = {
     `
 
     const choc_v1_led_cutout_marks = `
-    ${''/* choc v1 led cutout marks */}
-    (fp_rect (start -2.65 6.325) (end 2.65 3.075) (layer "Dwgs.User") (width 0.15) (stroke (width 0.15) (type solid)))
+    (fp_rect (start -2.65 6.325) (end 2.65 3.075) (layer "Dwgs.User") (width 0.15) (stroke (width 0.15) (type solid)) (fill none))
     `
 
     const choc_v2_led_cutout_marks = `
-    ${''/* choc v2 led cutout marks */}
-    (fp_rect (start -2.75 6.405) (end 2.75 3.455) (layer "Dwgs.User") (width 0.15) (stroke (width 0.15) (type solid)))
+    (fp_rect (start -2.75 6.405) (end 2.75 3.455) (layer "Dwgs.User") (width 0.15) (stroke (width 0.15) (type solid)) (fill none))
     `
 
     const hotswap_common = `
