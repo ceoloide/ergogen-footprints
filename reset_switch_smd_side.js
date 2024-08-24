@@ -73,6 +73,9 @@ module.exports = {
     (fp_line (start 2.35 1.5) (end 2.35 1.75) (stroke (width 0.1) (type solid)) (layer "F.SilkS"))
     `
     const silkscreen_back = `
+    (fp_text user "${p.ref}" (at 0 0 ${p.r}) (layer "B.SilkS") ${p.ref_hide}
+      (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
+    )
     (fp_line (start -2.35 -1.5) (end -2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
     (fp_line (start -2.35 1.5) (end -2.35 1.75) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
     (fp_line (start -2.1 -1.75) (end -2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "B.SilkS"))
