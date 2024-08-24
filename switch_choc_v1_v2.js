@@ -206,8 +206,8 @@ module.exports = {
     (layer "${p.side}.Cu")
     ${p.at}
     (property "Reference" "${p.ref}"
-      (at 0 8.8 ${p.r})
-      (layer "${p.side}.SilkS")
+      (at 0 7.5 ${p.r})
+      (layer "F.SilkS")
       ${p.ref_hide}
       (effects (font (size 1 1) (thickness 0.15)))
     )
@@ -492,6 +492,11 @@ module.exports = {
     }
     if (p.include_keycap) {
       final += keycap_marks
+    }
+    if (p.side == "B" || p.reversible) {
+      final += `
+    (fp_text value "%R" (at 0 7.5 ${p.r}) (layer B.SilkS) (effects (font (size 1 1) (thickness 0.15)) (justify mirror)))
+`
     }
     if (p.include_stabilizer_pad && p.choc_v2_support) {
       if (p.reversible || p.side == "F") {
