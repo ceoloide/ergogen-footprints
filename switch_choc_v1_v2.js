@@ -157,6 +157,10 @@
 //
 // @mlilley's improvements:
 //  - Add options to include marks for the led cutout in choc v1 and v2 switch bodies
+//
+// @vacant0mens' improvements:
+//  - added descriptions for hole nets
+//  - added ref drawings to back side for when reversible == 'true'.
 
 module.exports = {
   params: {
