@@ -52,6 +52,7 @@ module.exports = {
     side: 'B',
     reversible: false,
     include_tht: false,
+    ref_above: true,
     diode_3dmodel_filename: '',
     diode_3dmodel_xyz_offset: [0, 0, 0],
     diode_3dmodel_xyz_rotation: [0, 0, 0],
@@ -65,8 +66,8 @@ module.exports = {
         (layer "${p.side}.Cu")
         ${p.at}
         (property "Reference" "${p.ref}"
-            (at 0 0 ${p.r})
-            (layer "${p.side}.SilkS")
+            (at 0 ${p.ref_above ? '' : '-'}1.2 ${p.r})
+            (layer "F.SilkS")
             ${p.ref_hide}
             (effects (font (size 1 1) (thickness 0.15)))
         )
