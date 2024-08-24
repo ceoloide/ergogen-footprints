@@ -99,7 +99,7 @@ module.exports = {
     (layer "${p.side}.Cu")
     ${p.at}
     (property "Reference" "${p.ref}"
-      (at -4.75 0 ${90 + p.r})
+      (at -4 -2.5 ${p.r})
       (layer "${p.side}.SilkS")
       ${p.ref_hide}
       (effects (font (size 1 1) (thickness 0.15)))
@@ -149,6 +149,7 @@ module.exports = {
     (pad "2" smd rect (at 2.70 -0.7 ${p.r}) (size 1.4 1) (layers "F.Cu" "F.Paste" "F.Mask") ${p.P2.str})
     `
     const back_reversed = `
+    (fp_text value "%R" (at -4 2.5 ${p.r}) (layer F.SilkS) (effects (font (size 1 1) (thickness 0.15)) (justify mirror)))
     (fp_line (start -3.8 -1.6) (end -2.2 -1.6) (layer "B.SilkS") (stroke (width 0.12) (type solid)))
     (fp_line (start -3.8 0) (end -3.8 -1.6) (layer "B.SilkS") (stroke (width 0.12) (type solid)))
     (pad "2" smd rect (at 2.70 -0.7 ${p.r}) (size 1.4 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.P2.str})
@@ -157,6 +158,7 @@ module.exports = {
     (pad "4" smd rect (at -2.70 0.7 ${p.r}) (size 1.4 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.P4.str})
     `
     const back = `
+    (fp_text value "%R" (at -4 -2.5 ${p.r}) (layer B.SilkS) (effects (font (size 1 1) (thickness 0.15)) (justify mirror)))
     (fp_line (start -3.8 1.6) (end -2.2 1.6) (layer "B.SilkS") (stroke (width 0.12) (type solid)))
     (fp_line (start -3.8 0) (end -3.8 1.6) (layer "B.SilkS") (stroke (width 0.12) (type solid)))
     (pad "2" smd rect (at 2.70 0.7 ${p.r}) (size 1.4 1) (layers "B.Cu" "B.Paste" "B.Mask") ${p.P2.str})
