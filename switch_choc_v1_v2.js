@@ -115,6 +115,12 @@
 //    keycap_3dmodel_xyz_rotation: default is [0, 0, 0]
 //      xyz rotation (in degrees), used to adjust the orientation of the 3d
 //      model relative the footprint.
+//    CENTERHOLE: default is 'GND'
+//      net to attach to the center hole
+//    LEFTSTAB: default is 'D1'
+//      net to attach to left stabilizer hole
+//    RIGHTSTAB: default is 'D2'
+//      net to attach to right stabilizer hole
 //
 // Notes:
 // - Hotswap and solder can be used together. The solder holes will then be
