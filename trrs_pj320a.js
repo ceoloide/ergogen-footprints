@@ -152,7 +152,7 @@ module.exports = {
     ${standard_opening}
     ${corner_marks(0)}
     ${stabilizers(0)}
-    ${pins(-2.3, 2.3)}
+    ${p.side == 'F' ? pins(-2.3, 2.3) : pins(2.3, -2.3) }
   )
     `
     }
