@@ -113,7 +113,7 @@ module.exports = {
 
     show_instructions: true,
     show_silk_labels: true,
-    show_silk_labels_on_both_sides: true,
+    show_silk_labels_on_both_sides: false,
     show_via_labels: true,
 
     mcu_3dmodel_filename: '',
