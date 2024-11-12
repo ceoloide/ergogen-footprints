@@ -160,13 +160,13 @@ module.exports = {
 		(pad "" np_thru_hole circle (at -2.54 -5.08 180) (size 3 3) (drill 3) (layers "F&B.Cu" "*.Mask"))
 		(pad "" np_thru_hole circle (at 3.81 -2.54 180) (size 3 3) (drill 3) (layers "F&B.Cu" "*.Mask"))
 		(pad "1" smd rect (at 7.085 -2.54 ${p.r}) (size 2.55 ${p.outer_pad_height}) (layers "F.Cu" "F.Paste" "F.Mask") ${p.from})
-		(pad "2" smd roundrect
+		(pad "2" smd ${p.reversible ? 'roundrect' : 'rect'}
       (at -5.842 -5.08 ${p.r})
       (size 2.55 2.5)
-      (layers "F.Cu" "F.Paste" "F.Mask")
+      (layers "F.Cu" "F.Paste" "F.Mask")${p.reversible ? `
 			(roundrect_rratio 0)
 			(chamfer_ratio 0.2)
-			(chamfer bottom_right)
+			(chamfer bottom_right)` : ''}
       ${p.to}
     )
     `
@@ -175,13 +175,13 @@ module.exports = {
 		(pad "" np_thru_hole circle (at 2.54 -5.08 180) (size 3 3) (drill 3) (layers "F&B.Cu" "*.Mask"))
 		(pad "" np_thru_hole circle (at -3.81 -2.54 180) (size 3 3) (drill 3) (layers "F&B.Cu" "*.Mask"))
 		(pad "1" smd rect (at -7.085 -2.54 ${p.r}) (size 2.55 ${p.outer_pad_height}) (layers "B.Cu" "B.Paste" "B.Mask") ${p.from})
-		(pad "2" smd roundrect
+		(pad "2" smd ${p.reversible ? 'roundrect' : 'rect'}
       (at 5.842 -5.08 ${p.r})
       (size 2.55 2.5)
-      (layers "B.Cu" "B.Paste" "B.Mask")
+      (layers "B.Cu" "B.Paste" "B.Mask")${p.reversible ? `
 			(roundrect_rratio 0)
 			(chamfer_ratio 0.2)
-			(chamfer bottom_left)
+			(chamfer bottom_left)` : ''}
       ${p.to})
     `
 
