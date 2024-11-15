@@ -16,8 +16,10 @@ module.exports = {
             ${p.at /* parametric position */}
 
             ${'' /* footprint reference */}
-            (fp_text reference "${p.ref}" (at 0 0 ${90 + p.r}) (layer F.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
-            (fp_text value "" (at 0 0) (layer ${p.side}.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+            (property "Reference" "${p.ref}" (at 0 0 ${90 + p.r}) (layer F.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
+            (property "Value" "WS2812B" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+        	(attr smd)
+            `
 
             (fp_line (start -2.5 -2.5) (end -2.5 2.5) (layer ${p.side}.SilkS) (width 0.15))
             (fp_line (start -2.5 2.5) (end 2.5 2.5) (layer ${p.side}.SilkS) (width 0.15))
@@ -44,12 +46,12 @@ module.exports = {
         const common_end = `
         )
         `
-        const reverse_content = `
-            (fp_text value "%R" (at 0 1.2 ${90 + p.r}) (layer B.SilkS) (effects (font (size 1 1) (thickness 0.15)) (justify mirror)))
             (fp_line (start -2.5 -2.5) (end -2.5 2.5) (layer ${reverse_side}.SilkS) (width 0.15))
             (fp_line (start -2.5 2.5) (end 2.5 2.5) (layer ${reverse_side}.SilkS) (width 0.15))
             (fp_line (start 2.5 2.5) (end 2.5 -2.5) (layer ${reverse_side}.SilkS) (width 0.15))
             (fp_line (start 2.5 -2.5) (end -2.5 -2.5) (layer ${reverse_side}.SilkS) (width 0.15))
+        const back_content = `
+            (fp_text user "${p.ref}" (at 0 0 ${90 + p.r}) (layer B.SilkS) (effects (font (size 1.27 1.27) (thickness 0.15)) (justify mirror)))
 
             (fp_line (start -3.5 -3) (end -3.5 3) (layer ${reverse_side}.SilkS) (width 0.15))
             (fp_line (start -3.5 3) (end 3.5 3) (layer ${reverse_side}.SilkS) (width 0.15))
@@ -72,7 +74,7 @@ module.exports = {
         let final = common_start;
 
         if (p.reversible) {
-            final += reverse_content
+            final += back_content
         }
 
         final += common_end;
