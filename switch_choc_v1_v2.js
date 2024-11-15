@@ -215,7 +215,7 @@ module.exports = {
       ${p.ref_hide}
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (attr exclude_from_pos_files exclude_from_bom${p.allow_soldermask_bridges ? ' allow_soldermask_bridges' : ''})
+    (attr ${p.hotswap ? 'smd' : 'exclude_from_pos_files exclude_from_bom'}${p.allow_soldermask_bridges ? ' allow_soldermask_bridges' : ''})
     (property "Value" "Kailh CPG135001S30"
       (at 0 0 ${p.r})
       (layer "${p.side}.SilkS")
