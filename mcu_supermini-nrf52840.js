@@ -7,17 +7,12 @@
 // Author: @infused-kim + @ceoloide improvements
 //
 // Description:
-//  A single-side or reversible footprint for the nice!nano (or any pro-micro compatible
+//  A single-side or reversible footprint for the supermining nrf52840 (or any pro-micro compatible
 //  controller) that uses jumpers instead of two socket rows to be reversible.
 //
-//  Note that the extra pins are *ONLY* compatible with nice!nano boards and not with
-//  clones like the Supermini, which has pins in a slightly different position.
-//
-//  This is a re-implementation of the promicro_pretty footprint made popular
-//  by @benvallack.
-//
 // Pinout and schematics:
-//  https://nicekeyboards.com/docs/nice-nano/pinout-schematic
+//  measurements based off this kicad footprint https://github.com/BlueDrink9/supermini-nrf52840-kicad
+//  https://wiki.icbbuy.com/doku.php?id=developmentboard:nrf52840
 //
 // Params:
 //    side: default is F for Front
