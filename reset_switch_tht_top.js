@@ -34,8 +34,8 @@ module.exports = {
   },
   body: p => {
     const common_start = `
-  (module "ceoloide:reset_switch_tht_top"
-    (layer ${p.side}.Cu)
+  (footprint "ceoloide:reset_switch_tht_top"
+    (layer "${p.side}.Cu")
     ${p.at}
     (property "Reference" "${p.ref}"
       (at 0 2.55 ${90 + p.r})
