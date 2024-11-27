@@ -63,8 +63,8 @@ module.exports = {
     (fp_line (start 3 -1.75) (end 3 -1.5) (layer "B.SilkS") (stroke (width 0.15) (type solid)))
         `
     const common_end = `
-    (pad "2" thru_hole circle (at -3.25 0 ${p.r}) (size 2 2) (drill 1.3) (layers "*.Cu" "*.Mask") ${p.from.str})
-    (pad "1" thru_hole circle (at 3.25 0 ${p.r}) (size 2 2) (drill 1.3) (layers "*.Cu" "*.Mask") ${p.to.str})
+    (pad "2" thru_hole circle (at -3.25 0 ${p.r}) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask") ${p.from.str})
+    (pad "1" thru_hole circle (at 3.25 0 ${p.r}) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask") ${p.to.str})
   )
         `
     let final = common_start;
