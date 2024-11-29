@@ -91,7 +91,7 @@ module.exports = {
 
     if (p.reversible) {
       socket_nets = local_nets;
-    } else if (p.side == 'B') {
+    } else if (p.side == 'F') {
       socket_nets = dst_nets.slice().reverse();
     }
 
