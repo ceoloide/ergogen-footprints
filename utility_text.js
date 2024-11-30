@@ -39,6 +39,8 @@
 //      control the font face applied to the text
 //    text:
 //      The text to display
+//    rotate: default is 0
+//      the rotation of the text in degrees
 //
 // @ceoloide's improvements:
 //  - Add ability to set text on both sides
@@ -65,7 +67,8 @@ module.exports = {
     italic: false,
     align: '',
     face: '',
-    text: ''
+    text: '',
+    rotate: 0
   },
   body: p => {
     const generate_text = (side, layer, align, mirrored, thickness, height, width, text, face, bold, italic, knockout) => {
@@ -89,6 +92,9 @@ module.exports = {
     };
 
     let final = '';
+
+    p.at = p.at.replace(/\(at (\d+(?:\.\d+)*) (\d+(?:\.\d+)*) (0)\)/, `(at $1 $2 ${p.rotate})`);
+
     if (p.reversible) {
       final += generate_text('F', p.layer, p.align, false, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
       final += generate_text('B', p.layer, p.align, true, p.thickness, p.height, p.width, p.text, p.face, p.bold, p.italic, p.knockout);
