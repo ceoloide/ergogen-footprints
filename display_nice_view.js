@@ -68,6 +68,9 @@
 // This is to have all jumpers and components to solder on the same
 // side, and be able to read the correct labels of the display to do
 // tests with a multimeter.
+//
+// @nidhishs' improvements:
+// - Added 3D model support
 
 module.exports = {
   params: {
@@ -82,6 +85,14 @@ module.exports = {
     include_silkscreen: true,
     include_labels: true,
     include_courtyard: true,
+    niceview_3dmodel_filename: '',
+    niceview_3dmodel_xyz_offset: [0, 0, 0],
+    niceview_3dmodel_xyz_rotation: [0, 0, 0],
+    niceview_3dmodel_xyz_scale: [1, 1, 1],
+    socket_3dmodel_filename: '',
+    socket_3dmodel_xyz_offset: [0, 0, 0],
+    socket_3dmodel_xyz_rotation: [0, 0, 0],
+    socket_3dmodel_xyz_scale: [1, 1, 1],
     MOSI: { type: 'net', value: 'MOSI' },
     SCK: { type: 'net', value: 'SCK' },
     VCC: { type: 'net', value: 'VCC' },
@@ -240,6 +251,22 @@ module.exports = {
     )
     `
 
+    const niceview_3dmodel = `
+    (model ${p.niceview_3dmodel_filename}
+      (offset (xyz ${p.niceview_3dmodel_xyz_offset[0]} ${p.niceview_3dmodel_xyz_offset[1]} ${p.niceview_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.niceview_3dmodel_xyz_scale[0]} ${p.niceview_3dmodel_xyz_scale[1]} ${p.niceview_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.niceview_3dmodel_xyz_rotation[0]} ${p.niceview_3dmodel_xyz_rotation[1]} ${p.niceview_3dmodel_xyz_rotation[2]}))
+    )
+    `
+
+    const socket_3dmodel = `
+    (model ${p.socket_3dmodel_filename}
+      (offset (xyz ${p.socket_3dmodel_xyz_offset[0]} ${p.socket_3dmodel_xyz_offset[1]} ${p.socket_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.socket_3dmodel_xyz_scale[0]} ${p.socket_3dmodel_xyz_scale[1]} ${p.socket_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.socket_3dmodel_xyz_rotation[0]} ${p.socket_3dmodel_xyz_rotation[1]} ${p.socket_3dmodel_xyz_rotation[2]}))
+    )
+    `
+
     const bottom = `
     (pad "1" thru_hole oval (at -5.08 16.7 ${270 + p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${socket_nets[0].str})
     (pad "2" thru_hole oval (at -2.54 16.7 ${270 + p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${socket_nets[1].str})
@@ -300,6 +327,12 @@ module.exports = {
     if (p.reversible) {
       final += front_jumpers;
       final += back_jumpers;
+    }
+    if (p.niceview_3dmodel_filename) {
+      final += niceview_3dmodel;
+    }
+    if (p.socket_3dmodel_filename) {
+      final += socket_3dmodel;
     }
     final += bottom;
     if (p.include_traces && p.reversible) {
