@@ -89,10 +89,14 @@ module.exports = {
     niceview_3dmodel_xyz_offset: [0, 0, 0],
     niceview_3dmodel_xyz_rotation: [0, 0, 0],
     niceview_3dmodel_xyz_scale: [1, 1, 1],
-    socket_3dmodel_filename: '',
-    socket_3dmodel_xyz_offset: [0, 0, 0],
-    socket_3dmodel_xyz_rotation: [0, 0, 0],
-    socket_3dmodel_xyz_scale: [1, 1, 1],
+    pin_socket_3dmodel_filename: '',
+    pin_socket_3dmodel_xyz_offset: [0, 0, 0],
+    pin_socket_3dmodel_xyz_rotation: [0, 0, 0],
+    pin_socket_3dmodel_xyz_scale: [1, 1, 1],
+    pin_header_3dmodel_filename: '',
+    pin_header_3dmodel_xyz_offset: [0, 0, 0],
+    pin_header_3dmodel_xyz_rotation: [0, 0, 0],
+    pin_header_3dmodel_xyz_scale: [1, 1, 1],
     MOSI: { type: 'net', value: 'MOSI' },
     SCK: { type: 'net', value: 'SCK' },
     VCC: { type: 'net', value: 'VCC' },
@@ -259,11 +263,19 @@ module.exports = {
     )
     `
 
-    const socket_3dmodel = `
-    (model ${p.socket_3dmodel_filename}
-      (offset (xyz ${p.socket_3dmodel_xyz_offset[0]} ${p.socket_3dmodel_xyz_offset[1]} ${p.socket_3dmodel_xyz_offset[2]}))
-      (scale (xyz ${p.socket_3dmodel_xyz_scale[0]} ${p.socket_3dmodel_xyz_scale[1]} ${p.socket_3dmodel_xyz_scale[2]}))
-      (rotate (xyz ${p.socket_3dmodel_xyz_rotation[0]} ${p.socket_3dmodel_xyz_rotation[1]} ${p.socket_3dmodel_xyz_rotation[2]}))
+    const pin_socket_3dmodel = `
+    (model ${p.pin_socket_3dmodel_filename}
+      (offset (xyz ${p.pin_socket_3dmodel_xyz_offset[0]} ${p.pin_socket_3dmodel_xyz_offset[1]} ${p.pin_socket_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.pin_socket_3dmodel_xyz_scale[0]} ${p.pin_socket_3dmodel_xyz_scale[1]} ${p.pin_socket_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.pin_socket_3dmodel_xyz_rotation[0]} ${p.pin_socket_3dmodel_xyz_rotation[1]} ${p.pin_socket_3dmodel_xyz_rotation[2]}))
+    )
+    `
+
+    const pin_header_3dmodel = `
+    (model ${p.pin_header_3dmodel_filename}
+      (offset (xyz ${p.pin_header_3dmodel_xyz_offset[0]} ${p.pin_header_3dmodel_xyz_offset[1]} ${p.pin_header_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.pin_header_3dmodel_xyz_scale[0]} ${p.pin_header_3dmodel_xyz_scale[1]} ${p.pin_header_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.pin_header_3dmodel_xyz_rotation[0]} ${p.pin_header_3dmodel_xyz_rotation[1]} ${p.pin_header_3dmodel_xyz_rotation[2]}))
     )
     `
 
@@ -331,8 +343,11 @@ module.exports = {
     if (p.niceview_3dmodel_filename) {
       final += niceview_3dmodel;
     }
-    if (p.socket_3dmodel_filename) {
-      final += socket_3dmodel;
+    if (p.pin_socket_3dmodel_filename) {
+      final += pin_socket_3dmodel;
+    }
+    if (p.pin_header_3dmodel_filename) {
+      final += pin_header_3dmodel;
     }
     final += bottom;
     if (p.include_traces && p.reversible) {
