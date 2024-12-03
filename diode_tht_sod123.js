@@ -19,6 +19,22 @@
 //    reversible: default is false
 //      if true, the footprint will be placed on both sides so that the PCB can be
 //      reversible
+//    include_traces_vias: default is false
+//      if true it will include traces and vias when reversible is true, and include_tht if false,
+//      using this can make routing simpler with reversible PCBs. In the other cases it's simply
+//      not needed.
+//    trace_distance: default is 2.85
+//      this is the extra distance the trace moves from the pad, and creates a via. By default it goes outward.
+//      you could set this to -0.5, and the trace moves inward and creates the via under the diode.
+//    trace_width: default is 0.200mm
+//      allows to override the trace width that connects the pads. Not recommended
+//      to go below 0.15mm (JLCPC min is 0.127mm), or above 0.200mm to avoid DRC errors.
+//    via_size: default is 0.6
+//      allows to define the size of the via. Not recommended below 0.56 (JLCPCB minimum),
+//      or above 0.8 (KiCad default), to avoid overlap or DRC errors
+//    via_drill: default is 0.3
+//      allows to define the size of the drill. Not recommended below 0.3 (JLCPCB minimum),
+//      or above 0.4 (KiCad default), to avoid overlap or DRC errors
 //    include_tht: default is false
 //      if true it includes through-hole pads alongside SMD ones
 //    diode_3dmodel_filename: default is ''
@@ -51,6 +67,11 @@ module.exports = {
     designator: 'D',
     side: 'B',
     reversible: false,
+    include_traces_vias: false,
+    trace_distance: { type: 'number', value: 2.85 },
+    trace_width: 0.2,
+    via_size: 0.6,
+    via_drill: 0.3,
     include_tht: false,
     diode_3dmodel_filename: '',
     diode_3dmodel_xyz_offset: [0, 0, 0],
@@ -109,6 +130,51 @@ module.exports = {
         )
         `
 
+    const smd_vias_short_pads = `
+    (segment
+      (start ${p.eaxy(1.65, 0)})
+      (end ${p.eaxy(1*p.trace_distance, 0)})
+      (width ${p.trace_width})
+      (layer "F.Cu")
+      (net ${p.to.index})
+    )
+    (via
+      (at ${p.eaxy(1*p.trace_distance, 0)})
+      (size ${p.via_size})
+      (drill ${p.via_drill})
+      (layers "F.Cu" "B.Cu")
+      (net ${p.to.index})
+    )
+    (segment
+      (start ${p.eaxy(1*p.trace_distance, 0)})
+      (end ${p.eaxy(1.65, 0)})
+      (width ${p.trace_width})
+      (layer "B.Cu")
+      (net ${p.to.index})
+    )
+    (segment
+      (start ${p.eaxy(-1.65, 0)})
+      (end ${p.eaxy(-1*p.trace_distance, 0)})
+      (width ${p.trace_width})
+      (layer "F.Cu")
+      (net ${p.from.index})
+    )
+    (via
+      (at ${p.eaxy(-1*p.trace_distance, 0)})
+      (size ${p.via_size})
+      (drill ${p.via_drill})
+      (layers "F.Cu" "B.Cu")
+      (net ${p.from.index})
+    )
+    (segment
+      (start ${p.eaxy(-1*p.trace_distance, 0)})
+      (end ${p.eaxy(-1.65, 0)})
+      (width ${p.trace_width})
+      (layer "B.Cu")
+      (net ${p.from.index})
+    )
+    `
+
     let final = standard_opening;
 
     if (p.side == "F" || p.reversible) {
@@ -127,6 +193,11 @@ module.exports = {
 
     final += standard_closing;
 
+    if (p.reversible && p.include_traces_vias && !p.include_tht) {
+      final += smd_vias_short_pads
+    }
+
     return final;
   }
 }
+
