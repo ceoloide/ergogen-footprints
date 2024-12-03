@@ -23,9 +23,9 @@
 //      if true it will include traces and vias when reversible is true, and include_tht if false,
 //      using this can make routing simpler with reversible PCBs. In the other cases it's simply
 //      not needed.
-//    trace_distance: default is 2.85
+//    trace_distance: default is 1.2
 //      this is the extra distance the trace moves from the pad, and creates a via. By default it goes outward.
-//      you could set this to -0.5, and the trace moves inward and creates the via under the diode.
+//      you could set this to -1.1, and the trace moves inward and creates the via under the diode.
 //    trace_width: default is 0.200mm
 //      allows to override the trace width that connects the pads. Not recommended
 //      to go below 0.15mm (JLCPC min is 0.127mm), or above 0.200mm to avoid DRC errors.
@@ -68,7 +68,7 @@ module.exports = {
     side: 'B',
     reversible: false,
     include_traces_vias: false,
-    trace_distance: { type: 'number', value: 2.85 },
+    trace_distance: { type: 'number', value: 1.2 },
     trace_width: 0.2,
     via_size: 0.6,
     via_drill: 0.3,
@@ -130,48 +130,48 @@ module.exports = {
         )
         `
 
-    const smd_vias_short_pads = `
+          const smd_vias_short_pads = `
     (segment
       (start ${p.eaxy(1.65, 0)})
-      (end ${p.eaxy(1*p.trace_distance, 0)})
+      (end ${p.eaxy(1.65 + 1*p.trace_distance, 0)})
       (width ${p.trace_width})
       (layer "F.Cu")
-      (net ${p.to.index})
+      (net ${p.from.index})
     )
     (via
-      (at ${p.eaxy(1*p.trace_distance, 0)})
+      (at ${p.eaxy(1.65 + 1*p.trace_distance, 0)})
       (size ${p.via_size})
       (drill ${p.via_drill})
       (layers "F.Cu" "B.Cu")
-      (net ${p.to.index})
+      (net ${p.from.index})
     )
     (segment
-      (start ${p.eaxy(1*p.trace_distance, 0)})
+      (start ${p.eaxy(1.65 + 1*p.trace_distance, 0)})
       (end ${p.eaxy(1.65, 0)})
       (width ${p.trace_width})
       (layer "B.Cu")
-      (net ${p.to.index})
+      (net ${p.from.index})
     )
     (segment
       (start ${p.eaxy(-1.65, 0)})
-      (end ${p.eaxy(-1*p.trace_distance, 0)})
+      (end ${p.eaxy(-1.65 - 1*p.trace_distance, 0)})
       (width ${p.trace_width})
       (layer "F.Cu")
-      (net ${p.from.index})
+      (net ${p.to.index})
     )
     (via
-      (at ${p.eaxy(-1*p.trace_distance, 0)})
+      (at ${p.eaxy(-1.65 - 1*p.trace_distance, 0)})
       (size ${p.via_size})
       (drill ${p.via_drill})
       (layers "F.Cu" "B.Cu")
-      (net ${p.from.index})
+      (net ${p.to.index})
     )
     (segment
-      (start ${p.eaxy(-1*p.trace_distance, 0)})
+      (start ${p.eaxy(-1.65 - 1*p.trace_distance, 0)})
       (end ${p.eaxy(-1.65, 0)})
       (width ${p.trace_width})
       (layer "B.Cu")
-      (net ${p.from.index})
+      (net ${p.to.index})
     )
     `
 
