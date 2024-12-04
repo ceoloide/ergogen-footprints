@@ -531,10 +531,10 @@ module.exports = {
     `;
 
     const instructions = `
-    (fp_text user "R Jumpers, MCU ${!p.reverse_mount ? 'Up' : 'Down'}" (at 0 -15.245 ${p.r}) (layer "F.SilkS")
+    (fp_text user "R hand back side (M${!p.reverse_mount ? '↑' : '↓'})" (at 0 -15.245 ${p.r}) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text user "L Jumpers, MCU ${!p.reverse_mount ? 'Up' : 'Down'}" (at 0 -15.245 ${p.r}) (layer "B.SilkS")
+    (fp_text user "L hand back side (M${!p.reverse_mount ? '↑' : '↓'})" (at 0 -15.245 ${p.r}) (layer "B.SilkS")
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     `
