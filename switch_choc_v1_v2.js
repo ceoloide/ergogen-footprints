@@ -27,6 +27,9 @@
 //      if true, will include holes and pads for Kailh choc hotswap sockets
 //    solder: default is false
 //      if true, will include holes to solder switches (works with hotswap too)
+//    hotswap_pads_same_side: false
+//      if true, and if not using plated holes, it will position the pads so that nets are on
+//      the same side to simplify routing.
 //    include_traces_vias: default is true
 //      if true it will include traces and vias when hotswap is true, footprint is reversible
 //      and when no plated holes are used, to simplify routing. In the other cases it's simply
@@ -148,6 +151,7 @@
 //  - Add ability to specify board side
 //  - Add ability to include stabilizer pad
 //  - Add ability to use an oval stabilizer pad
+//  - Add option to add routes between pads, and have pads on the same side
 //  - Upgrade to KiCad 8
 //
 // @grazfather's improvements:
@@ -170,6 +174,7 @@ module.exports = {
     designator: 'S',
     side: 'B',
     reversible: false,
+    hotswap_pads_same_side: false,
     include_traces_vias: true,
     trace_width: 0.2,
     via_size: 0.6,
@@ -327,7 +332,7 @@ module.exports = {
       (roundrect_rratio 0)
 			(chamfer_ratio 0.455)
 			(chamfer bottom_left)
-      ${p.from.str}
+      ${p.hotswap_pads_same_side ? p.to.str : p.from.str}
     )
     `
 
@@ -370,7 +375,7 @@ module.exports = {
     ${p.reversible ? hotswap_back_pad_cutoff : hotswap_back_pad_full}
 
     ${'' /* Right Pad (not cut off) */}
-    (pad "2" smd rect (at ${8.275 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back} 2.6) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
+    (pad "2" smd rect (at ${8.275 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back} 2.6) (layers "B.Cu" "B.Paste" "B.Mask") ${p.hotswap_pads_same_side ? p.from.str : p.to.str})
 
     ${'' /* Side Hole */}
     (pad "" np_thru_hole circle (at 5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers "*.Cu" "*.Mask"))
@@ -595,6 +600,51 @@ module.exports = {
 	)
     `
 
+    const hotswap_routes_same_side = `
+  (segment
+		(start ${p.eaxy(3.275, -5.95)})
+		(end ${p.eaxy(7.775, -5.95)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.from.index})
+	)
+	(via
+		(at ${p.eaxy(7.775, -5.95)})
+		(size ${p.via_size})
+    (drill ${p.via_drill})
+		(layers "F.Cu" "B.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(7.775, -3.75)})
+		(end ${p.eaxy(7.775, -5.95)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(-7.775, -3.75)})
+		(end ${p.eaxy(-7.775, -5.95)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.to.index})
+	)
+	(via
+		(at ${p.eaxy(-7.775, -5.95)})
+		(size ${p.via_size})
+    (drill ${p.via_drill})
+		(layers "F.Cu" "B.Cu")
+		(net ${p.to.index})
+	)
+	(segment
+		(start ${p.eaxy(-3.275, -5.95)})
+		(end ${p.eaxy(-7.775, -5.95)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.to.index})
+	)
+    `
+
     let final = common_top
     if (p.choc_v1_support) {
       final += choc_v1_stabilizers
@@ -660,7 +710,11 @@ module.exports = {
     final += common_bottom
 
     if (p.reversible && p.hotswap && p.include_traces_vias && !p.include_plated_holes) {
-      final += hotswap_routes_unplated;
+      if(p.hotswap_pads_same_side){
+        final += hotswap_routes_same_side
+      } else {
+        final += hotswap_routes_unplated
+      }
     }
 
     return final;
