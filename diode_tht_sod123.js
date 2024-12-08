@@ -52,6 +52,7 @@ module.exports = {
     side: 'B',
     reversible: false,
     include_tht: false,
+    ref_above: true,
     diode_3dmodel_filename: '',
     diode_3dmodel_xyz_offset: [0, 0, 0],
     diode_3dmodel_xyz_rotation: [0, 0, 0],
@@ -65,10 +66,16 @@ module.exports = {
         (layer "${p.side}.Cu")
         ${p.at}
         (property "Reference" "${p.ref}"
-            (at 0 0 ${p.r})
-            (layer "${p.side}.SilkS")
+            (at 0 ${p.ref_above ? '' : '-'}1.2 ${p.r})
+            (layer "F.SilkS")
             ${p.ref_hide}
             (effects (font (size 1 1) (thickness 0.15)))
+        )
+        (property "Value" "SOD123 or THT Diode"
+          (at 0 0 ${p.r})
+          (layer "${p.side}.SilkS")
+          hide
+          (effects (font (size 1 1) (thickness 0.15)))
         )
         `
     const front = `
@@ -83,6 +90,7 @@ module.exports = {
         (pad "2" smd rect (at 1.65 0 ${p.r}) (size 0.9 1.2) (layers "F.Cu" "F.Paste" "F.Mask") ${p.from.str})
         `
     const back = `
+        (fp_text user "%R" (at 0 ${p.ref_above ? '' : '-'}1.2 ${p.r}) (layer B.SilkS) (effects (font (size 1 1) (thickness 0.15)) (justify mirror)))
         (fp_line (start 0.25 0) (end 0.75 0) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
         (fp_line (start 0.25 0.4) (end -0.35 0) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
         (fp_line (start 0.25 -0.4) (end 0.25 0.4) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
@@ -105,9 +113,13 @@ module.exports = {
             (scale (xyz ${p.diode_3dmodel_xyz_scale[0]} ${p.diode_3dmodel_xyz_scale[1]} ${p.diode_3dmodel_xyz_scale[2]}))
             (rotate (xyz ${p.diode_3dmodel_xyz_rotation[0]} ${p.diode_3dmodel_xyz_rotation[1]} ${p.diode_3dmodel_xyz_rotation[2]})))
         `
+    const vias = `
+    (via (at ${p.eaxy(1.65, 0)}) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net ${p.from.index}))
+    (via (at ${p.eaxy(-1.65, 0)}) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net ${p.to.index}))
+    `
     const standard_closing = `
-        )
-        `
+    )
+    `
 
     let final = standard_opening;
 
@@ -126,6 +138,10 @@ module.exports = {
     }
 
     final += standard_closing;
+
+    if (p.reversible && ! p.include_tht) {
+      final += vias
+    }
 
     return final;
   }
