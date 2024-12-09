@@ -269,9 +269,9 @@ module.exports = {
     final += standard_closing;
 
     if (p.reversible && p.include_traces_vias) {
-      if(p.include_tht && !p.include_thru_hole_smd_pads) {
+      if(p.include_tht) {
         final += tht_traces;
-      } else if (!p.include_tht && p.include_thru_hole_smd_pads) {
+      } else if (!p.include_tht && !p.include_thru_hole_smd_pads) {
         final += smd_pad_traces;
       }
     }
