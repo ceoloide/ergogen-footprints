@@ -30,6 +30,19 @@
 //      if true it will include silkscreen markings
 //    include_courtyard: default is false
 //      if true it will include the part courtyard
+//    reset_switch_3dmodel_filename: default is ''
+//      Allows you to specify the path to a 3D model STEP or WRL file to be
+//      used when rendering the PCB. Use the ${VAR_NAME} syntax to point to
+//      a KiCad configured path.
+//    reset_switch_3dmodel_xyz_offset: default is [0, 0, 0]
+//      xyz offset (in mm), used to adjust the position of the 3d model
+//      relative the footprint.
+//    reset_switch_3dmodel_xyz_scale: default is [1, 1, 1]
+//      xyz scale, used to adjust the size of the 3d model relative to its
+//      original size.
+//    reset_switch_3dmodel_xyz_rotation: default is [0, 0, 0]
+//      xyz rotation (in degrees), used to adjust the orientation of the 3d
+//      model relative the footprint.
 
 module.exports = {
   params: {
@@ -39,6 +52,10 @@ module.exports = {
     include_bosses: false,
     include_silkscreen: true,
     include_courtyard: false,
+    reset_switch_3dmodel_filename: '',
+    reset_switch_3dmodel_xyz_offset: [0, 0, 0],
+    reset_switch_3dmodel_xyz_rotation: [0, 0, 0],
+    reset_switch_3dmodel_xyz_scale: [1, 1, 1],
     from: { type: 'net', value: 'GND' },
     to: { type: 'net', value: 'RST' },
   },
@@ -113,6 +130,15 @@ module.exports = {
     (pad "" np_thru_hole circle (at 0 -1.375 ${180 + p.r}) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
     (pad "" np_thru_hole circle (at 0 1.375 ${180 + p.r}) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
     `
+
+    const reset_switch_3dmodel = `
+    (model ${p.reset_switch_3dmodel_filename}
+      (offset (xyz ${p.reset_switch_3dmodel_xyz_offset[0]} ${p.reset_switch_3dmodel_xyz_offset[1]} ${p.reset_switch_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.reset_switch_3dmodel_xyz_scale[0]} ${p.reset_switch_3dmodel_xyz_scale[1]} ${p.reset_switch_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.reset_switch_3dmodel_xyz_rotation[0]} ${p.reset_switch_3dmodel_xyz_rotation[1]} ${p.reset_switch_3dmodel_xyz_rotation[2]}))
+    )
+    `
+
     const common_end = `
   )
     `
@@ -138,6 +164,9 @@ module.exports = {
       if (p.include_courtyard) {
         final += courtyard_back
       }
+    }
+    if (p.reset_switch_3dmodel_filename) {
+      final += reset_switch_3dmodel
     }
 
     final += common_end;

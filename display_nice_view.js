@@ -17,6 +17,10 @@
 //  component is oriented verically and pointing upwards, or left of the pins, when oriented
 //  horizontally and oriented leftward. Jumper pads position can be inverted with a parameter.
 //
+//  In its default configuration, labels are positioned below the pins, when the
+//  component is oriented verically and pointing upwards, or right of the pins, when oriented
+//  horizontally and oriented leftward. Labels position can be inverted with a parameter.
+//
 // Pinout and schematics:
 //  https://nicekeyboards.com/docs/nice-view/pinout-schematic
 //
@@ -38,6 +42,9 @@
 //    invert_jumpers_position default is false
 //      allows to change the position of the jumper pads, from their default to the opposite
 //      side of the pins. See the description above for more details.
+//    invert_labels_position default is false
+//      allows to change the position of the labels, from their default to the north
+//      side of the pins. See the description above for more details.
 //    include_silkscreen: default is true
 //      if true it will include the silkscreen layer.
 //    include_labels default is true
@@ -51,6 +58,19 @@
 //  - Added support for traces
 //  - Upgraded to KiCad 8 format
 //  - Make silkscreen and courtyard optional
+//  - Added ability to move labels and jumpers independently
+//
+// # Placement and soldering of jumpers
+//
+// The reversible footprint is meant to be used with jumpers on the
+// OPPOSITE side of where the nice!view is installed. The silkscreen
+// labels will also match the board when read on the opposite side.
+// This is to have all jumpers and components to solder on the same
+// side, and be able to read the correct labels of the display to do
+// tests with a multimeter.
+//
+// @nidhishs' improvements:
+// - Added 3D model support
 
 module.exports = {
   params: {
@@ -61,9 +81,22 @@ module.exports = {
     gnd_trace_width: 0.25,
     signal_trace_width: 0.25,
     invert_jumpers_position: false,
+    invert_labels_position: false,
     include_silkscreen: true,
     include_labels: true,
     include_courtyard: true,
+    niceview_3dmodel_filename: '',
+    niceview_3dmodel_xyz_offset: [0, 0, 0],
+    niceview_3dmodel_xyz_rotation: [0, 0, 0],
+    niceview_3dmodel_xyz_scale: [1, 1, 1],
+    pin_socket_3dmodel_filename: '',
+    pin_socket_3dmodel_xyz_offset: [0, 0, 0],
+    pin_socket_3dmodel_xyz_rotation: [0, 0, 0],
+    pin_socket_3dmodel_xyz_scale: [1, 1, 1],
+    pin_header_3dmodel_filename: '',
+    pin_header_3dmodel_xyz_offset: [0, 0, 0],
+    pin_header_3dmodel_xyz_rotation: [0, 0, 0],
+    pin_header_3dmodel_xyz_scale: [1, 1, 1],
     MOSI: { type: 'net', value: 'MOSI' },
     SCK: { type: 'net', value: 'SCK' },
     VCC: { type: 'net', value: 'VCC' },
@@ -72,11 +105,11 @@ module.exports = {
   },
   body: p => {
     let dst_nets = [
-      p.CS,
-      p.GND,
-      p.VCC,
-      p.SCK,
       p.MOSI,
+      p.SCK,
+      p.VCC,
+      p.GND,
+      p.CS,
     ];
 
     let local_nets = [
@@ -87,27 +120,35 @@ module.exports = {
       p.local_net("5"),
     ];
 
-    let socket_nets = dst_nets;
-
-    if (p.reversible) {
-      socket_nets = local_nets;
-    } else if (p.side == 'B') {
-      socket_nets = dst_nets.slice().reverse();
+    if (p.reversible || p.side == "B") {
+      dst_nets = dst_nets.slice().reverse();
     }
+    let socket_nets = p.reversible ? local_nets : dst_nets;
 
     let jumpers_offset = 0;
-    let labels_offset = 0;
-    let label_vcc_offset = 0;
+    let labels_offset = 3.75;
+    let label_vcc_offset = 3.75;
 
     let jumpers_front_top = dst_nets;
-    let jumpers_front_bottom = local_nets;
+    let jumpers_front_bottom = local_nets.slice().reverse();
     let jumpers_back_top = dst_nets;
-    let jumpers_back_bottom = local_nets.slice().reverse();
+    let jumpers_back_bottom = local_nets;
 
+    if (p.invert_labels_position) {
+      if(p.reversible && !p.invert_jumpers_position) {
+          label_vcc_offset = 0;
+          labels_offset = -1.62;
+      } else {
+        label_vcc_offset = 0;
+        labels_offset = label_vcc_offset;
+      }
+    } else {
+      if(p.reversible && p.invert_jumpers_position) {
+        labels_offset = 1.62 + label_vcc_offset;
+      }
+    }
     if (p.invert_jumpers_position) {
       jumpers_offset = 4.4;
-      labels_offset = jumpers_offset + 2.80 + 0.1;
-      label_vcc_offset = 4.35;
 
       jumpers_front_top = local_nets;
       jumpers_front_bottom = dst_nets;
@@ -179,38 +220,62 @@ module.exports = {
     `
 
     const silkscreen_labels_front = `
-    (fp_text user "DA" (at -5.08 ${13.1 + labels_offset} ${p.r}) (layer "F.SilkS")
-      (effects (font (size 1 1) (thickness 0.15)))
+    (fp_text user "${dst_nets[0].name}" (at -5.08 ${14.75 + labels_offset} ${90 + p.r}) (unlocked yes) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)) (justify ${!p.invert_labels_position  ? "right" : "left"}))
     )
-    (fp_text user "CS" (at 5.12 ${13.1 + labels_offset} ${p.r}) (layer "F.SilkS")
-      (effects (font (size 1 1) (thickness 0.15)))
+    (fp_text user "${dst_nets[1].name}" (at -2.48 ${14.75 + labels_offset} ${90 + p.r}) (unlocked yes) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)) (justify ${!p.invert_labels_position ? "right" : "left"}))
     )
-    (fp_text user "GND" (at 2.62 ${13.1 + labels_offset} ${p.r}) (layer "F.SilkS")
-      (effects (font (size 1 1) (thickness 0.15)))
+    (fp_text user "${dst_nets[2].name}" (at 0.15 ${14.75 + label_vcc_offset} ${90 + p.r}) (unlocked yes) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)) (justify ${!p.invert_labels_position ? "right" : "left"}))
     )
-    (fp_text user "VCC" (at 0.15 ${14.6 + label_vcc_offset} ${p.r}) (layer "F.SilkS")
-      (effects (font (size 1 1) (thickness 0.15)))
+    (fp_text user "${dst_nets[3].name}" (at 2.62 ${14.75 + labels_offset} ${90 + p.r}) (unlocked yes) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)) (justify ${!p.invert_labels_position ? "right" : "left"}))
     )
-    (fp_text user "CL" (at -2.48 ${13.1 + labels_offset} ${p.r}) (layer "F.SilkS")
-      (effects (font (size 1 1) (thickness 0.15)))
+    (fp_text user "${dst_nets[4].name}" (at 5.12 ${14.75 + labels_offset} ${90 + p.r}) (unlocked yes) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)) (justify ${!p.invert_labels_position ? "right" : "left"}))
     )
     `
 
     const silkscreen_labels_back = `
-    (fp_text user "CS" (at -4.98 ${13.1 + labels_offset} ${p.r}) (layer "B.SilkS")
-      (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
+    (fp_text user "${p.reversible ? dst_nets[0].name : dst_nets[4].name}" (at 5.22 ${14.75 + labels_offset} ${90 + p.r}) (unlocked yes) (layer "B.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)) (justify ${!p.invert_labels_position ? "left" : "right"} mirror))
     )
-    (fp_text user "VCC" (at 0.15 ${14.6 + label_vcc_offset} ${p.r}) (layer "B.SilkS")
-      (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
+    (fp_text user "${p.reversible ? dst_nets[1].name : dst_nets[3].name}" (at 2.72 ${14.75 + labels_offset} ${90 + p.r}) (unlocked yes) (layer "B.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)) (justify ${!p.invert_labels_position ? "left" : "right"} mirror))
     )
-    (fp_text user "DA" (at 5.22 ${13.1 + labels_offset} ${p.r}) (layer "B.SilkS")
-      (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
+    (fp_text user "${p.reversible ? dst_nets[2].name : dst_nets[2].name}" (at 0.15 ${14.75 + label_vcc_offset} ${90 + p.r}) (unlocked yes) (layer "B.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)) (justify ${!p.invert_labels_position ? "left" : "right"} mirror))
     )
-    (fp_text user "CL" (at 2.72 ${13.1 + labels_offset} ${p.r}) (layer "B.SilkS")
-      (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
+    (fp_text user "${p.reversible ? dst_nets[3].name : dst_nets[1].name}" (at -2.38 ${14.75 + labels_offset} ${90 + p.r}) (unlocked yes) (layer "B.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)) (justify ${!p.invert_labels_position ? "left" : "right"} mirror))
     )
-    (fp_text user "GND" (at -2.38 ${13.1 + labels_offset} ${p.r}) (layer "B.SilkS")
-      (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
+    (fp_text user "${p.reversible ? dst_nets[4].name : dst_nets[0].name}" (at -4.98 ${14.75 + labels_offset} ${90 + p.r}) (unlocked yes) (layer "B.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)) (justify ${!p.invert_labels_position ? "left" : "right"} mirror))
+    )
+    `
+
+    const niceview_3dmodel = `
+    (model ${p.niceview_3dmodel_filename}
+      (offset (xyz ${p.niceview_3dmodel_xyz_offset[0]} ${p.niceview_3dmodel_xyz_offset[1]} ${p.niceview_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.niceview_3dmodel_xyz_scale[0]} ${p.niceview_3dmodel_xyz_scale[1]} ${p.niceview_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.niceview_3dmodel_xyz_rotation[0]} ${p.niceview_3dmodel_xyz_rotation[1]} ${p.niceview_3dmodel_xyz_rotation[2]}))
+    )
+    `
+
+    const pin_socket_3dmodel = `
+    (model ${p.pin_socket_3dmodel_filename}
+      (offset (xyz ${p.pin_socket_3dmodel_xyz_offset[0]} ${p.pin_socket_3dmodel_xyz_offset[1]} ${p.pin_socket_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.pin_socket_3dmodel_xyz_scale[0]} ${p.pin_socket_3dmodel_xyz_scale[1]} ${p.pin_socket_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.pin_socket_3dmodel_xyz_rotation[0]} ${p.pin_socket_3dmodel_xyz_rotation[1]} ${p.pin_socket_3dmodel_xyz_rotation[2]}))
+    )
+    `
+
+    const pin_header_3dmodel = `
+    (model ${p.pin_header_3dmodel_filename}
+      (offset (xyz ${p.pin_header_3dmodel_xyz_offset[0]} ${p.pin_header_3dmodel_xyz_offset[1]} ${p.pin_header_3dmodel_xyz_offset[2]}))
+      (scale (xyz ${p.pin_header_3dmodel_xyz_scale[0]} ${p.pin_header_3dmodel_xyz_scale[1]} ${p.pin_header_3dmodel_xyz_scale[2]}))
+      (rotate (xyz ${p.pin_header_3dmodel_xyz_rotation[0]} ${p.pin_header_3dmodel_xyz_rotation[1]} ${p.pin_header_3dmodel_xyz_rotation[2]}))
     )
     `
 
@@ -274,6 +339,15 @@ module.exports = {
     if (p.reversible) {
       final += front_jumpers;
       final += back_jumpers;
+    }
+    if (p.niceview_3dmodel_filename) {
+      final += niceview_3dmodel;
+    }
+    if (p.pin_socket_3dmodel_filename) {
+      final += pin_socket_3dmodel;
+    }
+    if (p.pin_header_3dmodel_filename) {
+      final += pin_header_3dmodel;
     }
     final += bottom;
     if (p.include_traces && p.reversible) {

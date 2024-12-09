@@ -27,6 +27,22 @@
 //      if true, will include holes and pads for Kailh choc hotswap sockets
 //    solder: default is false
 //      if true, will include holes to solder switches (works with hotswap too)
+//    hotswap_pads_same_side: false
+//      if true, and if not using plated holes, it will position the pads so that nets are on
+//      the same side to simplify routing.
+//    include_traces_vias: default is true
+//      if true it will include traces and vias when hotswap is true, footprint is reversible
+//      and when no plated holes are used, to simplify routing. In the other cases it's simply
+//      not needed.
+//    trace_width: default is 0.200mm
+//      allows to override the trace width that connects the pads. Not recommended
+//      to go below 0.15mm (JLCPC min is 0.127mm), or above 0.200mm to avoid DRC errors.
+//    via_size: default is 0.6
+//      allows to define the size of the via. Not recommended below 0.56 (JLCPCB minimum),
+//      or above 0.8 (KiCad default), to avoid overlap or DRC errors
+//    via_drill: default is 0.3
+//      allows to define the size of the drill. Not recommended below 0.3 (JLCPCB minimum),
+//      or above 0.4 (KiCad default), to avoid overlap or DRC errors 
 //    include_plated_holes: default is false
 //      Alternate version of the footprint compatible with side, reversible, hotswap, solder options in any combination.
 //      Pretty, allows for connecting ground fill zones via center hole, 
@@ -141,6 +157,7 @@
 //  - Add ability to specify board side
 //  - Add ability to include stabilizer pad
 //  - Add ability to use an oval stabilizer pad
+//  - Add option to add routes between pads, and have pads on the same side
 //  - Upgrade to KiCad 8
 //
 // @grazfather's improvements:
@@ -167,6 +184,11 @@ module.exports = {
     designator: 'S',
     side: 'B',
     reversible: false,
+    hotswap_pads_same_side: false,
+    include_traces_vias: true,
+    trace_width: 0.2,
+    via_size: 0.6,
+    via_drill: 0.3,
     hotswap: true,
     include_plated_holes: false,
     include_v2_stabilizer_nets: false,
@@ -330,7 +352,7 @@ module.exports = {
       (roundrect_rratio 0)
 			(chamfer_ratio 0.455)
 			(chamfer bottom_left)
-      ${p.from.str}
+      ${p.hotswap_pads_same_side ? p.to.str : p.from.str}
     )
     `
 
@@ -373,7 +395,7 @@ module.exports = {
     ${p.reversible ? hotswap_back_pad_cutoff : hotswap_back_pad_full}
 
     ${'' /* Right Pad (not cut off) */}
-    (pad "2" smd rect (at ${8.275 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back} 2.6) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
+    (pad "2" smd rect (at ${8.275 - (2.6 - p.outer_pad_width_back) / 2} -3.75 ${p.r}) (size ${p.outer_pad_width_back} 2.6) (layers "B.Cu" "B.Paste" "B.Mask") ${p.hotswap_pads_same_side ? p.from.str : p.to.str})
 
     ${'' /* Side Hole */}
     (pad "" np_thru_hole circle (at 5 -3.75 ${195 + p.r}) (size 3 3) (drill 3) (layers "*.Cu" "*.Mask"))
@@ -497,6 +519,152 @@ module.exports = {
   )
     `
 
+    const hotswap_routes_unplated = `
+	(segment
+		(start ${p.eaxy(3.275, -5.95)})
+		(end ${p.eaxy(1.2, -3.875)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(1.2, -3.875)})
+		(end ${p.eaxy(0, -3.875)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.from.index})
+	)
+	(via
+		(at ${p.eaxy(0, -3.875)})
+		(size ${p.via_size})
+    (drill ${p.via_drill})
+		(layers "F.Cu" "B.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(-1.2, -3.875)})
+		(end ${p.eaxy(0, -3.875)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(-3.275, -5.95)})
+		(end ${p.eaxy(-1.2, -3.875)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(-6.421, -1.896)})
+		(end ${p.eaxy(-2.154, -1.896)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.to.index})
+	)
+	(segment
+		(start ${p.eaxy(-0.975, -3.075)})
+		(end ${p.eaxy(0, -3.075)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.to.index})
+	)
+	(segment
+		(start ${p.eaxy(-8.275, -3.75)})
+		(end ${p.eaxy(-6.421, -1.896)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.to.index})
+	)
+	(segment
+		(start ${p.eaxy(-2.154, -1.896)})
+		(end ${p.eaxy(-0.975, -3.075)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.to.index})
+	)
+	(via
+		(at ${p.eaxy(0, -3.075)})
+		(size ${p.via_size})
+    (drill ${p.via_drill})
+		(layers "F.Cu" "B.Cu")
+		(net ${p.to.index})
+	)
+	(segment
+		(start ${p.eaxy(2.140166, -1.896)})
+		(end ${p.eaxy(0.961166, -3.075)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.to.index})
+	)
+	(segment
+		(start ${p.eaxy(6.421, -1.896)})
+		(end ${p.eaxy(2.140166, -1.896)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.to.index})
+	)
+	(segment
+		(start ${p.eaxy(0.961166, -3.075)})
+		(end ${p.eaxy(0, -3.075)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.to.index})
+	)
+	(segment
+		(start ${p.eaxy(8.275, -3.75)})
+		(end ${p.eaxy(6.421, -1.896)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.to.index})
+	)
+    `
+
+    const hotswap_routes_same_side = `
+  (segment
+		(start ${p.eaxy(3.275, -5.95)})
+		(end ${p.eaxy(7.775, -5.95)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.from.index})
+	)
+	(via
+		(at ${p.eaxy(7.775, -5.95)})
+		(size ${p.via_size})
+    (drill ${p.via_drill})
+		(layers "F.Cu" "B.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(7.775, -3.75)})
+		(end ${p.eaxy(7.775, -5.95)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(-7.775, -3.75)})
+		(end ${p.eaxy(-7.775, -5.95)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.to.index})
+	)
+	(via
+		(at ${p.eaxy(-7.775, -5.95)})
+		(size ${p.via_size})
+    (drill ${p.via_drill})
+		(layers "F.Cu" "B.Cu")
+		(net ${p.to.index})
+	)
+	(segment
+		(start ${p.eaxy(-3.275, -5.95)})
+		(end ${p.eaxy(-7.775, -5.95)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.to.index})
+	)
+    `
+
     let final = common_top
     if (p.choc_v1_support) {
       final += choc_v1_stabilizers
@@ -566,6 +734,14 @@ module.exports = {
 
     final += common_bottom
 
-    return final
+    if (p.reversible && p.hotswap && p.include_traces_vias && !p.include_plated_holes) {
+      if(p.hotswap_pads_same_side){
+        final += hotswap_routes_same_side
+      } else {
+        final += hotswap_routes_unplated
+      }
+    }
+
+    return final;
   }
 }

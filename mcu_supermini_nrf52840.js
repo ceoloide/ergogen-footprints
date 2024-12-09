@@ -7,17 +7,18 @@
 // Author: @infused-kim + @ceoloide improvements
 //
 // Description:
-//  A single-side or reversible footprint for the nice!nano (or any pro-micro compatible
-//  controller) that uses jumpers instead of two socket rows to be reversible.
+//  A single-side or reversible footprint for the SuperMini NRF52840 (or any
+//  pro-micro compatible controller) that uses jumpers instead of two socket
+//  rows to be reversible.
 //
-//  Note that the extra pins are *ONLY* compatible with nice!nano boards and not with
-//  clones like the Supermini, which has pins in a slightly different position.
+//  Note that the extra pins are *ONLY* compatible with SuperMini NRF52840
+//  board and not with the Nice!Nano, which has pins in a slightly different position.
 //
 //  This is a re-implementation of the promicro_pretty footprint made popular
-//  by @benvallack.
+//  by @benvallack, adapted to match the SuperMini extra pin position.
 //
 // Pinout and schematics:
-//  https://nicekeyboards.com/docs/nice-nano/pinout-schematic
+//  https://wiki.icbbuy.com/doku.php?id=developmentboard:nrf52840
 //
 // Params:
 //    side: default is F for Front
@@ -27,15 +28,17 @@
 //      reversible
 //    reverse_mount: default is false (MCU facing away from the PCB)
 //      if true, the sockets will be oriented so that the MCU faces the PCB (RAW / B+ is the
-//      top left pin). This is the most common mounting option for the nice!nano.
+//      top left pin). This is the most common mounting option for the SuperMini.
 //      When set to false, the pads will match the datasheet and assume the MCU faces away
 //      from the PCB (RAW / B+ is the top right pin).
 //    include_traces: default is true
 //      if true it will include traces that connect the jumper pads to the vias
 //      and the through-holes for the MCU
 //    include_extra_pins: default is false
-//      if true and if not reversible it will include nice!nano extra pin sockets (P1.01,
-//      P1.02, P1.07)
+//      if true and if not reversible it will include SuperMini extra pin sockets (P1.01,
+//      P1.02, P1.07). If the board is reversible, extra pins will be added only if the
+//      flag `only_required_jumpers` is set to true, and only P1.01 and P1.02 will be
+//      added to avoid overlap of P1.07.
 //    only_required_jumpers: default is false
 //      if true, it will only place jumpers on the first 4 rows of pins, which can't be
 //      reversed in firmware, i.e. RAW and P1, GND and P0, GND and RST, GND and VCC.
@@ -79,11 +82,12 @@
 //  - Add extra pins (P1.01, P1.02, P1.07) when footprint is single-side or reversible
 //    (only required jumpers)
 //  - Upgrade to KiCad 8
+//  - Adapted to match the SuperMini extra pin positions
 //
 // # Placement and soldering of jumpers
 //
 // The reversible footprint is meant to be used with jumpers on the
-// OPPOSITE side of where the nice!nano (or pro-micro compatible board) is
+// OPPOSITE side of where the SuperMini (or pro-micro compatible board) is
 // installed. The silkscreen labels will also match the board when read on
 // the opposite side. This is to have all jumpers and components to solder on
 // the same side, and be able to read the correct labels of the MCU to do
@@ -380,7 +384,7 @@ module.exports = {
       if (show_silk_labels == true) {
         if (p.reversible || p.show_silk_labels_on_both_sides || p.side == 'F') {
           // Silkscreen labels - front
-          if (row_num != 9
+          if (row_num != 10 
             || !p.include_extra_pins
             || (p.include_extra_pins && invert_pins && !p.reversible) 
             || (p.include_extra_pins && !p.only_required_jumpers && p.reversible)
@@ -391,9 +395,9 @@ module.exports = {
     )
             `
           }
-          if (row_num != 9 
+          if (row_num != 10 
             || !p.include_extra_pins
-            || (p.include_extra_pins && !invert_pins && !p.reversible)
+            || (p.include_extra_pins && !invert_pins && !p.reversible) 
             || (p.include_extra_pins && !p.only_required_jumpers && p.reversible)
           ) {
             socket_row += `
@@ -405,7 +409,7 @@ module.exports = {
         }
         if (p.reversible|| p.show_silk_labels_on_both_sides || p.side == 'B') {
           // Silkscreen labels - back
-          if (row_num != 9 
+          if (row_num != 10
             || !p.include_extra_pins
             || (p.include_extra_pins && !invert_pins && !p.reversible) 
             || (p.include_extra_pins && !p.only_required_jumpers && p.reversible)
@@ -416,7 +420,7 @@ module.exports = {
     )
             `
           }
-          if (row_num != 9 
+          if (row_num != 10
             || !p.include_extra_pins
             || (p.include_extra_pins && invert_pins && !p.reversible) 
             || (p.include_extra_pins && !p.only_required_jumpers && p.reversible)
@@ -518,7 +522,7 @@ module.exports = {
     }
 
     const common_top = `
-  (footprint "ceoloide:mcu_nice_nano"
+  (footprint "ceoloide:mcu_supermini_nrf52840"
     (layer "${p.side}.Cu")
     ${p.at}
     (property "Reference" "${p.ref}"
@@ -530,9 +534,9 @@ module.exports = {
     (attr exclude_from_pos_files exclude_from_bom)
 
     ${''/* USB socket outline */}
-    (fp_line (start 3.556 -18.034) (end 3.556 -16.51) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
-    (fp_line (start -3.81 -16.51) (end -3.81 -18.034) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
-    (fp_line (start -3.81 -18.034) (end 3.556 -18.034) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start 3.556 -17.20) (end 3.556 -16.51) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start -3.81 -16.51) (end -3.81 -17.20) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
+    (fp_line (start -3.81 -17.20) (end 3.556 -17.20) (layer "Dwgs.User") (stroke (width 0.15) (type solid)))
 
 
   ${''/* Controller outline */}
@@ -557,13 +561,15 @@ module.exports = {
     const traces = gen_traces()
 
     const extra_pins = `
-    (pad "25" thru_hole circle (at ${invert_pins ? '' : '-'}5.08 10.16 ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P101})
-    (pad "26" thru_hole circle (at ${invert_pins ? '' : '-'}2.54 10.16 ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P102})
-    (pad "27" thru_hole circle (at 0 10.16 ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P107})
+    (pad "25" thru_hole circle (at ${invert_pins ? '' : '-'}4.54 ${-13.2548 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P101})
+    (pad "26" thru_hole circle (at ${invert_pins ? '' : '-'}2.00 ${-13.2548 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P102})
+    (pad "27" thru_hole circle (at ${invert_pins ? '-' : ''}0.54 ${-13.2548 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P107})
     `
     const extra_pins_reversible = `
-    (pad "28" thru_hole circle (at ${invert_pins ? '-' : ''}5.08 10.16 ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P101})
-    (pad "29" thru_hole circle (at ${invert_pins ? '-' : ''}2.54 10.16 ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P102})
+    (pad "25" thru_hole circle (at ${invert_pins ? '' : '-'}4.54 ${-13.2548 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P101})
+    (pad "26" thru_hole circle (at ${invert_pins ? '' : '-'}2.00 ${-13.2548 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P102})
+    (pad "28" thru_hole circle (at ${invert_pins ? '-' : ''}4.54 ${-13.2548 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P101})
+    (pad "29" thru_hole circle (at ${invert_pins ? '-' : ''}2.00 ${-13.2548 + 25.4} ${p.r}) (size 1.7 1.7) (drill 1) (layers "*.Cu" "*.Mask") ${p.P102})
     `
 
     const mcu_3dmodel = `
@@ -578,7 +584,7 @@ module.exports = {
     ${''/* Controller*/}
     ${common_top}
     ${socket_rows}
-    ${p.include_extra_pins && (!p.reversible || (p.reversible && p.only_required_jumpers)) ? extra_pins : ''}
+    ${p.include_extra_pins && !p.reversible ? extra_pins : ''}
     ${p.include_extra_pins && p.reversible && p.only_required_jumpers ? extra_pins_reversible : ''}
     ${p.reversible && p.show_instructions ? instructions : ''}
     ${p.mcu_3dmodel_filename ? mcu_3dmodel : ''}
