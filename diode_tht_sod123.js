@@ -61,6 +61,7 @@
 // @ceoloide's improvements:
 //  - Add single side support
 //  - Upgrade to KiCad 8
+//  - Add traces for THT pads
 //
 // @grazfather's improvements:
 //  - Add support for switch 3D model
@@ -163,8 +164,38 @@ module.exports = {
     const standard_closing = `
     )
         `
+    const tht_traces = `
+    (segment
+      (start ${p.eaxy(3.81, 0)})
+      (end ${p.eaxy(1.65, 0)})
+      (width ${p.trace_width})
+      (layer "F.Cu")
+      (net ${p.from.index})
+    )
+    (segment
+      (start ${p.eaxy(3.81, 0)})
+      (end ${p.eaxy(1.65, 0)})
+      (width ${p.trace_width})
+      (layer "B.Cu")
+      (net ${p.from.index})
+    )
+    (segment
+      (start ${p.eaxy(-1.65, 0)})
+      (end ${p.eaxy(-3.81, 0)})
+      (width ${p.trace_width})
+      (layer "F.Cu")
+      (net ${p.to.index})
+    )
+    (segment
+      (start ${p.eaxy(-1.65, 0)})
+      (end ${p.eaxy(-3.81, 0)})
+      (width ${p.trace_width})
+      (layer "B.Cu")
+      (net ${p.to.index})
+    )
+    `
 
-          const smd_pad_traces = `
+    const smd_pad_traces = `
     (segment
       (start ${p.eaxy(1.65, 0)})
       (end ${p.eaxy(1.65 + 1*p.trace_distance, 0)})
@@ -232,13 +263,17 @@ module.exports = {
     }
 
     if (p.diode_3dmodel_filename) {
-      final += diode_3dmodel
+      final += diode_3dmodel;
     }
 
     final += standard_closing;
 
-    if (p.reversible && p.include_traces_vias && !p.include_tht && !p.include_thru_hole_smd_pads) {
-      final += smd_pad_traces
+    if (p.reversible && p.include_traces_vias) {
+      if(p.include_tht && !p.include_thru_hole_smd_pads) {
+        final += tht_traces;
+      } else if (!p.include_tht && p.include_thru_hole_smd_pads) {
+        final += smd_pad_traces;
+      }
     }
 
     return final;
