@@ -237,7 +237,7 @@ module.exports = {
 
     final += standard_closing;
 
-    if (p.reversible && p.include_traces_vias && !p.include_tht && p.include_thru_hole_smd_pads) {
+    if (p.reversible && p.include_traces_vias && !p.include_tht && !p.include_thru_hole_smd_pads) {
       final += smd_pad_traces
     }
 
