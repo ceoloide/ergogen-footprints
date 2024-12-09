@@ -58,7 +58,7 @@ module.exports = {
     side: 'B',
     reversible: false,
     include_tht: false,
-    thru_hole_smd_pads: false,
+    include_thru_hole_smd_pads: false,
     diode_3dmodel_filename: '',
     diode_3dmodel_xyz_offset: [0, 0, 0],
     diode_3dmodel_xyz_rotation: [0, 0, 0],
