@@ -384,14 +384,22 @@ module.exports = {
       if (show_silk_labels == true) {
         if (p.reversible || p.show_silk_labels_on_both_sides || p.side == 'F') {
           // Silkscreen labels - front
-          if (row_num != 10 || (!p.include_extra_pins && p.reversible) || (p.include_extra_pins && invert_pins && !p.reversible) || (!p.include_extra_pins && !p.reversible)) {
+          if (row_num != 10 
+            || !p.include_extra_pins
+            || (p.include_extra_pins && invert_pins && !p.reversible) 
+            || (p.include_extra_pins && !p.only_required_jumpers && p.reversible)
+          ) {
             socket_row += `
     (fp_text user "${net_silk_front_left}" (at -${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? (net_silk_front_left.length > 2 ? 1.45 : 2.04) : 4.47} ${-12.7 + row_offset_y} ${p.r}) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
     )
             `
           }
-          if (row_num != 10 || (!p.include_extra_pins && p.reversible) || (p.include_extra_pins && !invert_pins && !p.reversible) || (!p.include_extra_pins && !p.reversible)) {
+          if (row_num != 10 
+            || !p.include_extra_pins
+            || (p.include_extra_pins && !invert_pins && !p.reversible) 
+            || (p.include_extra_pins && !p.only_required_jumpers && p.reversible)
+          ) {
             socket_row += `
     (fp_text user "${net_silk_front_right}" (at ${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? (net_silk_front_right.length > 2 ? 1.45 : 2.04) : 4.47} ${-12.7 + row_offset_y} ${p.r}) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
@@ -401,14 +409,22 @@ module.exports = {
         }
         if (p.reversible|| p.show_silk_labels_on_both_sides || p.side == 'B') {
           // Silkscreen labels - back
-          if (row_num != 10 || (!p.include_extra_pins && p.reversible) || (p.include_extra_pins && !invert_pins && !p.reversible) || (!p.include_extra_pins && !p.reversible)) {
+          if (row_num != 10
+            || !p.include_extra_pins
+            || (p.include_extra_pins && !invert_pins && !p.reversible) 
+            || (p.include_extra_pins && !p.only_required_jumpers && p.reversible)
+          ) {
             socket_row += `
     (fp_text user "${net_silk_back_left}" (at ${p.reversible ? '-' : ''}${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? (net_silk_back_left.length > 2 ? 1.45 : 2.04) : 4.47} ${-12.7 + row_offset_y} ${p.r}) (layer "B.SilkS")
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
             `
           }
-          if (row_num != 10 || (!p.include_extra_pins && p.reversible) || (p.include_extra_pins && invert_pins && !p.reversible) || (!p.include_extra_pins && !p.reversible)) {
+          if (row_num != 10
+            || !p.include_extra_pins
+            || (p.include_extra_pins && invert_pins && !p.reversible) 
+            || (p.include_extra_pins && !p.only_required_jumpers && p.reversible)
+          ) {
             socket_row += `
     (fp_text user "${net_silk_back_right}" (at ${p.reversible ? '' : '-'}${p.reversible && (row_num < 4 || !p.only_required_jumpers) ? (net_silk_back_right.length > 2 ? 1.45 : 2.04) : 4.47} ${-12.7 + row_offset_y} ${p.r}) (layer "B.SilkS")
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
