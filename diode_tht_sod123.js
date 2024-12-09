@@ -29,9 +29,9 @@
 //    trace_distance: default is 1.2
 //      this is the extra distance the trace moves from the pad, and creates a via. By default it goes outward.
 //      you could set this to -1.1, and the trace moves inward and creates the via under the diode.
-//    trace_width: default is 0.200mm
+//    trace_width: default is 0.250mm
 //      allows to override the trace width that connects the pads. Not recommended
-//      to go below 0.15mm (JLCPC min is 0.127mm), or above 0.200mm to avoid DRC errors.
+//      to go below 0.15mm (JLCPC min is 0.127mm).
 //    via_size: default is 0.6
 //      allows to define the size of the via. Not recommended below 0.56 (JLCPCB minimum),
 //      or above 0.8 (KiCad default), to avoid overlap or DRC errors
@@ -79,7 +79,7 @@ module.exports = {
     reversible: false,
     include_traces_vias: false,
     trace_distance: { type: 'number', value: 1.2 },
-    trace_width: 0.2,
+    trace_width: 0.25,
     via_size: 0.6,
     via_drill: 0.3,
     include_tht: false,
