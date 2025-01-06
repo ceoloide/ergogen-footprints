@@ -26,6 +26,9 @@ Params:
     reversible
   hotswap: default is true
     if true, will include holes and pads for Kailh choc hotswap sockets
+  hotswap_pads_same_side: false
+    if true, and if not using plated holes, it will position the pads so that nets are on
+    the same side to simplify routing.
   solder: default is false
     if true, will include holes to solder switches (works with hotswap too)
   include_plated_holes: default is false
@@ -110,6 +113,7 @@ module.exports = {
     side: 'B',
     reversible: false,
     hotswap: true,
+    hotswap_pads_same_side: false,
     include_plated_holes: false,
     include_stabilizer_nets: false,
     include_centerhole_net: false,
@@ -209,7 +213,12 @@ module.exports = {
     const hotswap_back = `
 		(pad "" np_thru_hole circle (at 2.54 -5.08 180) (size 3 3) (drill 3) (layers "F&B.Cu" "*.Mask"))
 		(pad "" np_thru_hole circle (at -3.81 -2.54 180) (size 3 3) (drill 3) (layers "F&B.Cu" "*.Mask"))
-		(pad "1" smd rect (at -7.085 -2.54 ${p.r}) (size 2.55 ${p.outer_pad_height}) (layers "B.Cu" "B.Paste" "B.Mask") ${p.from})
+		(pad "1" smd rect
+      (at -7.085 -2.54 ${p.r})
+      (size 2.55 ${p.outer_pad_height})
+      (layers "B.Cu" "B.Paste" "B.Mask")
+      ${p.hotswap_pads_same_side ? p.to : p.from}
+    )
 		(pad "2" smd ${p.reversible ? 'roundrect' : 'rect'}
       (at 5.842 -5.08 ${p.r})
       (size 2.55 2.5)
@@ -217,7 +226,7 @@ module.exports = {
 			(roundrect_rratio 0)
 			(chamfer_ratio 0.2)
 			(chamfer bottom_left)` : ''}
-      ${p.to}
+      ${p.hotswap_pads_same_side ? p.from : p.to}
     )
     `
 
