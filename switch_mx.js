@@ -29,6 +29,19 @@ Params:
   hotswap_pads_same_side: false
     if true, and if not using plated holes, it will position the pads so that nets are on
     the same side to simplify routing.
+  include_traces_vias: default is true
+    if true it will include traces and vias when hotswap is true, footprint is reversible
+    and when no plated holes are used, to simplify routing. In the other cases it's simply
+    not needed.
+  trace_width: default is 0.200mm
+    allows to override the trace width that connects the pads. Not recommended
+    to go below 0.15mm (JLCPC min is 0.127mm), or above 0.200mm to avoid DRC errors.
+  via_size: default is 0.6
+    allows to define the size of the via. Not recommended below 0.56 (JLCPCB minimum),
+    or above 0.8 (KiCad default), to avoid overlap or DRC errors
+  via_drill: default is 0.3
+    allows to define the size of the drill. Not recommended below 0.3 (JLCPCB minimum),
+    or above 0.4 (KiCad default), to avoid overlap or DRC errors 
   solder: default is false
     if true, will include holes to solder switches (works with hotswap too)
   include_plated_holes: default is false
@@ -114,6 +127,10 @@ module.exports = {
     reversible: false,
     hotswap: true,
     hotswap_pads_same_side: false,
+    include_traces_vias: true,
+    trace_width: 0.2,
+    via_size: 0.6,
+    via_drill: 0.3,
     include_plated_holes: false,
     include_stabilizer_nets: false,
     include_centerhole_net: false,
@@ -303,6 +320,166 @@ module.exports = {
   )
     `
 
+    const hotswap_routes_unplated = `
+	(segment
+		(start ${p.eaxy(-5.842, -5.08)})
+		(end ${p.eaxy(-3.963, -6.959)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.to.index})
+	)
+	(segment
+		(start ${p.eaxy(-3.963, -6.959)})
+		(end ${p.eaxy(0, -6.959)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.from.index})
+	)
+	(via
+		(at ${p.eaxy(0, -6.959)})
+		(size ${p.via_size})
+    (drill ${p.via_drill})
+		(layers "F.Cu" "B.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(0, -6.959)})
+		(end ${p.eaxy(3.963, -6.9595)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(3.963, -6.959)})
+		(end ${p.eaxy(5.842, -5.08)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.from.index})
+  )
+	(segment
+    (start ${p.eaxy(0, -5.93)})
+    (end ${p.eaxy(1.029, -6.959)})
+    (width ${p.trace_width})
+    (layer "F.Cu")
+    (net ${p.to.index})
+  )
+  (segment
+    (start ${p.eaxy(4.166, -6.959)})
+    (end ${p.eaxy(7.085, -4.04)})
+    (width ${p.trace_width})
+    (layer "F.Cu")
+    (net ${p.to.index})
+  )
+  (segment
+    (start ${p.eaxy(7.085, -4.04)})
+    (end ${p.eaxy(7.085, -2.54)})
+    (width ${p.trace_width})
+    (layer "F.Cu")
+    (net ${p.to.index})
+  )
+  (segment
+    (start ${p.eaxy(1.029, -6.959)})
+    (end ${p.eaxy(4.166, -6.959)})
+    (width ${p.trace_width})
+    (layer "F.Cu")
+    (net ${p.to.index})
+  )
+  (via
+    (at ${p.eaxy(0, -5.93)})
+		(size ${p.via_size})
+    (drill ${p.via_drill})
+    (layers "F.Cu" "B.Cu")
+    (net ${p.to.index})
+  )
+  (segment
+    (start ${p.eaxy(-4.166, -6.959)})
+    (end ${p.eaxy(-1.029, -6.959)})
+    (width ${p.trace_width})
+    (layer "B.Cu")
+    (net ${p.to.index})
+  )
+  (segment
+    (start ${p.eaxy(-7.085, -2.54)})
+    (end ${p.eaxy(-7.085, -4.04)})
+    (width ${p.trace_width})
+    (layer "B.Cu")
+    (net ${p.to.index})
+  )
+  (segment
+    (start ${p.eaxy(-7.085, -4.04)})
+    (end ${p.eaxy(-4.166, -6.959)})
+    (width ${p.trace_width})
+    (layer "B.Cu")
+    (net ${p.to.index})
+  )
+  (segment
+    (start ${p.eaxy(-1.029, -6.959)})
+    (end ${p.eaxy(0, -5.93)})
+    (width ${p.trace_width})
+    (layer "B.Cu")
+    (net ${p.to.index})
+  )
+    `
+    const hotswap_routes_same_side = `
+	(segment
+		(start ${p.eaxy(7.085, -4.415)})
+		(end ${p.eaxy(7.085, -2.54)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(7.75, -5.08)})
+		(end ${p.eaxy(7.085, -4.415)})
+		(width ${p.trace_width})
+		(layer "F.Cu")
+		(net ${p.from.index})
+	)
+	(via
+		(at ${p.eaxy(7.75, -5.08)})
+		(size ${p.via_size})
+    (drill ${p.via_drill})
+		(layers "F.Cu" "B.Cu")
+		(net ${p.from.index})
+	)
+	(segment
+		(start ${p.eaxy(5.842, -5.08)})
+		(end ${p.eaxy(7.75, -5.08)})
+		(width ${p.trace_width})
+		(layer "B.Cu")
+		(net ${p.from.index})
+	)
+
+	(segment
+    (start ${p.eaxy(-7.085, -4.415)})
+    (end ${p.eaxy(-7.085, -2.54)})
+    (width ${p.trace_width})
+    (layer "B.Cu")
+    (net ${p.to.index})
+  )
+  (segment
+    (start ${p.eaxy(-7.75, -5.08)})
+    (end ${p.eaxy(-7.085, -4.415)})
+    (width ${p.trace_width})
+    (layer "B.Cu")
+    (net ${p.to.index})
+  )
+  (via
+    (at ${p.eaxy(-7.75, -5.08)})
+		(size ${p.via_size})
+    (drill ${p.via_drill})
+    (layers "F.Cu" "B.Cu")
+    (net ${p.to.index})
+  )
+  (segment
+    (start ${p.eaxy(-5.842, -5.08)})
+    (end ${p.eaxy(-7.75, -5.08)})
+    (width ${p.trace_width})
+    (layer "F.Cu")
+    (net ${p.to.index})
+  )
+    `
+
     let final = common_top;
     if (p.include_corner_marks) {
       final += corner_marks;
@@ -348,6 +525,14 @@ module.exports = {
     }
 
     final += common_bottom
+
+    if (p.reversible && p.hotswap && p.include_traces_vias && !p.include_plated_holes) {
+      if(p.hotswap_pads_same_side){
+        final += hotswap_routes_same_side
+      } else {
+        final += hotswap_routes_unplated
+      }
+    }
 
     return final
   }
