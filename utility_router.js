@@ -133,7 +133,7 @@ module.exports = {
       }
       return `
   (via
-    (at ${adjust_point(pos[0], pos[1])})
+    (at ${p.eaxy(pos[0], pos[1])})
     (size ${p.via_size})
     (drill ${p.via_drill})
     (layers "F.Cu" "B.Cu")
