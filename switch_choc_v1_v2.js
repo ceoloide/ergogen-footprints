@@ -82,6 +82,8 @@
 //      if true. Note that the datasheet calls for a round one.
 //    choc_v1_stabilizers_diameter: default is 1.9 (mm)
 //      Allows you to narrow Choc v1 stabilizer / boss holes diameter for tighter fit, not recommended to set below 1.7
+//    center_hole_diameter: default is 3.4 mm for choc v1 or 5.0 mm for choc v2
+//      The diameter of the center hole under the switch.
 //    choc_v1_support: default is true
 //      if true, will add lateral stabilizer holes that are required for
 //      Choc v1 footprints.
@@ -205,6 +207,7 @@ module.exports = {
     choc_v1_support: true,
     choc_v2_support: true,
     choc_v1_stabilizers_diameter: 1.9,
+    center_hole_diameter: 0.0,
     allow_soldermask_bridges: true,
     switch_3dmodel_filename: '',
     switch_3dmodel_xyz_offset: [0, 0, 0],
@@ -225,6 +228,7 @@ module.exports = {
     RIGHTSTAB: { type: 'net', value: 'D2' }
   },
   body: p => {
+    const center_hole_diameter = p.center_hole_diameter > 0 ? p.center_hole_diameter : (p.choc_v2_support ? 5 : 3.4);
     const common_top = `
   (footprint "ceoloide:switch_choc_v1_v2"
     (layer "${p.side}.Cu")
@@ -239,9 +243,9 @@ module.exports = {
 
     ${''/* middle shaft hole */}
     ${p.include_plated_holes ? `
-    (pad "" thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5.3 5.3' : '3.7 3.7'}) (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers "*.Cu" "*.Mask") ${p.include_centerhole_net ? p.CENTERHOLE : ''})
+    (pad "" thru_hole circle (at 0 0 ${p.r}) (size ${center_hole_diameter + 0.3} ${center_hole_diameter + 0.3}) (drill ${center_hole_diameter}) (layers "*.Cu" "*.Mask") ${p.include_centerhole_net ? p.CENTERHOLE : ''})
     `: `
-    (pad "" np_thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5 5' : '3.4 3.4'}) (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers "*.Cu" "*.Mask"))
+    (pad "" np_thru_hole circle (at 0 0 ${p.r}) (size ${center_hole_diameter} ${center_hole_diameter}) (drill ${center_hole_diameter}) (layers "*.Cu" "*.Mask"))
     `}
     `
 
