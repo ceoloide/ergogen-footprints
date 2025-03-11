@@ -24,6 +24,11 @@
 //    reversible: default is false
 //      if true, the footprint will be placed on both sides so that the PCB can be
 //      reversible
+//    use_3_thru_holes: false
+//      if true, use three through holes instead of jumper pads for reversible PCB.
+//      Only effective when reversible is true.
+//      Middle pin is positive and the other two pins connect to GND. This allows choosing
+//      either left or right pin to be positive on each side of the PCB.
 //    include_traces: default is true
 //      if true it will include traces that connect the jumper pads to the connector pins
 //    trace_width: default is 0.250mm
@@ -34,7 +39,7 @@
 //      polarity is not reversed, which can lead to shorting and damage to the MCU
 //    include_silkscreen_on_both_sides: false
 //      if true it will include the silkscreen on both sides of the PCB. Only effective
-//      when reversible is false (jumper pads are not used).
+//      when reversible is false.
 //    include_fabrication: default is true
 //      if true it will include the outline of the connector in the fabrication layer
 //    include_courtyard: default is true
@@ -61,6 +66,7 @@ module.exports = {
     designator: 'JST',
     side: 'F',
     reversible: false,
+    use_3_thru_holes: false,
     include_traces: true,
     trace_width: 0.250,
     include_silkscreen: true,
@@ -107,10 +113,15 @@ module.exports = {
         (fp_line (start 3.45 -1.85) (end -3.45 -1.85) (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
         (fp_line (start 3.45 10.5) (end 3.45 -1.85) (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
         `
-    const front_silkscreen = (side) => `
+    const front_silkscreen = (side) => {
+      const negative_2nd = p.reversible && p.use_3_thru_holes
+          ? `(fp_line (start 3.5 7.40) (end 2.5 7.40) (stroke (width 0.1) (type solid)) (layer "${side}.SilkS"))`
+          : ``
+      return `
         (fp_line (start -1.5 7.40) (end -0.5 7.40) (stroke (width 0.1) (type solid)) (layer "${side}.SilkS"))
         (fp_line (start 1.5 7.40) (end 0.5 7.40) (stroke (width 0.1) (type solid)) (layer "${side}.SilkS"))
         (fp_line (start 1 6.90) (end 1 7.90) (stroke (width 0.1) (type solid)) (layer "${side}.SilkS"))
+        ${negative_2nd}
         (fp_line (start -2.06 -1.46) (end -3.06 -1.46) (stroke (width 0.12) (type solid)) (layer "${side}.SilkS"))
         (fp_line (start -3.06 -1.46) (end -3.06 -0.46) (stroke (width 0.12) (type solid)) (layer "${side}.SilkS"))
         (fp_line (start 2.14 -1.46) (end 3.06 -1.46) (stroke (width 0.12) (type solid)) (layer "${side}.SilkS"))
@@ -120,6 +131,7 @@ module.exports = {
         (fp_line (start 2.14 6.36) (end 3.06 6.36) (stroke (width 0.12) (type solid)) (layer "${side}.SilkS"))
         (fp_line (start 3.06 6.36) (end 3.06 5.36) (stroke (width 0.12) (type solid)) (layer "${side}.SilkS"))
         `
+    }
     const back_fabrication = `
         (fp_line (start -2.95 -1.35) (end -2.25 -1.35) (stroke (width 0.1) (type solid)) (layer "B.Fab"))
         (fp_line (start -2.95 6.25) (end -2.95 -1.35) (stroke (width 0.1) (type solid)) (layer "B.Fab"))
@@ -136,10 +148,15 @@ module.exports = {
         (fp_line (start 3.45 -1.85) (end -3.45 -1.85) (stroke (width 0.05) (type solid)) (layer "B.CrtYd"))
         (fp_line (start 3.45 10.5) (end 3.45 -1.85) (stroke (width 0.05) (type solid)) (layer "B.CrtYd"))
         `
-    const back_silkscreen = (side) => `
+    const back_silkscreen = (side) => {
+      const negative_2nd = p.reversible && p.use_3_thru_holes
+        ? `(fp_line (start -3.5 7.40) (end -2.5 7.40) (stroke (width 0.1) (type solid)) (layer "${side}.SilkS"))`
+        : ``
+      return `
         (fp_line (start 1.5 7.40) (end 0.5 7.40) (stroke (width 0.1) (type solid)) (layer "${side}.SilkS"))
         (fp_line (start -1.5 7.40) (end -0.5 7.40) (stroke (width 0.1) (type solid)) (layer "${side}.SilkS"))
         (fp_line (start -1 6.90) (end -1 7.90) (stroke (width 0.1) (type solid)) (layer "${side}.SilkS"))
+        ${negative_2nd}
         (fp_line (start -2.06 -1.46) (end -3.06 -1.46) (stroke (width 0.12) (type solid)) (layer "${side}.SilkS"))
         (fp_line (start -3.06 -1.46) (end -3.06 -0.46) (stroke (width 0.12) (type solid)) (layer "${side}.SilkS"))
         (fp_line (start 2.14 -1.46) (end 3.06 -1.46) (stroke (width 0.12) (type solid)) (layer "${side}.SilkS"))
@@ -149,13 +166,22 @@ module.exports = {
         (fp_line (start 2.14 6.36) (end 3.06 6.36) (stroke (width 0.12) (type solid)) (layer "${side}.SilkS"))
         (fp_line (start 3.06 6.36) (end 3.06 5.36) (stroke (width 0.12) (type solid)) (layer "${side}.SilkS"))
         `
+    }
+    const front_pad_2nd_gnd = p.reversible && p.use_3_thru_holes
+      ? `(pad "3" thru_hole roundrect (at 3 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") (roundrect_rratio 0.20) ${p.BAT_N.str})`
+      : ``
     const front_pads = `
         (pad "1" thru_hole roundrect (at -1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") (roundrect_rratio 0.20) ${p.BAT_N.str})
         (pad "2" thru_hole oval (at 1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") ${p.BAT_P.str})
+        ${front_pad_2nd_gnd}
         `
+    const back_pad_2nd_gnd = p.reversible && p.use_3_thru_holes
+      ? `(pad "3" thru_hole roundrect (at -3 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") (roundrect_rratio 0.20) ${p.BAT_N.str})`
+      : ``
     const back_pads = `
         (pad "1" thru_hole roundrect (at 1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") (roundrect_rratio 0.20) ${p.BAT_N.str})
         (pad "2" thru_hole oval (at -1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") ${p.BAT_P.str})
+        ${back_pad_2nd_gnd}
         `
     const reversible_pads = `
         (pad "11" thru_hole oval (at -1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") ${local_nets[0].str})
@@ -329,11 +355,16 @@ module.exports = {
       if (p.include_courtyard) {
         final += front_courtyard;
       }
-      if (p.include_silkscreen) {
-        final += front_silkscreen("F");
-      }
-      if (!p.reversible && p.include_silkscreen_on_both_sides) {
+    }
+    if (p.include_silkscreen && p.side == "F") {
+      final += front_silkscreen("F");
+
+      // Add silkscreen on back side in these cases:
+      if ((p.reversible && p.use_3_thru_holes) ||  // Case 1: Reversible PCB using 3 through holes.
+          (!p.reversible && p.include_silkscreen_on_both_sides)) { // Case 2: Non-reversible PCB with silkscreen on both sides
         final += front_silkscreen("B");
+      } else if (p.reversible && !p.use_3_thru_holes) { // Case 3: Reversible PCB without 3 pins
+        final += back_silkscreen("B");
       }
     }
     if (p.side == "B" || p.reversible) {
@@ -343,14 +374,19 @@ module.exports = {
       if (p.include_courtyard) {
         final += back_courtyard;
       }
-      if (p.include_silkscreen) {
-        final += back_silkscreen("B");
-      }
-      if (!p.reversible && p.include_silkscreen_on_both_sides) {
+    }
+    if (p.include_silkscreen && p.side == "B") {
+      final += back_silkscreen("B");
+
+      // Add silkscreen on front side in these cases:
+      if ((p.reversible && p.use_3_thru_holes) ||  // Case 1: Reversible PCB using 3 through holes.
+          (!p.reversible && p.include_silkscreen_on_both_sides)) { // Case 2: Non-reversible PCB with silkscreen on both sides
         final += back_silkscreen("F");
+      } else if (p.reversible && !p.use_3_thru_holes) { // Case 3: Reversible PCB without 3 pins
+        final += front_silkscreen("F");
       }
     }
-    if (p.reversible) {
+    if (p.reversible && !p.use_3_thru_holes) {
       final += reversible_pads;
     } else if (p.side == "F") {
       final += front_pads;
@@ -361,7 +397,7 @@ module.exports = {
       final += battery_connector_3dmodel
     }
     final += standard_closing;
-    if (p.reversible && p.include_traces) {
+    if (p.reversible && p.include_traces && !p.use_3_thru_holes) {
       final += reversible_traces;
     }
     return final;
