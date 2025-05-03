@@ -312,10 +312,10 @@ ${'' /*Box outlining the front body*/}
 (fp_line (start -8.9 -8.5) (end -8.9 8.5) (layer "F.SilkS") (width 0.127))
 (fp_line (start 6.9 -10.5) (end -6.9 -10.5) (layer "F.SilkS") (width 0.127))
 (fp_line (start -6.9 10.5) (end 6.9 10.5) (layer "F.SilkS") (width 0.127))
-(fp_arc (start 6.9 8.5)   (end 6.9 10.5) (angle -90) (layer "F.SilkS") (width 0.127))
-(fp_arc (start 6.9 -8.5) (end 8.9 -8.5) (angle -90) (layer "F.SilkS") (width 0.127))
-(fp_arc (start -6.9 8.5) (end -8.9 8.5) (angle -90) (layer "F.SilkS") (width 0.127))
-(fp_arc (start -6.9 -8.5) (end -6.9 -10.5) (angle -90) (layer "F.SilkS") (width 0.127))
+(fp_arc (start -8.9 -8.5) (mid -8.3 -9.9) (end -6.9 -10.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+(fp_arc (start -6.9 10.5) (mid -8.3 9.9) (end -8.9 8.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+(fp_arc (start 6.9 -10.5) (mid 8.3 -9.9) (end 8.9 -8.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+(fp_arc (start 8.9 8.5) (mid 8.3 9.9) (end 6.9 10.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
 
 ${'' /*Getting the through holes*/}
 ${get_thru_hole()}
@@ -339,10 +339,10 @@ footprint "xiao-ble-tht" (generator pcbnew)
   (fp_line (start -8.9 -8.5) (end -8.9 8.5) (layer "F.SilkS") (width 0.127))
   (fp_line (start 6.9 -10.5) (end -6.9 -10.5) (layer "F.SilkS") (width 0.127))
   (fp_line (start -6.9 10.5) (end 6.9 10.5) (layer "F.SilkS") (width 0.127))
-  (fp_arc (start 6.9 8.5)   (end 6.9 10.5) (angle -90) (layer "F.SilkS") (width 0.127))
-  (fp_arc (start 6.9 -8.5) (end 8.9 -8.5) (angle -90) (layer "F.SilkS") (width 0.127))
-  (fp_arc (start -6.9 8.5) (end -8.9 8.5) (angle -90) (layer "F.SilkS") (width 0.127))
-  (fp_arc (start -6.9 -8.5) (end -6.9 -10.5) (angle -90) (layer "F.SilkS") (width 0.127))
+  (fp_arc (start -8.9 -8.5) (mid -8.3 -9.9) (end -6.9 -10.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+  (fp_arc (start -6.9 10.5) (mid -8.3 9.9) (end -8.9 8.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+  (fp_arc (start 6.9 -10.5) (mid 8.3 -9.9) (end 8.9 -8.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+  (fp_arc (start 8.9 8.5) (mid 8.3 9.9) (end 6.9 10.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
 
   ${'' /*Box outlining the back usb-c port*/}
   (fp_rect (start 4.5 -4.5) (end -4.5 -11.92403) (layer "B.SilkS") (width 0.127) (fill none))
@@ -352,10 +352,10 @@ footprint "xiao-ble-tht" (generator pcbnew)
   (fp_line (start -8.9 -8.5) (end -8.9 8.5)   (layer "B.SilkS") (width 0.127))
   (fp_line (start 6.9 -10.5) (end -6.9 -10.5) (layer "B.SilkS") (width 0.127))
   (fp_line (start -6.9 10.5) (end 6.9 10.5)   (layer "B.SilkS") (width 0.127))
-  (fp_arc  (start 6.9 8.5)   (end 6.9 10.5)   (angle -90) (layer "B.SilkS") (width 0.127))
-  (fp_arc  (start 6.9 -8.5)  (end 8.9 -8.5)   (angle -90) (layer "B.SilkS") (width 0.127))
-  (fp_arc  (start -6.9 8.5)  (end -8.9 8.5)   (angle -90) (layer "B.SilkS") (width 0.127))
-  (fp_arc  (start -6.9 -8.5) (end -6.9 -10.5) (angle -90) (layer "B.SilkS") (width 0.127))
+  (fp_arc (start -8.9 -8.5) (mid -8.3 -9.9) (end -6.9 -10.5)(stroke (width 0.127) (type solid))(layer "B.SilkS"))
+  (fp_arc (start -6.9 10.5) (mid -8.3 9.9) (end -8.9 8.5)(stroke (width 0.127) (type solid))(layer "B.SilkS"))
+  (fp_arc (start 6.9 -10.5) (mid 8.3 -9.9) (end 8.9 -8.5)(stroke (width 0.127) (type solid))(layer "B.SilkS"))
+  (fp_arc (start 8.9 8.5) (mid 8.3 9.9) (end 6.9 10.5)(stroke (width 0.127) (type solid))(layer "B.SilkS"))
 
   ${'' /*Getting the through holes and the solder pads*/}
   ${get_solder_pads()}      
