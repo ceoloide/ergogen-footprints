@@ -43,6 +43,12 @@
 //    via_drill: default is 0.3
 //      allows to define the size of the drill. Not recommended below 0.3 (JLCPCB minimum),
 //      or above 0.4 (KiCad default), to avoid overlap or DRC errors 
+//    locked_traces_vias: false
+//      sets the traces and vias as locked in KiCad. Locked objects may not be manipulated
+//      or moved, and cannot be selected unless the Locked Items option is enabled in the
+//      Selection Filter panel in KiCad. Useful for a faster workflow. If using autorouting
+//      solutins like Freerouting, locking can prevent the traces and vias from being
+//      replaced.
 //    include_plated_holes: default is false
 //      Alternate version of the footprint compatible with side, reversible, hotswap, solder options in any combination.
 //      Pretty, allows for connecting ground fill zones via center hole, 
@@ -76,6 +82,8 @@
 //      if true. Note that the datasheet calls for a round one.
 //    choc_v1_stabilizers_diameter: default is 1.9 (mm)
 //      Allows you to narrow Choc v1 stabilizer / boss holes diameter for tighter fit, not recommended to set below 1.7
+//    center_hole_diameter: default is 3.4 mm for choc v1 or 5.0 mm for choc v2
+//      The diameter of the center hole under the switch.
 //    choc_v1_support: default is true
 //      if true, will add lateral stabilizer holes that are required for
 //      Choc v1 footprints.
@@ -158,6 +166,7 @@
 //  - Add ability to include stabilizer pad
 //  - Add ability to use an oval stabilizer pad
 //  - Add option to add routes between pads, and have pads on the same side
+//  - Add option to lock routes between pads
 //  - Upgrade to KiCad 8
 //
 // @grazfather's improvements:
@@ -189,6 +198,7 @@ module.exports = {
     trace_width: 0.2,
     via_size: 0.6,
     via_drill: 0.3,
+    locked_traces_vias: false,
     hotswap: true,
     include_plated_holes: false,
     include_v2_stabilizer_nets: false,
@@ -208,6 +218,7 @@ module.exports = {
     choc_v1_support: true,
     choc_v2_support: true,
     choc_v1_stabilizers_diameter: 1.9,
+    center_hole_diameter: 0.0,
     allow_soldermask_bridges: true,
     switch_3dmodel_filename: '',
     switch_3dmodel_xyz_offset: [0, 0, 0],
@@ -230,6 +241,7 @@ module.exports = {
     RIGHTSTABV2: { type: 'net', value: 'D2' }
   },
   body: p => {
+    const center_hole_diameter = p.center_hole_diameter > 0 ? p.center_hole_diameter : (p.choc_v2_support ? 5 : 3.4);
     const common_top = `
   (footprint "ceoloide:switch_choc_v1_v2"
     (layer "${p.side}.Cu")
@@ -251,9 +263,9 @@ module.exports = {
 
     ${''/* middle shaft hole */}
     ${p.include_plated_holes ? `
-    (pad "" thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5.3 5.3' : '3.7 3.7'}) (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers "*.Cu" "*.Mask") ${p.include_centerhole_net ? p.CENTERHOLE : ''})
+    (pad "" thru_hole circle (at 0 0 ${p.r}) (size ${center_hole_diameter + 0.3} ${center_hole_diameter + 0.3}) (drill ${center_hole_diameter}) (layers "*.Cu" "*.Mask") ${p.include_centerhole_net ? p.CENTERHOLE : ''})
     `: `
-    (pad "" np_thru_hole circle (at 0 0 ${p.r}) (size ${p.choc_v2_support ? '5 5' : '3.4 3.4'}) (drill ${p.choc_v2_support ? '5' : '3.4'}) (layers "*.Cu" "*.Mask"))
+    (pad "" np_thru_hole circle (at 0 0 ${p.r}) (size ${center_hole_diameter} ${center_hole_diameter}) (drill ${center_hole_diameter}) (layers "*.Cu" "*.Mask"))
     `}
     `
 
@@ -524,6 +536,7 @@ module.exports = {
 		(start ${p.eaxy(3.275, -5.95)})
 		(end ${p.eaxy(1.2, -3.875)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "F.Cu")
 		(net ${p.from.index})
 	)
@@ -531,6 +544,7 @@ module.exports = {
 		(start ${p.eaxy(1.2, -3.875)})
 		(end ${p.eaxy(0, -3.875)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "F.Cu")
 		(net ${p.from.index})
 	)
@@ -539,12 +553,14 @@ module.exports = {
 		(size ${p.via_size})
     (drill ${p.via_drill})
 		(layers "F.Cu" "B.Cu")
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(net ${p.from.index})
 	)
 	(segment
 		(start ${p.eaxy(-1.2, -3.875)})
 		(end ${p.eaxy(0, -3.875)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "B.Cu")
 		(net ${p.from.index})
 	)
@@ -552,6 +568,7 @@ module.exports = {
 		(start ${p.eaxy(-3.275, -5.95)})
 		(end ${p.eaxy(-1.2, -3.875)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "B.Cu")
 		(net ${p.from.index})
 	)
@@ -559,6 +576,7 @@ module.exports = {
 		(start ${p.eaxy(-6.421, -1.896)})
 		(end ${p.eaxy(-2.154, -1.896)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "F.Cu")
 		(net ${p.to.index})
 	)
@@ -566,6 +584,7 @@ module.exports = {
 		(start ${p.eaxy(-0.975, -3.075)})
 		(end ${p.eaxy(0, -3.075)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "F.Cu")
 		(net ${p.to.index})
 	)
@@ -573,6 +592,7 @@ module.exports = {
 		(start ${p.eaxy(-8.275, -3.75)})
 		(end ${p.eaxy(-6.421, -1.896)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "F.Cu")
 		(net ${p.to.index})
 	)
@@ -580,6 +600,7 @@ module.exports = {
 		(start ${p.eaxy(-2.154, -1.896)})
 		(end ${p.eaxy(-0.975, -3.075)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "F.Cu")
 		(net ${p.to.index})
 	)
@@ -588,12 +609,14 @@ module.exports = {
 		(size ${p.via_size})
     (drill ${p.via_drill})
 		(layers "F.Cu" "B.Cu")
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(net ${p.to.index})
 	)
 	(segment
 		(start ${p.eaxy(2.140166, -1.896)})
 		(end ${p.eaxy(0.961166, -3.075)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "B.Cu")
 		(net ${p.to.index})
 	)
@@ -601,6 +624,7 @@ module.exports = {
 		(start ${p.eaxy(6.421, -1.896)})
 		(end ${p.eaxy(2.140166, -1.896)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "B.Cu")
 		(net ${p.to.index})
 	)
@@ -608,6 +632,7 @@ module.exports = {
 		(start ${p.eaxy(0.961166, -3.075)})
 		(end ${p.eaxy(0, -3.075)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "B.Cu")
 		(net ${p.to.index})
 	)
@@ -615,6 +640,7 @@ module.exports = {
 		(start ${p.eaxy(8.275, -3.75)})
 		(end ${p.eaxy(6.421, -1.896)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "B.Cu")
 		(net ${p.to.index})
 	)
@@ -625,6 +651,7 @@ module.exports = {
 		(start ${p.eaxy(3.275, -5.95)})
 		(end ${p.eaxy(7.775, -5.95)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "F.Cu")
 		(net ${p.from.index})
 	)
@@ -633,12 +660,14 @@ module.exports = {
 		(size ${p.via_size})
     (drill ${p.via_drill})
 		(layers "F.Cu" "B.Cu")
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(net ${p.from.index})
 	)
 	(segment
 		(start ${p.eaxy(7.775, -3.75)})
 		(end ${p.eaxy(7.775, -5.95)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "B.Cu")
 		(net ${p.from.index})
 	)
@@ -646,6 +675,7 @@ module.exports = {
 		(start ${p.eaxy(-7.775, -3.75)})
 		(end ${p.eaxy(-7.775, -5.95)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "F.Cu")
 		(net ${p.to.index})
 	)
@@ -654,12 +684,14 @@ module.exports = {
 		(size ${p.via_size})
     (drill ${p.via_drill})
 		(layers "F.Cu" "B.Cu")
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(net ${p.to.index})
 	)
 	(segment
 		(start ${p.eaxy(-3.275, -5.95)})
 		(end ${p.eaxy(-7.775, -5.95)})
 		(width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "B.Cu")
 		(net ${p.to.index})
 	)
