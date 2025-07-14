@@ -20,7 +20,7 @@ Notes:
   of the rotary encoder. The encoder mounting pads can be positioned 7.5mm instead of 5.6mm to
   avoid overlap with mounting pins.
 - The footprint can be co-located with a Choc v1 / v2 hotswap footprint, as long as the encoder
-  pads are positioned at leat 8.254 mm. If Choc v1 is co-located with the encoder, then mounting
+  pads are positioned at least 8.254 mm. If Choc v1 is co-located with the encoder, then mounting
   pads can be positioned 8.00mm instead of 5.6mm to avoid overlap with mounting pins. Choc v2
   don't have those pins, so wouldn't need the encoder mounting pads moved.
 - The footprint is inherently reversible, no solder jumper needed. Make sure to invert the pin

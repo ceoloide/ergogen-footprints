@@ -46,7 +46,7 @@ Params:
     sets the traces and vias as locked in KiCad. Locked objects may not be manipulated
     or moved, and cannot be selected unless the Locked Items option is enabled in the
     Selection Filter panel in KiCad. Useful for a faster workflow. If using autorouting
-    solutins like Freerouting, locking can prevent the traces and vias from being
+    solutions like Freerouting, locking can prevent the traces and vias from being
     replaced.
   solder: default is false
     if true, will include holes to solder switches (works with hotswap too)
@@ -75,7 +75,7 @@ Params:
      recommended to set below 1.7mm.
   include_keycap: default is false
     if true, will add mx sized keycap box around the footprint (18mm)
-  keycap_width: default is 18 (mm - defualt MX size)
+  keycap_width: default is 18 (mm - default MX size)
     Allows you to adjust the height of the keycap outline.
   keycap_height: default is 18 (mm - default MX size)
     Allows you to adjust the width of the keycap outline. For example,
