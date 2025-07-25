@@ -8,7 +8,9 @@
 //
 // Description:
 //   SMD side-operated momentary switch, compatible with Panasonic EVQ-PU[A|C|J|L]02K
-//   as sold on Typeractive.xyz and LCSC. These switches are shorter than the height of hotswap
+//   as sold on Typeractive.xyz https://typeractive.xyz/products/reset-button
+//   keebd.com https://keebd.com/products/reset-button-panasonic
+//   and LCSC. These switches are shorter than the height of hotswap
 //   sockets, so they can be mounted on the same side.
 //
 // Datasheet:
