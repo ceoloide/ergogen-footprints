@@ -162,7 +162,7 @@ module.exports = {
           solder_pads += male_pad
 
           //Left Back female
-          solder_pads += `\t\t(pad ${i} smd custom (at ${spacing.top_left_pin.x + spacing.pin_to_female_pad} ${spacing.top_left_pin.y + (i) * spacing.pin_dist} ${p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${pin_nets[i][0]}`
+          solder_pads += `\t\t(pad ${100 + i} smd custom (at ${spacing.top_left_pin.x + spacing.pin_to_female_pad} ${spacing.top_left_pin.y + (i) * spacing.pin_dist} ${p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${pin_nets[i][0]}`
           solder_pads += female_pad
 
 
@@ -174,7 +174,7 @@ module.exports = {
           solder_pads += male_pad
 
           //Right Back female
-          solder_pads += `\t\t(pad ${spacing.total_pin_num - 1 - i} smd custom (at ${spacing.top_right_pin.x - spacing.pin_to_female_pad} ${spacing.top_right_pin.y + (i) * spacing.pin_dist} ${180 + p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${pin_nets[i][1]}`
+          solder_pads += `\t\t(pad ${100 + spacing.total_pin_num - 1 - i} smd custom (at ${spacing.top_right_pin.x - spacing.pin_to_female_pad} ${spacing.top_right_pin.y + (i) * spacing.pin_dist} ${180 + p.rot}) (size 0.2 0.2) (layers B.Cu B.Mask) ${pin_nets[i][1]}`
           solder_pads += female_pad
 
           //Right Front female
@@ -312,10 +312,10 @@ ${'' /*Box outlining the front body*/}
 (fp_line (start -8.9 -8.5) (end -8.9 8.5) (layer "F.SilkS") (width 0.127))
 (fp_line (start 6.9 -10.5) (end -6.9 -10.5) (layer "F.SilkS") (width 0.127))
 (fp_line (start -6.9 10.5) (end 6.9 10.5) (layer "F.SilkS") (width 0.127))
-(fp_arc (start 6.9 8.5)   (end 6.9 10.5) (angle -90) (layer "F.SilkS") (width 0.127))
-(fp_arc (start 6.9 -8.5) (end 8.9 -8.5) (angle -90) (layer "F.SilkS") (width 0.127))
-(fp_arc (start -6.9 8.5) (end -8.9 8.5) (angle -90) (layer "F.SilkS") (width 0.127))
-(fp_arc (start -6.9 -8.5) (end -6.9 -10.5) (angle -90) (layer "F.SilkS") (width 0.127))
+(fp_arc (start -8.9 -8.5) (mid -8.3 -9.9) (end -6.9 -10.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+(fp_arc (start -6.9 10.5) (mid -8.3 9.9) (end -8.9 8.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+(fp_arc (start 6.9 -10.5) (mid 8.3 -9.9) (end 8.9 -8.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+(fp_arc (start 8.9 8.5) (mid 8.3 9.9) (end 6.9 10.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
 
 ${'' /*Getting the through holes*/}
 ${get_thru_hole()}
@@ -339,10 +339,10 @@ footprint "xiao-ble-tht" (generator pcbnew)
   (fp_line (start -8.9 -8.5) (end -8.9 8.5) (layer "F.SilkS") (width 0.127))
   (fp_line (start 6.9 -10.5) (end -6.9 -10.5) (layer "F.SilkS") (width 0.127))
   (fp_line (start -6.9 10.5) (end 6.9 10.5) (layer "F.SilkS") (width 0.127))
-  (fp_arc (start 6.9 8.5)   (end 6.9 10.5) (angle -90) (layer "F.SilkS") (width 0.127))
-  (fp_arc (start 6.9 -8.5) (end 8.9 -8.5) (angle -90) (layer "F.SilkS") (width 0.127))
-  (fp_arc (start -6.9 8.5) (end -8.9 8.5) (angle -90) (layer "F.SilkS") (width 0.127))
-  (fp_arc (start -6.9 -8.5) (end -6.9 -10.5) (angle -90) (layer "F.SilkS") (width 0.127))
+  (fp_arc (start -8.9 -8.5) (mid -8.3 -9.9) (end -6.9 -10.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+  (fp_arc (start -6.9 10.5) (mid -8.3 9.9) (end -8.9 8.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+  (fp_arc (start 6.9 -10.5) (mid 8.3 -9.9) (end 8.9 -8.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
+  (fp_arc (start 8.9 8.5) (mid 8.3 9.9) (end 6.9 10.5)(stroke (width 0.127) (type solid))(layer "F.SilkS"))
 
   ${'' /*Box outlining the back usb-c port*/}
   (fp_rect (start 4.5 -4.5) (end -4.5 -11.92403) (layer "B.SilkS") (width 0.127) (fill none))
@@ -352,10 +352,10 @@ footprint "xiao-ble-tht" (generator pcbnew)
   (fp_line (start -8.9 -8.5) (end -8.9 8.5)   (layer "B.SilkS") (width 0.127))
   (fp_line (start 6.9 -10.5) (end -6.9 -10.5) (layer "B.SilkS") (width 0.127))
   (fp_line (start -6.9 10.5) (end 6.9 10.5)   (layer "B.SilkS") (width 0.127))
-  (fp_arc  (start 6.9 8.5)   (end 6.9 10.5)   (angle -90) (layer "B.SilkS") (width 0.127))
-  (fp_arc  (start 6.9 -8.5)  (end 8.9 -8.5)   (angle -90) (layer "B.SilkS") (width 0.127))
-  (fp_arc  (start -6.9 8.5)  (end -8.9 8.5)   (angle -90) (layer "B.SilkS") (width 0.127))
-  (fp_arc  (start -6.9 -8.5) (end -6.9 -10.5) (angle -90) (layer "B.SilkS") (width 0.127))
+  (fp_arc (start -8.9 -8.5) (mid -8.3 -9.9) (end -6.9 -10.5)(stroke (width 0.127) (type solid))(layer "B.SilkS"))
+  (fp_arc (start -6.9 10.5) (mid -8.3 9.9) (end -8.9 8.5)(stroke (width 0.127) (type solid))(layer "B.SilkS"))
+  (fp_arc (start 6.9 -10.5) (mid 8.3 -9.9) (end 8.9 -8.5)(stroke (width 0.127) (type solid))(layer "B.SilkS"))
+  (fp_arc (start 8.9 8.5) (mid 8.3 9.9) (end 6.9 10.5)(stroke (width 0.127) (type solid))(layer "B.SilkS"))
 
   ${'' /*Getting the through holes and the solder pads*/}
   ${get_solder_pads()}      
