@@ -47,7 +47,7 @@
 //      sets the traces and vias as locked in KiCad. Locked objects may not be manipulated
 //      or moved, and cannot be selected unless the Locked Items option is enabled in the
 //      Selection Filter panel in KiCad. Useful for a faster workflow. If using autorouting
-//      solutins like Freerouting, locking can prevent the traces and vias from being
+//      solutions like Freerouting, locking can prevent the traces and vias from being
 //      replaced.
 //    include_plated_holes: default is false
 //      Alternate version of the footprint compatible with side, reversible, hotswap, solder options in any combination.

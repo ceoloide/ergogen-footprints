@@ -56,13 +56,13 @@
 //    hatch_gap: default is 1.5
 //      the hatch gap size (in mm)
 //    hatch_orientation: default is 0
-//      the orientation of the htach pattern (in degrees)
+//      the orientation of the hatch pattern (in degrees)
 //    hatch_smoothing_level: default is 0
 //      the level of smoothing to apply to the hatch pattern algorithm,
 //      between 0 and 3
 //    hatch_smoothing_value: default is 0.1
 //      the smoothing value used by the hatch smoothing algorithm,
-//      bertween 0.0 and 1.0
+//      between 0.0 and 1.0
 //    points: default is [[0,0],[420,0],[420,297],[0,297]]
 //      an array containing the polygon points of the filled area, in
 //      xy coordinates relative to the PCB. The default is a square area of
