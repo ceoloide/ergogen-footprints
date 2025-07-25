@@ -53,6 +53,45 @@
 //      since they are meant to match the solder jumpers behavior and aid testing.
 //    include_courtyard: default is true
 //      if true it will include a courtyard outline around the pin header.
+//    niceview_3dmodel_filename: default is ''
+//      Allows you to specify the path to a 3D model STEP or WRL file to be
+//      used when rendering the PCB for the nice!view display. Use the ${VAR_NAME} syntax to point to
+//      a KiCad configured path.
+//    niceview_3dmodel_xyz_offset: default is [0, 0, 0]
+//      xyz offset (in mm), used to adjust the position of the nice!view 3d model
+//      relative to the footprint.
+//    niceview_3dmodel_xyz_scale: default is [1, 1, 1]
+//      xyz scale, used to adjust the size of the nice!view 3d model relative to its
+//      original size.
+//    niceview_3dmodel_xyz_rotation: default is [0, 0, 0]
+//      xyz rotation (in degrees), used to adjust the orientation of the nice!view 3d
+//      model relative to the footprint.
+//    pin_socket_3dmodel_filename: default is ''
+//      Allows you to specify the path to a 3D model STEP or WRL file for pin socket to be
+//      used when rendering the PCB. Use the ${VAR_NAME} syntax to point to
+//      a KiCad configured path.
+//    pin_socket_3dmodel_xyz_offset: default is [0, 0, 0]
+//      xyz offset (in mm), used to adjust the position of the pin socket 3d model
+//      relative to the footprint.
+//    pin_socket_3dmodel_xyz_scale: default is [1, 1, 1]
+//      xyz scale, used to adjust the size of the pin socket 3d model relative to its
+//      original size.
+//    pin_socket_3dmodel_xyz_rotation: default is [0, 0, 0]
+//      xyz rotation (in degrees), used to adjust the orientation of the pin socket 3d
+//      model relative to the footprint.
+//    pin_header_3dmodel_filename: default is ''
+//      Allows you to specify the path to a 3D model STEP or WRL file for pin header to be
+//      used when rendering the PCB. Use the ${VAR_NAME} syntax to point to
+//      a KiCad configured path.
+//    pin_header_3dmodel_xyz_offset: default is [0, 0, 0]
+//      xyz offset (in mm), used to adjust the position of the pin header 3d model
+//      relative to the footprint.
+//    pin_header_3dmodel_xyz_scale: default is [1, 1, 1]
+//      xyz scale, used to adjust the size of the pin header 3d model relative to its
+//      original size.
+//    pin_header_3dmodel_xyz_rotation: default is [0, 0, 0]
+//      xyz rotation (in degrees), used to adjust the orientation of the pin header 3d
+//      model relative to the footprint.
 //
 // @ceoloide's improvements:
 //  - Added support for traces
