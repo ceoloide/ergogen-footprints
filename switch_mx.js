@@ -519,7 +519,7 @@ module.exports = {
     if (p.hotswap) {
       if (p.reversible || p.side == "F") {
         final += hotswap_front;
-        if (p.include_silkscree && !p.reversible) {
+        if (p.include_silkscreen && !p.reversible) {
           final += hotswap_silkscreen_front;
         }
       }
