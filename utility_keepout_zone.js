@@ -66,7 +66,7 @@ module.exports = {
     }
     return `
   (zone
-    (net 0 "")
+    (net 0)
     (net_name "")
     (locked ${p.locked ? 'yes' : 'no'})
     (layers "${p.side}.Cu")
