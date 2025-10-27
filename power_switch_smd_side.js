@@ -63,7 +63,7 @@ module.exports = {
     designator: 'PWR',
     side: 'F',
     reversible: false,
-    invert_behavior: true,
+    invert_behavior: false,
     include_silkscreen: true,
     include_courtyard: false,
     switch_3dmodel_filename: '',
