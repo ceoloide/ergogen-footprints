@@ -151,7 +151,7 @@ module.exports = {
     (pad "" smd rect (at -1.085 -3.65 ${90 + p.r}) (size 1 0.8) (layers "F.Cu" "F.Paste" "F.Mask"))
     (pad "" smd rect (at -1.085 3.65 ${90 + p.r}) (size 1 0.8) (layers "F.Cu" "F.Paste" "F.Mask"))
     (pad "" smd rect (at 1.125 3.65 ${90 + p.r}) (size 1 0.8) (layers "F.Cu" "F.Paste" "F.Mask"))
-    (pad "1" smd rect (at -1.735 2.25 ${90 + p.r}) (size 0.7 1.5) (layers "F.Cu" "F.Paste" "F.Mask") ${p.invert_behavior ? '' : p.from.str})
+    (pad "1" smd rect (at -1.735 2.25 ${90 + p.r}) (size 0.7 1.5) (layers "F.Cu" "F.Paste" "F.Mask")  ${p.invert_behavior ? '' : p.from.str})
     (pad "2" smd rect (at -1.735 -0.75 ${90 + p.r}) (size 0.7 1.5) (layers "F.Cu" "F.Paste" "F.Mask") ${p.to.str})
     (pad "3" smd rect (at -1.735 -2.25 ${90 + p.r}) (size 0.7 1.5) (layers "F.Cu" "F.Paste" "F.Mask") ${p.invert_behavior ? p.from.str : ''})
     `
@@ -170,9 +170,9 @@ module.exports = {
     (pad "" smd rect (at 1.125 -3.65 ${270 + p.r}) (size 1 0.8) (layers "B.Cu" "B.Paste" "B.Mask"))
     (pad "" smd rect (at -1.085 3.65 ${270 + p.r}) (size 1 0.8) (layers "B.Cu" "B.Paste" "B.Mask"))
     (pad "" smd rect (at 1.125 3.65 ${270 + p.r}) (size 1 0.8) (layers "B.Cu" "B.Paste" "B.Mask"))
-    (pad "1" smd rect (at -1.735 -2.25 ${270 + p.r}) (size 0.7 1.5) (layers "B.Cu" "B.Paste" "B.Mask") ${p.invert_behavior ? p.from.str : ''})
-    (pad "2" smd rect (at -1.735 0.75 ${270 + p.r}) (size 0.7 1.5) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
-    (pad "3" smd rect (at -1.735 2.25 ${270 + p.r}) (size 0.7 1.5) (layers "B.Cu" "B.Paste" "B.Mask") ${p.invert_behavior ? '' : p.from.str})
+    (pad "1" smd rect (at -1.735 -2.25 ${270 + p.r}) (size 0.7 1.5) (layers "B.Cu" "B.Paste" "B.Mask") ${p.invert_behavior ? '' : p.from.str})
+    (pad "2" smd rect (at -1.735 0.75 ${270 + p.r}) (size 0.7 1.5) (layers "B.Cu" "B.Paste" "B.Mask")  ${p.to.str})
+    (pad "3" smd rect (at -1.735 2.25 ${270 + p.r}) (size 0.7 1.5) (layers "B.Cu" "B.Paste" "B.Mask")  ${p.invert_behavior ? p.from.str : ''})
     `
     const common_end = `
     (pad "" np_thru_hole circle (at 0.025 -1.5 ${90 + p.r}) (size 0.9 0.9) (drill 0.9) (layers "*.Cu" "*.Mask"))
