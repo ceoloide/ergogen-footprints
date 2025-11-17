@@ -155,11 +155,13 @@ module.exports = {
       (at -${p.mounting_holes_position} 0 ${p.r - 90})
       (size ${p.mounting_holes_height} ${p.mounting_holes_width})
       (drill oval ${p.mounting_holes_height} ${p.mounting_holes_width})
+      (layers "*.Cu" "*.Mask")
     )    
     (pad "" np_thru_hole oval
       (at ${p.mounting_holes_position} 0 ${p.r - 90})
       (size ${p.mounting_holes_height} ${p.mounting_holes_width})
       (drill oval ${p.mounting_holes_height} ${p.mounting_holes_width})
+      (layers "*.Cu" "*.Mask")
     )
     `
     const plate_hole = `
