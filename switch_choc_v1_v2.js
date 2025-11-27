@@ -53,10 +53,10 @@
 //      Alternate version of the footprint compatible with side, reversible, hotswap, solder options in any combination.
 //      Pretty, allows for connecting ground fill zones via center hole, 
 //      allows for setting nets to Choc v2 stabilizers and them for your routing needs.
-//    include_stabilizer_nets: default is false
+//    include_v2_stabilizer_nets: default is false
 //      if true, will add adjustable nets to choc v2 plated stabilizer holes, 
-//      LEFTSTAB: default is "D1"
-//      RIGHTSTAB: default is "D2"
+//      LEFTSTABV2: default is "D1"
+//      RIGHTSTABV2: default is "D2"
 //    include_centerhole_net: default is false
 //      if true, will add adjustable net to the center hole
 //      CENTERHOLE: default is "GND"
@@ -139,6 +139,12 @@
 //    keycap_3dmodel_xyz_rotation: default is [0, 0, 0]
 //      xyz rotation (in degrees), used to adjust the orientation of the 3d
 //      model relative the footprint.
+//    CENTERHOLE: default is 'GND'
+//      net to attach to the center hole
+//    LEFTSTABV2: default is 'D1'
+//      net to attach to left stabilizer hole
+//    RIGHTSTABV2: default is 'D2'
+//      net to attach to right stabilizer hole
 //
 // Notes:
 // - Hotswap and solder can be used together. The solder holes will then be
@@ -177,6 +183,10 @@
 //
 // @mlilley's improvements:
 //  - Add options to include marks for the led cutout in choc v1 and v2 switch bodies
+//
+// @vacant0mens' improvements:
+//  - added descriptions for hole nets
+//  - added ref drawings to back side for when reversible == 'true'.
 
 module.exports = {
   params: {
@@ -191,7 +201,8 @@ module.exports = {
     locked_traces_vias: false,
     hotswap: true,
     include_plated_holes: false,
-    include_stabilizer_nets: false,
+    include_v2_stabilizer_nets: false,
+    include_v1_stabilizer_nets: false,
     include_centerhole_net: false,
     solder: false,
     outer_pad_width_front: 2.6,
@@ -224,8 +235,10 @@ module.exports = {
     from: undefined,
     to: undefined,
     CENTERHOLE: { type: 'net', value: 'GND'},
-    LEFTSTAB: { type: 'net', value: 'D1' },
-    RIGHTSTAB: { type: 'net', value: 'D2' }
+    LEFTSTABV1: { type: 'net', value: 'D1' },
+    RIGHTSTABV1: { type: 'net', value: 'D2' },
+    LEFTSTABV2: { type: 'net', value: 'D1' },
+    RIGHTSTABV2: { type: 'net', value: 'D2' }
   },
   body: p => {
     const center_hole_diameter = p.center_hole_diameter > 0 ? p.center_hole_diameter : (p.choc_v2_support ? 5 : 3.4);
@@ -234,12 +247,19 @@ module.exports = {
     (layer "${p.side}.Cu")
     ${p.at}
     (property "Reference" "${p.ref}"
-      (at 0 8.8 ${p.r})
-      (layer "${p.side}.SilkS")
+      (at 0 7.5 ${p.r})
+      (layer "F.SilkS")
       ${p.ref_hide}
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (attr exclude_from_pos_files exclude_from_bom${p.allow_soldermask_bridges ? ' allow_soldermask_bridges' : ''})
+    (attr ${p.hotswap ? 'smd' : 'exclude_from_pos_files exclude_from_bom'}${p.allow_soldermask_bridges ? ' allow_soldermask_bridges' : ''})
+    (property "Value" "Kailh CPG135001S30"
+      (at 0 0 ${p.r})
+      (layer "${p.side}.SilkS")
+      hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    )
+    
 
     ${''/* middle shaft hole */}
     ${p.include_plated_holes ? `
@@ -251,8 +271,8 @@ module.exports = {
 
     const choc_v1_stabilizers = `
     ${p.include_plated_holes ? `
-    (pad "" thru_hole circle (at 5.5 0 ${p.r}) (size ${p.choc_v1_stabilizers_diameter + 0.3} ${p.choc_v1_stabilizers_diameter + 0.3}) (drill ${p.choc_v1_stabilizers_diameter}) (layers "*.Cu" "*.Mask"))
-    (pad "" thru_hole circle (at -5.5 0 ${p.r}) (size ${p.choc_v1_stabilizers_diameter + 0.3} ${p.choc_v1_stabilizers_diameter + 0.3}) (drill ${p.choc_v1_stabilizers_diameter}) (layers "*.Cu" "*.Mask"))
+    (pad "" thru_hole circle (at 5.5 0 ${p.r}) (size ${p.choc_v1_stabilizers_diameter + 0.3} ${p.choc_v1_stabilizers_diameter + 0.3}) (drill ${p.choc_v1_stabilizers_diameter}) (layers "*.Cu" "*.Mask") ${ p.include_v1_stabilizer_nets ? p.RIGHTSTABV1 : ''})
+    (pad "" thru_hole circle (at -5.5 0 ${p.r}) (size ${p.choc_v1_stabilizers_diameter + 0.3} ${p.choc_v1_stabilizers_diameter + 0.3}) (drill ${p.choc_v1_stabilizers_diameter}) (layers "*.Cu" "*.Mask") ${p.include_v1_stabilizer_nets ? p.LEFTSTABV1 : ''})
     `: `
     (pad "" np_thru_hole circle (at 5.5 0 ${p.r}) (size ${p.choc_v1_stabilizers_diameter} ${p.choc_v1_stabilizers_diameter}) (drill ${p.choc_v1_stabilizers_diameter}) (layers "*.Cu" "*.Mask"))
     (pad "" np_thru_hole circle (at -5.5 0 ${p.r}) (size ${p.choc_v1_stabilizers_diameter} ${p.choc_v1_stabilizers_diameter}) (drill ${p.choc_v1_stabilizers_diameter}) (layers "*.Cu" "*.Mask"))
@@ -468,19 +488,19 @@ module.exports = {
     `
 
     const oval_corner_stab_front = `
-    (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.include_stabilizer_nets ? p.RIGHTSTAB : ''})
+    (pad "" thru_hole oval (at ${stab_offset_x_front}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.include_v2_stabilizer_nets ? p.RIGHTSTABV2 : ''})
     `
 
     const oval_corner_stab_back = `
-    (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.include_stabilizer_nets ? p.LEFTSTAB : ''})
+    (pad "" thru_hole oval (at ${stab_offset_x_back}5 ${stab_offset_y}5.15 ${p.r}) (size 2.4 1.2) (drill oval 1.6 0.4) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.include_v2_stabilizer_nets ? p.LEFTSTABV2 : ''})
     `
 
     const round_corner_stab_front = `
-    (pad "" thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.include_stabilizer_nets ? p.RIGHTSTAB : ''})
+    (pad "" thru_hole circle (at ${stab_offset_x_front}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.include_v2_stabilizer_nets ? p.RIGHTSTABV2 : ''})
     `
 
     const round_corner_stab_back = `
-    (pad "" thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.include_stabilizer_nets ? p.LEFTSTAB : ''})
+    (pad "" thru_hole circle (at ${stab_offset_x_back}5.00 ${stab_offset_y}5.15 ${p.r}) (size 1.9 1.9) (drill 1.6) (layers "*.Cu" "*.Mask") ${p.solder && p.hotswap ? p.to.str : p.include_v2_stabilizer_nets ? p.LEFTSTABV2 : ''})
     `
 
     const switch_3dmodel = `
@@ -686,6 +706,11 @@ module.exports = {
     }
     if (p.include_keycap) {
       final += keycap_marks
+    }
+    if (p.side == "B" || p.reversible) {
+      final += `
+    (fp_text user "%R" (at 0 7.5 ${p.r}) (layer B.SilkS) (effects (font (size 1 1) (thickness 0.15)) (justify mirror)))
+`
     }
     if (p.include_stabilizer_pad && p.choc_v2_support) {
       if (p.reversible || p.side == "F") {
