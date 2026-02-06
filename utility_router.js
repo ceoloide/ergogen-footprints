@@ -25,6 +25,13 @@
 //    net: "{{row_net}}"
 //    route: "f(-8.275,5.1)(-8.275,7.26)"
 //
+//  row_route2:
+//    what: ceoloide/utility_router
+//    where: true
+//    params:
+//    net: "{{row_net}}"
+//    route: "f(-8.275 5.1) (-8.275 7.26)"
+//
 // Params:
 //    net: default is no net
 //      allows specifying a net for all routes in this footprint. To route multiple different nets,
@@ -44,7 +51,7 @@
 //      sets the traces and vias as locked in KiCad. Locked objects may not be manipulated
 //      or moved, and cannot be selected unless the Locked Items option is enabled in the
 //      Selection Filter panel in KiCad. Useful for a faster workflow. If using autorouting
-//      solutins like Freerouting, locking can prevent the traces and vias from being
+//      solutions like Freerouting, locking can prevent the traces and vias from being
 //      replaced.
 //    routes: default empty / no routes
 //      an array of routes based on the syntax described below, each stands by its own except they all
@@ -62,10 +69,13 @@
 //    v - place a via and switch layer
 //    x or | - start a new route (if layer is set, stays on the same layer, just like in KiCad)
 //    (x_pos,y_pos) - route to the given position (relative to the Ergogen point). If it is the first
-//      occurence in the route or if after x command then it places the cursor in the specific point.
+//      occurrence in the route or if after x command then it places the cursor in the specific point.
 //    <net_name> - the name of a net to use for the following segment. Currently unsupported in mainline
 //      Ergogen, until https://github.com/ergogen/ergogen/pull/109 is merged.
 //
+// @morrijr's improvements:
+//  - ',' between x and y, is now optional
+//  - Spaces between coordinates are now allowed
 // @ceoloide's improvements:
 //  - Replace `get_at_coordinates` and `adjust_point` with native Ergogen `eaxy()`
 //  - Refresh `via` and `segment` syntax to align with KiCad 8
@@ -143,7 +153,11 @@ module.exports = {
     }
 
     const parse_tuple = (t) => {
-      let str_tuple = JSON.parse(t.replace(/\(/g, "[").replace(/\)/g, "]"))
+      let str_tuple = JSON.parse(
+        t.replace(/ /g, ',') // replace spaces with commas
+        .replace(/[,]+/g, ',') // replace multiple commas with a single comma
+        .replace(/\([,]*/g, "[") // replace opening parenthesis (and any leading comma's) with a bracket
+        .replace(/[,]*\)/g, "]")) // replace closing parenthesis (and any trailing comma's) with a bracket
       let num_tuple = str_tuple.map((v) => Number(v))
       if (isNaN(num_tuple[0] || isNaN(num_tuple[1]))) {
         throw new Error(`Invalid position encountered: ${str_tuple}`)
@@ -222,6 +236,8 @@ module.exports = {
           case "|":
             start = undefined
             break
+          case " ":
+            break // ignore spaces between coordinates
           default:
             throw new Error(`Unsupported character '${command}' at position ${i}.`)
         }

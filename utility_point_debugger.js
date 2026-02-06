@@ -15,7 +15,7 @@ Description:
   outline without defining points, then they won't show up.
 
 Usage:
-  ou can make enabling and disabling easy with ergogen's preprocessor:
+  You can make enabling and disabling easy with ergogen's preprocessor:
 
   ```js
   settings:

@@ -20,7 +20,7 @@ Notes:
   of the rotary encoder. The encoder mounting pads can be positioned 7.5mm instead of 5.6mm to
   avoid overlap with mounting pins.
 - The footprint can be co-located with a Choc v1 / v2 hotswap footprint, as long as the encoder
-  pads are positioned at leat 8.254 mm. If Choc v1 is co-located with the encoder, then mounting
+  pads are positioned at least 8.254 mm. If Choc v1 is co-located with the encoder, then mounting
   pads can be positioned 8.00mm instead of 5.6mm to avoid overlap with mounting pins. Choc v2
   don't have those pins, so wouldn't need the encoder mounting pads moved.
 - The footprint is inherently reversible, no solder jumper needed. Make sure to invert the pin
@@ -122,13 +122,13 @@ module.exports = {
       (effects (font (size 1 1) (thickness 0.15))${p.side == 'F' ? ' (justify mirror)' : ''})
     )`:''}
     (attr through_hole)
-    (pad "A" thru_hole oval (at 2.5 ${p.encoder_pads_position} ${p.r}) (size 1.6 1.1) (drill oval 1 0.5) (layers "*.Cu" "F.Mask") ${p.A})
-    (pad "B" thru_hole oval (at 0 ${p.encoder_pads_position} ${p.r}) (size 1.6 1.1) (drill oval 1 0.5) (layers "*.Cu" "F.Mask") ${p.B})
-    (pad "C" thru_hole oval (at -2.5 ${p.encoder_pads_position} ${p.r}) (size 1.6 1.1) (drill oval 1 0.5) (layers "*.Cu" "F.Mask") ${p.C})
+    (pad "A" thru_hole oval (at 2.5 ${p.encoder_pads_position} ${p.r}) (size 1.6 1.1) (drill oval 1 0.5) (layers "*.Cu" "*.Mask") ${p.A})
+    (pad "B" thru_hole oval (at 0 ${p.encoder_pads_position} ${p.r}) (size 1.6 1.1) (drill oval 1 0.5) (layers "*.Cu" "*.Mask") ${p.B})
+    (pad "C" thru_hole oval (at -2.5 ${p.encoder_pads_position} ${p.r}) (size 1.6 1.1) (drill oval 1 0.5) (layers "*.Cu" "*.Mask") ${p.C})
     `
     const momentary_switch_pads = `
-    (pad "S1" thru_hole oval (at -2.5 -7 ${p.r}) (size 1.6 1.1) (drill oval 1 0.5) (layers "*.Cu" "F.Mask") ${p.S1})
-    (pad "S2" thru_hole oval (at 2.5 -7 ${p.r}) (size 1.6 1.1) (drill oval 1 0.5) (layers "*.Cu" "F.Mask") ${p.S2})
+    (pad "S1" thru_hole oval (at -2.5 -7 ${p.r}) (size 1.6 1.1) (drill oval 1 0.5) (layers "*.Cu" "*.Mask") ${p.S1})
+    (pad "S2" thru_hole oval (at 2.5 -7 ${p.r}) (size 1.6 1.1) (drill oval 1 0.5) (layers "*.Cu" "*.Mask") ${p.S2})
     `
     const plated_mp = `
     (pad "" thru_hole roundrect
@@ -155,11 +155,13 @@ module.exports = {
       (at -${p.mounting_holes_position} 0 ${p.r - 90})
       (size ${p.mounting_holes_height} ${p.mounting_holes_width})
       (drill oval ${p.mounting_holes_height} ${p.mounting_holes_width})
+      (layers "*.Cu" "*.Mask")
     )    
     (pad "" np_thru_hole oval
       (at ${p.mounting_holes_position} 0 ${p.r - 90})
       (size ${p.mounting_holes_height} ${p.mounting_holes_width})
       (drill oval ${p.mounting_holes_height} ${p.mounting_holes_width})
+      (layers "*.Cu" "*.Mask")
     )
     `
     const plate_hole = `
