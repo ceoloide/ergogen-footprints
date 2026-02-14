@@ -262,8 +262,12 @@ module.exports = {
       // on the opposite side of where the MCU board is mounted.
       const net_silk_front_left = via_label_left
       const net_silk_front_right = via_label_right
-      const net_silk_back_left = via_label_right
-      const net_silk_back_right = via_label_left
+      // For reversible footprints, back-side label swapping depends on mount orientation.
+      // reverse_mount=true already flips the effective pin order, so swapping again would
+      // mirror labels left-to-right incorrectly.
+      const swap_back_silk_labels = p.reversible && !p.reverse_mount
+      const net_silk_back_left = swap_back_silk_labels ? via_label_right : via_label_left
+      const net_silk_back_right = swap_back_silk_labels ? via_label_left : via_label_right
 
       let socket_row_base = `
     ${''/* Socket Holes */}
