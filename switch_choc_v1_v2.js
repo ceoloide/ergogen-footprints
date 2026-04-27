@@ -288,7 +288,7 @@ module.exports = {
     const hotswap_common = `
     ${'' /* Middle Hole */}
     ${p.include_plated_holes ? `
-    (pad ${p.reversible ? '""' : 1} thru_hole circle (at 0 -5.95 ${p.r}) (size 3.3 3.3) (drill 3) (layers "*.Cu" "*.Mask") ${p.reversible ? '' : p.from.str})
+    (pad ${p.reversible ? '""' : '"1"'} thru_hole circle (at 0 -5.95 ${p.r}) (size 3.3 3.3) (drill 3) (layers "*.Cu" "*.Mask") ${p.reversible ? '' : p.from.str})
     `: `
     (pad "" np_thru_hole circle (at 0 -5.95 ${p.r}) (size 3 3) (drill 3) (layers "*.Cu" "*.Mask"))
     `}
