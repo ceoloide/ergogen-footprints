@@ -36,6 +36,7 @@ module.exports = {
       ${p.ref_hide}
       (effects (font (size 1 1) (thickness 0.15)))
     )
+    (attr exclude_from_pos_files exclude_from_bom)
     (pad "" np_thru_hole circle
       (at 0 0 ${p.r})
       (size ${p.hole_size} ${p.hole_size})
