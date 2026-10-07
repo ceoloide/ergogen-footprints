@@ -354,7 +354,7 @@ module.exports = {
 	)
 	(segment
 		(start ${p.eaxy(0, -6.959)})
-		(end ${p.eaxy(3.963, -6.9595)})
+		(end ${p.eaxy(3.963, -6.959)})
 		(width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "B.Cu")
