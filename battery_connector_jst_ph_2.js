@@ -26,6 +26,9 @@
 //      reversible
 //    include_traces: default is true
 //      if true it will include traces that connect the jumper pads to the connector pins
+//    use_rectangular_jumpers: default is false
+//      if true, it will replace chevron-style jumpers with rectangular pads
+//
 //    trace_width: default is 0.250mm
 //      allows to override the trace width that connects the jumper pads to the connector
 //      pins. Not recommended to go below 0.25mm.
@@ -59,6 +62,7 @@ module.exports = {
     side: 'F',
     reversible: false,
     include_traces: true,
+    use_rectangular_jumpers: false,
     trace_width: 0.250,
     include_silkscreen: true,
     include_fabrication: true,
@@ -156,6 +160,8 @@ module.exports = {
     const reversible_pads = `
         (pad "11" thru_hole oval (at -1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") ${local_nets[0].str})
         (pad "12" thru_hole oval (at 1 0 ${p.r}) (size 1.2 1.75) (drill 0.75) (layers "*.Cu" "*.Mask") ${local_nets[1].str})
+        `
+    const reversible_chevron_jumpers = `
         (pad "21" smd custom (at -1 1.8 ${180 + p.r}) (size 0.1 0.1) (layers "F.Cu" "F.Mask" "F.Paste")
             (clearance 0.1) (zone_connect 0)
             (options (clearance outline) (anchor rect))
@@ -297,6 +303,18 @@ module.exports = {
             ) 
         )
         `
+
+    const reversible_rectangular_jumpers = `
+        (pad "21" smd rect (at -1 1.8 ${90 + p.r}) (size 0.6 1.2) (layers "F.Cu" "F.Paste" "F.Mask") ${local_nets[0].str})
+        (pad "31" smd rect (at -1 1.8 ${90 + p.r}) (size 0.6 1.2) (layers "B.Cu" "B.Paste" "B.Mask") ${local_nets[0].str})
+        (pad "22" smd rect (at 1 1.8 ${90 + p.r}) (size 0.6 1.2) (layers "F.Cu" "F.Paste" "F.Mask") ${local_nets[1].str})
+        (pad "32" smd rect (at 1 1.8 ${90 + p.r}) (size 0.6 1.2) (layers "B.Cu" "B.Paste" "B.Mask") ${local_nets[1].str})
+        (pad "1" smd rect (at -1 2.7 ${90 + p.r}) (size 0.6 1.2) (layers "F.Cu" "F.Paste" "F.Mask") ${p.BAT_P.str})
+        (pad "1" smd rect (at 1 2.7 ${90 + p.r}) (size 0.6 1.2) (layers "B.Cu" "B.Paste" "B.Mask") ${p.BAT_P.str})
+        (pad "2" smd rect (at -1 2.7 ${90 + p.r}) (size 0.6 1.2) (layers "B.Cu" "B.Paste" "B.Mask") ${p.BAT_N.str})
+        (pad "2" smd rect (at 1 2.7 ${90 + p.r}) (size 0.6 1.2) (layers "F.Cu" "F.Paste" "F.Mask") ${p.BAT_N.str})
+        `
+
     const standard_closing = `
     )
         `
@@ -342,6 +360,11 @@ module.exports = {
     }
     if (p.reversible) {
       final += reversible_pads;
+      if (p.use_rectangular_jumpers) {
+        final += reversible_rectangular_jumpers;
+      } else {
+        final += reversible_chevron_jumpers;
+      }
     } else if (p.side == "F") {
       final += front_pads;
     } else if (p.side == "B") {
