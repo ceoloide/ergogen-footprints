@@ -569,7 +569,7 @@ module.exports = {
 		(net ${p.to.index})
 	)
 	(segment
-		(start ${p.eaxy(-8.275, -3.75)})
+		(start ${p.eaxy(-8.275 + (2.6 - p.outer_pad_width_front) / 2, -3.75)})
 		(end ${p.eaxy(-6.421, -1.896)})
 		(width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
@@ -617,7 +617,7 @@ module.exports = {
 		(net ${p.to.index})
 	)
 	(segment
-		(start ${p.eaxy(8.275, -3.75)})
+		(start ${p.eaxy(8.275 - (2.6 - p.outer_pad_width_back) / 2, -3.75)})
 		(end ${p.eaxy(6.421, -1.896)})
 		(width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
@@ -626,6 +626,7 @@ module.exports = {
 	)
     `
 
+    // At 1.6 mm, the outer pad center is on the vertical route; omit the zero-length stub.
     const hotswap_routes_same_side = `
   (segment
 		(start ${p.eaxy(3.275, -5.95)})
@@ -675,6 +676,26 @@ module.exports = {
 		(layer "B.Cu")
 		(net ${p.to.index})
 	)
+  ${p.outer_pad_width_back === 1.6 ? '' : `
+  (segment
+    (start ${p.eaxy(8.275 - (2.6 - p.outer_pad_width_back) / 2, -3.75)})
+    (end ${p.eaxy(7.775, -3.75)})
+    (width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
+    (layer "B.Cu")
+    (net ${p.from.index})
+  )
+  `}
+  ${p.outer_pad_width_front === 1.6 ? '' : `
+  (segment
+    (start ${p.eaxy(-8.275 + (2.6 - p.outer_pad_width_front) / 2, -3.75)})
+    (end ${p.eaxy(-7.775, -3.75)})
+    (width ${p.trace_width})
+    (locked ${p.locked_traces_vias ? 'yes' : 'no'})
+    (layer "F.Cu")
+    (net ${p.to.index})
+  )
+  `}
     `
 
     let final = common_top
