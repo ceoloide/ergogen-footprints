@@ -14,7 +14,7 @@ const generate = (file, overrides = {}) => {
   const p = Object.fromEntries(Object.entries(footprint.params).map(([key, value]) =>
     [key, value && typeof value === 'object' && 'type' in value
       ? value.type === 'net' ? net(value.value || key) : value.value
-      : value]));
+      : value === undefined ? net(key) : value]));
   Object.assign(p, {r: 0, ref: 'TEST', ref_hide: '', point: {meta: {name: 'test'}}}, overrides);
   const x = overrides.x || 0, y = overrides.y || 0;
   p.at = `(at ${x} ${y} ${p.r})`;
