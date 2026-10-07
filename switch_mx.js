@@ -342,7 +342,7 @@ module.exports = {
 		(width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "F.Cu")
-		(net ${p.to.index})
+		(net ${p.from.index})
 	)
 	(via
 		(at ${p.eaxy(0, -6.959)})
@@ -350,7 +350,7 @@ module.exports = {
     (drill ${p.via_drill})
 		(layers "F.Cu" "B.Cu")
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
-		(net ${p.to.index})
+		(net ${p.from.index})
 	)
 	(segment
 		(start ${p.eaxy(0, -6.959)})
@@ -358,7 +358,7 @@ module.exports = {
 		(width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "B.Cu")
-		(net ${p.to.index})
+		(net ${p.from.index})
 	)
 	(segment
 		(start ${p.eaxy(3.963, -6.959)})
@@ -366,7 +366,7 @@ module.exports = {
 		(width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
 		(layer "B.Cu")
-		(net ${p.to.index})
+		(net ${p.from.index})
   )
 	(segment
     (start ${p.eaxy(0, -5.93)})
@@ -374,7 +374,7 @@ module.exports = {
     (width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
     (layer "F.Cu")
-    (net ${p.from.index})
+    (net ${p.to.index})
   )
   (segment
     (start ${p.eaxy(4.166, -6.959)})
@@ -382,7 +382,7 @@ module.exports = {
     (width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
     (layer "F.Cu")
-    (net ${p.from.index})
+    (net ${p.to.index})
   )
   (segment
     (start ${p.eaxy(7.085, -4.04)})
@@ -390,7 +390,7 @@ module.exports = {
     (width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
     (layer "F.Cu")
-    (net ${p.from.index})
+    (net ${p.to.index})
   )
   (segment
     (start ${p.eaxy(1.029, -6.959)})
@@ -398,7 +398,7 @@ module.exports = {
     (width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
     (layer "F.Cu")
-    (net ${p.from.index})
+    (net ${p.to.index})
   )
   (via
     (at ${p.eaxy(0, -5.93)})
@@ -406,7 +406,7 @@ module.exports = {
     (drill ${p.via_drill})
     (layers "F.Cu" "B.Cu")
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
-    (net ${p.from.index})
+    (net ${p.to.index})
   )
   (segment
     (start ${p.eaxy(-4.166, -6.959)})
@@ -414,7 +414,7 @@ module.exports = {
     (width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
     (layer "B.Cu")
-    (net ${p.from.index})
+    (net ${p.to.index})
   )
   (segment
     (start ${p.eaxy(-7.085, -2.54)})
@@ -422,7 +422,7 @@ module.exports = {
     (width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
     (layer "B.Cu")
-    (net ${p.from.index})
+    (net ${p.to.index})
   )
   (segment
     (start ${p.eaxy(-7.085, -4.04)})
@@ -430,7 +430,7 @@ module.exports = {
     (width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
     (layer "B.Cu")
-    (net ${p.from.index})
+    (net ${p.to.index})
   )
   (segment
     (start ${p.eaxy(-1.029, -6.959)})
@@ -438,7 +438,7 @@ module.exports = {
     (width ${p.trace_width})
     (locked ${p.locked_traces_vias ? 'yes' : 'no'})
     (layer "B.Cu")
-    (net ${p.from.index})
+    (net ${p.to.index})
   )
     `
     const hotswap_routes_same_side = `
