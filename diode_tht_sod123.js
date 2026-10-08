@@ -83,6 +83,7 @@ module.exports = {
     via_size: 0.6,
     via_drill: 0.3,
     include_tht: false,
+    ref_above: true,
     include_thru_hole_smd_pads: false,
     diode_3dmodel_filename: '',
     diode_3dmodel_xyz_offset: [0, 0, 0],
@@ -94,14 +95,20 @@ module.exports = {
   body: p => {
     const standard_opening = `
     (footprint "ceoloide:diode_tht_sod123"
-        (layer "${p.reversible ? 'F' : p.side}.Cu")
-        ${p.at}
-        (property "Reference" "${p.ref}"
-            (at 0 0 ${p.r})
-            (layer "${p.reversible ? 'F' : p.side}.SilkS")
-            ${p.ref_hide}
-            (effects (font (size 1 1) (thickness 0.15)))
-        )
+      (layer "${p.reversible ? 'F' : p.side}.Cu")
+      ${p.at}
+      (property "Reference" "${p.ref}"
+          (at 0 ${p.ref_above ? '' : '-'}1.2 ${p.r})
+          (layer "${p.reversible ? 'F' : p.side}.SilkS")
+          ${p.ref_hide}
+          (effects (font (size 1 1) (thickness 0.15)))
+      )
+      (property "Value" "SOD123 or THT Diode"
+        (at 0 0 ${p.r})
+        (layer "${p.side}.SilkS")
+        hide
+        (effects (font (size 1 1) (thickness 0.15)))
+      )
         `
     // This can be useful to avoid confusion from the fab, since via-in-pads are usually premium
     const thru_hole_smd_pads_description = `
@@ -132,6 +139,12 @@ module.exports = {
       (pad "2" smd rect (at 1.65 0 ${p.r}) (size 0.9 1.2) (layers "F.Cu" "F.Paste" "F.Mask") ${p.from.str})
         `
     const back_silk = `
+      (fp_text user "%R"
+        (at 0 ${p.ref_above ? '' : '-'}1.2 ${p.r})
+        (layer "${p.reversible ? 'B' : p.side}.SilkS")
+        ${p.ref_hide}
+        (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
+      )
       (fp_line (start 0.25 0) (end 0.75 0) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
       (fp_line (start 0.25 0.4) (end -0.35 0) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
       (fp_line (start 0.25 -0.4) (end 0.25 0.4) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
@@ -163,7 +176,7 @@ module.exports = {
         `
     const standard_closing = `
     )
-        `
+    `
     const tht_traces = `
     (segment
       (start ${p.eaxy(3.81, 0)})
@@ -267,7 +280,6 @@ module.exports = {
     }
 
     final += standard_closing;
-
     if (p.reversible && p.include_traces_vias) {
       if(p.include_tht) {
         final += tht_traces;
