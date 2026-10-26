@@ -1,0 +1,18 @@
+(footprint "TOTEMlib:BatteryPad" (layer "F.Cu")
+    (tedit 597B4593) (tstamp 211bb1de-0cc7-407e-9307-3bced7056468)
+    (at 213 99)
+    (property "Sheetfile" "totem_0_3.kicad_sch")
+    (property "Sheetname" "")
+    (path "/969fece3-d6b6-4c0e-912f-511bd3a6f57d")
+    (attr through_hole)
+    (fp_text reference "BAT+2" (at 0 -1.778) (layer "Dwgs.User") hide
+      (effects (font (size 1 1) (thickness 0.2)))
+      (tstamp ec55e751-dfcb-4f80-82d8-c97405922c1f)
+    )
+    (fp_text value "+" (at 0 2.05) (layer "F.SilkS") hide
+      (effects (font (size 0.8 0.8) (thickness 0.15)))
+      (tstamp dc4e5e9a-338b-4cb5-b95a-24edd4dfbfb7)
+    )
+    (pad "1" thru_hole circle (at 0 0 270) (size 2.5 2.5) (drill 1.25) (layers *.Cu *.SilkS *.Mask)
+      (net 48 "VBAT_R") (pinfunction "1") (pintype "input") (tstamp 90802745-3127-44b5-8751-a4e880a69ce2))
+  )

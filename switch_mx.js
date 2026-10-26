@@ -25,7 +25,7 @@ Params:
     if true, the footprint will be placed on both sides so that the PCB can be
     reversible
   hotswap: default is true
-    if true, will include holes and pads for Kailh choc hotswap sockets
+    if true, will include holes and pads for Kailh MX hotswap sockets
   hotswap_pads_same_side: false
     if true, and if not using plated holes, it will position the pads so that nets are on
     the same side to simplify routing.
@@ -76,15 +76,14 @@ Params:
   include_keycap: default is false
     if true, will add mx sized keycap box around the footprint (18mm)
   keycap_width: default is 18 (mm - default MX size)
-    Allows you to adjust the height of the keycap outline.
-  keycap_height: default is 18 (mm - default MX size)
     Allows you to adjust the width of the keycap outline. For example,
     to show a 1.5u outline for easier aligning.
+  keycap_height: default is 18 (mm - default MX size)
+    Allows you to adjust the height of the keycap outline.
   include_corner_marks: default is false
     if true, will add corner marks to indicate plate hole size and position
   include_silkscreen: default is true
-    if true it will include the silkscreen. Recommended to be true to ensure connector
-    polarity is not reversed, which can lead to shorting and damage to the MCU
+    if true it will include silkscreen markings for the switch footprint
   switch_3dmodel_filename: default is ''
     Allows you to specify the path to a 3D model STEP or WRL file to be
     used when rendering the PCB. Use the ${VAR_NAME} syntax to point to

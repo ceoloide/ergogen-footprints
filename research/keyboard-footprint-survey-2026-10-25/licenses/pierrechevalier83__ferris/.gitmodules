@@ -1,0 +1,27 @@
+[submodule "lib/kicad_lib_tmk"]
+	path = lib/kicad_lib_tmk
+	url = https://github.com/tmk/kicad_lib_tmk.git
+[submodule "keyboard_footprints"]
+	path = fp/keyboard_footprints
+	url = https://github.com/pierrechevalier83/keyboard_footprints
+[submodule "ferris_pcb_art"]
+	path = fp/ferris_pcb_art
+	url = https://github.com/pierrechevalier83/ferris_pcb_art
+[submodule "kicad_lib_tmk"]
+	path = sym/kicad_lib_tmk
+	url = https://github.com/tmk/kicad_lib_tmk
+[submodule "tools/kiplot"]
+	path = tools/kiplot
+	url = https://github.com/johnbeard/kiplot.git
+[submodule "tools/ninja"]
+	path = tools/ninja
+	url = https://github.com/ninja-build/ninja.git
+[submodule "tools/PcbDraw"]
+	path = tools/PcbDraw
+	url = https://github.com/yaqwsx/PcbDraw.git
+[submodule "tools/InteractiveHtmlBom"]
+	path = tools/InteractiveHtmlBom
+	url = https://github.com/openscopeproject/InteractiveHtmlBom.git
+[submodule "tools/kicad-jlcpcb-bom-plugin"]
+	path = tools/kicad-jlcpcb-bom-plugin
+	url = https://github.com/wokwi/kicad-jlcpcb-bom-plugin.git

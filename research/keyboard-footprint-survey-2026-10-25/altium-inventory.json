@@ -1,0 +1,306 @@
+[
+  {
+    "pattern": "1206 quad res",
+    "status": "missing",
+    "family": "1206 four-resistor array",
+    "uses": [
+      {
+        "board": "altium-mitosis/receiver.PcbDoc",
+        "reference": "R1"
+      },
+      {
+        "board": "altium-mitosis/receiver.PcbDoc",
+        "reference": "R2"
+      }
+    ],
+    "repo": "reversebias/mitosis-hardware",
+    "commit": "77f1333096a0d9f477d85742ab13a75ec55b854f",
+    "license": "GPL-3.0",
+    "in_pcb_library": true,
+    "source_library": "altium/mitosis.PcbLib",
+    "board_archive": "upstream-boards-and-altium.tar.gz",
+    "source_url": "https://github.com/reversebias/mitosis-hardware/blob/77f1333096a0d9f477d85742ab13a75ec55b854f/altium-mitosis/mitosis.PcbLib"
+  },
+  {
+    "pattern": "Core51822 (B)",
+    "status": "missing",
+    "family": "Waveshare Core51822 (B) radio module",
+    "uses": [
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "U2"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "U1"
+      },
+      {
+        "board": "altium-mitosis/receiver.PcbDoc",
+        "reference": "U1"
+      }
+    ],
+    "repo": "reversebias/mitosis-hardware",
+    "commit": "77f1333096a0d9f477d85742ab13a75ec55b854f",
+    "license": "GPL-3.0",
+    "in_pcb_library": true,
+    "source_library": "altium/mitosis.PcbLib",
+    "board_archive": "upstream-boards-and-altium.tar.gz",
+    "source_url": "https://github.com/reversebias/mitosis-hardware/blob/77f1333096a0d9f477d85742ab13a75ec55b854f/altium-mitosis/mitosis.PcbLib"
+  },
+  {
+    "pattern": "HDR1X4",
+    "status": "missing",
+    "family": "1x4 pin header",
+    "uses": [
+      {
+        "board": "altium-mitosis/receiver.PcbDoc",
+        "reference": "P3"
+      }
+    ],
+    "repo": "reversebias/mitosis-hardware",
+    "commit": "77f1333096a0d9f477d85742ab13a75ec55b854f",
+    "license": "GPL-3.0",
+    "in_pcb_library": false,
+    "source_library": null,
+    "board_archive": "upstream-boards-and-altium.tar.gz",
+    "source_url": "https://github.com/reversebias/mitosis-hardware/blob/77f1333096a0d9f477d85742ab13a75ec55b854f/altium-mitosis/mitosis.PcbLib"
+  },
+  {
+    "pattern": "HDR1X6",
+    "status": "missing",
+    "family": "1x6 pin header",
+    "uses": [
+      {
+        "board": "altium-mitosis/receiver.PcbDoc",
+        "reference": "P1"
+      },
+      {
+        "board": "altium-mitosis/receiver.PcbDoc",
+        "reference": "P2"
+      }
+    ],
+    "repo": "reversebias/mitosis-hardware",
+    "commit": "77f1333096a0d9f477d85742ab13a75ec55b854f",
+    "license": "GPL-3.0",
+    "in_pcb_library": false,
+    "source_library": null,
+    "board_archive": "upstream-boards-and-altium.tar.gz",
+    "source_url": "https://github.com/reversebias/mitosis-hardware/blob/77f1333096a0d9f477d85742ab13a75ec55b854f/altium-mitosis/mitosis.PcbLib"
+  },
+  {
+    "pattern": "PLCC4-RGBLED",
+    "status": "missing",
+    "family": "Cree CLVBA-FKA PLCC-4 RGB LED",
+    "uses": [
+      {
+        "board": "altium-mitosis/receiver.PcbDoc",
+        "reference": "D1"
+      }
+    ],
+    "repo": "reversebias/mitosis-hardware",
+    "commit": "77f1333096a0d9f477d85742ab13a75ec55b854f",
+    "license": "GPL-3.0",
+    "in_pcb_library": true,
+    "source_library": "altium/mitosis.PcbLib",
+    "board_archive": "upstream-boards-and-altium.tar.gz",
+    "source_url": "https://github.com/reversebias/mitosis-hardware/blob/77f1333096a0d9f477d85742ab13a75ec55b854f/altium-mitosis/mitosis.PcbLib"
+  },
+  {
+    "pattern": "RESC2012X06N",
+    "status": "missing",
+    "family": "0805 resistor / diode pads",
+    "uses": [
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "D1"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "R1"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "D2"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "R2"
+      }
+    ],
+    "repo": "reversebias/mitosis-hardware",
+    "commit": "77f1333096a0d9f477d85742ab13a75ec55b854f",
+    "license": "GPL-3.0",
+    "in_pcb_library": true,
+    "source_library": "altium/mitosis.PcbLib",
+    "board_archive": "upstream-boards-and-altium.tar.gz",
+    "source_url": "https://github.com/reversebias/mitosis-hardware/blob/77f1333096a0d9f477d85742ab13a75ec55b854f/altium-mitosis/mitosis.PcbLib"
+  },
+  {
+    "pattern": "SOT-23",
+    "status": "missing",
+    "family": "SOT-23 MOSFET",
+    "uses": [
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "Q2"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "Q1"
+      }
+    ],
+    "repo": "reversebias/mitosis-hardware",
+    "commit": "77f1333096a0d9f477d85742ab13a75ec55b854f",
+    "license": "GPL-3.0",
+    "in_pcb_library": true,
+    "source_library": "altium/mitosis.PcbLib",
+    "board_archive": "upstream-boards-and-altium.tar.gz",
+    "source_url": "https://github.com/reversebias/mitosis-hardware/blob/77f1333096a0d9f477d85742ab13a75ec55b854f/altium-mitosis/mitosis.PcbLib"
+  },
+  {
+    "pattern": "SOT230P700X180-4N",
+    "status": "missing",
+    "family": "1117 regulator SOT-223 land pattern",
+    "uses": [
+      {
+        "board": "altium-mitosis/receiver.PcbDoc",
+        "reference": "U2"
+      }
+    ],
+    "repo": "reversebias/mitosis-hardware",
+    "commit": "77f1333096a0d9f477d85742ab13a75ec55b854f",
+    "license": "GPL-3.0",
+    "in_pcb_library": true,
+    "source_library": "altium/mitosis.PcbLib",
+    "board_archive": "upstream-boards-and-altium.tar.gz",
+    "source_url": "https://github.com/reversebias/mitosis-hardware/blob/77f1333096a0d9f477d85742ab13a75ec55b854f/altium-mitosis/mitosis.PcbLib"
+  },
+  {
+    "pattern": "TACTILE BUTTON",
+    "status": "missing",
+    "family": "PTS525-compatible SMD tactile button",
+    "uses": [
+      {
+        "board": "altium-mitosis/receiver.PcbDoc",
+        "reference": "B1"
+      },
+      {
+        "board": "altium-mitosis/receiver.PcbDoc",
+        "reference": "B2"
+      }
+    ],
+    "repo": "reversebias/mitosis-hardware",
+    "commit": "77f1333096a0d9f477d85742ab13a75ec55b854f",
+    "license": "GPL-3.0",
+    "in_pcb_library": true,
+    "source_library": "altium/mitosis.PcbLib",
+    "board_archive": "upstream-boards-and-altium.tar.gz",
+    "source_url": "https://github.com/reversebias/mitosis-hardware/blob/77f1333096a0d9f477d85742ab13a75ec55b854f/altium-mitosis/mitosis.PcbLib"
+  },
+  {
+    "pattern": "cherry",
+    "status": "covered",
+    "family": "Cherry MX switch",
+    "uses": [
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S2"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S3"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S4"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S5"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S6"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S7"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S8"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S9"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S10"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S11"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S12"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S13"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S14"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S15"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S16"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S17"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S18"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S19"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S20"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S21"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S22"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S23"
+      },
+      {
+        "board": "altium-mitosis/mitosis.PcbDoc",
+        "reference": "S1"
+      }
+    ],
+    "repo": "reversebias/mitosis-hardware",
+    "commit": "77f1333096a0d9f477d85742ab13a75ec55b854f",
+    "license": "GPL-3.0",
+    "in_pcb_library": true,
+    "source_library": "altium/mitosis.PcbLib",
+    "board_archive": "upstream-boards-and-altium.tar.gz",
+    "source_url": "https://github.com/reversebias/mitosis-hardware/blob/77f1333096a0d9f477d85742ab13a75ec55b854f/altium-mitosis/mitosis.PcbLib"
+  }
+]

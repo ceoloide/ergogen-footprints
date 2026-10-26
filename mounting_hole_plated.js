@@ -89,10 +89,14 @@ module.exports = {
     let final = top
     if (size_x == size_y) {
       final += pad_circle
-      final += courtyard_circle
+      if (p.include_courtyard) {
+        final += courtyard_circle
+      }
     } else {
       final += pad_oval
-      final += courtyard_oval
+      if (p.include_courtyard) {
+        final += courtyard_oval
+      }
     }
 
     final += bottom

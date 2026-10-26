@@ -1,0 +1,38 @@
+[
+  {
+    "url": "https://www.reddit.com/r/ErgoMechKeyboards/comments/198djii",
+    "signal": "Community discussion of common boards: Lily58, Sofle, Corne, Sweep, Piantor, Iris, commercial alternatives. Historical discussion, not a representative market poll."
+  },
+  {
+    "url": "https://www.reddit.com/r/ErgoMechKeyboards/comments/1daiugh",
+    "signal": "Recurring recommendations for Lily58, Sofle, Iris, and Corne."
+  },
+  {
+    "url": "https://www.reddit.com/r/ErgoMechKeyboards/comments/1pg6s7o/my_journey_and_showcase/",
+    "signal": "376-vote showcase mentioning Corne, Charybdis, TOTEM and Sweep; vote count as returned by search on research date."
+  },
+  {
+    "url": "https://www.reddit.com/r/ErgoMechKeyboards/comments/1rqya5z/saegewerk_redux/",
+    "signal": "129-vote KLOR/TOTEM discussion."
+  },
+  {
+    "url": "https://www.reddit.com/r/ErgoMechKeyboards/comments/1efxe08/cheapino/",
+    "signal": "223-vote Cheapino build post."
+  },
+  {
+    "url": "https://www.reddit.com/r/MechanicalKeyboards/comments/1shocvt/lumberjack_appreciation_post/",
+    "signal": "122-vote Lumberjack appreciation post."
+  },
+  {
+    "url": "https://www.reddit.com/r/MechanicalKeyboards/comments/gyh5iv",
+    "signal": "Discipline build discussion linking original project and discussing Mysterium."
+  },
+  {
+    "url": "https://github.com/search?q=split+keyboard+sort%3Astars-desc&type=repositories",
+    "signal": "GitHub discovery query, followed by repository API star snapshots and actual PCB inspection."
+  },
+  {
+    "url": "https://github.com/search?q=keyboard+pcb+sort%3Astars-desc&type=repositories",
+    "signal": "Additional custom PCB discovery query."
+  }
+]

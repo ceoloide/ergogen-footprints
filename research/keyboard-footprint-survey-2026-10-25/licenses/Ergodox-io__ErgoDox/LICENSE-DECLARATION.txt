@@ -1,0 +1,4 @@
+Source: https://www.ergodox.io/index
+Retrieved with web tool on 2026-10-25, License section.
+"The keyboard design and hardware files are licensed under the GNU Public License 3."
+The page links to this hardware repository. GPL v3 text is bundled separately.

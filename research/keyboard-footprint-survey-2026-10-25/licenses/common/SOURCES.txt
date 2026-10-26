@@ -1,0 +1,3 @@
+GPL-3.0 text: GEIGEIGEIST/KLOR LICENSE.md at recorded commit.
+CERN-OHL-S-2.0 text: Bastardkb/Dilemma LICENCE.md at recorded commit.
+CC-BY-NC-SA-4.0: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt

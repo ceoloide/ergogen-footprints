@@ -54,10 +54,10 @@ Params:
     pads. The datasheet calls for 5.7mm, but wider position can be accommodated by bending
     legs slightly, while clearing up space for switch mounting pins (i.e. 7.5mm for Cherry,
     8mm for Choc v1, see notes).
-  mounting_hole_width: default is 1.5 (mm)
+  mounting_holes_width: default is 1.5 (mm)
     The width of the mounting holes, in mm. The datasheet calls for 1.4mm rectangular, so an
     extra mm is added for the oval shape. Note that the plated pad is made 0.3mm larger.
-  mounting_hole_height: default is 2.3 (mm)
+  mounting_holes_height: default is 2.3 (mm)
     The height of the mounting holes, in mm. The datasheet calls for 2.1mm rectangular, but users
     reported a very tight fit with 2.1 mm oval holes, so the default is slightly larger. If the
     footprint is not co-located with hotswap sockets, then 2.8 mm is a safe default, as it is the

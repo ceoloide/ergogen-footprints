@@ -1,0 +1,18 @@
+(module 100PITCH1X3 (layer Front) (tedit 4F8E9504) (tstamp 4FDC347A)
+    (at 78.74 37.465 90)
+    (path /4FD9F052)
+    (fp_text reference J4 (at 0 0 90) (layer F.SilkS) hide
+      (effects (font (size 1.524 1.778) (thickness 0.127)))
+    )
+    (fp_text value JMP (at 0 3.048 90) (layer F.SilkS) hide
+      (effects (font (size 1.524 1.778) (thickness 0.2032)))
+    )
+    (fp_line (start -2.54 0) (end 0 0) (layer F.SilkS) (width 2.54))
+    (fp_line (start 0 0) (end 2.54 0) (layer B.SilkS) (width 2.54))
+    (pad 1 thru_hole circle (at -2.54 0 90) (size 1.651 1.651) (drill 0.9906) (layers *.Cu *.Mask F.SilkS)
+      (net 20 VCC))
+    (pad 2 thru_hole circle (at 0 0 90) (size 1.651 1.651) (drill 0.9906) (layers *.Cu *.Mask F.SilkS)
+      (net 23 "Net-(J1-Pad1)"))
+    (pad 3 thru_hole circle (at 2.54 0 90) (size 1.651 1.651) (drill 0.9906) (layers *.Cu *.Mask F.SilkS)
+      (net 19 GND))
+  )
