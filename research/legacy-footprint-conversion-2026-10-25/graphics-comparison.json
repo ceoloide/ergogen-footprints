@@ -1,0 +1,122 @@
+[
+  {
+    "file": "connector_molex_pico_ezmate_1x05.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "utility_battery_icon.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "utility_smd_pad_array.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "passive_0805_array.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "mounting_trackpoint.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "switch_alps.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "reset_switch_tht_fsm8jh.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "switch_choc_mini.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "utility_solder_jumper.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "switch_omron_b3f_4055.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "utility_smd_pad.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "led_ws2812b.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "rotary_encoder_panasonic_evqwgd001.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "power_switch_smd_spdt_c128955.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "utility_via.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "trackpad_azoteq_tps65.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "connector_ffc_gct_ffc3b07_12_t.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "connector_magnetic_vik.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "utility_mouse_bites.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "mcu_elite_c.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "mcu_adafruit_kb2040.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "mcu_seeed_xiao.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "mcu_waveshare_rp2040_zero.js",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "reset_switch_smd_top_alps_skqg.js",
+    "removed": [],
+    "added": []
+  }
+]

@@ -1,0 +1,308 @@
+[
+  {
+    "file": "connector_molex_pico_ezmate_1x05.js",
+    "source_case": "reverse_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "utility_battery_icon.js",
+    "source_case": "reverse_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "utility_smd_pad_array.js",
+    "source_case": "reverse_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "passive_0805_array.js",
+    "source_case": "reverse_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "mounting_trackpoint.js",
+    "source_case": "reverse_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "switch_alps.js",
+    "source_case": "default",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "reset_switch_tht_fsm8jh.js",
+    "source_case": "default",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "switch_choc_mini.js",
+    "source_case": "reverse_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "utility_solder_jumper.js",
+    "source_case": "default",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "switch_omron_b3f_4055.js",
+    "source_case": "default",
+    "removed": [
+      [
+        "",
+        "np_thru_hole",
+        "circle",
+        [
+          -6.25,
+          -2.5,
+          0
+        ],
+        [
+          1.2,
+          1.2
+        ],
+        "(drill 1.2)",
+        [
+          "*.Cu",
+          "*.Mask"
+        ],
+        ""
+      ],
+      [
+        "",
+        "np_thru_hole",
+        "circle",
+        [
+          -6.25,
+          2.5,
+          0
+        ],
+        [
+          1.2,
+          1.2
+        ],
+        "(drill 1.2)",
+        [
+          "*.Cu",
+          "*.Mask"
+        ],
+        ""
+      ],
+      [
+        "",
+        "np_thru_hole",
+        "circle",
+        [
+          6.25,
+          -2.5,
+          0
+        ],
+        [
+          1.2,
+          1.2
+        ],
+        "(drill 1.2)",
+        [
+          "*.Cu",
+          "*.Mask"
+        ],
+        ""
+      ],
+      [
+        "",
+        "np_thru_hole",
+        "circle",
+        [
+          6.25,
+          2.5,
+          0
+        ],
+        [
+          1.2,
+          1.2
+        ],
+        "(drill 1.2)",
+        [
+          "*.Cu",
+          "*.Mask"
+        ],
+        ""
+      ]
+    ],
+    "added": [
+      [
+        "1",
+        "thru_hole",
+        "circle",
+        [
+          6.25,
+          -2.5,
+          0
+        ],
+        [
+          2.2,
+          2.2
+        ],
+        "(drill 1.2)",
+        [
+          "*.Cu",
+          "*.Mask"
+        ],
+        "TEST_from"
+      ],
+      [
+        "2",
+        "thru_hole",
+        "circle",
+        [
+          -6.25,
+          -2.5,
+          0
+        ],
+        [
+          2.2,
+          2.2
+        ],
+        "(drill 1.2)",
+        [
+          "*.Cu",
+          "*.Mask"
+        ],
+        "TEST_from"
+      ],
+      [
+        "3",
+        "thru_hole",
+        "circle",
+        [
+          6.25,
+          2.5,
+          0
+        ],
+        [
+          2.2,
+          2.2
+        ],
+        "(drill 1.2)",
+        [
+          "*.Cu",
+          "*.Mask"
+        ],
+        "TEST_to"
+      ],
+      [
+        "4",
+        "thru_hole",
+        "circle",
+        [
+          -6.25,
+          2.5,
+          0
+        ],
+        [
+          2.2,
+          2.2
+        ],
+        "(drill 1.2)",
+        [
+          "*.Cu",
+          "*.Mask"
+        ],
+        "TEST_to"
+      ]
+    ]
+  },
+  {
+    "file": "utility_smd_pad.js",
+    "source_case": "back_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "led_ws2812b.js",
+    "source_case": "default",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "rotary_encoder_panasonic_evqwgd001.js",
+    "source_case": "reverse_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "power_switch_smd_spdt_c128955.js",
+    "source_case": "default",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "utility_via.js",
+    "source_case": "default",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "trackpad_azoteq_tps65.js",
+    "source_case": "default",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "connector_ffc_gct_ffc3b07_12_t.js",
+    "source_case": "default",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "connector_magnetic_vik.js",
+    "source_case": "default",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "utility_mouse_bites.js",
+    "source_case": "default",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "mcu_elite_c.js",
+    "source_case": "reversable_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "mcu_adafruit_kb2040.js",
+    "source_case": "reversable_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "mcu_seeed_xiao.js",
+    "source_case": "reversable_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "mcu_waveshare_rp2040_zero.js",
+    "source_case": "reversable_off",
+    "removed": [],
+    "added": []
+  },
+  {
+    "file": "reset_switch_smd_top_alps_skqg.js",
+    "source_case": "default",
+    "removed": [],
+    "added": []
+  }
+]

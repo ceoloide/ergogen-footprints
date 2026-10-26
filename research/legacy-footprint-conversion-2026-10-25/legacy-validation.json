@@ -1,0 +1,6001 @@
+{
+  "runtime": "4.1.0",
+  "rows": [
+    {
+      "id": "backlog__infused-kim__conn_molex_pico_ezmate_1x05",
+      "source": "backlog/infused-kim/conn_molex_pico_ezmate_1x05.js",
+      "sha256": "8ac961e21500d50e509a835432f2670c6042f0fec6d1f913ca047561991458bd",
+      "params": {
+        "designator": "CONN",
+        "side": "F",
+        "reverse": false,
+        "pad_1": {
+          "type": "net",
+          "value": "CONN_1"
+        },
+        "pad_2": {
+          "type": "net",
+          "value": "CONN_2"
+        },
+        "pad_3": {
+          "type": "net",
+          "value": "CONN_3"
+        },
+        "pad_4": {
+          "type": "net",
+          "value": "CONN_4"
+        },
+        "pad_5": {
+          "type": "net",
+          "value": "CONN_5"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "pad_1": "TEST_pad_1",
+            "pad_2": "TEST_pad_2",
+            "pad_3": "TEST_pad_3",
+            "pad_4": "TEST_pad_4",
+            "pad_5": "TEST_pad_5"
+          },
+          "directory": "baseline/backlog__infused-kim__conn_molex_pico_ezmate_1x05/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "pad_1": "TEST_pad_1",
+            "pad_2": "TEST_pad_2",
+            "pad_3": "TEST_pad_3",
+            "pad_4": "TEST_pad_4",
+            "pad_5": "TEST_pad_5",
+            "side": "F"
+          },
+          "directory": "baseline/backlog__infused-kim__conn_molex_pico_ezmate_1x05/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "pad_1": "TEST_pad_1",
+            "pad_2": "TEST_pad_2",
+            "pad_3": "TEST_pad_3",
+            "pad_4": "TEST_pad_4",
+            "pad_5": "TEST_pad_5",
+            "side": "B"
+          },
+          "directory": "baseline/backlog__infused-kim__conn_molex_pico_ezmate_1x05/back",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "pad_1": "TEST_pad_1",
+            "pad_2": "TEST_pad_2",
+            "pad_3": "TEST_pad_3",
+            "pad_4": "TEST_pad_4",
+            "pad_5": "TEST_pad_5",
+            "reverse": true
+          },
+          "directory": "baseline/backlog__infused-kim__conn_molex_pico_ezmate_1x05/reverse_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "pad_1": "TEST_pad_1",
+            "pad_2": "TEST_pad_2",
+            "pad_3": "TEST_pad_3",
+            "pad_4": "TEST_pad_4",
+            "pad_5": "TEST_pad_5",
+            "reverse": false
+          },
+          "directory": "baseline/backlog__infused-kim__conn_molex_pico_ezmate_1x05/reverse_off",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__infused-kim__icon_bat",
+      "source": "backlog/infused-kim/icon_bat.js",
+      "sha256": "055c90ded370fabea8fadb30044cb18fa8f7cc0fe386dba4cc6c87f9d0c0431b",
+      "params": {
+        "designator": "ICON",
+        "side": "F",
+        "reverse": false,
+        "spacing": 1
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {},
+          "directory": "baseline/backlog__infused-kim__icon_bat/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "side": "F"
+          },
+          "directory": "baseline/backlog__infused-kim__icon_bat/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "side": "B"
+          },
+          "directory": "baseline/backlog__infused-kim__icon_bat/back",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "reverse": true
+          },
+          "directory": "baseline/backlog__infused-kim__icon_bat/reverse_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "reverse": false
+          },
+          "directory": "baseline/backlog__infused-kim__icon_bat/reverse_off",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__infused-kim__pads",
+      "source": "backlog/infused-kim/pads.js",
+      "sha256": "c0e54c948e37df083399dec23ca8045993ca8fa6198aa286186ea1689b197afd",
+      "params": {
+        "designator": "PAD",
+        "side": "F",
+        "reverse": true,
+        "width": 1.25,
+        "height": 2.5,
+        "space": 2,
+        "mirror": true,
+        "pads": 2,
+        "net_1": {
+          "type": "net",
+          "value": "PAD_1"
+        },
+        "net_2": {
+          "type": "net",
+          "value": "PAD_2"
+        },
+        "net_3": {
+          "type": "net",
+          "value": "PAD_3"
+        },
+        "net_4": {
+          "type": "net",
+          "value": "PAD_4"
+        },
+        "net_5": {
+          "type": "net",
+          "value": "PAD_5"
+        },
+        "net_6": {
+          "type": "net",
+          "value": "PAD_5"
+        },
+        "label_1": "",
+        "label_2": "",
+        "label_3": "",
+        "label_4": "",
+        "label_5": "",
+        "label_6": "",
+        "label_at_bottom": false
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "net_1": "TEST_net_1",
+            "net_2": "TEST_net_2",
+            "net_3": "TEST_net_3",
+            "net_4": "TEST_net_4",
+            "net_5": "TEST_net_5",
+            "net_6": "TEST_net_6"
+          },
+          "directory": "baseline/backlog__infused-kim__pads/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "net_1": "TEST_net_1",
+            "net_2": "TEST_net_2",
+            "net_3": "TEST_net_3",
+            "net_4": "TEST_net_4",
+            "net_5": "TEST_net_5",
+            "net_6": "TEST_net_6",
+            "side": "F"
+          },
+          "directory": "baseline/backlog__infused-kim__pads/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "net_1": "TEST_net_1",
+            "net_2": "TEST_net_2",
+            "net_3": "TEST_net_3",
+            "net_4": "TEST_net_4",
+            "net_5": "TEST_net_5",
+            "net_6": "TEST_net_6",
+            "side": "B"
+          },
+          "directory": "baseline/backlog__infused-kim__pads/back",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "net_1": "TEST_net_1",
+            "net_2": "TEST_net_2",
+            "net_3": "TEST_net_3",
+            "net_4": "TEST_net_4",
+            "net_5": "TEST_net_5",
+            "net_6": "TEST_net_6",
+            "reverse": true
+          },
+          "directory": "baseline/backlog__infused-kim__pads/reverse_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "net_1": "TEST_net_1",
+            "net_2": "TEST_net_2",
+            "net_3": "TEST_net_3",
+            "net_4": "TEST_net_4",
+            "net_5": "TEST_net_5",
+            "net_6": "TEST_net_6",
+            "reverse": false
+          },
+          "directory": "baseline/backlog__infused-kim__pads/reverse_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "mirror_on",
+          "params": {
+            "net_1": "TEST_net_1",
+            "net_2": "TEST_net_2",
+            "net_3": "TEST_net_3",
+            "net_4": "TEST_net_4",
+            "net_5": "TEST_net_5",
+            "net_6": "TEST_net_6",
+            "mirror": true
+          },
+          "directory": "baseline/backlog__infused-kim__pads/mirror_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "mirror_off",
+          "params": {
+            "net_1": "TEST_net_1",
+            "net_2": "TEST_net_2",
+            "net_3": "TEST_net_3",
+            "net_4": "TEST_net_4",
+            "net_5": "TEST_net_5",
+            "net_6": "TEST_net_6",
+            "mirror": false
+          },
+          "directory": "baseline/backlog__infused-kim__pads/mirror_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_at_bottom_on",
+          "params": {
+            "net_1": "TEST_net_1",
+            "net_2": "TEST_net_2",
+            "net_3": "TEST_net_3",
+            "net_4": "TEST_net_4",
+            "net_5": "TEST_net_5",
+            "net_6": "TEST_net_6",
+            "label_at_bottom": true
+          },
+          "directory": "baseline/backlog__infused-kim__pads/label_at_bottom_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_at_bottom_off",
+          "params": {
+            "net_1": "TEST_net_1",
+            "net_2": "TEST_net_2",
+            "net_3": "TEST_net_3",
+            "net_4": "TEST_net_4",
+            "net_5": "TEST_net_5",
+            "net_6": "TEST_net_6",
+            "label_at_bottom": false
+          },
+          "directory": "baseline/backlog__infused-kim__pads/label_at_bottom_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "six_pads",
+          "params": {
+            "net_1": "TEST_net_1",
+            "net_2": "TEST_net_2",
+            "net_3": "TEST_net_3",
+            "net_4": "TEST_net_4",
+            "net_5": "TEST_net_5",
+            "net_6": "TEST_net_6",
+            "pads": 6,
+            "label_1": "ONE",
+            "label_6": "SIX"
+          },
+          "directory": "baseline/backlog__infused-kim__pads/six_pads",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__infused-kim__smd_0805",
+      "source": "backlog/infused-kim/smd_0805.js",
+      "sha256": "07d6b60f40894849fde5a7b57e29e4169bbb3579eb7d9ed57810117bd0bf4b0e",
+      "params": {
+        "designator": "SMD",
+        "side": "F",
+        "reverse": true,
+        "space": 2,
+        "mirror": true,
+        "swap_pad_direction": false,
+        "components": 2,
+        "net_1_from": {
+          "type": "net",
+          "value": "SMD_1_F"
+        },
+        "net_1_to": {
+          "type": "net",
+          "value": "SMD_1_T"
+        },
+        "net_2_from": {
+          "type": "net",
+          "value": "SMD_2_F"
+        },
+        "net_2_to": {
+          "type": "net",
+          "value": "SMD_2_T"
+        },
+        "net_3_from": {
+          "type": "net",
+          "value": "SMD_3_F"
+        },
+        "net_3_to": {
+          "type": "net",
+          "value": "SMD_3_T"
+        },
+        "net_4_from": {
+          "type": "net",
+          "value": "SMD_4_F"
+        },
+        "net_4_to": {
+          "type": "net",
+          "value": "SMD_4_T"
+        },
+        "net_5_from": {
+          "type": "net",
+          "value": "SMD_5_F"
+        },
+        "net_5_to": {
+          "type": "net",
+          "value": "SMD_5_T"
+        },
+        "net_6_from": {
+          "type": "net",
+          "value": "SMD_6_F"
+        },
+        "net_6_to": {
+          "type": "net",
+          "value": "SMD_6_T"
+        },
+        "label_1": "",
+        "label_2": "",
+        "label_3": "",
+        "label_4": "",
+        "label_5": "",
+        "label_6": "",
+        "label_at_bottom": false
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to"
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to",
+            "side": "F"
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to",
+            "side": "B"
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/back",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to",
+            "reverse": true
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/reverse_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to",
+            "reverse": false
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/reverse_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "mirror_on",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to",
+            "mirror": true
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/mirror_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "mirror_off",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to",
+            "mirror": false
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/mirror_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "swap_pad_direction_on",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to",
+            "swap_pad_direction": true
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/swap_pad_direction_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "swap_pad_direction_off",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to",
+            "swap_pad_direction": false
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/swap_pad_direction_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_at_bottom_on",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to",
+            "label_at_bottom": true
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/label_at_bottom_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_at_bottom_off",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to",
+            "label_at_bottom": false
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/label_at_bottom_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "six_components",
+          "params": {
+            "net_1_from": "TEST_net_1_from",
+            "net_1_to": "TEST_net_1_to",
+            "net_2_from": "TEST_net_2_from",
+            "net_2_to": "TEST_net_2_to",
+            "net_3_from": "TEST_net_3_from",
+            "net_3_to": "TEST_net_3_to",
+            "net_4_from": "TEST_net_4_from",
+            "net_4_to": "TEST_net_4_to",
+            "net_5_from": "TEST_net_5_from",
+            "net_5_to": "TEST_net_5_to",
+            "net_6_from": "TEST_net_6_from",
+            "net_6_to": "TEST_net_6_to",
+            "components": 6,
+            "label_1": "ONE",
+            "label_6": "SIX"
+          },
+          "directory": "baseline/backlog__infused-kim__smd_0805/six_components",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__infused-kim__trackpoint_mount",
+      "source": "backlog/infused-kim/trackpoint_mount.js",
+      "sha256": "62927b60446471fd87f1aa41e93eeff585f5673632e137ec92ac123c8a63754e",
+      "params": {
+        "designator": "TP",
+        "side": "B",
+        "reverse": false,
+        "drill": 5.5,
+        "outline": 0.25,
+        "show_outline_t430": false,
+        "show_outline_x240": false,
+        "show_outline_t460s": false,
+        "show_board": false
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {},
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "side": "F"
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "side": "B"
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/back",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "reverse": true
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/reverse_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "reverse": false
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/reverse_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "show_outline_t430_on",
+          "params": {
+            "show_outline_t430": true
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/show_outline_t430_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "show_outline_t430_off",
+          "params": {
+            "show_outline_t430": false
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/show_outline_t430_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "show_outline_x240_on",
+          "params": {
+            "show_outline_x240": true
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/show_outline_x240_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "show_outline_x240_off",
+          "params": {
+            "show_outline_x240": false
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/show_outline_x240_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "show_outline_t460s_on",
+          "params": {
+            "show_outline_t460s": true
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/show_outline_t460s_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "show_outline_t460s_off",
+          "params": {
+            "show_outline_t460s": false
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/show_outline_t460s_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "show_board_on",
+          "params": {
+            "show_board": true
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/show_board_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "show_board_off",
+          "params": {
+            "show_board": false
+          },
+          "directory": "baseline/backlog__infused-kim__trackpoint_mount/show_board_off",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__mrzealot__alps",
+      "source": "backlog/mrzealot/alps.js",
+      "sha256": "9af439c9a06ab3856209d6860e6d51f1ba67df3107780f1b2854589ecdd79f5d",
+      "params": {
+        "designator": "S",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/backlog__mrzealot__alps/default",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__mrzealot__button",
+      "source": "backlog/mrzealot/button.js",
+      "sha256": "df35c8444581a4c15c31430784fa4d610b54f1f2fcf8819cb57e63dcc8a322bd",
+      "params": {
+        "designator": "B",
+        "side": "F",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/backlog__mrzealot__button/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "F"
+          },
+          "directory": "baseline/backlog__mrzealot__button/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "B"
+          },
+          "directory": "baseline/backlog__mrzealot__button/back",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__mrzealot__chocmini",
+      "source": "backlog/mrzealot/chocmini.js",
+      "sha256": "59c6a7c5b111fb3fe0e296dffe4ea5df30555a76385366667d22ed9dde4c3f1e",
+      "params": {
+        "designator": "S",
+        "side": "F",
+        "reverse": false,
+        "keycaps": false,
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/backlog__mrzealot__chocmini/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "F"
+          },
+          "directory": "baseline/backlog__mrzealot__chocmini/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "B"
+          },
+          "directory": "baseline/backlog__mrzealot__chocmini/back",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "reverse": true
+          },
+          "directory": "baseline/backlog__mrzealot__chocmini/reverse_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "reverse": false
+          },
+          "directory": "baseline/backlog__mrzealot__chocmini/reverse_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "keycaps_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "keycaps": true
+          },
+          "directory": "baseline/backlog__mrzealot__chocmini/keycaps_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "keycaps_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "keycaps": false
+          },
+          "directory": "baseline/backlog__mrzealot__chocmini/keycaps_off",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__mrzealot__jumper",
+      "source": "backlog/mrzealot/jumper.js",
+      "sha256": "221459f0b91e5d327795cab6c23017fc537b56cf79e375449b47afa213f70537",
+      "params": {
+        "designator": "J",
+        "side": "F",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/backlog__mrzealot__jumper/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "F"
+          },
+          "directory": "baseline/backlog__mrzealot__jumper/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "B"
+          },
+          "directory": "baseline/backlog__mrzealot__jumper/back",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__mrzealot__omron",
+      "source": "backlog/mrzealot/omron.js",
+      "sha256": "1748f63c1f7534b22ef730e5d20dc9a0a707e221bedffab440e79f03510314d5",
+      "params": {
+        "designator": "S",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/backlog__mrzealot__omron/default",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__mrzealot__pad",
+      "source": "backlog/mrzealot/pad.js",
+      "sha256": "872a3c98c6ca74c28607c94e3cf0cc00bdc9e1c56e9174b55881e304042a20cb",
+      "params": {
+        "designator": "PAD",
+        "width": 1,
+        "height": 1,
+        "front": true,
+        "back": true,
+        "text": "",
+        "align": "left",
+        "mirrored": {
+          "type": "boolean",
+          "value": "{{mirrored}}"
+        },
+        "net": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net"
+          },
+          "directory": "baseline/backlog__mrzealot__pad/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front_on",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net",
+            "front": true
+          },
+          "directory": "baseline/backlog__mrzealot__pad/front_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front_off",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net",
+            "front": false
+          },
+          "directory": "baseline/backlog__mrzealot__pad/front_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back_on",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net",
+            "back": true
+          },
+          "directory": "baseline/backlog__mrzealot__pad/back_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back_off",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net",
+            "back": false
+          },
+          "directory": "baseline/backlog__mrzealot__pad/back_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net",
+            "text": "PAD",
+            "width": 2,
+            "height": 3,
+            "align": "right"
+          },
+          "directory": "baseline/backlog__mrzealot__pad/label",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__mrzealot__rgb",
+      "source": "backlog/mrzealot/rgb.js",
+      "sha256": "bf437e033cebb2032d96632a2ec620627dfc756147520a35c73c79e2bf4381e1",
+      "params": {
+        "designator": "LED",
+        "side": "F",
+        "din": {
+          "type": "net",
+          "required": true
+        },
+        "dout": {
+          "type": "net",
+          "required": true
+        },
+        "VCC": {
+          "type": "net",
+          "value": "VCC"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "din": "TEST_din",
+            "dout": "TEST_dout",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND"
+          },
+          "directory": "baseline/backlog__mrzealot__rgb/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "din": "TEST_din",
+            "dout": "TEST_dout",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "side": "F"
+          },
+          "directory": "baseline/backlog__mrzealot__rgb/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "din": "TEST_din",
+            "dout": "TEST_dout",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "side": "B"
+          },
+          "directory": "baseline/backlog__mrzealot__rgb/back",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__mrzealot__scrollwheel",
+      "source": "backlog/mrzealot/scrollwheel.js",
+      "sha256": "d6800e941226ab26de3b90a37d020d460977e8f584e4006220f9e620608de25a",
+      "params": {
+        "designator": "S",
+        "reverse": false,
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        },
+        "A": {
+          "type": "net",
+          "required": true
+        },
+        "B": {
+          "type": "net",
+          "required": true
+        },
+        "C": {
+          "type": "net",
+          "required": true
+        },
+        "D": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C",
+            "D": "TEST_D"
+          },
+          "directory": "baseline/backlog__mrzealot__scrollwheel/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C",
+            "D": "TEST_D",
+            "reverse": true
+          },
+          "directory": "baseline/backlog__mrzealot__scrollwheel/reverse_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C",
+            "D": "TEST_D",
+            "reverse": false
+          },
+          "directory": "baseline/backlog__mrzealot__scrollwheel/reverse_off",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__mrzealot__slider",
+      "source": "backlog/mrzealot/slider.js",
+      "sha256": "1be6352031f5b559da1952f5eb514eb67bc0de316ad8efaadfd53a8b1ecb68b0",
+      "params": {
+        "designator": "T",
+        "side": "F",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/backlog__mrzealot__slider/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "F"
+          },
+          "directory": "baseline/backlog__mrzealot__slider/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "B"
+          },
+          "directory": "baseline/backlog__mrzealot__slider/back",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__mrzealot__via",
+      "source": "backlog/mrzealot/via.js",
+      "sha256": "e8dde116219b6c3fb5a24bf66e8b418214cdb6b78130181099aa8278a290c053",
+      "params": {
+        "net": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "net": "TEST_net"
+          },
+          "directory": "baseline/backlog__mrzealot__via/default",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__tildewill__azoteq_trackpad",
+      "source": "backlog/tildewill/azoteq_trackpad.js",
+      "sha256": "21728e098f0d0a78f256c7369099c67103298442f1ce62e9c6396cc71be4216f",
+      "params": {
+        "designator": "TP",
+        "side": "F",
+        "SDA": {
+          "type": "net",
+          "value": "SDA"
+        },
+        "SCL": {
+          "type": "net",
+          "value": "SCL"
+        },
+        "VCC": {
+          "type": "net",
+          "value": "VCC"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        },
+        "RST": {
+          "type": "net",
+          "value": ""
+        },
+        "RDY": {
+          "type": "net",
+          "value": ""
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "SDA": "TEST_SDA",
+            "SCL": "TEST_SCL",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "RDY": "TEST_RDY"
+          },
+          "directory": "baseline/backlog__tildewill__azoteq_trackpad/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "SDA": "TEST_SDA",
+            "SCL": "TEST_SCL",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "RDY": "TEST_RDY",
+            "side": "F"
+          },
+          "directory": "baseline/backlog__tildewill__azoteq_trackpad/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "SDA": "TEST_SDA",
+            "SCL": "TEST_SCL",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "RDY": "TEST_RDY",
+            "side": "B"
+          },
+          "directory": "baseline/backlog__tildewill__azoteq_trackpad/back",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__tildewill__connector_ffc_12p",
+      "source": "backlog/tildewill/connector_ffc_12p.js",
+      "sha256": "a125230cf52e3c73b5af656754de4d7e53fccb9d30571ee3722c3eae4cd7d21f",
+      "params": {
+        "designator": "FFC",
+        "P1": {
+          "type": "net",
+          "value": "P1"
+        },
+        "P2": {
+          "type": "net",
+          "value": "P2"
+        },
+        "P3": {
+          "type": "net",
+          "value": "P3"
+        },
+        "P4": {
+          "type": "net",
+          "value": "P4"
+        },
+        "P5": {
+          "type": "net",
+          "value": "P5"
+        },
+        "P6": {
+          "type": "net",
+          "value": "P6"
+        },
+        "P7": {
+          "type": "net",
+          "value": "P7"
+        },
+        "P8": {
+          "type": "net",
+          "value": "P8"
+        },
+        "P9": {
+          "type": "net",
+          "value": "P9"
+        },
+        "P10": {
+          "type": "net",
+          "value": "P10"
+        },
+        "P11": {
+          "type": "net",
+          "value": "P11"
+        },
+        "P12": {
+          "type": "net",
+          "value": "P12"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P10": "TEST_P10",
+            "P11": "TEST_P11",
+            "P12": "TEST_P12"
+          },
+          "directory": "baseline/backlog__tildewill__connector_ffc_12p/default",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__tildewill__magnetic_vik_keyboard_connector",
+      "source": "backlog/tildewill/magnetic_vik_keyboard_connector.js",
+      "sha256": "36e400f5f2c21efe714f24f628f3ab79ffd9da519b44f8a1c85529f1d3095fc9",
+      "params": {
+        "designator": "VIK",
+        "side": "F",
+        "V3V": {
+          "type": "net",
+          "value": "V3V"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        },
+        "SDA": {
+          "type": "net",
+          "value": "SDA"
+        },
+        "SCL": {
+          "type": "net",
+          "value": "SCL"
+        },
+        "RGB_LED_OUT": {
+          "type": "net",
+          "value": "RGB_LED_OUT"
+        },
+        "V5V": {
+          "type": "net",
+          "value": "V5V"
+        },
+        "GPIO1": {
+          "type": "net",
+          "value": "GPIO1"
+        },
+        "MOSI": {
+          "type": "net",
+          "value": "MOSI"
+        },
+        "GPIO2": {
+          "type": "net",
+          "value": "GPIO2"
+        },
+        "SPI_CS": {
+          "type": "net",
+          "value": "SPI_CS"
+        },
+        "MISO": {
+          "type": "net",
+          "value": "MISO"
+        },
+        "SCLK": {
+          "type": "net",
+          "value": "SCLK"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "V3V": "TEST_V3V",
+            "GND": "TEST_GND",
+            "SDA": "TEST_SDA",
+            "SCL": "TEST_SCL",
+            "RGB_LED_OUT": "TEST_RGB_LED_OUT",
+            "V5V": "TEST_V5V",
+            "GPIO1": "TEST_GPIO1",
+            "MOSI": "TEST_MOSI",
+            "GPIO2": "TEST_GPIO2",
+            "SPI_CS": "TEST_SPI_CS",
+            "MISO": "TEST_MISO",
+            "SCLK": "TEST_SCLK"
+          },
+          "directory": "baseline/backlog__tildewill__magnetic_vik_keyboard_connector/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "V3V": "TEST_V3V",
+            "GND": "TEST_GND",
+            "SDA": "TEST_SDA",
+            "SCL": "TEST_SCL",
+            "RGB_LED_OUT": "TEST_RGB_LED_OUT",
+            "V5V": "TEST_V5V",
+            "GPIO1": "TEST_GPIO1",
+            "MOSI": "TEST_MOSI",
+            "GPIO2": "TEST_GPIO2",
+            "SPI_CS": "TEST_SPI_CS",
+            "MISO": "TEST_MISO",
+            "SCLK": "TEST_SCLK",
+            "side": "F"
+          },
+          "directory": "baseline/backlog__tildewill__magnetic_vik_keyboard_connector/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "V3V": "TEST_V3V",
+            "GND": "TEST_GND",
+            "SDA": "TEST_SDA",
+            "SCL": "TEST_SCL",
+            "RGB_LED_OUT": "TEST_RGB_LED_OUT",
+            "V5V": "TEST_V5V",
+            "GPIO1": "TEST_GPIO1",
+            "MOSI": "TEST_MOSI",
+            "GPIO2": "TEST_GPIO2",
+            "SPI_CS": "TEST_SPI_CS",
+            "MISO": "TEST_MISO",
+            "SCLK": "TEST_SCLK",
+            "side": "B"
+          },
+          "directory": "baseline/backlog__tildewill__magnetic_vik_keyboard_connector/back",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__tildewill__rat_bite",
+      "source": "backlog/tildewill/rat_bite.js",
+      "sha256": "fcc3de1eeffbe195ad90919b2602ca7545a1810d8bc59c94a64feb7d220d8f2e",
+      "params": {
+        "designator": "RB"
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {},
+          "directory": "baseline/backlog__tildewill__rat_bite/default",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__virginia2244__elite_c",
+      "source": "backlog/virginia2244/elite_c.js",
+      "sha256": "417320ec2c0b5fecfaa574ced4a1cd5cb1752c54dc2ba558ef17a9d5fa2a9e9a",
+      "params": {
+        "reversable": {
+          "type": "boolean",
+          "value": false
+        },
+        "label": {
+          "type": "boolean",
+          "value": true
+        },
+        "instructions": {
+          "type": "boolean",
+          "value": true
+        },
+        "traces": {
+          "type": "boolean",
+          "value": true
+        },
+        "reversable_pins": {
+          "type": "boolean",
+          "value": 5
+        },
+        "D3": {
+          "type": "net",
+          "value": "D3"
+        },
+        "D2": {
+          "type": "net",
+          "value": "D2"
+        },
+        "D1": {
+          "type": "net",
+          "value": "D1"
+        },
+        "D0": {
+          "type": "net",
+          "value": "D0"
+        },
+        "D4": {
+          "type": "net",
+          "value": "D4"
+        },
+        "C6": {
+          "type": "net",
+          "value": "C6"
+        },
+        "D7": {
+          "type": "net",
+          "value": "D7"
+        },
+        "E6": {
+          "type": "net",
+          "value": "E6"
+        },
+        "B4": {
+          "type": "net",
+          "value": "B4"
+        },
+        "B5": {
+          "type": "net",
+          "value": "B5"
+        },
+        "B0": {
+          "type": "net",
+          "value": "B0"
+        },
+        "F4": {
+          "type": "net",
+          "value": "F4"
+        },
+        "F5": {
+          "type": "net",
+          "value": "F5"
+        },
+        "F6": {
+          "type": "net",
+          "value": "F6"
+        },
+        "F7": {
+          "type": "net",
+          "value": "F7"
+        },
+        "B1": {
+          "type": "net",
+          "value": "B1"
+        },
+        "B3": {
+          "type": "net",
+          "value": "B3"
+        },
+        "B2": {
+          "type": "net",
+          "value": "B2"
+        },
+        "B6": {
+          "type": "net",
+          "value": "B6"
+        },
+        "VBUS": {
+          "type": "net",
+          "value": "VBUS"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        },
+        "RST": {
+          "type": "net",
+          "value": "RST"
+        },
+        "VCC": {
+          "type": "net",
+          "value": "VCC"
+        },
+        "B7": {
+          "type": "net",
+          "value": "B7"
+        },
+        "D5": {
+          "type": "net",
+          "value": "D5"
+        },
+        "C7": {
+          "type": "net",
+          "value": "C7"
+        },
+        "F1": {
+          "type": "net",
+          "value": "F1"
+        },
+        "F0": {
+          "type": "net",
+          "value": "F0"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "D3": "TEST_D3",
+            "D2": "TEST_D2",
+            "D1": "TEST_D1",
+            "D0": "TEST_D0",
+            "D4": "TEST_D4",
+            "C6": "TEST_C6",
+            "D7": "TEST_D7",
+            "E6": "TEST_E6",
+            "B4": "TEST_B4",
+            "B5": "TEST_B5",
+            "B0": "TEST_B0",
+            "F4": "TEST_F4",
+            "F5": "TEST_F5",
+            "F6": "TEST_F6",
+            "F7": "TEST_F7",
+            "B1": "TEST_B1",
+            "B3": "TEST_B3",
+            "B2": "TEST_B2",
+            "B6": "TEST_B6",
+            "VBUS": "TEST_VBUS",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "B7": "TEST_B7",
+            "D5": "TEST_D5",
+            "C7": "TEST_C7",
+            "F1": "TEST_F1",
+            "F0": "TEST_F0"
+          },
+          "directory": "baseline/backlog__virginia2244__elite_c/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reversable_on",
+          "params": {
+            "D3": "TEST_D3",
+            "D2": "TEST_D2",
+            "D1": "TEST_D1",
+            "D0": "TEST_D0",
+            "D4": "TEST_D4",
+            "C6": "TEST_C6",
+            "D7": "TEST_D7",
+            "E6": "TEST_E6",
+            "B4": "TEST_B4",
+            "B5": "TEST_B5",
+            "B0": "TEST_B0",
+            "F4": "TEST_F4",
+            "F5": "TEST_F5",
+            "F6": "TEST_F6",
+            "F7": "TEST_F7",
+            "B1": "TEST_B1",
+            "B3": "TEST_B3",
+            "B2": "TEST_B2",
+            "B6": "TEST_B6",
+            "VBUS": "TEST_VBUS",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "B7": "TEST_B7",
+            "D5": "TEST_D5",
+            "C7": "TEST_C7",
+            "F1": "TEST_F1",
+            "F0": "TEST_F0",
+            "reversable": true
+          },
+          "directory": "baseline/backlog__virginia2244__elite_c/reversable_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reversable_off",
+          "params": {
+            "D3": "TEST_D3",
+            "D2": "TEST_D2",
+            "D1": "TEST_D1",
+            "D0": "TEST_D0",
+            "D4": "TEST_D4",
+            "C6": "TEST_C6",
+            "D7": "TEST_D7",
+            "E6": "TEST_E6",
+            "B4": "TEST_B4",
+            "B5": "TEST_B5",
+            "B0": "TEST_B0",
+            "F4": "TEST_F4",
+            "F5": "TEST_F5",
+            "F6": "TEST_F6",
+            "F7": "TEST_F7",
+            "B1": "TEST_B1",
+            "B3": "TEST_B3",
+            "B2": "TEST_B2",
+            "B6": "TEST_B6",
+            "VBUS": "TEST_VBUS",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "B7": "TEST_B7",
+            "D5": "TEST_D5",
+            "C7": "TEST_C7",
+            "F1": "TEST_F1",
+            "F0": "TEST_F0",
+            "reversable": false
+          },
+          "directory": "baseline/backlog__virginia2244__elite_c/reversable_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_on",
+          "params": {
+            "D3": "TEST_D3",
+            "D2": "TEST_D2",
+            "D1": "TEST_D1",
+            "D0": "TEST_D0",
+            "D4": "TEST_D4",
+            "C6": "TEST_C6",
+            "D7": "TEST_D7",
+            "E6": "TEST_E6",
+            "B4": "TEST_B4",
+            "B5": "TEST_B5",
+            "B0": "TEST_B0",
+            "F4": "TEST_F4",
+            "F5": "TEST_F5",
+            "F6": "TEST_F6",
+            "F7": "TEST_F7",
+            "B1": "TEST_B1",
+            "B3": "TEST_B3",
+            "B2": "TEST_B2",
+            "B6": "TEST_B6",
+            "VBUS": "TEST_VBUS",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "B7": "TEST_B7",
+            "D5": "TEST_D5",
+            "C7": "TEST_C7",
+            "F1": "TEST_F1",
+            "F0": "TEST_F0",
+            "label": true
+          },
+          "directory": "baseline/backlog__virginia2244__elite_c/label_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_off",
+          "params": {
+            "D3": "TEST_D3",
+            "D2": "TEST_D2",
+            "D1": "TEST_D1",
+            "D0": "TEST_D0",
+            "D4": "TEST_D4",
+            "C6": "TEST_C6",
+            "D7": "TEST_D7",
+            "E6": "TEST_E6",
+            "B4": "TEST_B4",
+            "B5": "TEST_B5",
+            "B0": "TEST_B0",
+            "F4": "TEST_F4",
+            "F5": "TEST_F5",
+            "F6": "TEST_F6",
+            "F7": "TEST_F7",
+            "B1": "TEST_B1",
+            "B3": "TEST_B3",
+            "B2": "TEST_B2",
+            "B6": "TEST_B6",
+            "VBUS": "TEST_VBUS",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "B7": "TEST_B7",
+            "D5": "TEST_D5",
+            "C7": "TEST_C7",
+            "F1": "TEST_F1",
+            "F0": "TEST_F0",
+            "label": false
+          },
+          "directory": "baseline/backlog__virginia2244__elite_c/label_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "instructions_on",
+          "params": {
+            "D3": "TEST_D3",
+            "D2": "TEST_D2",
+            "D1": "TEST_D1",
+            "D0": "TEST_D0",
+            "D4": "TEST_D4",
+            "C6": "TEST_C6",
+            "D7": "TEST_D7",
+            "E6": "TEST_E6",
+            "B4": "TEST_B4",
+            "B5": "TEST_B5",
+            "B0": "TEST_B0",
+            "F4": "TEST_F4",
+            "F5": "TEST_F5",
+            "F6": "TEST_F6",
+            "F7": "TEST_F7",
+            "B1": "TEST_B1",
+            "B3": "TEST_B3",
+            "B2": "TEST_B2",
+            "B6": "TEST_B6",
+            "VBUS": "TEST_VBUS",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "B7": "TEST_B7",
+            "D5": "TEST_D5",
+            "C7": "TEST_C7",
+            "F1": "TEST_F1",
+            "F0": "TEST_F0",
+            "instructions": true
+          },
+          "directory": "baseline/backlog__virginia2244__elite_c/instructions_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "instructions_off",
+          "params": {
+            "D3": "TEST_D3",
+            "D2": "TEST_D2",
+            "D1": "TEST_D1",
+            "D0": "TEST_D0",
+            "D4": "TEST_D4",
+            "C6": "TEST_C6",
+            "D7": "TEST_D7",
+            "E6": "TEST_E6",
+            "B4": "TEST_B4",
+            "B5": "TEST_B5",
+            "B0": "TEST_B0",
+            "F4": "TEST_F4",
+            "F5": "TEST_F5",
+            "F6": "TEST_F6",
+            "F7": "TEST_F7",
+            "B1": "TEST_B1",
+            "B3": "TEST_B3",
+            "B2": "TEST_B2",
+            "B6": "TEST_B6",
+            "VBUS": "TEST_VBUS",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "B7": "TEST_B7",
+            "D5": "TEST_D5",
+            "C7": "TEST_C7",
+            "F1": "TEST_F1",
+            "F0": "TEST_F0",
+            "instructions": false
+          },
+          "directory": "baseline/backlog__virginia2244__elite_c/instructions_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "traces_on",
+          "params": {
+            "D3": "TEST_D3",
+            "D2": "TEST_D2",
+            "D1": "TEST_D1",
+            "D0": "TEST_D0",
+            "D4": "TEST_D4",
+            "C6": "TEST_C6",
+            "D7": "TEST_D7",
+            "E6": "TEST_E6",
+            "B4": "TEST_B4",
+            "B5": "TEST_B5",
+            "B0": "TEST_B0",
+            "F4": "TEST_F4",
+            "F5": "TEST_F5",
+            "F6": "TEST_F6",
+            "F7": "TEST_F7",
+            "B1": "TEST_B1",
+            "B3": "TEST_B3",
+            "B2": "TEST_B2",
+            "B6": "TEST_B6",
+            "VBUS": "TEST_VBUS",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "B7": "TEST_B7",
+            "D5": "TEST_D5",
+            "C7": "TEST_C7",
+            "F1": "TEST_F1",
+            "F0": "TEST_F0",
+            "traces": true
+          },
+          "directory": "baseline/backlog__virginia2244__elite_c/traces_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "traces_off",
+          "params": {
+            "D3": "TEST_D3",
+            "D2": "TEST_D2",
+            "D1": "TEST_D1",
+            "D0": "TEST_D0",
+            "D4": "TEST_D4",
+            "C6": "TEST_C6",
+            "D7": "TEST_D7",
+            "E6": "TEST_E6",
+            "B4": "TEST_B4",
+            "B5": "TEST_B5",
+            "B0": "TEST_B0",
+            "F4": "TEST_F4",
+            "F5": "TEST_F5",
+            "F6": "TEST_F6",
+            "F7": "TEST_F7",
+            "B1": "TEST_B1",
+            "B3": "TEST_B3",
+            "B2": "TEST_B2",
+            "B6": "TEST_B6",
+            "VBUS": "TEST_VBUS",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "B7": "TEST_B7",
+            "D5": "TEST_D5",
+            "C7": "TEST_C7",
+            "F1": "TEST_F1",
+            "F0": "TEST_F0",
+            "traces": false
+          },
+          "directory": "baseline/backlog__virginia2244__elite_c/traces_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "all_pins",
+          "params": {
+            "D3": "TEST_D3",
+            "D2": "TEST_D2",
+            "D1": "TEST_D1",
+            "D0": "TEST_D0",
+            "D4": "TEST_D4",
+            "C6": "TEST_C6",
+            "D7": "TEST_D7",
+            "E6": "TEST_E6",
+            "B4": "TEST_B4",
+            "B5": "TEST_B5",
+            "B0": "TEST_B0",
+            "F4": "TEST_F4",
+            "F5": "TEST_F5",
+            "F6": "TEST_F6",
+            "F7": "TEST_F7",
+            "B1": "TEST_B1",
+            "B3": "TEST_B3",
+            "B2": "TEST_B2",
+            "B6": "TEST_B6",
+            "VBUS": "TEST_VBUS",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "B7": "TEST_B7",
+            "D5": "TEST_D5",
+            "C7": "TEST_C7",
+            "F1": "TEST_F1",
+            "F0": "TEST_F0",
+            "reversable": true,
+            "reversable_pins": 100
+          },
+          "directory": "baseline/backlog__virginia2244__elite_c/all_pins",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__virginia2244__kb2040",
+      "source": "backlog/virginia2244/kb2040.js",
+      "sha256": "3785993ff963247988a05a63e778b39f55d44f73d38e12a65a29619abc23aac8",
+      "params": {
+        "reversable": {
+          "type": "boolean",
+          "value": true
+        },
+        "label": {
+          "type": "boolean",
+          "value": true
+        },
+        "instructions": {
+          "type": "boolean",
+          "value": true
+        },
+        "traces": {
+          "type": "boolean",
+          "value": true
+        },
+        "view": {
+          "type": "boolean",
+          "value": true
+        },
+        "DPOS": {
+          "type": "net",
+          "value": "DPOS"
+        },
+        "DMIN": {
+          "type": "net",
+          "value": "DMIN"
+        },
+        "TX": {
+          "type": "net",
+          "value": "TX"
+        },
+        "RX": {
+          "type": "net",
+          "value": "RX"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        },
+        "P1": {
+          "type": "net",
+          "value": "P1"
+        },
+        "P2": {
+          "type": "net",
+          "value": "P2"
+        },
+        "P3": {
+          "type": "net",
+          "value": "P3"
+        },
+        "P4": {
+          "type": "net",
+          "value": "P4"
+        },
+        "P5": {
+          "type": "net",
+          "value": "P5"
+        },
+        "P6": {
+          "type": "net",
+          "value": "P6"
+        },
+        "P7": {
+          "type": "net",
+          "value": "P7"
+        },
+        "P8": {
+          "type": "net",
+          "value": "P8"
+        },
+        "P9": {
+          "type": "net",
+          "value": "P9"
+        },
+        "RAW": {
+          "type": "net",
+          "value": "RAW"
+        },
+        "G": {
+          "type": "net",
+          "value": "G"
+        },
+        "RST": {
+          "type": "net",
+          "value": "RST"
+        },
+        "V3": {
+          "type": "net",
+          "value": "V3"
+        },
+        "A3": {
+          "type": "net",
+          "value": "A3"
+        },
+        "A2": {
+          "type": "net",
+          "value": "A2"
+        },
+        "A1": {
+          "type": "net",
+          "value": "A1"
+        },
+        "A0": {
+          "type": "net",
+          "value": "A0"
+        },
+        "CLK": {
+          "type": "net",
+          "value": "CLK"
+        },
+        "MI": {
+          "type": "net",
+          "value": "MI"
+        },
+        "MO": {
+          "type": "net",
+          "value": "MO"
+        },
+        "P10": {
+          "type": "net",
+          "value": "P10"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "DPOS": "TEST_DPOS",
+            "DMIN": "TEST_DMIN",
+            "TX": "TEST_TX",
+            "RX": "TEST_RX",
+            "GND": "TEST_GND",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "RAW": "TEST_RAW",
+            "G": "TEST_G",
+            "RST": "TEST_RST",
+            "V3": "TEST_V3",
+            "A3": "TEST_A3",
+            "A2": "TEST_A2",
+            "A1": "TEST_A1",
+            "A0": "TEST_A0",
+            "CLK": "TEST_CLK",
+            "MI": "TEST_MI",
+            "MO": "TEST_MO",
+            "P10": "TEST_P10"
+          },
+          "directory": "baseline/backlog__virginia2244__kb2040/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reversable_on",
+          "params": {
+            "DPOS": "TEST_DPOS",
+            "DMIN": "TEST_DMIN",
+            "TX": "TEST_TX",
+            "RX": "TEST_RX",
+            "GND": "TEST_GND",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "RAW": "TEST_RAW",
+            "G": "TEST_G",
+            "RST": "TEST_RST",
+            "V3": "TEST_V3",
+            "A3": "TEST_A3",
+            "A2": "TEST_A2",
+            "A1": "TEST_A1",
+            "A0": "TEST_A0",
+            "CLK": "TEST_CLK",
+            "MI": "TEST_MI",
+            "MO": "TEST_MO",
+            "P10": "TEST_P10",
+            "reversable": true
+          },
+          "directory": "baseline/backlog__virginia2244__kb2040/reversable_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reversable_off",
+          "params": {
+            "DPOS": "TEST_DPOS",
+            "DMIN": "TEST_DMIN",
+            "TX": "TEST_TX",
+            "RX": "TEST_RX",
+            "GND": "TEST_GND",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "RAW": "TEST_RAW",
+            "G": "TEST_G",
+            "RST": "TEST_RST",
+            "V3": "TEST_V3",
+            "A3": "TEST_A3",
+            "A2": "TEST_A2",
+            "A1": "TEST_A1",
+            "A0": "TEST_A0",
+            "CLK": "TEST_CLK",
+            "MI": "TEST_MI",
+            "MO": "TEST_MO",
+            "P10": "TEST_P10",
+            "reversable": false
+          },
+          "directory": "baseline/backlog__virginia2244__kb2040/reversable_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_on",
+          "params": {
+            "DPOS": "TEST_DPOS",
+            "DMIN": "TEST_DMIN",
+            "TX": "TEST_TX",
+            "RX": "TEST_RX",
+            "GND": "TEST_GND",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "RAW": "TEST_RAW",
+            "G": "TEST_G",
+            "RST": "TEST_RST",
+            "V3": "TEST_V3",
+            "A3": "TEST_A3",
+            "A2": "TEST_A2",
+            "A1": "TEST_A1",
+            "A0": "TEST_A0",
+            "CLK": "TEST_CLK",
+            "MI": "TEST_MI",
+            "MO": "TEST_MO",
+            "P10": "TEST_P10",
+            "label": true
+          },
+          "directory": "baseline/backlog__virginia2244__kb2040/label_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_off",
+          "params": {
+            "DPOS": "TEST_DPOS",
+            "DMIN": "TEST_DMIN",
+            "TX": "TEST_TX",
+            "RX": "TEST_RX",
+            "GND": "TEST_GND",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "RAW": "TEST_RAW",
+            "G": "TEST_G",
+            "RST": "TEST_RST",
+            "V3": "TEST_V3",
+            "A3": "TEST_A3",
+            "A2": "TEST_A2",
+            "A1": "TEST_A1",
+            "A0": "TEST_A0",
+            "CLK": "TEST_CLK",
+            "MI": "TEST_MI",
+            "MO": "TEST_MO",
+            "P10": "TEST_P10",
+            "label": false
+          },
+          "directory": "baseline/backlog__virginia2244__kb2040/label_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "instructions_on",
+          "params": {
+            "DPOS": "TEST_DPOS",
+            "DMIN": "TEST_DMIN",
+            "TX": "TEST_TX",
+            "RX": "TEST_RX",
+            "GND": "TEST_GND",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "RAW": "TEST_RAW",
+            "G": "TEST_G",
+            "RST": "TEST_RST",
+            "V3": "TEST_V3",
+            "A3": "TEST_A3",
+            "A2": "TEST_A2",
+            "A1": "TEST_A1",
+            "A0": "TEST_A0",
+            "CLK": "TEST_CLK",
+            "MI": "TEST_MI",
+            "MO": "TEST_MO",
+            "P10": "TEST_P10",
+            "instructions": true
+          },
+          "directory": "baseline/backlog__virginia2244__kb2040/instructions_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "instructions_off",
+          "params": {
+            "DPOS": "TEST_DPOS",
+            "DMIN": "TEST_DMIN",
+            "TX": "TEST_TX",
+            "RX": "TEST_RX",
+            "GND": "TEST_GND",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "RAW": "TEST_RAW",
+            "G": "TEST_G",
+            "RST": "TEST_RST",
+            "V3": "TEST_V3",
+            "A3": "TEST_A3",
+            "A2": "TEST_A2",
+            "A1": "TEST_A1",
+            "A0": "TEST_A0",
+            "CLK": "TEST_CLK",
+            "MI": "TEST_MI",
+            "MO": "TEST_MO",
+            "P10": "TEST_P10",
+            "instructions": false
+          },
+          "directory": "baseline/backlog__virginia2244__kb2040/instructions_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "traces_on",
+          "params": {
+            "DPOS": "TEST_DPOS",
+            "DMIN": "TEST_DMIN",
+            "TX": "TEST_TX",
+            "RX": "TEST_RX",
+            "GND": "TEST_GND",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "RAW": "TEST_RAW",
+            "G": "TEST_G",
+            "RST": "TEST_RST",
+            "V3": "TEST_V3",
+            "A3": "TEST_A3",
+            "A2": "TEST_A2",
+            "A1": "TEST_A1",
+            "A0": "TEST_A0",
+            "CLK": "TEST_CLK",
+            "MI": "TEST_MI",
+            "MO": "TEST_MO",
+            "P10": "TEST_P10",
+            "traces": true
+          },
+          "directory": "baseline/backlog__virginia2244__kb2040/traces_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "traces_off",
+          "params": {
+            "DPOS": "TEST_DPOS",
+            "DMIN": "TEST_DMIN",
+            "TX": "TEST_TX",
+            "RX": "TEST_RX",
+            "GND": "TEST_GND",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "RAW": "TEST_RAW",
+            "G": "TEST_G",
+            "RST": "TEST_RST",
+            "V3": "TEST_V3",
+            "A3": "TEST_A3",
+            "A2": "TEST_A2",
+            "A1": "TEST_A1",
+            "A0": "TEST_A0",
+            "CLK": "TEST_CLK",
+            "MI": "TEST_MI",
+            "MO": "TEST_MO",
+            "P10": "TEST_P10",
+            "traces": false
+          },
+          "directory": "baseline/backlog__virginia2244__kb2040/traces_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "view_on",
+          "params": {
+            "DPOS": "TEST_DPOS",
+            "DMIN": "TEST_DMIN",
+            "TX": "TEST_TX",
+            "RX": "TEST_RX",
+            "GND": "TEST_GND",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "RAW": "TEST_RAW",
+            "G": "TEST_G",
+            "RST": "TEST_RST",
+            "V3": "TEST_V3",
+            "A3": "TEST_A3",
+            "A2": "TEST_A2",
+            "A1": "TEST_A1",
+            "A0": "TEST_A0",
+            "CLK": "TEST_CLK",
+            "MI": "TEST_MI",
+            "MO": "TEST_MO",
+            "P10": "TEST_P10",
+            "view": true
+          },
+          "directory": "baseline/backlog__virginia2244__kb2040/view_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "view_off",
+          "params": {
+            "DPOS": "TEST_DPOS",
+            "DMIN": "TEST_DMIN",
+            "TX": "TEST_TX",
+            "RX": "TEST_RX",
+            "GND": "TEST_GND",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "RAW": "TEST_RAW",
+            "G": "TEST_G",
+            "RST": "TEST_RST",
+            "V3": "TEST_V3",
+            "A3": "TEST_A3",
+            "A2": "TEST_A2",
+            "A1": "TEST_A1",
+            "A0": "TEST_A0",
+            "CLK": "TEST_CLK",
+            "MI": "TEST_MI",
+            "MO": "TEST_MO",
+            "P10": "TEST_P10",
+            "view": false
+          },
+          "directory": "baseline/backlog__virginia2244__kb2040/view_off",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__virginia2244__nice_nano",
+      "source": "backlog/virginia2244/nice_nano.js",
+      "sha256": "286b027d6e76cc7e31606bb453ff6cadbcbd228f477638d9819935b37804b815",
+      "params": {
+        "reversable": {
+          "type": "boolean",
+          "value": true
+        },
+        "label": {
+          "type": "boolean",
+          "value": true
+        },
+        "instructions": {
+          "type": "boolean",
+          "value": true
+        },
+        "traces": {
+          "type": "boolean",
+          "value": true
+        },
+        "view": {
+          "type": "boolean",
+          "value": true
+        },
+        "P006": {
+          "type": "net",
+          "value": "P006"
+        },
+        "P008": {
+          "type": "net",
+          "value": "P008"
+        },
+        "P017": {
+          "type": "net",
+          "value": "P017"
+        },
+        "P020": {
+          "type": "net",
+          "value": "P020"
+        },
+        "P022": {
+          "type": "net",
+          "value": "P022"
+        },
+        "P024": {
+          "type": "net",
+          "value": "P024"
+        },
+        "P100": {
+          "type": "net",
+          "value": "P100"
+        },
+        "P011": {
+          "type": "net",
+          "value": "P011"
+        },
+        "P104": {
+          "type": "net",
+          "value": "P104"
+        },
+        "P106": {
+          "type": "net",
+          "value": "P106"
+        },
+        "P031": {
+          "type": "net",
+          "value": "P031"
+        },
+        "P029": {
+          "type": "net",
+          "value": "P029"
+        },
+        "P002": {
+          "type": "net",
+          "value": "P002"
+        },
+        "P115": {
+          "type": "net",
+          "value": "P115"
+        },
+        "P113": {
+          "type": "net",
+          "value": "P113"
+        },
+        "P111": {
+          "type": "net",
+          "value": "P111"
+        },
+        "P010": {
+          "type": "net",
+          "value": "P010"
+        },
+        "P009": {
+          "type": "net",
+          "value": "P009"
+        },
+        "BPOS": {
+          "type": "net",
+          "value": "BPOS"
+        },
+        "BNEG": {
+          "type": "net",
+          "value": "BNEG"
+        },
+        "RAW": {
+          "type": "net",
+          "value": "RAW"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        },
+        "RST": {
+          "type": "net",
+          "value": "RST"
+        },
+        "VCC": {
+          "type": "net",
+          "value": "VCC"
+        },
+        "P101": {
+          "type": "net",
+          "value": "P101"
+        },
+        "P102": {
+          "type": "net",
+          "value": "P102"
+        },
+        "P107": {
+          "type": "net",
+          "value": "P107"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "P006": "TEST_P006",
+            "P008": "TEST_P008",
+            "P017": "TEST_P017",
+            "P020": "TEST_P020",
+            "P022": "TEST_P022",
+            "P024": "TEST_P024",
+            "P100": "TEST_P100",
+            "P011": "TEST_P011",
+            "P104": "TEST_P104",
+            "P106": "TEST_P106",
+            "P031": "TEST_P031",
+            "P029": "TEST_P029",
+            "P002": "TEST_P002",
+            "P115": "TEST_P115",
+            "P113": "TEST_P113",
+            "P111": "TEST_P111",
+            "P010": "TEST_P010",
+            "P009": "TEST_P009",
+            "BPOS": "TEST_BPOS",
+            "BNEG": "TEST_BNEG",
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P101": "TEST_P101",
+            "P102": "TEST_P102",
+            "P107": "TEST_P107"
+          },
+          "directory": "baseline/backlog__virginia2244__nice_nano/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reversable_on",
+          "params": {
+            "P006": "TEST_P006",
+            "P008": "TEST_P008",
+            "P017": "TEST_P017",
+            "P020": "TEST_P020",
+            "P022": "TEST_P022",
+            "P024": "TEST_P024",
+            "P100": "TEST_P100",
+            "P011": "TEST_P011",
+            "P104": "TEST_P104",
+            "P106": "TEST_P106",
+            "P031": "TEST_P031",
+            "P029": "TEST_P029",
+            "P002": "TEST_P002",
+            "P115": "TEST_P115",
+            "P113": "TEST_P113",
+            "P111": "TEST_P111",
+            "P010": "TEST_P010",
+            "P009": "TEST_P009",
+            "BPOS": "TEST_BPOS",
+            "BNEG": "TEST_BNEG",
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P101": "TEST_P101",
+            "P102": "TEST_P102",
+            "P107": "TEST_P107",
+            "reversable": true
+          },
+          "directory": "baseline/backlog__virginia2244__nice_nano/reversable_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reversable_off",
+          "params": {
+            "P006": "TEST_P006",
+            "P008": "TEST_P008",
+            "P017": "TEST_P017",
+            "P020": "TEST_P020",
+            "P022": "TEST_P022",
+            "P024": "TEST_P024",
+            "P100": "TEST_P100",
+            "P011": "TEST_P011",
+            "P104": "TEST_P104",
+            "P106": "TEST_P106",
+            "P031": "TEST_P031",
+            "P029": "TEST_P029",
+            "P002": "TEST_P002",
+            "P115": "TEST_P115",
+            "P113": "TEST_P113",
+            "P111": "TEST_P111",
+            "P010": "TEST_P010",
+            "P009": "TEST_P009",
+            "BPOS": "TEST_BPOS",
+            "BNEG": "TEST_BNEG",
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P101": "TEST_P101",
+            "P102": "TEST_P102",
+            "P107": "TEST_P107",
+            "reversable": false
+          },
+          "directory": "baseline/backlog__virginia2244__nice_nano/reversable_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_on",
+          "params": {
+            "P006": "TEST_P006",
+            "P008": "TEST_P008",
+            "P017": "TEST_P017",
+            "P020": "TEST_P020",
+            "P022": "TEST_P022",
+            "P024": "TEST_P024",
+            "P100": "TEST_P100",
+            "P011": "TEST_P011",
+            "P104": "TEST_P104",
+            "P106": "TEST_P106",
+            "P031": "TEST_P031",
+            "P029": "TEST_P029",
+            "P002": "TEST_P002",
+            "P115": "TEST_P115",
+            "P113": "TEST_P113",
+            "P111": "TEST_P111",
+            "P010": "TEST_P010",
+            "P009": "TEST_P009",
+            "BPOS": "TEST_BPOS",
+            "BNEG": "TEST_BNEG",
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P101": "TEST_P101",
+            "P102": "TEST_P102",
+            "P107": "TEST_P107",
+            "label": true
+          },
+          "directory": "baseline/backlog__virginia2244__nice_nano/label_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_off",
+          "params": {
+            "P006": "TEST_P006",
+            "P008": "TEST_P008",
+            "P017": "TEST_P017",
+            "P020": "TEST_P020",
+            "P022": "TEST_P022",
+            "P024": "TEST_P024",
+            "P100": "TEST_P100",
+            "P011": "TEST_P011",
+            "P104": "TEST_P104",
+            "P106": "TEST_P106",
+            "P031": "TEST_P031",
+            "P029": "TEST_P029",
+            "P002": "TEST_P002",
+            "P115": "TEST_P115",
+            "P113": "TEST_P113",
+            "P111": "TEST_P111",
+            "P010": "TEST_P010",
+            "P009": "TEST_P009",
+            "BPOS": "TEST_BPOS",
+            "BNEG": "TEST_BNEG",
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P101": "TEST_P101",
+            "P102": "TEST_P102",
+            "P107": "TEST_P107",
+            "label": false
+          },
+          "directory": "baseline/backlog__virginia2244__nice_nano/label_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "instructions_on",
+          "params": {
+            "P006": "TEST_P006",
+            "P008": "TEST_P008",
+            "P017": "TEST_P017",
+            "P020": "TEST_P020",
+            "P022": "TEST_P022",
+            "P024": "TEST_P024",
+            "P100": "TEST_P100",
+            "P011": "TEST_P011",
+            "P104": "TEST_P104",
+            "P106": "TEST_P106",
+            "P031": "TEST_P031",
+            "P029": "TEST_P029",
+            "P002": "TEST_P002",
+            "P115": "TEST_P115",
+            "P113": "TEST_P113",
+            "P111": "TEST_P111",
+            "P010": "TEST_P010",
+            "P009": "TEST_P009",
+            "BPOS": "TEST_BPOS",
+            "BNEG": "TEST_BNEG",
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P101": "TEST_P101",
+            "P102": "TEST_P102",
+            "P107": "TEST_P107",
+            "instructions": true
+          },
+          "directory": "baseline/backlog__virginia2244__nice_nano/instructions_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "instructions_off",
+          "params": {
+            "P006": "TEST_P006",
+            "P008": "TEST_P008",
+            "P017": "TEST_P017",
+            "P020": "TEST_P020",
+            "P022": "TEST_P022",
+            "P024": "TEST_P024",
+            "P100": "TEST_P100",
+            "P011": "TEST_P011",
+            "P104": "TEST_P104",
+            "P106": "TEST_P106",
+            "P031": "TEST_P031",
+            "P029": "TEST_P029",
+            "P002": "TEST_P002",
+            "P115": "TEST_P115",
+            "P113": "TEST_P113",
+            "P111": "TEST_P111",
+            "P010": "TEST_P010",
+            "P009": "TEST_P009",
+            "BPOS": "TEST_BPOS",
+            "BNEG": "TEST_BNEG",
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P101": "TEST_P101",
+            "P102": "TEST_P102",
+            "P107": "TEST_P107",
+            "instructions": false
+          },
+          "directory": "baseline/backlog__virginia2244__nice_nano/instructions_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "traces_on",
+          "params": {
+            "P006": "TEST_P006",
+            "P008": "TEST_P008",
+            "P017": "TEST_P017",
+            "P020": "TEST_P020",
+            "P022": "TEST_P022",
+            "P024": "TEST_P024",
+            "P100": "TEST_P100",
+            "P011": "TEST_P011",
+            "P104": "TEST_P104",
+            "P106": "TEST_P106",
+            "P031": "TEST_P031",
+            "P029": "TEST_P029",
+            "P002": "TEST_P002",
+            "P115": "TEST_P115",
+            "P113": "TEST_P113",
+            "P111": "TEST_P111",
+            "P010": "TEST_P010",
+            "P009": "TEST_P009",
+            "BPOS": "TEST_BPOS",
+            "BNEG": "TEST_BNEG",
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P101": "TEST_P101",
+            "P102": "TEST_P102",
+            "P107": "TEST_P107",
+            "traces": true
+          },
+          "directory": "baseline/backlog__virginia2244__nice_nano/traces_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "traces_off",
+          "params": {
+            "P006": "TEST_P006",
+            "P008": "TEST_P008",
+            "P017": "TEST_P017",
+            "P020": "TEST_P020",
+            "P022": "TEST_P022",
+            "P024": "TEST_P024",
+            "P100": "TEST_P100",
+            "P011": "TEST_P011",
+            "P104": "TEST_P104",
+            "P106": "TEST_P106",
+            "P031": "TEST_P031",
+            "P029": "TEST_P029",
+            "P002": "TEST_P002",
+            "P115": "TEST_P115",
+            "P113": "TEST_P113",
+            "P111": "TEST_P111",
+            "P010": "TEST_P010",
+            "P009": "TEST_P009",
+            "BPOS": "TEST_BPOS",
+            "BNEG": "TEST_BNEG",
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P101": "TEST_P101",
+            "P102": "TEST_P102",
+            "P107": "TEST_P107",
+            "traces": false
+          },
+          "directory": "baseline/backlog__virginia2244__nice_nano/traces_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "view_on",
+          "params": {
+            "P006": "TEST_P006",
+            "P008": "TEST_P008",
+            "P017": "TEST_P017",
+            "P020": "TEST_P020",
+            "P022": "TEST_P022",
+            "P024": "TEST_P024",
+            "P100": "TEST_P100",
+            "P011": "TEST_P011",
+            "P104": "TEST_P104",
+            "P106": "TEST_P106",
+            "P031": "TEST_P031",
+            "P029": "TEST_P029",
+            "P002": "TEST_P002",
+            "P115": "TEST_P115",
+            "P113": "TEST_P113",
+            "P111": "TEST_P111",
+            "P010": "TEST_P010",
+            "P009": "TEST_P009",
+            "BPOS": "TEST_BPOS",
+            "BNEG": "TEST_BNEG",
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P101": "TEST_P101",
+            "P102": "TEST_P102",
+            "P107": "TEST_P107",
+            "view": true
+          },
+          "directory": "baseline/backlog__virginia2244__nice_nano/view_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "view_off",
+          "params": {
+            "P006": "TEST_P006",
+            "P008": "TEST_P008",
+            "P017": "TEST_P017",
+            "P020": "TEST_P020",
+            "P022": "TEST_P022",
+            "P024": "TEST_P024",
+            "P100": "TEST_P100",
+            "P011": "TEST_P011",
+            "P104": "TEST_P104",
+            "P106": "TEST_P106",
+            "P031": "TEST_P031",
+            "P029": "TEST_P029",
+            "P002": "TEST_P002",
+            "P115": "TEST_P115",
+            "P113": "TEST_P113",
+            "P111": "TEST_P111",
+            "P010": "TEST_P010",
+            "P009": "TEST_P009",
+            "BPOS": "TEST_BPOS",
+            "BNEG": "TEST_BNEG",
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P101": "TEST_P101",
+            "P102": "TEST_P102",
+            "P107": "TEST_P107",
+            "view": false
+          },
+          "directory": "baseline/backlog__virginia2244__nice_nano/view_off",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__virginia2244__pro_micro",
+      "source": "backlog/virginia2244/pro_micro.js",
+      "sha256": "ad5a9161b97b8268848ac80d655435a6d57236c4b5d0d672c9b81bb24c71f20c",
+      "params": {
+        "reversable": {
+          "type": "boolean",
+          "value": true
+        },
+        "label": {
+          "type": "boolean",
+          "value": true
+        },
+        "instructions": {
+          "type": "boolean",
+          "value": true
+        },
+        "traces": {
+          "type": "boolean",
+          "value": true
+        },
+        "view": {
+          "type": "boolean",
+          "value": true
+        },
+        "reversable_pins": {
+          "type": "boolean",
+          "value": 4
+        },
+        "P1": {
+          "type": "net",
+          "value": "P1"
+        },
+        "P0": {
+          "type": "net",
+          "value": "P0"
+        },
+        "P2": {
+          "type": "net",
+          "value": "P2"
+        },
+        "P3": {
+          "type": "net",
+          "value": "P3"
+        },
+        "P4": {
+          "type": "net",
+          "value": "P4"
+        },
+        "P5": {
+          "type": "net",
+          "value": "P5"
+        },
+        "P6": {
+          "type": "net",
+          "value": "P6"
+        },
+        "P7": {
+          "type": "net",
+          "value": "P7"
+        },
+        "P8": {
+          "type": "net",
+          "value": "P8"
+        },
+        "P9": {
+          "type": "net",
+          "value": "P9"
+        },
+        "P21": {
+          "type": "net",
+          "value": "P21"
+        },
+        "P20": {
+          "type": "net",
+          "value": "P20"
+        },
+        "P19": {
+          "type": "net",
+          "value": "P19"
+        },
+        "P18": {
+          "type": "net",
+          "value": "P18"
+        },
+        "P15": {
+          "type": "net",
+          "value": "P15"
+        },
+        "P14": {
+          "type": "net",
+          "value": "P14"
+        },
+        "P16": {
+          "type": "net",
+          "value": "P16"
+        },
+        "P10": {
+          "type": "net",
+          "value": "P10"
+        },
+        "RAW": {
+          "type": "net",
+          "value": "RAW"
+        },
+        "RST": {
+          "type": "net",
+          "value": "RST"
+        },
+        "VCC": {
+          "type": "net",
+          "value": "VCC"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND"
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reversable_on",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "reversable": true
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/reversable_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reversable_off",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "reversable": false
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/reversable_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_on",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "label": true
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/label_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "label_off",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "label": false
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/label_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "instructions_on",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "instructions": true
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/instructions_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "instructions_off",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "instructions": false
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/instructions_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "traces_on",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "traces": true
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/traces_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "traces_off",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "traces": false
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/traces_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "view_on",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "view": true
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/view_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "view_off",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "view": false
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/view_off",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "all_pins",
+          "params": {
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "RAW": "TEST_RAW",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "reversable": true,
+            "reversable_pins": 100
+          },
+          "directory": "baseline/backlog__virginia2244__pro_micro/all_pins",
+          "error": "Cannot read properties of undefined (reading '0')"
+        }
+      ]
+    },
+    {
+      "id": "backlog__virginia2244__rgb",
+      "source": "backlog/virginia2244/rgb.js",
+      "sha256": "b9c3934f2cbb05a5a8a12c40d531521e8ef44cf2b3cb182bb31f6c440c3ad955",
+      "params": {
+        "designator": "LED",
+        "side": "F",
+        "reverse": false,
+        "din": {
+          "type": "net",
+          "required": true
+        },
+        "dout": {
+          "type": "net",
+          "required": true
+        },
+        "VCC": {
+          "type": "net",
+          "value": "VCC"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "din": "TEST_din",
+            "dout": "TEST_dout",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND"
+          },
+          "directory": "baseline/backlog__virginia2244__rgb/default",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "front",
+          "params": {
+            "din": "TEST_din",
+            "dout": "TEST_dout",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "side": "F"
+          },
+          "directory": "baseline/backlog__virginia2244__rgb/front",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "back",
+          "params": {
+            "din": "TEST_din",
+            "dout": "TEST_dout",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "side": "B"
+          },
+          "directory": "baseline/backlog__virginia2244__rgb/back",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "din": "TEST_din",
+            "dout": "TEST_dout",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "reverse": true
+          },
+          "directory": "baseline/backlog__virginia2244__rgb/reverse_on",
+          "generated": true,
+          "roundtripped": true
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "din": "TEST_din",
+            "dout": "TEST_dout",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "reverse": false
+          },
+          "directory": "baseline/backlog__virginia2244__rgb/reverse_off",
+          "generated": true,
+          "roundtripped": true
+        }
+      ]
+    },
+    {
+      "id": "backlog__virginia2244__seeed_xiao",
+      "source": "backlog/virginia2244/seeed_xiao.js",
+      "sha256": "d838c5098d08d78850d4a4ecfa052be64e9deeb3506c7ce013c11a4adf8ad2f1",
+      "params": {
+        "reversable": {
+          "type": "boolean",
+          "value": true
+        },
+        "label": {
+          "type": "boolean",
+          "value": true
+        },
+        "instructions": {
+          "type": "boolean",
+          "value": true
+        },
+        "traces": {
+          "type": "boolean",
+          "value": true
+        },
+        "reversable_pins": {
+          "type": "boolean",
+          "value": 3
+        },
+        "P0": {
+          "type": "net",
+          "value": "P0"
+        },
+        "P1": {
+          "type": "net",
+          "value": "P1"
+        },
+        "P2": {
+          "type": "net",
+          "value": "P2"
+        },
+        "P3": {
+          "type": "net",
+          "value": "P3"
+        },
+        "P4": {
+          "type": "net",
+          "value": "P4"
+        },
+        "P5": {
+          "type": "net",
+          "value": "P5"
+        },
+        "P6": {
+          "type": "net",
+          "value": "P6"
+        },
+        "P7": {
+          "type": "net",
+          "value": "P7"
+        },
+        "P8": {
+          "type": "net",
+          "value": "P8"
+        },
+        "P9": {
+          "type": "net",
+          "value": "P9"
+        },
+        "P10": {
+          "type": "net",
+          "value": "P10"
+        },
+        "VCC": {
+          "type": "net",
+          "value": "VCC"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        },
+        "V3": {
+          "type": "net",
+          "value": "V3"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P10": "TEST_P10",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3"
+          },
+          "directory": "baseline/backlog__virginia2244__seeed_xiao/default",
+          "generated": true,
+          "roundtripped": false,
+          "roundtrip_error": {
+            "exit_code": -11,
+            "stderr": ""
+          },
+          "preflight": {
+            "reason": "Mixed legacy board header and modern start/mid/end arcs crash KiCad 9 importer. Use modern board header and strokes without altering geometry.",
+            "exit_code": 0,
+            "result": "{\"footprints\": 1, \"pads\": 44, \"tracks\": 36}"
+          }
+        },
+        {
+          "name": "reversable_on",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P10": "TEST_P10",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "reversable": true
+          },
+          "directory": "baseline/backlog__virginia2244__seeed_xiao/reversable_on",
+          "generated": true,
+          "roundtripped": false,
+          "roundtrip_error": {
+            "exit_code": -11,
+            "stderr": ""
+          },
+          "preflight": {
+            "reason": "Mixed legacy board header and modern start/mid/end arcs crash KiCad 9 importer. Use modern board header and strokes without altering geometry.",
+            "exit_code": 0,
+            "result": "{\"footprints\": 1, \"pads\": 44, \"tracks\": 36}"
+          }
+        },
+        {
+          "name": "reversable_off",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P10": "TEST_P10",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "reversable": false
+          },
+          "directory": "baseline/backlog__virginia2244__seeed_xiao/reversable_off",
+          "generated": true,
+          "roundtripped": false,
+          "roundtrip_error": {
+            "exit_code": -11,
+            "stderr": ""
+          },
+          "preflight": {
+            "reason": "Mixed legacy board header and modern start/mid/end arcs crash KiCad 9 importer. Use modern board header and strokes without altering geometry.",
+            "exit_code": 0,
+            "result": "{\"footprints\": 1, \"pads\": 14, \"tracks\": 0}"
+          }
+        },
+        {
+          "name": "label_on",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P10": "TEST_P10",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "label": true
+          },
+          "directory": "baseline/backlog__virginia2244__seeed_xiao/label_on",
+          "generated": true,
+          "roundtripped": false,
+          "roundtrip_error": {
+            "exit_code": -11,
+            "stderr": ""
+          },
+          "preflight": {
+            "reason": "Mixed legacy board header and modern start/mid/end arcs crash KiCad 9 importer. Use modern board header and strokes without altering geometry.",
+            "exit_code": 0,
+            "result": "{\"footprints\": 1, \"pads\": 44, \"tracks\": 36}"
+          }
+        },
+        {
+          "name": "label_off",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P10": "TEST_P10",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "label": false
+          },
+          "directory": "baseline/backlog__virginia2244__seeed_xiao/label_off",
+          "generated": true,
+          "roundtripped": false,
+          "roundtrip_error": {
+            "exit_code": -11,
+            "stderr": ""
+          },
+          "preflight": {
+            "reason": "Mixed legacy board header and modern start/mid/end arcs crash KiCad 9 importer. Use modern board header and strokes without altering geometry.",
+            "exit_code": 0,
+            "result": "{\"footprints\": 1, \"pads\": 44, \"tracks\": 36}"
+          }
+        },
+        {
+          "name": "instructions_on",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P10": "TEST_P10",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "instructions": true
+          },
+          "directory": "baseline/backlog__virginia2244__seeed_xiao/instructions_on",
+          "generated": true,
+          "roundtripped": false,
+          "roundtrip_error": {
+            "exit_code": -11,
+            "stderr": ""
+          },
+          "preflight": {
+            "reason": "Mixed legacy board header and modern start/mid/end arcs crash KiCad 9 importer. Use modern board header and strokes without altering geometry.",
+            "exit_code": 0,
+            "result": "{\"footprints\": 1, \"pads\": 44, \"tracks\": 36}"
+          }
+        },
+        {
+          "name": "instructions_off",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P10": "TEST_P10",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "instructions": false
+          },
+          "directory": "baseline/backlog__virginia2244__seeed_xiao/instructions_off",
+          "generated": true,
+          "roundtripped": false,
+          "roundtrip_error": {
+            "exit_code": -11,
+            "stderr": ""
+          },
+          "preflight": {
+            "reason": "Mixed legacy board header and modern start/mid/end arcs crash KiCad 9 importer. Use modern board header and strokes without altering geometry.",
+            "exit_code": 0,
+            "result": "{\"footprints\": 1, \"pads\": 44, \"tracks\": 36}"
+          }
+        },
+        {
+          "name": "traces_on",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P10": "TEST_P10",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "traces": true
+          },
+          "directory": "baseline/backlog__virginia2244__seeed_xiao/traces_on",
+          "generated": true,
+          "roundtripped": false,
+          "roundtrip_error": {
+            "exit_code": -11,
+            "stderr": ""
+          },
+          "preflight": {
+            "reason": "Mixed legacy board header and modern start/mid/end arcs crash KiCad 9 importer. Use modern board header and strokes without altering geometry.",
+            "exit_code": 0,
+            "result": "{\"footprints\": 1, \"pads\": 44, \"tracks\": 36}"
+          }
+        },
+        {
+          "name": "traces_off",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P10": "TEST_P10",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "traces": false
+          },
+          "directory": "baseline/backlog__virginia2244__seeed_xiao/traces_off",
+          "generated": true,
+          "roundtripped": false,
+          "roundtrip_error": {
+            "exit_code": -11,
+            "stderr": ""
+          },
+          "preflight": {
+            "reason": "Mixed legacy board header and modern start/mid/end arcs crash KiCad 9 importer. Use modern board header and strokes without altering geometry.",
+            "exit_code": 0,
+            "result": "{\"footprints\": 1, \"pads\": 44, \"tracks\": 0}"
+          }
+        },
+        {
+          "name": "all_pins",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9",
+            "P10": "TEST_P10",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "reversable": true,
+            "reversable_pins": 100
+          },
+          "directory": "baseline/backlog__virginia2244__seeed_xiao/all_pins",
+          "generated": true,
+          "roundtripped": false,
+          "roundtrip_error": {
+            "exit_code": -11,
+            "stderr": ""
+          },
+          "preflight": {
+            "reason": "Mixed legacy board header and modern start/mid/end arcs crash KiCad 9 importer. Use modern board header and strokes without altering geometry.",
+            "exit_code": 0,
+            "result": "{\"footprints\": 1, \"pads\": 84, \"tracks\": 84}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "backlog__virginia2244__waveshare_rp2040_zero",
+      "source": "backlog/virginia2244/waveshare_rp2040_zero.js",
+      "sha256": "13d13d7af41b1ee80367a0936113a4ee24133aee89864641d6ec2a2b7116e054",
+      "params": {
+        "reversable": {
+          "type": "boolean",
+          "value": true
+        },
+        "label": {
+          "type": "boolean",
+          "value": true
+        },
+        "instructions": {
+          "type": "boolean",
+          "value": true
+        },
+        "traces": {
+          "type": "boolean",
+          "value": true
+        },
+        "P0": {
+          "type": "net",
+          "value": "P0"
+        },
+        "P1": {
+          "type": "net",
+          "value": "P1"
+        },
+        "P2": {
+          "type": "net",
+          "value": "P2"
+        },
+        "P3": {
+          "type": "net",
+          "value": "P3"
+        },
+        "P4": {
+          "type": "net",
+          "value": "P4"
+        },
+        "P5": {
+          "type": "net",
+          "value": "P5"
+        },
+        "P6": {
+          "type": "net",
+          "value": "P6"
+        },
+        "P7": {
+          "type": "net",
+          "value": "P7"
+        },
+        "P8": {
+          "type": "net",
+          "value": "P8"
+        },
+        "V5": {
+          "type": "net",
+          "value": "V5"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        },
+        "V3": {
+          "type": "net",
+          "value": "V3"
+        },
+        "P29": {
+          "type": "net",
+          "value": "P29"
+        },
+        "P28": {
+          "type": "net",
+          "value": "P28"
+        },
+        "P27": {
+          "type": "net",
+          "value": "P27"
+        },
+        "P26": {
+          "type": "net",
+          "value": "P26"
+        },
+        "P15": {
+          "type": "net",
+          "value": "P15"
+        },
+        "P14": {
+          "type": "net",
+          "value": "P14"
+        },
+        "P13": {
+          "type": "net",
+          "value": "P13"
+        },
+        "P12": {
+          "type": "net",
+          "value": "P12"
+        },
+        "P11": {
+          "type": "net",
+          "value": "P11"
+        },
+        "P10": {
+          "type": "net",
+          "value": "P10"
+        },
+        "P9": {
+          "type": "net",
+          "value": "P9"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "V5": "TEST_V5",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "P29": "TEST_P29",
+            "P28": "TEST_P28",
+            "P27": "TEST_P27",
+            "P26": "TEST_P26",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P13": "TEST_P13",
+            "P12": "TEST_P12",
+            "P11": "TEST_P11",
+            "P10": "TEST_P10",
+            "P9": "TEST_P9"
+          },
+          "directory": "baseline/backlog__virginia2244__waveshare_rp2040_zero/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 108,
+          "tracks": 108
+        },
+        {
+          "name": "reversable_on",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "V5": "TEST_V5",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "P29": "TEST_P29",
+            "P28": "TEST_P28",
+            "P27": "TEST_P27",
+            "P26": "TEST_P26",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P13": "TEST_P13",
+            "P12": "TEST_P12",
+            "P11": "TEST_P11",
+            "P10": "TEST_P10",
+            "P9": "TEST_P9",
+            "reversable": true
+          },
+          "directory": "baseline/backlog__virginia2244__waveshare_rp2040_zero/reversable_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 108,
+          "tracks": 108
+        },
+        {
+          "name": "reversable_off",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "V5": "TEST_V5",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "P29": "TEST_P29",
+            "P28": "TEST_P28",
+            "P27": "TEST_P27",
+            "P26": "TEST_P26",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P13": "TEST_P13",
+            "P12": "TEST_P12",
+            "P11": "TEST_P11",
+            "P10": "TEST_P10",
+            "P9": "TEST_P9",
+            "reversable": false
+          },
+          "directory": "baseline/backlog__virginia2244__waveshare_rp2040_zero/reversable_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 23,
+          "tracks": 0
+        },
+        {
+          "name": "label_on",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "V5": "TEST_V5",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "P29": "TEST_P29",
+            "P28": "TEST_P28",
+            "P27": "TEST_P27",
+            "P26": "TEST_P26",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P13": "TEST_P13",
+            "P12": "TEST_P12",
+            "P11": "TEST_P11",
+            "P10": "TEST_P10",
+            "P9": "TEST_P9",
+            "label": true
+          },
+          "directory": "baseline/backlog__virginia2244__waveshare_rp2040_zero/label_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 108,
+          "tracks": 108
+        },
+        {
+          "name": "label_off",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "V5": "TEST_V5",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "P29": "TEST_P29",
+            "P28": "TEST_P28",
+            "P27": "TEST_P27",
+            "P26": "TEST_P26",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P13": "TEST_P13",
+            "P12": "TEST_P12",
+            "P11": "TEST_P11",
+            "P10": "TEST_P10",
+            "P9": "TEST_P9",
+            "label": false
+          },
+          "directory": "baseline/backlog__virginia2244__waveshare_rp2040_zero/label_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 108,
+          "tracks": 108
+        },
+        {
+          "name": "instructions_on",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "V5": "TEST_V5",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "P29": "TEST_P29",
+            "P28": "TEST_P28",
+            "P27": "TEST_P27",
+            "P26": "TEST_P26",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P13": "TEST_P13",
+            "P12": "TEST_P12",
+            "P11": "TEST_P11",
+            "P10": "TEST_P10",
+            "P9": "TEST_P9",
+            "instructions": true
+          },
+          "directory": "baseline/backlog__virginia2244__waveshare_rp2040_zero/instructions_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 108,
+          "tracks": 108
+        },
+        {
+          "name": "instructions_off",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "V5": "TEST_V5",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "P29": "TEST_P29",
+            "P28": "TEST_P28",
+            "P27": "TEST_P27",
+            "P26": "TEST_P26",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P13": "TEST_P13",
+            "P12": "TEST_P12",
+            "P11": "TEST_P11",
+            "P10": "TEST_P10",
+            "P9": "TEST_P9",
+            "instructions": false
+          },
+          "directory": "baseline/backlog__virginia2244__waveshare_rp2040_zero/instructions_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 108,
+          "tracks": 108
+        },
+        {
+          "name": "traces_on",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "V5": "TEST_V5",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "P29": "TEST_P29",
+            "P28": "TEST_P28",
+            "P27": "TEST_P27",
+            "P26": "TEST_P26",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P13": "TEST_P13",
+            "P12": "TEST_P12",
+            "P11": "TEST_P11",
+            "P10": "TEST_P10",
+            "P9": "TEST_P9",
+            "traces": true
+          },
+          "directory": "baseline/backlog__virginia2244__waveshare_rp2040_zero/traces_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 108,
+          "tracks": 108
+        },
+        {
+          "name": "traces_off",
+          "params": {
+            "P0": "TEST_P0",
+            "P1": "TEST_P1",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "V5": "TEST_V5",
+            "GND": "TEST_GND",
+            "V3": "TEST_V3",
+            "P29": "TEST_P29",
+            "P28": "TEST_P28",
+            "P27": "TEST_P27",
+            "P26": "TEST_P26",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P13": "TEST_P13",
+            "P12": "TEST_P12",
+            "P11": "TEST_P11",
+            "P10": "TEST_P10",
+            "P9": "TEST_P9",
+            "traces": false
+          },
+          "directory": "baseline/backlog__virginia2244__waveshare_rp2040_zero/traces_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 108,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__alps",
+      "source": "ergogen/src/footprints/alps.js",
+      "sha256": "03d6cba8467499756cc4622ec9065c05f0dab267ba9353bcecad9b8e9312329c",
+      "params": {
+        "designator": "S",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/ergogen__src__footprints__alps/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 2,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__button",
+      "source": "ergogen/src/footprints/button.js",
+      "sha256": "608f29676082c7f6573304614a870f4188fc416c80814bf49d9e79b2d1eb0647",
+      "params": {
+        "designator": "B",
+        "side": "F",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/ergogen__src__footprints__button/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        },
+        {
+          "name": "front",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "F"
+          },
+          "directory": "baseline/ergogen__src__footprints__button/front",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        },
+        {
+          "name": "back",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "B"
+          },
+          "directory": "baseline/ergogen__src__footprints__button/back",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__choc",
+      "source": "ergogen/src/footprints/choc.js",
+      "sha256": "948c8487fc50887d4d3fdfbe062416468d7760932391cee67d1c9a0944d3c946",
+      "params": {
+        "designator": "S",
+        "hotswap": false,
+        "reverse": false,
+        "keycaps": false,
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/ergogen__src__footprints__choc/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 5,
+          "tracks": 0
+        },
+        {
+          "name": "hotswap_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "hotswap": true
+          },
+          "directory": "baseline/ergogen__src__footprints__choc/hotswap_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 7,
+          "tracks": 0
+        },
+        {
+          "name": "hotswap_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "hotswap": false
+          },
+          "directory": "baseline/ergogen__src__footprints__choc/hotswap_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 5,
+          "tracks": 0
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "reverse": true
+          },
+          "directory": "baseline/ergogen__src__footprints__choc/reverse_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 7,
+          "tracks": 0
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "reverse": false
+          },
+          "directory": "baseline/ergogen__src__footprints__choc/reverse_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 5,
+          "tracks": 0
+        },
+        {
+          "name": "keycaps_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "keycaps": true
+          },
+          "directory": "baseline/ergogen__src__footprints__choc/keycaps_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 5,
+          "tracks": 0
+        },
+        {
+          "name": "keycaps_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "keycaps": false
+          },
+          "directory": "baseline/ergogen__src__footprints__choc/keycaps_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 5,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__chocmini",
+      "source": "ergogen/src/footprints/chocmini.js",
+      "sha256": "27d719c15676694d365bf83e0dbf6222831c75bc255718a1c943b6d72ac6f0bd",
+      "params": {
+        "designator": "S",
+        "side": "F",
+        "reverse": false,
+        "keycaps": false,
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/ergogen__src__footprints__chocmini/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        },
+        {
+          "name": "front",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "F"
+          },
+          "directory": "baseline/ergogen__src__footprints__chocmini/front",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        },
+        {
+          "name": "back",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "B"
+          },
+          "directory": "baseline/ergogen__src__footprints__chocmini/back",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "reverse": true
+          },
+          "directory": "baseline/ergogen__src__footprints__chocmini/reverse_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 6,
+          "tracks": 0
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "reverse": false
+          },
+          "directory": "baseline/ergogen__src__footprints__chocmini/reverse_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        },
+        {
+          "name": "keycaps_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "keycaps": true
+          },
+          "directory": "baseline/ergogen__src__footprints__chocmini/keycaps_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        },
+        {
+          "name": "keycaps_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "keycaps": false
+          },
+          "directory": "baseline/ergogen__src__footprints__chocmini/keycaps_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__diode",
+      "source": "ergogen/src/footprints/diode.js",
+      "sha256": "ab412e94f3dc11af21d5856aed4fb66b2b685059e3f5338d699e2227314ce880",
+      "params": {
+        "designator": "D",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/ergogen__src__footprints__diode/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 6,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__jstph",
+      "source": "ergogen/src/footprints/jstph.js",
+      "sha256": "08c58456ac8a3c1c4b8fdfdfd71b5c1fffb3582d3d77cbb01e8bd220683f8ddf",
+      "params": {
+        "designator": "JST",
+        "side": "F",
+        "pos": {
+          "type": "net",
+          "required": true
+        },
+        "neg": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "pos": "TEST_pos",
+            "neg": "TEST_neg"
+          },
+          "directory": "baseline/ergogen__src__footprints__jstph/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 2,
+          "tracks": 0
+        },
+        {
+          "name": "front",
+          "params": {
+            "pos": "TEST_pos",
+            "neg": "TEST_neg",
+            "side": "F"
+          },
+          "directory": "baseline/ergogen__src__footprints__jstph/front",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 2,
+          "tracks": 0
+        },
+        {
+          "name": "back",
+          "params": {
+            "pos": "TEST_pos",
+            "neg": "TEST_neg",
+            "side": "B"
+          },
+          "directory": "baseline/ergogen__src__footprints__jstph/back",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 2,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__jumper",
+      "source": "ergogen/src/footprints/jumper.js",
+      "sha256": "a519bef51c19a501d030b6ebcf555ec239bd66cb338e13fe0298124d9c5db894",
+      "params": {
+        "designator": "J",
+        "side": "F",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/ergogen__src__footprints__jumper/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 2,
+          "tracks": 0
+        },
+        {
+          "name": "front",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "F"
+          },
+          "directory": "baseline/ergogen__src__footprints__jumper/front",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 2,
+          "tracks": 0
+        },
+        {
+          "name": "back",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "B"
+          },
+          "directory": "baseline/ergogen__src__footprints__jumper/back",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 2,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__mx",
+      "source": "ergogen/src/footprints/mx.js",
+      "sha256": "1692bdf70514286302eb4444d61361c54b3c52f352d3c3405c91089f8e1f906e",
+      "params": {
+        "designator": "S",
+        "hotswap": false,
+        "reverse": false,
+        "keycaps": false,
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/ergogen__src__footprints__mx/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 5,
+          "tracks": 0
+        },
+        {
+          "name": "hotswap_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "hotswap": true
+          },
+          "directory": "baseline/ergogen__src__footprints__mx/hotswap_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 7,
+          "tracks": 0
+        },
+        {
+          "name": "hotswap_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "hotswap": false
+          },
+          "directory": "baseline/ergogen__src__footprints__mx/hotswap_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 5,
+          "tracks": 0
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "reverse": true
+          },
+          "directory": "baseline/ergogen__src__footprints__mx/reverse_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 7,
+          "tracks": 0
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "reverse": false
+          },
+          "directory": "baseline/ergogen__src__footprints__mx/reverse_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 5,
+          "tracks": 0
+        },
+        {
+          "name": "keycaps_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "keycaps": true
+          },
+          "directory": "baseline/ergogen__src__footprints__mx/keycaps_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 5,
+          "tracks": 0
+        },
+        {
+          "name": "keycaps_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "keycaps": false
+          },
+          "directory": "baseline/ergogen__src__footprints__mx/keycaps_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 5,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__oled",
+      "source": "ergogen/src/footprints/oled.js",
+      "sha256": "b88b5d632e8fc0c9db7e3cf233bac36a10aa9cb5f1034b4b80c08b9b6bd4497e",
+      "params": {
+        "designator": "OLED",
+        "side": "F",
+        "VCC": {
+          "type": "net",
+          "value": "VCC"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        },
+        "SDA": {
+          "type": "net",
+          "required": true
+        },
+        "SCL": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "SDA": "TEST_SDA",
+            "SCL": "TEST_SCL"
+          },
+          "directory": "baseline/ergogen__src__footprints__oled/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        },
+        {
+          "name": "front",
+          "params": {
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "SDA": "TEST_SDA",
+            "SCL": "TEST_SCL",
+            "side": "F"
+          },
+          "directory": "baseline/ergogen__src__footprints__oled/front",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        },
+        {
+          "name": "back",
+          "params": {
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "SDA": "TEST_SDA",
+            "SCL": "TEST_SCL",
+            "side": "B"
+          },
+          "directory": "baseline/ergogen__src__footprints__oled/back",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 4,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__omron",
+      "source": "ergogen/src/footprints/omron.js",
+      "sha256": "69e69e51693a69be31758ad199aef7e9ede65917ac96e1f642c5c64fe4d9706a",
+      "params": {
+        "designator": "S",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/ergogen__src__footprints__omron/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 6,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__pad",
+      "source": "ergogen/src/footprints/pad.js",
+      "sha256": "e9d6b9170d636c48a96991f62b8e614e127b448a6819327696aedfb1a66dc753",
+      "params": {
+        "designator": "PAD",
+        "width": 1,
+        "height": 1,
+        "front": true,
+        "back": true,
+        "text": "",
+        "align": "left",
+        "mirrored": {
+          "type": "boolean",
+          "value": "{{mirrored}}"
+        },
+        "net": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net"
+          },
+          "directory": "baseline/ergogen__src__footprints__pad/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 2,
+          "tracks": 0
+        },
+        {
+          "name": "front_on",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net",
+            "front": true
+          },
+          "directory": "baseline/ergogen__src__footprints__pad/front_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 2,
+          "tracks": 0
+        },
+        {
+          "name": "front_off",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net",
+            "front": false
+          },
+          "directory": "baseline/ergogen__src__footprints__pad/front_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 1,
+          "tracks": 0
+        },
+        {
+          "name": "back_on",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net",
+            "back": true
+          },
+          "directory": "baseline/ergogen__src__footprints__pad/back_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 2,
+          "tracks": 0
+        },
+        {
+          "name": "back_off",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net",
+            "back": false
+          },
+          "directory": "baseline/ergogen__src__footprints__pad/back_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 1,
+          "tracks": 0
+        },
+        {
+          "name": "label",
+          "params": {
+            "mirrored": false,
+            "net": "TEST_net",
+            "text": "PAD",
+            "width": 2,
+            "height": 3,
+            "align": "right"
+          },
+          "directory": "baseline/ergogen__src__footprints__pad/label",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 2,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__promicro",
+      "source": "ergogen/src/footprints/promicro.js",
+      "sha256": "487a40279579cd2086a70cc091196550962d5a7fed00b3580431ff54d4d560c4",
+      "params": {
+        "designator": "MCU",
+        "orientation": "down",
+        "RAW": {
+          "type": "net",
+          "value": "RAW"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        },
+        "RST": {
+          "type": "net",
+          "value": "RST"
+        },
+        "VCC": {
+          "type": "net",
+          "value": "VCC"
+        },
+        "P21": {
+          "type": "net",
+          "value": "P21"
+        },
+        "P20": {
+          "type": "net",
+          "value": "P20"
+        },
+        "P19": {
+          "type": "net",
+          "value": "P19"
+        },
+        "P18": {
+          "type": "net",
+          "value": "P18"
+        },
+        "P15": {
+          "type": "net",
+          "value": "P15"
+        },
+        "P14": {
+          "type": "net",
+          "value": "P14"
+        },
+        "P16": {
+          "type": "net",
+          "value": "P16"
+        },
+        "P10": {
+          "type": "net",
+          "value": "P10"
+        },
+        "P1": {
+          "type": "net",
+          "value": "P1"
+        },
+        "P0": {
+          "type": "net",
+          "value": "P0"
+        },
+        "P2": {
+          "type": "net",
+          "value": "P2"
+        },
+        "P3": {
+          "type": "net",
+          "value": "P3"
+        },
+        "P4": {
+          "type": "net",
+          "value": "P4"
+        },
+        "P5": {
+          "type": "net",
+          "value": "P5"
+        },
+        "P6": {
+          "type": "net",
+          "value": "P6"
+        },
+        "P7": {
+          "type": "net",
+          "value": "P7"
+        },
+        "P8": {
+          "type": "net",
+          "value": "P8"
+        },
+        "P9": {
+          "type": "net",
+          "value": "P9"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "RAW": "TEST_RAW",
+            "GND": "TEST_GND",
+            "RST": "TEST_RST",
+            "VCC": "TEST_VCC",
+            "P21": "TEST_P21",
+            "P20": "TEST_P20",
+            "P19": "TEST_P19",
+            "P18": "TEST_P18",
+            "P15": "TEST_P15",
+            "P14": "TEST_P14",
+            "P16": "TEST_P16",
+            "P10": "TEST_P10",
+            "P1": "TEST_P1",
+            "P0": "TEST_P0",
+            "P2": "TEST_P2",
+            "P3": "TEST_P3",
+            "P4": "TEST_P4",
+            "P5": "TEST_P5",
+            "P6": "TEST_P6",
+            "P7": "TEST_P7",
+            "P8": "TEST_P8",
+            "P9": "TEST_P9"
+          },
+          "directory": "baseline/ergogen__src__footprints__promicro/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 24,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__rgb",
+      "source": "ergogen/src/footprints/rgb.js",
+      "sha256": "d2bd497058de6d07856f3cd72eb25e9917616f9bb047b0b46e2b509a42afce79",
+      "params": {
+        "designator": "LED",
+        "side": "F",
+        "din": {
+          "type": "net",
+          "required": true
+        },
+        "dout": {
+          "type": "net",
+          "required": true
+        },
+        "VCC": {
+          "type": "net",
+          "value": "VCC"
+        },
+        "GND": {
+          "type": "net",
+          "value": "GND"
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "din": "TEST_din",
+            "dout": "TEST_dout",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND"
+          },
+          "directory": "baseline/ergogen__src__footprints__rgb/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 8,
+          "tracks": 0
+        },
+        {
+          "name": "front",
+          "params": {
+            "din": "TEST_din",
+            "dout": "TEST_dout",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "side": "F"
+          },
+          "directory": "baseline/ergogen__src__footprints__rgb/front",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 8,
+          "tracks": 0
+        },
+        {
+          "name": "back",
+          "params": {
+            "din": "TEST_din",
+            "dout": "TEST_dout",
+            "VCC": "TEST_VCC",
+            "GND": "TEST_GND",
+            "side": "B"
+          },
+          "directory": "baseline/ergogen__src__footprints__rgb/back",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 8,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__rotary",
+      "source": "ergogen/src/footprints/rotary.js",
+      "sha256": "7aca7d23f3e5c5038b0267db3112f230089eaee76d0e32c58841d66661fe324d",
+      "params": {
+        "designator": "ROT",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        },
+        "A": {
+          "type": "net",
+          "required": true
+        },
+        "B": {
+          "type": "net",
+          "required": true
+        },
+        "C": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C"
+          },
+          "directory": "baseline/ergogen__src__footprints__rotary/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 7,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__scrollwheel",
+      "source": "ergogen/src/footprints/scrollwheel.js",
+      "sha256": "fa6a53f148bd6956d7af3f8d5f91eb0127496911f32a9151f275f5ce2e8127dd",
+      "params": {
+        "designator": "S",
+        "reverse": false,
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        },
+        "A": {
+          "type": "net",
+          "required": true
+        },
+        "B": {
+          "type": "net",
+          "required": true
+        },
+        "C": {
+          "type": "net",
+          "required": true
+        },
+        "D": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C",
+            "D": "TEST_D"
+          },
+          "directory": "baseline/ergogen__src__footprints__scrollwheel/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 7,
+          "tracks": 0
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C",
+            "D": "TEST_D",
+            "reverse": true
+          },
+          "directory": "baseline/ergogen__src__footprints__scrollwheel/reverse_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 14,
+          "tracks": 0
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C",
+            "D": "TEST_D",
+            "reverse": false
+          },
+          "directory": "baseline/ergogen__src__footprints__scrollwheel/reverse_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 7,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__slider",
+      "source": "ergogen/src/footprints/slider.js",
+      "sha256": "ff3ab869a54066cd8628332a19a5ba992e6aad6b40868ad10a48641c87ddc1e7",
+      "params": {
+        "designator": "T",
+        "side": "F",
+        "from": {
+          "type": "net",
+          "required": true
+        },
+        "to": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to"
+          },
+          "directory": "baseline/ergogen__src__footprints__slider/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 9,
+          "tracks": 0
+        },
+        {
+          "name": "front",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "F"
+          },
+          "directory": "baseline/ergogen__src__footprints__slider/front",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 9,
+          "tracks": 0
+        },
+        {
+          "name": "back",
+          "params": {
+            "from": "TEST_from",
+            "to": "TEST_to",
+            "side": "B"
+          },
+          "directory": "baseline/ergogen__src__footprints__slider/back",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 9,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__trrs",
+      "source": "ergogen/src/footprints/trrs.js",
+      "sha256": "2b9e00343c21b35c86c6f737b3389e696187ad1934ff5a7e10f369d234b73439",
+      "params": {
+        "designator": "TRRS",
+        "reverse": false,
+        "symmetric": false,
+        "A": {
+          "type": "net",
+          "required": true
+        },
+        "B": {
+          "type": "net",
+          "required": true
+        },
+        "C": {
+          "type": "net",
+          "required": true
+        },
+        "D": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C",
+            "D": "TEST_D"
+          },
+          "directory": "baseline/ergogen__src__footprints__trrs/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 6,
+          "tracks": 0
+        },
+        {
+          "name": "reverse_on",
+          "params": {
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C",
+            "D": "TEST_D",
+            "reverse": true
+          },
+          "directory": "baseline/ergogen__src__footprints__trrs/reverse_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 12,
+          "tracks": 0
+        },
+        {
+          "name": "reverse_off",
+          "params": {
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C",
+            "D": "TEST_D",
+            "reverse": false
+          },
+          "directory": "baseline/ergogen__src__footprints__trrs/reverse_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 6,
+          "tracks": 0
+        },
+        {
+          "name": "symmetric_on",
+          "params": {
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C",
+            "D": "TEST_D",
+            "symmetric": true
+          },
+          "directory": "baseline/ergogen__src__footprints__trrs/symmetric_on",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 6,
+          "tracks": 0
+        },
+        {
+          "name": "symmetric_off",
+          "params": {
+            "A": "TEST_A",
+            "B": "TEST_B",
+            "C": "TEST_C",
+            "D": "TEST_D",
+            "symmetric": false
+          },
+          "directory": "baseline/ergogen__src__footprints__trrs/symmetric_off",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 6,
+          "tracks": 0
+        }
+      ]
+    },
+    {
+      "id": "ergogen__src__footprints__via",
+      "source": "ergogen/src/footprints/via.js",
+      "sha256": "3f997c126912d0accc31e97fa008e4713a53d24040fbce60a95408c836fe532e",
+      "params": {
+        "net": {
+          "type": "net",
+          "required": true
+        }
+      },
+      "cases": [
+        {
+          "name": "default",
+          "params": {
+            "net": "TEST_net"
+          },
+          "directory": "baseline/ergogen__src__footprints__via/default",
+          "generated": true,
+          "roundtripped": true,
+          "footprints": 1,
+          "pads": 1,
+          "tracks": 0
+        }
+      ]
+    }
+  ],
+  "kicad_version": "9.0.9.1"
+}

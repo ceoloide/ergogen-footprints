@@ -4,6 +4,7 @@
 > These footprints have only been partially tested and are still under active development. Use them at your own risk.
 
 1. [How to use these footprints in Ergogen](#how-to-use-these-footprints-in-ergogen)
+1. [Legacy footprint conversions](#legacy-footprint-conversions)
 1. [Installation](#installation)
     1. [How to add the footprints as a local git submodule](#how-to-add-the-footprints-as-a-local-git-submodule)
     1. [How to add the footprints as a GitHub Codespaces git submodule](#how-to-add-the-footprints-as-a-github-codespaces-git-submodule)
@@ -43,6 +44,10 @@ If you are already comfortable running Ergogen locally, you just need to:
 1. create a `footprints` folder alongside it
 1. clone this repo into the `footprints` folder using a folder name of your choice (see instructions below)
 1. now run Ergogen by passing a folder instead of a YAML file, for example `ergogen .`
+
+## Legacy footprint conversions
+
+The [legacy conversion report](research/legacy-footprint-conversion-2026-10-25/README.md) lists 24 additional footprints converted from the backlog and Ergogen core, with pin mappings, migration notes, KiCad front/back plots and validation results. Existing modern implementations are retained where they cover a source.
 
 ## Installation
 
@@ -156,7 +161,7 @@ All original footprints and those copied from [@MrZealot](https://github.com/mrz
 
 ### What does the CC BY-NC-SA 4.0 license mean for your projects?
 
-Because some footprints carry the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)** license, there are often questions about what you can and cannot do. 
+Because some footprints carry the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)** license, there are often questions about what you can and cannot do.
 
 > [!WARNING]
 > I am not a lawyer, and this does not constitute formal legal advice. Below is my informed understanding on how this license practically applies to your keyboard projects.

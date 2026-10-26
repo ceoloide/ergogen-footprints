@@ -1,0 +1,290 @@
+[
+  {
+    "file": "connector_ffc_gct_ffc3b07_12_t.js",
+    "case": "default",
+    "side": "F",
+    "svg": "connector_ffc_gct_ffc3b07_12_t_F.svg"
+  },
+  {
+    "file": "connector_ffc_gct_ffc3b07_12_t.js",
+    "case": "default",
+    "side": "B",
+    "svg": "connector_ffc_gct_ffc3b07_12_t_B.svg"
+  },
+  {
+    "file": "connector_magnetic_vik.js",
+    "case": "default",
+    "side": "F",
+    "svg": "connector_magnetic_vik_F.svg"
+  },
+  {
+    "file": "connector_magnetic_vik.js",
+    "case": "default",
+    "side": "B",
+    "svg": "connector_magnetic_vik_B.svg"
+  },
+  {
+    "file": "connector_molex_pico_ezmate_1x05.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "connector_molex_pico_ezmate_1x05_F.svg"
+  },
+  {
+    "file": "connector_molex_pico_ezmate_1x05.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "connector_molex_pico_ezmate_1x05_B.svg"
+  },
+  {
+    "file": "led_ws2812b.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "led_ws2812b_F.svg"
+  },
+  {
+    "file": "led_ws2812b.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "led_ws2812b_B.svg"
+  },
+  {
+    "file": "mcu_adafruit_kb2040.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "mcu_adafruit_kb2040_F.svg"
+  },
+  {
+    "file": "mcu_adafruit_kb2040.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "mcu_adafruit_kb2040_B.svg"
+  },
+  {
+    "file": "mcu_elite_c.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "mcu_elite_c_F.svg"
+  },
+  {
+    "file": "mcu_elite_c.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "mcu_elite_c_B.svg"
+  },
+  {
+    "file": "mcu_seeed_xiao.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "mcu_seeed_xiao_F.svg"
+  },
+  {
+    "file": "mcu_seeed_xiao.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "mcu_seeed_xiao_B.svg"
+  },
+  {
+    "file": "mcu_waveshare_rp2040_zero.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "mcu_waveshare_rp2040_zero_F.svg"
+  },
+  {
+    "file": "mcu_waveshare_rp2040_zero.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "mcu_waveshare_rp2040_zero_B.svg"
+  },
+  {
+    "file": "mounting_trackpoint.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "mounting_trackpoint_F.svg"
+  },
+  {
+    "file": "mounting_trackpoint.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "mounting_trackpoint_B.svg"
+  },
+  {
+    "file": "passive_0805_array.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "passive_0805_array_F.svg"
+  },
+  {
+    "file": "passive_0805_array.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "passive_0805_array_B.svg"
+  },
+  {
+    "file": "power_switch_smd_spdt_c128955.js",
+    "case": "default",
+    "side": "F",
+    "svg": "power_switch_smd_spdt_c128955_F.svg"
+  },
+  {
+    "file": "power_switch_smd_spdt_c128955.js",
+    "case": "default",
+    "side": "B",
+    "svg": "power_switch_smd_spdt_c128955_B.svg"
+  },
+  {
+    "file": "reset_switch_smd_top_alps_skqg.js",
+    "case": "default",
+    "side": "F",
+    "svg": "reset_switch_smd_top_alps_skqg_F.svg"
+  },
+  {
+    "file": "reset_switch_smd_top_alps_skqg.js",
+    "case": "default",
+    "side": "B",
+    "svg": "reset_switch_smd_top_alps_skqg_B.svg"
+  },
+  {
+    "file": "reset_switch_tht_fsm8jh.js",
+    "case": "default",
+    "side": "F",
+    "svg": "reset_switch_tht_fsm8jh_F.svg"
+  },
+  {
+    "file": "reset_switch_tht_fsm8jh.js",
+    "case": "default",
+    "side": "B",
+    "svg": "reset_switch_tht_fsm8jh_B.svg"
+  },
+  {
+    "file": "rotary_encoder_panasonic_evqwgd001.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "rotary_encoder_panasonic_evqwgd001_F.svg"
+  },
+  {
+    "file": "rotary_encoder_panasonic_evqwgd001.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "rotary_encoder_panasonic_evqwgd001_B.svg"
+  },
+  {
+    "file": "switch_alps.js",
+    "case": "default",
+    "side": "F",
+    "svg": "switch_alps_F.svg"
+  },
+  {
+    "file": "switch_alps.js",
+    "case": "default",
+    "side": "B",
+    "svg": "switch_alps_B.svg"
+  },
+  {
+    "file": "switch_choc_mini.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "switch_choc_mini_F.svg"
+  },
+  {
+    "file": "switch_choc_mini.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "switch_choc_mini_B.svg"
+  },
+  {
+    "file": "switch_omron_b3f_4055.js",
+    "case": "default",
+    "side": "F",
+    "svg": "switch_omron_b3f_4055_F.svg"
+  },
+  {
+    "file": "switch_omron_b3f_4055.js",
+    "case": "default",
+    "side": "B",
+    "svg": "switch_omron_b3f_4055_B.svg"
+  },
+  {
+    "file": "trackpad_azoteq_tps65.js",
+    "case": "default",
+    "side": "F",
+    "svg": "trackpad_azoteq_tps65_F.svg"
+  },
+  {
+    "file": "trackpad_azoteq_tps65.js",
+    "case": "default",
+    "side": "B",
+    "svg": "trackpad_azoteq_tps65_B.svg"
+  },
+  {
+    "file": "utility_battery_icon.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "utility_battery_icon_F.svg"
+  },
+  {
+    "file": "utility_battery_icon.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "utility_battery_icon_B.svg"
+  },
+  {
+    "file": "utility_mouse_bites.js",
+    "case": "default",
+    "side": "F",
+    "svg": "utility_mouse_bites_F.svg"
+  },
+  {
+    "file": "utility_mouse_bites.js",
+    "case": "default",
+    "side": "B",
+    "svg": "utility_mouse_bites_B.svg"
+  },
+  {
+    "file": "utility_smd_pad.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "utility_smd_pad_F.svg"
+  },
+  {
+    "file": "utility_smd_pad.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "utility_smd_pad_B.svg"
+  },
+  {
+    "file": "utility_smd_pad_array.js",
+    "case": "reversible_on",
+    "side": "F",
+    "svg": "utility_smd_pad_array_F.svg"
+  },
+  {
+    "file": "utility_smd_pad_array.js",
+    "case": "reversible_on",
+    "side": "B",
+    "svg": "utility_smd_pad_array_B.svg"
+  },
+  {
+    "file": "utility_solder_jumper.js",
+    "case": "default",
+    "side": "F",
+    "svg": "utility_solder_jumper_F.svg"
+  },
+  {
+    "file": "utility_solder_jumper.js",
+    "case": "default",
+    "side": "B",
+    "svg": "utility_solder_jumper_B.svg"
+  },
+  {
+    "file": "utility_via.js",
+    "case": "default",
+    "side": "F",
+    "svg": "utility_via_F.svg"
+  },
+  {
+    "file": "utility_via.js",
+    "case": "default",
+    "side": "B",
+    "svg": "utility_via_B.svg"
+  }
+]

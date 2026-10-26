@@ -1,0 +1,582 @@
+[
+  {
+    "file": "connector_ffc_gct_ffc3b07_12_t.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "connector_ffc_gct_ffc3b07_12_t.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "connector_magnetic_vik.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "connector_magnetic_vik.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "connector_molex_pico_ezmate_1x05.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "connector_molex_pico_ezmate_1x05.js",
+    "case": "reversible_on",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 5
+  },
+  {
+    "file": "connector_molex_pico_ezmate_1x05.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 5
+  },
+  {
+    "file": "led_ws2812b.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 7,
+      "silk_overlap": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "led_ws2812b.js",
+    "case": "reversible_on",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 13,
+      "silk_overlap": 1
+    },
+    "unconnected": 4
+  },
+  {
+    "file": "led_ws2812b.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 13,
+      "silk_overlap": 1
+    },
+    "unconnected": 4
+  },
+  {
+    "file": "mcu_adafruit_kb2040.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_overlap": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "mcu_adafruit_kb2040.js",
+    "case": "reversible_on",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_overlap": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "mcu_adafruit_kb2040.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_overlap": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "mcu_elite_c.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 2
+  },
+  {
+    "file": "mcu_elite_c.js",
+    "case": "reversible_on",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 3
+  },
+  {
+    "file": "mcu_elite_c.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 3
+  },
+  {
+    "file": "mcu_seeed_xiao.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 6
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "mcu_seeed_xiao.js",
+    "case": "reversible_on",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 14
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "mcu_seeed_xiao.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 14
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "mcu_waveshare_rp2040_zero.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "mcu_waveshare_rp2040_zero.js",
+    "case": "reversible_on",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 2
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "mcu_waveshare_rp2040_zero.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 2
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "mounting_trackpoint.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "mounting_trackpoint.js",
+    "case": "reversible_on",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "mounting_trackpoint.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "passive_0805_array.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "passive_0805_array.js",
+    "case": "reversible_on",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 4
+  },
+  {
+    "file": "passive_0805_array.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 4
+  },
+  {
+    "file": "power_switch_smd_spdt_c128955.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 5
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "power_switch_smd_spdt_c128955.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 5
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "reset_switch_smd_top_alps_skqg.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 6
+    },
+    "unconnected": 2
+  },
+  {
+    "file": "reset_switch_smd_top_alps_skqg.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 6
+    },
+    "unconnected": 2
+  },
+  {
+    "file": "reset_switch_tht_fsm8jh.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "reset_switch_tht_fsm8jh.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "rotary_encoder_panasonic_evqwgd001.js",
+    "case": "default",
+    "violations": {
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "rotary_encoder_panasonic_evqwgd001.js",
+    "case": "reversible_on",
+    "violations": {
+      "copper_edge_clearance": 2,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 6
+  },
+  {
+    "file": "rotary_encoder_panasonic_evqwgd001.js",
+    "case": "rotated_27",
+    "violations": {
+      "copper_edge_clearance": 2,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 6
+  },
+  {
+    "file": "switch_alps.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "switch_alps.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "switch_choc_mini.js",
+    "case": "default",
+    "violations": {
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "switch_choc_mini.js",
+    "case": "reversible_on",
+    "violations": {
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 2
+  },
+  {
+    "file": "switch_choc_mini.js",
+    "case": "rotated_27",
+    "violations": {
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 2
+  },
+  {
+    "file": "switch_omron_b3f_4055.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 2
+  },
+  {
+    "file": "switch_omron_b3f_4055.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 2
+  },
+  {
+    "file": "trackpad_azoteq_tps65.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "text_height": 6,
+      "silk_over_copper": 6
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "trackpad_azoteq_tps65.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "text_height": 6,
+      "silk_over_copper": 6
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "utility_battery_icon.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "utility_battery_icon.js",
+    "case": "reversible_on",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "utility_battery_icon.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "utility_mouse_bites.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "utility_mouse_bites.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "utility_smd_pad.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "utility_smd_pad.js",
+    "case": "reversible_on",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 1
+  },
+  {
+    "file": "utility_smd_pad.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 1
+  },
+  {
+    "file": "utility_smd_pad_array.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "utility_smd_pad_array.js",
+    "case": "reversible_on",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 2
+  },
+  {
+    "file": "utility_smd_pad_array.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 2
+  },
+  {
+    "file": "utility_solder_jumper.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "utility_solder_jumper.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1,
+      "silk_over_copper": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "utility_via.js",
+    "case": "default",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  },
+  {
+    "file": "utility_via.js",
+    "case": "rotated_27",
+    "violations": {
+      "invalid_outline": 1,
+      "lib_footprint_issues": 1
+    },
+    "unconnected": 0
+  }
+]

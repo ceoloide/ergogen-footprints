@@ -1,0 +1,47 @@
+[
+  {
+    "source": "ergogen/src/footprints/alps.js",
+    "matches": "backlog/mrzealot/alps.js",
+    "equal": true
+  },
+  {
+    "source": "ergogen/src/footprints/chocmini.js",
+    "matches": "backlog/mrzealot/chocmini.js",
+    "equal": true
+  },
+  {
+    "source": "ergogen/src/footprints/jumper.js",
+    "matches": "backlog/mrzealot/jumper.js",
+    "equal": true
+  },
+  {
+    "source": "ergogen/src/footprints/omron.js",
+    "matches": "backlog/mrzealot/omron.js",
+    "equal": true
+  },
+  {
+    "source": "ergogen/src/footprints/pad.js",
+    "matches": "backlog/mrzealot/pad.js",
+    "equal": true
+  },
+  {
+    "source": "ergogen/src/footprints/rgb.js",
+    "matches": "backlog/mrzealot/rgb.js",
+    "equal": true
+  },
+  {
+    "source": "ergogen/src/footprints/scrollwheel.js",
+    "matches": "backlog/mrzealot/scrollwheel.js",
+    "equal": true
+  },
+  {
+    "source": "ergogen/src/footprints/slider.js",
+    "matches": "backlog/mrzealot/slider.js",
+    "equal": true
+  },
+  {
+    "source": "ergogen/src/footprints/via.js",
+    "matches": "backlog/mrzealot/via.js",
+    "equal": true
+  }
+]

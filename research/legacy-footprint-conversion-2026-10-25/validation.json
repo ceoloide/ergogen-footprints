@@ -1,0 +1,4560 @@
+{
+  "ergogen": "4.1.0",
+  "kicad9": "9.0.9.1",
+  "kicad8": "8.0.9",
+  "cases": [
+    {
+      "file": "connector_molex_pico_ezmate_1x05.js",
+      "case": "default",
+      "params": {
+        "pad_1": "TEST_pad_1",
+        "pad_2": "TEST_pad_2",
+        "pad_3": "TEST_pad_3",
+        "pad_4": "TEST_pad_4",
+        "pad_5": "TEST_pad_5"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 7,
+      "tracks": 0
+    },
+    {
+      "file": "connector_molex_pico_ezmate_1x05.js",
+      "case": "front",
+      "params": {
+        "pad_1": "TEST_pad_1",
+        "pad_2": "TEST_pad_2",
+        "pad_3": "TEST_pad_3",
+        "pad_4": "TEST_pad_4",
+        "pad_5": "TEST_pad_5",
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 7,
+      "tracks": 0
+    },
+    {
+      "file": "connector_molex_pico_ezmate_1x05.js",
+      "case": "back",
+      "params": {
+        "pad_1": "TEST_pad_1",
+        "pad_2": "TEST_pad_2",
+        "pad_3": "TEST_pad_3",
+        "pad_4": "TEST_pad_4",
+        "pad_5": "TEST_pad_5",
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 7,
+      "tracks": 0
+    },
+    {
+      "file": "connector_molex_pico_ezmate_1x05.js",
+      "case": "reversible_on",
+      "params": {
+        "pad_1": "TEST_pad_1",
+        "pad_2": "TEST_pad_2",
+        "pad_3": "TEST_pad_3",
+        "pad_4": "TEST_pad_4",
+        "pad_5": "TEST_pad_5",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "connector_molex_pico_ezmate_1x05.js",
+      "case": "reversible_off",
+      "params": {
+        "pad_1": "TEST_pad_1",
+        "pad_2": "TEST_pad_2",
+        "pad_3": "TEST_pad_3",
+        "pad_4": "TEST_pad_4",
+        "pad_5": "TEST_pad_5",
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 7,
+      "tracks": 0
+    },
+    {
+      "file": "connector_molex_pico_ezmate_1x05.js",
+      "case": "combined_flags",
+      "params": {
+        "pad_1": "TEST_pad_1",
+        "pad_2": "TEST_pad_2",
+        "pad_3": "TEST_pad_3",
+        "pad_4": "TEST_pad_4",
+        "pad_5": "TEST_pad_5",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "connector_molex_pico_ezmate_1x05.js",
+      "case": "rotated_90",
+      "params": {
+        "pad_1": "TEST_pad_1",
+        "pad_2": "TEST_pad_2",
+        "pad_3": "TEST_pad_3",
+        "pad_4": "TEST_pad_4",
+        "pad_5": "TEST_pad_5",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "connector_molex_pico_ezmate_1x05.js",
+      "case": "rotated_27",
+      "params": {
+        "pad_1": "TEST_pad_1",
+        "pad_2": "TEST_pad_2",
+        "pad_3": "TEST_pad_3",
+        "pad_4": "TEST_pad_4",
+        "pad_5": "TEST_pad_5",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "utility_battery_icon.js",
+      "case": "default",
+      "params": {},
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 0,
+      "tracks": 0
+    },
+    {
+      "file": "utility_battery_icon.js",
+      "case": "front",
+      "params": {
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 0,
+      "tracks": 0
+    },
+    {
+      "file": "utility_battery_icon.js",
+      "case": "back",
+      "params": {
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 0,
+      "tracks": 0
+    },
+    {
+      "file": "utility_battery_icon.js",
+      "case": "reversible_on",
+      "params": {
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 0,
+      "tracks": 0
+    },
+    {
+      "file": "utility_battery_icon.js",
+      "case": "reversible_off",
+      "params": {
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 0,
+      "tracks": 0
+    },
+    {
+      "file": "utility_battery_icon.js",
+      "case": "combined_flags",
+      "params": {
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 0,
+      "tracks": 0
+    },
+    {
+      "file": "utility_battery_icon.js",
+      "case": "rotated_90",
+      "params": {
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 0,
+      "tracks": 0
+    },
+    {
+      "file": "utility_battery_icon.js",
+      "case": "rotated_27",
+      "params": {
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 0,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "default",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "front",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "back",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "reversible_on",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "reversible_off",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "mirror_back_on",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "mirror_back": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "mirror_back_off",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "mirror_back": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "label_at_bottom_on",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "label_at_bottom": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "label_at_bottom_off",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "label_at_bottom": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "six_pads",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "pads": 6,
+        "reversible": true,
+        "label_1": "One \"1\"",
+        "label_6": "Six"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 12,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "combined_flags",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "reversible": true,
+        "mirror_back": true,
+        "label_at_bottom": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "capped_count",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "pads": 100,
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 12,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "rotated_90",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad_array.js",
+      "case": "rotated_27",
+      "params": {
+        "net_1": "TEST_net_1",
+        "net_2": "TEST_net_2",
+        "net_3": "TEST_net_3",
+        "net_4": "TEST_net_4",
+        "net_5": "TEST_net_5",
+        "net_6": "TEST_net_6",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "default",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "front",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "back",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "reversible_on",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 8,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "reversible_off",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "mirror_back_on",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "mirror_back": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "mirror_back_off",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "mirror_back": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "swap_pad_direction_on",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "swap_pad_direction": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "swap_pad_direction_off",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "swap_pad_direction": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "label_at_bottom_on",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "label_at_bottom": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "label_at_bottom_off",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "label_at_bottom": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "six_components",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "components": 6,
+        "reversible": true,
+        "label_1": "One \"1\"",
+        "label_6": "Six"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 24,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "combined_flags",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "reversible": true,
+        "mirror_back": true,
+        "swap_pad_direction": true,
+        "label_at_bottom": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 8,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "capped_count",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "components": 100,
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 24,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "rotated_90",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 8,
+      "tracks": 0
+    },
+    {
+      "file": "passive_0805_array.js",
+      "case": "rotated_27",
+      "params": {
+        "net_1_from": "TEST_net_1_from",
+        "net_1_to": "TEST_net_1_to",
+        "net_2_from": "TEST_net_2_from",
+        "net_2_to": "TEST_net_2_to",
+        "net_3_from": "TEST_net_3_from",
+        "net_3_to": "TEST_net_3_to",
+        "net_4_from": "TEST_net_4_from",
+        "net_4_to": "TEST_net_4_to",
+        "net_5_from": "TEST_net_5_from",
+        "net_5_to": "TEST_net_5_to",
+        "net_6_from": "TEST_net_6_from",
+        "net_6_to": "TEST_net_6_to",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 8,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "default",
+      "params": {},
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "front",
+      "params": {
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "back",
+      "params": {
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "reversible_on",
+      "params": {
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "reversible_off",
+      "params": {
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "show_outline_t430_on",
+      "params": {
+        "show_outline_t430": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "show_outline_t430_off",
+      "params": {
+        "show_outline_t430": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "show_outline_x240_on",
+      "params": {
+        "show_outline_x240": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "show_outline_x240_off",
+      "params": {
+        "show_outline_x240": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "show_outline_t460s_on",
+      "params": {
+        "show_outline_t460s": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "show_outline_t460s_off",
+      "params": {
+        "show_outline_t460s": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "show_board_on",
+      "params": {
+        "show_board": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "show_board_off",
+      "params": {
+        "show_board": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "combined_flags",
+      "params": {
+        "reversible": true,
+        "show_outline_t430": true,
+        "show_outline_x240": true,
+        "show_outline_t460s": true,
+        "show_board": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "rotated_90",
+      "params": {
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "mounting_trackpoint.js",
+      "case": "rotated_27",
+      "params": {
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 3,
+      "tracks": 0
+    },
+    {
+      "file": "switch_alps.js",
+      "case": "default",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "switch_alps.js",
+      "case": "combined_flags",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "switch_alps.js",
+      "case": "rotated_90",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "switch_alps.js",
+      "case": "rotated_27",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "reset_switch_tht_fsm8jh.js",
+      "case": "default",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "reset_switch_tht_fsm8jh.js",
+      "case": "front",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "reset_switch_tht_fsm8jh.js",
+      "case": "back",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "reset_switch_tht_fsm8jh.js",
+      "case": "combined_flags",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "reset_switch_tht_fsm8jh.js",
+      "case": "rotated_90",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "reset_switch_tht_fsm8jh.js",
+      "case": "rotated_27",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "switch_choc_mini.js",
+      "case": "default",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "switch_choc_mini.js",
+      "case": "reversible_on",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "switch_choc_mini.js",
+      "case": "reversible_off",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "switch_choc_mini.js",
+      "case": "include_keycap_on",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "include_keycap": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "switch_choc_mini.js",
+      "case": "include_keycap_off",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "include_keycap": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "switch_choc_mini.js",
+      "case": "combined_flags",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "reversible": true,
+        "include_keycap": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "switch_choc_mini.js",
+      "case": "rotated_90",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "switch_choc_mini.js",
+      "case": "rotated_27",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "utility_solder_jumper.js",
+      "case": "default",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_solder_jumper.js",
+      "case": "front",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_solder_jumper.js",
+      "case": "back",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_solder_jumper.js",
+      "case": "combined_flags",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_solder_jumper.js",
+      "case": "rotated_90",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_solder_jumper.js",
+      "case": "rotated_27",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "switch_omron_b3f_4055.js",
+      "case": "default",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "switch_omron_b3f_4055.js",
+      "case": "combined_flags",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "switch_omron_b3f_4055.js",
+      "case": "rotated_90",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "switch_omron_b3f_4055.js",
+      "case": "rotated_27",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad.js",
+      "case": "default",
+      "params": {
+        "mirrored": false,
+        "net": "TEST_net"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 1,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad.js",
+      "case": "front",
+      "params": {
+        "mirrored": false,
+        "net": "TEST_net",
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 1,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad.js",
+      "case": "back",
+      "params": {
+        "mirrored": false,
+        "net": "TEST_net",
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 1,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad.js",
+      "case": "reversible_on",
+      "params": {
+        "mirrored": false,
+        "net": "TEST_net",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad.js",
+      "case": "reversible_off",
+      "params": {
+        "mirrored": false,
+        "net": "TEST_net",
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 1,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad.js",
+      "case": "label",
+      "params": {
+        "mirrored": false,
+        "net": "TEST_net",
+        "text": "Pad \"1\"",
+        "width": 2,
+        "height": 3
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 1,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad.js",
+      "case": "combined_flags",
+      "params": {
+        "mirrored": false,
+        "net": "TEST_net",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad.js",
+      "case": "rotated_90",
+      "params": {
+        "mirrored": false,
+        "net": "TEST_net",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "utility_smd_pad.js",
+      "case": "rotated_27",
+      "params": {
+        "mirrored": false,
+        "net": "TEST_net",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 2,
+      "tracks": 0
+    },
+    {
+      "file": "led_ws2812b.js",
+      "case": "default",
+      "params": {
+        "din": "TEST_din",
+        "dout": "TEST_dout",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 8,
+      "tracks": 0
+    },
+    {
+      "file": "led_ws2812b.js",
+      "case": "front",
+      "params": {
+        "din": "TEST_din",
+        "dout": "TEST_dout",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 8,
+      "tracks": 0
+    },
+    {
+      "file": "led_ws2812b.js",
+      "case": "back",
+      "params": {
+        "din": "TEST_din",
+        "dout": "TEST_dout",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 8,
+      "tracks": 0
+    },
+    {
+      "file": "led_ws2812b.js",
+      "case": "reversible_on",
+      "params": {
+        "din": "TEST_din",
+        "dout": "TEST_dout",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 16,
+      "tracks": 0
+    },
+    {
+      "file": "led_ws2812b.js",
+      "case": "reversible_off",
+      "params": {
+        "din": "TEST_din",
+        "dout": "TEST_dout",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 8,
+      "tracks": 0
+    },
+    {
+      "file": "led_ws2812b.js",
+      "case": "combined_flags",
+      "params": {
+        "din": "TEST_din",
+        "dout": "TEST_dout",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 16,
+      "tracks": 0
+    },
+    {
+      "file": "led_ws2812b.js",
+      "case": "rotated_90",
+      "params": {
+        "din": "TEST_din",
+        "dout": "TEST_dout",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 16,
+      "tracks": 0
+    },
+    {
+      "file": "led_ws2812b.js",
+      "case": "rotated_27",
+      "params": {
+        "din": "TEST_din",
+        "dout": "TEST_dout",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 16,
+      "tracks": 0
+    },
+    {
+      "file": "rotary_encoder_panasonic_evqwgd001.js",
+      "case": "default",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "A": "TEST_A",
+        "B": "TEST_B",
+        "C": "TEST_C",
+        "D": "TEST_D"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 7,
+      "tracks": 0
+    },
+    {
+      "file": "rotary_encoder_panasonic_evqwgd001.js",
+      "case": "reversible_on",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "A": "TEST_A",
+        "B": "TEST_B",
+        "C": "TEST_C",
+        "D": "TEST_D",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "rotary_encoder_panasonic_evqwgd001.js",
+      "case": "reversible_off",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "A": "TEST_A",
+        "B": "TEST_B",
+        "C": "TEST_C",
+        "D": "TEST_D",
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 7,
+      "tracks": 0
+    },
+    {
+      "file": "rotary_encoder_panasonic_evqwgd001.js",
+      "case": "combined_flags",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "A": "TEST_A",
+        "B": "TEST_B",
+        "C": "TEST_C",
+        "D": "TEST_D",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "rotary_encoder_panasonic_evqwgd001.js",
+      "case": "rotated_90",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "A": "TEST_A",
+        "B": "TEST_B",
+        "C": "TEST_C",
+        "D": "TEST_D",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "rotary_encoder_panasonic_evqwgd001.js",
+      "case": "rotated_27",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "A": "TEST_A",
+        "B": "TEST_B",
+        "C": "TEST_C",
+        "D": "TEST_D",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "power_switch_smd_spdt_c128955.js",
+      "case": "default",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 9,
+      "tracks": 0
+    },
+    {
+      "file": "power_switch_smd_spdt_c128955.js",
+      "case": "front",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 9,
+      "tracks": 0
+    },
+    {
+      "file": "power_switch_smd_spdt_c128955.js",
+      "case": "back",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 9,
+      "tracks": 0
+    },
+    {
+      "file": "power_switch_smd_spdt_c128955.js",
+      "case": "combined_flags",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 9,
+      "tracks": 0
+    },
+    {
+      "file": "power_switch_smd_spdt_c128955.js",
+      "case": "rotated_90",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 9,
+      "tracks": 0
+    },
+    {
+      "file": "power_switch_smd_spdt_c128955.js",
+      "case": "rotated_27",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 9,
+      "tracks": 0
+    },
+    {
+      "file": "utility_via.js",
+      "case": "default",
+      "params": {
+        "net": "TEST_net"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 1,
+      "tracks": 0
+    },
+    {
+      "file": "utility_via.js",
+      "case": "combined_flags",
+      "params": {
+        "net": "TEST_net"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 1,
+      "tracks": 0
+    },
+    {
+      "file": "utility_via.js",
+      "case": "rotated_90",
+      "params": {
+        "net": "TEST_net"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 1,
+      "tracks": 0
+    },
+    {
+      "file": "utility_via.js",
+      "case": "rotated_27",
+      "params": {
+        "net": "TEST_net"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 1,
+      "tracks": 0
+    },
+    {
+      "file": "trackpad_azoteq_tps65.js",
+      "case": "default",
+      "params": {
+        "SDA": "TEST_SDA",
+        "SCL": "TEST_SCL",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "RDY": "TEST_RDY"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "trackpad_azoteq_tps65.js",
+      "case": "front",
+      "params": {
+        "SDA": "TEST_SDA",
+        "SCL": "TEST_SCL",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "RDY": "TEST_RDY",
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "trackpad_azoteq_tps65.js",
+      "case": "back",
+      "params": {
+        "SDA": "TEST_SDA",
+        "SCL": "TEST_SCL",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "RDY": "TEST_RDY",
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "trackpad_azoteq_tps65.js",
+      "case": "combined_flags",
+      "params": {
+        "SDA": "TEST_SDA",
+        "SCL": "TEST_SCL",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "RDY": "TEST_RDY"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "trackpad_azoteq_tps65.js",
+      "case": "rotated_90",
+      "params": {
+        "SDA": "TEST_SDA",
+        "SCL": "TEST_SCL",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "RDY": "TEST_RDY"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "trackpad_azoteq_tps65.js",
+      "case": "rotated_27",
+      "params": {
+        "SDA": "TEST_SDA",
+        "SCL": "TEST_SCL",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "RDY": "TEST_RDY"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 6,
+      "tracks": 0
+    },
+    {
+      "file": "connector_ffc_gct_ffc3b07_12_t.js",
+      "case": "default",
+      "params": {
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "P11": "TEST_P11",
+        "P12": "TEST_P12"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "connector_ffc_gct_ffc3b07_12_t.js",
+      "case": "combined_flags",
+      "params": {
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "P11": "TEST_P11",
+        "P12": "TEST_P12"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "connector_ffc_gct_ffc3b07_12_t.js",
+      "case": "rotated_90",
+      "params": {
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "P11": "TEST_P11",
+        "P12": "TEST_P12"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "connector_ffc_gct_ffc3b07_12_t.js",
+      "case": "rotated_27",
+      "params": {
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "P11": "TEST_P11",
+        "P12": "TEST_P12"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "connector_magnetic_vik.js",
+      "case": "default",
+      "params": {
+        "V3V": "TEST_V3V",
+        "GND": "TEST_GND",
+        "SDA": "TEST_SDA",
+        "SCL": "TEST_SCL",
+        "RGB_LED_OUT": "TEST_RGB_LED_OUT",
+        "V5V": "TEST_V5V",
+        "GPIO1": "TEST_GPIO1",
+        "MOSI": "TEST_MOSI",
+        "GPIO2": "TEST_GPIO2",
+        "SPI_CS": "TEST_SPI_CS",
+        "MISO": "TEST_MISO",
+        "SCLK": "TEST_SCLK"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 12,
+      "tracks": 0
+    },
+    {
+      "file": "connector_magnetic_vik.js",
+      "case": "combined_flags",
+      "params": {
+        "V3V": "TEST_V3V",
+        "GND": "TEST_GND",
+        "SDA": "TEST_SDA",
+        "SCL": "TEST_SCL",
+        "RGB_LED_OUT": "TEST_RGB_LED_OUT",
+        "V5V": "TEST_V5V",
+        "GPIO1": "TEST_GPIO1",
+        "MOSI": "TEST_MOSI",
+        "GPIO2": "TEST_GPIO2",
+        "SPI_CS": "TEST_SPI_CS",
+        "MISO": "TEST_MISO",
+        "SCLK": "TEST_SCLK"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 12,
+      "tracks": 0
+    },
+    {
+      "file": "connector_magnetic_vik.js",
+      "case": "rotated_90",
+      "params": {
+        "V3V": "TEST_V3V",
+        "GND": "TEST_GND",
+        "SDA": "TEST_SDA",
+        "SCL": "TEST_SCL",
+        "RGB_LED_OUT": "TEST_RGB_LED_OUT",
+        "V5V": "TEST_V5V",
+        "GPIO1": "TEST_GPIO1",
+        "MOSI": "TEST_MOSI",
+        "GPIO2": "TEST_GPIO2",
+        "SPI_CS": "TEST_SPI_CS",
+        "MISO": "TEST_MISO",
+        "SCLK": "TEST_SCLK"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 12,
+      "tracks": 0
+    },
+    {
+      "file": "connector_magnetic_vik.js",
+      "case": "rotated_27",
+      "params": {
+        "V3V": "TEST_V3V",
+        "GND": "TEST_GND",
+        "SDA": "TEST_SDA",
+        "SCL": "TEST_SCL",
+        "RGB_LED_OUT": "TEST_RGB_LED_OUT",
+        "V5V": "TEST_V5V",
+        "GPIO1": "TEST_GPIO1",
+        "MOSI": "TEST_MOSI",
+        "GPIO2": "TEST_GPIO2",
+        "SPI_CS": "TEST_SPI_CS",
+        "MISO": "TEST_MISO",
+        "SCLK": "TEST_SCLK"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 12,
+      "tracks": 0
+    },
+    {
+      "file": "utility_mouse_bites.js",
+      "case": "default",
+      "params": {},
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 9,
+      "tracks": 0
+    },
+    {
+      "file": "utility_mouse_bites.js",
+      "case": "combined_flags",
+      "params": {},
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 9,
+      "tracks": 0
+    },
+    {
+      "file": "utility_mouse_bites.js",
+      "case": "rotated_90",
+      "params": {},
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 9,
+      "tracks": 0
+    },
+    {
+      "file": "utility_mouse_bites.js",
+      "case": "rotated_27",
+      "params": {},
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 9,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "default",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 30,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "reversible_on",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 71,
+      "tracks": 48
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "reversible_off",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 30,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "include_labels_on",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "include_labels": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 30,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "include_labels_off",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "include_labels": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 30,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "include_instructions_on",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "include_instructions": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 30,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "include_instructions_off",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "include_instructions": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 30,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "include_traces_on",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "include_traces": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 30,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "include_traces_off",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "include_traces": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 30,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "all_rows",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "reversible": true,
+        "reversible_rows": 100
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 151,
+      "tracks": 144
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "no_rows",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "reversible": true,
+        "reversible_rows": 0
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 31,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "combined_flags",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "reversible": true,
+        "include_labels": true,
+        "include_instructions": true,
+        "include_traces": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 71,
+      "tracks": 48
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "rotated_90",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 71,
+      "tracks": 48
+    },
+    {
+      "file": "mcu_elite_c.js",
+      "case": "rotated_27",
+      "params": {
+        "D3": "TEST_D3",
+        "D2": "TEST_D2",
+        "D1": "TEST_D1",
+        "D0": "TEST_D0",
+        "D4": "TEST_D4",
+        "C6": "TEST_C6",
+        "D7": "TEST_D7",
+        "E6": "TEST_E6",
+        "B4": "TEST_B4",
+        "B5": "TEST_B5",
+        "B0": "TEST_B0",
+        "F4": "TEST_F4",
+        "F5": "TEST_F5",
+        "F6": "TEST_F6",
+        "F7": "TEST_F7",
+        "B1": "TEST_B1",
+        "B3": "TEST_B3",
+        "B2": "TEST_B2",
+        "B6": "TEST_B6",
+        "VBUS": "TEST_VBUS",
+        "GND": "TEST_GND",
+        "RST": "TEST_RST",
+        "VCC": "TEST_VCC",
+        "B7": "TEST_B7",
+        "D5": "TEST_D5",
+        "C7": "TEST_C7",
+        "F1": "TEST_F1",
+        "F0": "TEST_F0",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 71,
+      "tracks": 48
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "default",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 26,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "reversible_on",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 156,
+      "tracks": 156
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "reversible_off",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10",
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 26,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "include_labels_on",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10",
+        "include_labels": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 26,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "include_labels_off",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10",
+        "include_labels": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 26,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "include_instructions_on",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10",
+        "include_instructions": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 26,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "include_instructions_off",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10",
+        "include_instructions": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 26,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "include_traces_on",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10",
+        "include_traces": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 26,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "include_traces_off",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10",
+        "include_traces": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 26,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "combined_flags",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10",
+        "reversible": true,
+        "include_labels": true,
+        "include_instructions": true,
+        "include_traces": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 156,
+      "tracks": 156
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "rotated_90",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 156,
+      "tracks": 156
+    },
+    {
+      "file": "mcu_adafruit_kb2040.js",
+      "case": "rotated_27",
+      "params": {
+        "DPOS": "TEST_DPOS",
+        "DMIN": "TEST_DMIN",
+        "TX": "TEST_TX",
+        "RX": "TEST_RX",
+        "GND": "TEST_GND",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "RAW": "TEST_RAW",
+        "G": "TEST_G",
+        "RST": "TEST_RST",
+        "V3": "TEST_V3",
+        "A3": "TEST_A3",
+        "A2": "TEST_A2",
+        "A1": "TEST_A1",
+        "A0": "TEST_A0",
+        "CLK": "TEST_CLK",
+        "MI": "TEST_MI",
+        "MO": "TEST_MO",
+        "P10": "TEST_P10",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 156,
+      "tracks": 156
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "default",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "reversible_on",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 44,
+      "tracks": 36
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "reversible_off",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "include_labels_on",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "include_labels": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "include_labels_off",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "include_labels": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "include_instructions_on",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "include_instructions": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "include_instructions_off",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "include_instructions": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "include_traces_on",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "include_traces": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "include_traces_off",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "include_traces": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "all_rows",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "reversible": true,
+        "reversible_rows": 100
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 84,
+      "tracks": 84
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "no_rows",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "reversible": true,
+        "reversible_rows": 0
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 14,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "combined_flags",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "reversible": true,
+        "include_labels": true,
+        "include_instructions": true,
+        "include_traces": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 44,
+      "tracks": 36
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "rotated_90",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 44,
+      "tracks": 36
+    },
+    {
+      "file": "mcu_seeed_xiao.js",
+      "case": "rotated_27",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "P9": "TEST_P9",
+        "P10": "TEST_P10",
+        "VCC": "TEST_VCC",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 44,
+      "tracks": 36
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "default",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 23,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "reversible_on",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9",
+        "reversible": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 108,
+      "tracks": 108
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "reversible_off",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9",
+        "reversible": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 23,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "include_labels_on",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9",
+        "include_labels": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 23,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "include_labels_off",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9",
+        "include_labels": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 23,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "include_instructions_on",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9",
+        "include_instructions": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 23,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "include_instructions_off",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9",
+        "include_instructions": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 23,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "include_traces_on",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9",
+        "include_traces": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 23,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "include_traces_off",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9",
+        "include_traces": false
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 23,
+      "tracks": 0
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "combined_flags",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9",
+        "reversible": true,
+        "include_labels": true,
+        "include_instructions": true,
+        "include_traces": true
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 108,
+      "tracks": 108
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "rotated_90",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 108,
+      "tracks": 108
+    },
+    {
+      "file": "mcu_waveshare_rp2040_zero.js",
+      "case": "rotated_27",
+      "params": {
+        "P0": "TEST_P0",
+        "P1": "TEST_P1",
+        "P2": "TEST_P2",
+        "P3": "TEST_P3",
+        "P4": "TEST_P4",
+        "P5": "TEST_P5",
+        "P6": "TEST_P6",
+        "P7": "TEST_P7",
+        "P8": "TEST_P8",
+        "V5": "TEST_V5",
+        "GND": "TEST_GND",
+        "V3": "TEST_V3",
+        "P29": "TEST_P29",
+        "P28": "TEST_P28",
+        "P27": "TEST_P27",
+        "P26": "TEST_P26",
+        "P15": "TEST_P15",
+        "P14": "TEST_P14",
+        "P13": "TEST_P13",
+        "P12": "TEST_P12",
+        "P11": "TEST_P11",
+        "P10": "TEST_P10",
+        "P9": "TEST_P9",
+        "reversible": true
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 108,
+      "tracks": 108
+    },
+    {
+      "file": "reset_switch_smd_top_alps_skqg.js",
+      "case": "default",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "reset_switch_smd_top_alps_skqg.js",
+      "case": "front",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "side": "F"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "reset_switch_smd_top_alps_skqg.js",
+      "case": "back",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to",
+        "side": "B"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "reset_switch_smd_top_alps_skqg.js",
+      "case": "combined_flags",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "reset_switch_smd_top_alps_skqg.js",
+      "case": "rotated_90",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 90.0,
+      "pads": 4,
+      "tracks": 0
+    },
+    {
+      "file": "reset_switch_smd_top_alps_skqg.js",
+      "case": "rotated_27",
+      "params": {
+        "from": "TEST_from",
+        "to": "TEST_to"
+      },
+      "position": [
+        43.25,
+        28.75
+      ],
+      "rotation": 27.0,
+      "pads": 4,
+      "tracks": 0
+    }
+  ]
+}

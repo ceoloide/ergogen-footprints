@@ -1,0 +1,1051 @@
+[
+  {
+    "file": "mcu_nice_nano.js",
+    "name": "default",
+    "params": {
+      "RAW": "TEST_RAW",
+      "GND": "TEST_GND",
+      "RST": "TEST_RST",
+      "VCC": "TEST_VCC",
+      "P21": "TEST_P21",
+      "P20": "TEST_P20",
+      "P19": "TEST_P19",
+      "P18": "TEST_P18",
+      "P15": "TEST_P15",
+      "P14": "TEST_P14",
+      "P16": "TEST_P16",
+      "P10": "TEST_P10",
+      "P1": "TEST_P1",
+      "P0": "TEST_P0",
+      "P2": "TEST_P2",
+      "P3": "TEST_P3",
+      "P4": "TEST_P4",
+      "P5": "TEST_P5",
+      "P6": "TEST_P6",
+      "P7": "TEST_P7",
+      "P8": "TEST_P8",
+      "P9": "TEST_P9",
+      "P101": "TEST_P101",
+      "P102": "TEST_P102",
+      "P107": "TEST_P107"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 24,
+    "populated_nets": [
+      "TEST_GND",
+      "TEST_P0",
+      "TEST_P1",
+      "TEST_P10",
+      "TEST_P14",
+      "TEST_P15",
+      "TEST_P16",
+      "TEST_P18",
+      "TEST_P19",
+      "TEST_P2",
+      "TEST_P20",
+      "TEST_P21",
+      "TEST_P3",
+      "TEST_P4",
+      "TEST_P5",
+      "TEST_P6",
+      "TEST_P7",
+      "TEST_P8",
+      "TEST_P9",
+      "TEST_RAW",
+      "TEST_RST",
+      "TEST_VCC"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "mcu_nice_nano.js",
+    "name": "legacy_features",
+    "params": {
+      "RAW": "TEST_RAW",
+      "GND": "TEST_GND",
+      "RST": "TEST_RST",
+      "VCC": "TEST_VCC",
+      "P21": "TEST_P21",
+      "P20": "TEST_P20",
+      "P19": "TEST_P19",
+      "P18": "TEST_P18",
+      "P15": "TEST_P15",
+      "P14": "TEST_P14",
+      "P16": "TEST_P16",
+      "P10": "TEST_P10",
+      "P1": "TEST_P1",
+      "P0": "TEST_P0",
+      "P2": "TEST_P2",
+      "P3": "TEST_P3",
+      "P4": "TEST_P4",
+      "P5": "TEST_P5",
+      "P6": "TEST_P6",
+      "P7": "TEST_P7",
+      "P8": "TEST_P8",
+      "P9": "TEST_P9",
+      "P101": "TEST_P101",
+      "P102": "TEST_P102",
+      "P107": "TEST_P107",
+      "include_extra_pins": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 27,
+    "populated_nets": [
+      "TEST_GND",
+      "TEST_P0",
+      "TEST_P1",
+      "TEST_P10",
+      "TEST_P101",
+      "TEST_P102",
+      "TEST_P107",
+      "TEST_P14",
+      "TEST_P15",
+      "TEST_P16",
+      "TEST_P18",
+      "TEST_P19",
+      "TEST_P2",
+      "TEST_P20",
+      "TEST_P21",
+      "TEST_P3",
+      "TEST_P4",
+      "TEST_P5",
+      "TEST_P6",
+      "TEST_P7",
+      "TEST_P8",
+      "TEST_P9",
+      "TEST_RAW",
+      "TEST_RST",
+      "TEST_VCC"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "mcu_nice_nano.js",
+    "name": "back",
+    "params": {
+      "RAW": "TEST_RAW",
+      "GND": "TEST_GND",
+      "RST": "TEST_RST",
+      "VCC": "TEST_VCC",
+      "P21": "TEST_P21",
+      "P20": "TEST_P20",
+      "P19": "TEST_P19",
+      "P18": "TEST_P18",
+      "P15": "TEST_P15",
+      "P14": "TEST_P14",
+      "P16": "TEST_P16",
+      "P10": "TEST_P10",
+      "P1": "TEST_P1",
+      "P0": "TEST_P0",
+      "P2": "TEST_P2",
+      "P3": "TEST_P3",
+      "P4": "TEST_P4",
+      "P5": "TEST_P5",
+      "P6": "TEST_P6",
+      "P7": "TEST_P7",
+      "P8": "TEST_P8",
+      "P9": "TEST_P9",
+      "P101": "TEST_P101",
+      "P102": "TEST_P102",
+      "P107": "TEST_P107",
+      "side": "B"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 24,
+    "populated_nets": [
+      "TEST_GND",
+      "TEST_P0",
+      "TEST_P1",
+      "TEST_P10",
+      "TEST_P14",
+      "TEST_P15",
+      "TEST_P16",
+      "TEST_P18",
+      "TEST_P19",
+      "TEST_P2",
+      "TEST_P20",
+      "TEST_P21",
+      "TEST_P3",
+      "TEST_P4",
+      "TEST_P5",
+      "TEST_P6",
+      "TEST_P7",
+      "TEST_P8",
+      "TEST_P9",
+      "TEST_RAW",
+      "TEST_RST",
+      "TEST_VCC"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "mcu_nice_nano.js",
+    "name": "reversible",
+    "params": {
+      "RAW": "TEST_RAW",
+      "GND": "TEST_GND",
+      "RST": "TEST_RST",
+      "VCC": "TEST_VCC",
+      "P21": "TEST_P21",
+      "P20": "TEST_P20",
+      "P19": "TEST_P19",
+      "P18": "TEST_P18",
+      "P15": "TEST_P15",
+      "P14": "TEST_P14",
+      "P16": "TEST_P16",
+      "P10": "TEST_P10",
+      "P1": "TEST_P1",
+      "P0": "TEST_P0",
+      "P2": "TEST_P2",
+      "P3": "TEST_P3",
+      "P4": "TEST_P4",
+      "P5": "TEST_P5",
+      "P6": "TEST_P6",
+      "P7": "TEST_P7",
+      "P8": "TEST_P8",
+      "P9": "TEST_P9",
+      "P101": "TEST_P101",
+      "P102": "TEST_P102",
+      "P107": "TEST_P107",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 144,
+    "populated_nets": [
+      "MCU1_1",
+      "MCU1_10",
+      "MCU1_11",
+      "MCU1_12",
+      "MCU1_13",
+      "MCU1_14",
+      "MCU1_15",
+      "MCU1_16",
+      "MCU1_17",
+      "MCU1_18",
+      "MCU1_19",
+      "MCU1_2",
+      "MCU1_20",
+      "MCU1_21",
+      "MCU1_22",
+      "MCU1_23",
+      "MCU1_24",
+      "MCU1_3",
+      "MCU1_4",
+      "MCU1_5",
+      "MCU1_6",
+      "MCU1_7",
+      "MCU1_8",
+      "MCU1_9",
+      "TEST_GND",
+      "TEST_P0",
+      "TEST_P1",
+      "TEST_P10",
+      "TEST_P14",
+      "TEST_P15",
+      "TEST_P16",
+      "TEST_P18",
+      "TEST_P19",
+      "TEST_P2",
+      "TEST_P20",
+      "TEST_P21",
+      "TEST_P3",
+      "TEST_P4",
+      "TEST_P5",
+      "TEST_P6",
+      "TEST_P7",
+      "TEST_P8",
+      "TEST_P9",
+      "TEST_RAW",
+      "TEST_RST",
+      "TEST_VCC"
+    ],
+    "tracks": 216
+  },
+  {
+    "file": "mcu_nice_nano.js",
+    "name": "rotated",
+    "params": {
+      "RAW": "TEST_RAW",
+      "GND": "TEST_GND",
+      "RST": "TEST_RST",
+      "VCC": "TEST_VCC",
+      "P21": "TEST_P21",
+      "P20": "TEST_P20",
+      "P19": "TEST_P19",
+      "P18": "TEST_P18",
+      "P15": "TEST_P15",
+      "P14": "TEST_P14",
+      "P16": "TEST_P16",
+      "P10": "TEST_P10",
+      "P1": "TEST_P1",
+      "P0": "TEST_P0",
+      "P2": "TEST_P2",
+      "P3": "TEST_P3",
+      "P4": "TEST_P4",
+      "P5": "TEST_P5",
+      "P6": "TEST_P6",
+      "P7": "TEST_P7",
+      "P8": "TEST_P8",
+      "P9": "TEST_P9",
+      "P101": "TEST_P101",
+      "P102": "TEST_P102",
+      "P107": "TEST_P107",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 144,
+    "populated_nets": [
+      "MCU1_1",
+      "MCU1_10",
+      "MCU1_11",
+      "MCU1_12",
+      "MCU1_13",
+      "MCU1_14",
+      "MCU1_15",
+      "MCU1_16",
+      "MCU1_17",
+      "MCU1_18",
+      "MCU1_19",
+      "MCU1_2",
+      "MCU1_20",
+      "MCU1_21",
+      "MCU1_22",
+      "MCU1_23",
+      "MCU1_24",
+      "MCU1_3",
+      "MCU1_4",
+      "MCU1_5",
+      "MCU1_6",
+      "MCU1_7",
+      "MCU1_8",
+      "MCU1_9",
+      "TEST_GND",
+      "TEST_P0",
+      "TEST_P1",
+      "TEST_P10",
+      "TEST_P14",
+      "TEST_P15",
+      "TEST_P16",
+      "TEST_P18",
+      "TEST_P19",
+      "TEST_P2",
+      "TEST_P20",
+      "TEST_P21",
+      "TEST_P3",
+      "TEST_P4",
+      "TEST_P5",
+      "TEST_P6",
+      "TEST_P7",
+      "TEST_P8",
+      "TEST_P9",
+      "TEST_RAW",
+      "TEST_RST",
+      "TEST_VCC"
+    ],
+    "tracks": 216
+  },
+  {
+    "file": "switch_choc_v1_v2.js",
+    "name": "default",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "CENTERHOLE": "TEST_CENTERHOLE",
+      "LEFTSTAB": "TEST_LEFTSTAB",
+      "RIGHTSTAB": "TEST_RIGHTSTAB"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 8,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "switch_choc_v1_v2.js",
+    "name": "legacy_features",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "CENTERHOLE": "TEST_CENTERHOLE",
+      "LEFTSTAB": "TEST_LEFTSTAB",
+      "RIGHTSTAB": "TEST_RIGHTSTAB",
+      "hotswap": false,
+      "solder": true,
+      "choc_v2_support": false
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 5,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "switch_choc_v1_v2.js",
+    "name": "back",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "CENTERHOLE": "TEST_CENTERHOLE",
+      "LEFTSTAB": "TEST_LEFTSTAB",
+      "RIGHTSTAB": "TEST_RIGHTSTAB",
+      "side": "B"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 8,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "switch_choc_v1_v2.js",
+    "name": "reversible",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "CENTERHOLE": "TEST_CENTERHOLE",
+      "LEFTSTAB": "TEST_LEFTSTAB",
+      "RIGHTSTAB": "TEST_RIGHTSTAB",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 12,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 14
+  },
+  {
+    "file": "switch_choc_v1_v2.js",
+    "name": "rotated",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "CENTERHOLE": "TEST_CENTERHOLE",
+      "LEFTSTAB": "TEST_LEFTSTAB",
+      "RIGHTSTAB": "TEST_RIGHTSTAB",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 12,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 14
+  },
+  {
+    "file": "diode_tht_sod123.js",
+    "name": "default",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 2,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "diode_tht_sod123.js",
+    "name": "legacy_features",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "include_tht": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 4,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "diode_tht_sod123.js",
+    "name": "back",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "side": "B"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 2,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "diode_tht_sod123.js",
+    "name": "reversible",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 4,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "diode_tht_sod123.js",
+    "name": "rotated",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 4,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "battery_connector_jst_ph_2.js",
+    "name": "default",
+    "params": {
+      "BAT_P": "TEST_BAT_P",
+      "BAT_N": "TEST_BAT_N"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 2,
+    "populated_nets": [
+      "TEST_BAT_N",
+      "TEST_BAT_P"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "battery_connector_jst_ph_2.js",
+    "name": "legacy_features",
+    "params": {
+      "BAT_P": "TEST_BAT_P",
+      "BAT_N": "TEST_BAT_N"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 2,
+    "populated_nets": [
+      "TEST_BAT_N",
+      "TEST_BAT_P"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "battery_connector_jst_ph_2.js",
+    "name": "back",
+    "params": {
+      "BAT_P": "TEST_BAT_P",
+      "BAT_N": "TEST_BAT_N",
+      "side": "B"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 2,
+    "populated_nets": [
+      "TEST_BAT_N",
+      "TEST_BAT_P"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "battery_connector_jst_ph_2.js",
+    "name": "reversible",
+    "params": {
+      "BAT_P": "TEST_BAT_P",
+      "BAT_N": "TEST_BAT_N",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 10,
+    "populated_nets": [
+      "JST1_1",
+      "JST1_2",
+      "TEST_BAT_N",
+      "TEST_BAT_P"
+    ],
+    "tracks": 4
+  },
+  {
+    "file": "battery_connector_jst_ph_2.js",
+    "name": "rotated",
+    "params": {
+      "BAT_P": "TEST_BAT_P",
+      "BAT_N": "TEST_BAT_N",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 10,
+    "populated_nets": [
+      "JST1_1",
+      "JST1_2",
+      "TEST_BAT_N",
+      "TEST_BAT_P"
+    ],
+    "tracks": 4
+  },
+  {
+    "file": "switch_mx.js",
+    "name": "default",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "CENTERHOLE": "TEST_CENTERHOLE",
+      "LEFTSTAB": "TEST_LEFTSTAB",
+      "RIGHTSTAB": "TEST_RIGHTSTAB"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 7,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "switch_mx.js",
+    "name": "legacy_features",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "CENTERHOLE": "TEST_CENTERHOLE",
+      "LEFTSTAB": "TEST_LEFTSTAB",
+      "RIGHTSTAB": "TEST_RIGHTSTAB",
+      "hotswap": false,
+      "solder": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 5,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "switch_mx.js",
+    "name": "back",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "CENTERHOLE": "TEST_CENTERHOLE",
+      "LEFTSTAB": "TEST_LEFTSTAB",
+      "RIGHTSTAB": "TEST_RIGHTSTAB",
+      "side": "B"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 7,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "switch_mx.js",
+    "name": "reversible",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "CENTERHOLE": "TEST_CENTERHOLE",
+      "LEFTSTAB": "TEST_LEFTSTAB",
+      "RIGHTSTAB": "TEST_RIGHTSTAB",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 11,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 14
+  },
+  {
+    "file": "switch_mx.js",
+    "name": "rotated",
+    "params": {
+      "from": "TEST_from",
+      "to": "TEST_to",
+      "CENTERHOLE": "TEST_CENTERHOLE",
+      "LEFTSTAB": "TEST_LEFTSTAB",
+      "RIGHTSTAB": "TEST_RIGHTSTAB",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 11,
+    "populated_nets": [
+      "TEST_from",
+      "TEST_to"
+    ],
+    "tracks": 14
+  },
+  {
+    "file": "display_ssd1306.js",
+    "name": "default",
+    "params": {
+      "SDA": "TEST_SDA",
+      "SCL": "TEST_SCL",
+      "VCC": "TEST_VCC",
+      "GND": "TEST_GND"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 4,
+    "populated_nets": [
+      "TEST_GND",
+      "TEST_SCL",
+      "TEST_SDA",
+      "TEST_VCC"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "display_ssd1306.js",
+    "name": "legacy_features",
+    "params": {
+      "SDA": "TEST_SDA",
+      "SCL": "TEST_SCL",
+      "VCC": "TEST_VCC",
+      "GND": "TEST_GND"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 4,
+    "populated_nets": [
+      "TEST_GND",
+      "TEST_SCL",
+      "TEST_SDA",
+      "TEST_VCC"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "display_ssd1306.js",
+    "name": "back",
+    "params": {
+      "SDA": "TEST_SDA",
+      "SCL": "TEST_SCL",
+      "VCC": "TEST_VCC",
+      "GND": "TEST_GND",
+      "side": "B"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 4,
+    "populated_nets": [
+      "TEST_GND",
+      "TEST_SCL",
+      "TEST_SDA",
+      "TEST_VCC"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "display_ssd1306.js",
+    "name": "reversible",
+    "params": {
+      "SDA": "TEST_SDA",
+      "SCL": "TEST_SCL",
+      "VCC": "TEST_VCC",
+      "GND": "TEST_GND",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 20,
+    "populated_nets": [
+      "DISP1_1",
+      "DISP1_2",
+      "DISP1_3",
+      "DISP1_4",
+      "TEST_GND",
+      "TEST_SCL",
+      "TEST_SDA",
+      "TEST_VCC"
+    ],
+    "tracks": 8
+  },
+  {
+    "file": "display_ssd1306.js",
+    "name": "rotated",
+    "params": {
+      "SDA": "TEST_SDA",
+      "SCL": "TEST_SCL",
+      "VCC": "TEST_VCC",
+      "GND": "TEST_GND",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 20,
+    "populated_nets": [
+      "DISP1_1",
+      "DISP1_2",
+      "DISP1_3",
+      "DISP1_4",
+      "TEST_GND",
+      "TEST_SCL",
+      "TEST_SDA",
+      "TEST_VCC"
+    ],
+    "tracks": 8
+  },
+  {
+    "file": "rotary_encoder_ec11_ec12.js",
+    "name": "default",
+    "params": {
+      "S1": "TEST_S1",
+      "S2": "TEST_S2",
+      "A": "TEST_A",
+      "B": "TEST_B",
+      "C": "TEST_C"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 7,
+    "populated_nets": [
+      "TEST_A",
+      "TEST_B",
+      "TEST_C",
+      "TEST_S1",
+      "TEST_S2"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "rotary_encoder_ec11_ec12.js",
+    "name": "legacy_features",
+    "params": {
+      "S1": "TEST_S1",
+      "S2": "TEST_S2",
+      "A": "TEST_A",
+      "B": "TEST_B",
+      "C": "TEST_C"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 7,
+    "populated_nets": [
+      "TEST_A",
+      "TEST_B",
+      "TEST_C",
+      "TEST_S1",
+      "TEST_S2"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "rotary_encoder_ec11_ec12.js",
+    "name": "back",
+    "params": {
+      "S1": "TEST_S1",
+      "S2": "TEST_S2",
+      "A": "TEST_A",
+      "B": "TEST_B",
+      "C": "TEST_C",
+      "side": "B"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 7,
+    "populated_nets": [
+      "TEST_A",
+      "TEST_B",
+      "TEST_C",
+      "TEST_S1",
+      "TEST_S2"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "rotary_encoder_ec11_ec12.js",
+    "name": "reversible",
+    "params": {
+      "S1": "TEST_S1",
+      "S2": "TEST_S2",
+      "A": "TEST_A",
+      "B": "TEST_B",
+      "C": "TEST_C",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 7,
+    "populated_nets": [
+      "TEST_A",
+      "TEST_B",
+      "TEST_C",
+      "TEST_S1",
+      "TEST_S2"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "rotary_encoder_ec11_ec12.js",
+    "name": "rotated",
+    "params": {
+      "S1": "TEST_S1",
+      "S2": "TEST_S2",
+      "A": "TEST_A",
+      "B": "TEST_B",
+      "C": "TEST_C",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 7,
+    "populated_nets": [
+      "TEST_A",
+      "TEST_B",
+      "TEST_C",
+      "TEST_S1",
+      "TEST_S2"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "trrs_pj320a.js",
+    "name": "default",
+    "params": {
+      "TP": "TEST_TP",
+      "R1": "TEST_R1",
+      "R2": "TEST_R2",
+      "SL": "TEST_SL"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 6,
+    "populated_nets": [
+      "TEST_R1",
+      "TEST_R2",
+      "TEST_SL",
+      "TEST_TP"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "trrs_pj320a.js",
+    "name": "legacy_features",
+    "params": {
+      "TP": "TEST_TP",
+      "R1": "TEST_R1",
+      "R2": "TEST_R2",
+      "SL": "TEST_SL"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 6,
+    "populated_nets": [
+      "TEST_R1",
+      "TEST_R2",
+      "TEST_SL",
+      "TEST_TP"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "trrs_pj320a.js",
+    "name": "back",
+    "params": {
+      "TP": "TEST_TP",
+      "R1": "TEST_R1",
+      "R2": "TEST_R2",
+      "SL": "TEST_SL",
+      "side": "B"
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 6,
+    "populated_nets": [
+      "TEST_R1",
+      "TEST_R2",
+      "TEST_SL",
+      "TEST_TP"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "trrs_pj320a.js",
+    "name": "reversible",
+    "params": {
+      "TP": "TEST_TP",
+      "R1": "TEST_R1",
+      "R2": "TEST_R2",
+      "SL": "TEST_SL",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 12,
+    "populated_nets": [
+      "TEST_R1",
+      "TEST_R2",
+      "TEST_SL",
+      "TEST_TP"
+    ],
+    "tracks": 0
+  },
+  {
+    "file": "trrs_pj320a.js",
+    "name": "rotated",
+    "params": {
+      "TP": "TEST_TP",
+      "R1": "TEST_R1",
+      "R2": "TEST_R2",
+      "SL": "TEST_SL",
+      "reversible": true
+    },
+    "generated": true,
+    "footprints": 1,
+    "pads": 12,
+    "populated_nets": [
+      "TEST_R1",
+      "TEST_R2",
+      "TEST_SL",
+      "TEST_TP"
+    ],
+    "tracks": 0
+  }
+]
