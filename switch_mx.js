@@ -193,14 +193,14 @@ module.exports = {
       (size ${p.stabilizers_diameter + (p.include_plated_holes ? 0.3 : 0)} ${p.stabilizers_diameter + (p.include_plated_holes ? 0.3 : 0)})
       (drill ${p.stabilizers_diameter})
       (layers "*.Cu" "*.Mask")
-      ${p.include_plated_holes && p.include_centerhole_net ? p.RIGHTSTAB : ''}
+      ${p.include_plated_holes && p.include_stabilizer_nets ? p.RIGHTSTAB : ''}
     )
     (pad "" ${!p.include_plated_holes ? `np_thru_hole` : `thru_hole`} circle 
       (at -5.08 0 ${p.r})
       (size ${p.stabilizers_diameter + (p.include_plated_holes ? 0.3 : 0)} ${p.stabilizers_diameter + (p.include_plated_holes ? 0.3 : 0)})
       (drill ${p.stabilizers_diameter})
       (layers "*.Cu" "*.Mask")
-      ${p.include_plated_holes && p.include_centerhole_net ? p.LEFTSTAB : ''}
+      ${p.include_plated_holes && p.include_stabilizer_nets ? p.LEFTSTAB : ''}
     )
     `
     const corner_marks = `
