@@ -38,7 +38,7 @@
 //      is 0.25 to match default net properties. It shouldn't be lowered
 //      below 0.127 (the min width JLCPCB handles).
 //    connect_pads: default is ''
-//      whether pads should be connected, one of '' (thermal reliefs), 
+//      whether pads should be connected, one of '' (thermal reliefs),
 //      'yes' (solid connection), 'thru_hole_only', or 'no'.
 //    thermal_gap: default is 0.5
 //      the thermal relief gap (in mm), with KiCad default being 0.5
@@ -71,7 +71,7 @@
 
 module.exports = {
   params: {
-    side: 'F',
+    side: 'F\\&B',
     net: { type: 'net', value: 'GND' },
     name: '',
     priority: 0,
@@ -94,6 +94,7 @@ module.exports = {
     points: [[0, 0], [420, 0], [420, 297], [0, 297]],
   },
   body: p => {
+    const side = p.side.replace('\\&', '&');
     let polygon_pts = ''
     for (let i = 0; i < p.points.length; i++) {
       polygon_pts += `(xy ${p.points[i][0]} ${p.points[i][1]}) `
@@ -103,16 +104,16 @@ module.exports = {
     (net ${p.net.index})
     (net_name "${p.net.name}")
     (locked ${p.locked ? 'yes' : 'no'})
-    (layers "${p.side}.Cu")
+    (layers "${side}.Cu")
     ${p.name ? '(name "' + p.name + '")' : ''}
     (hatch edge 0.5)
-    ${p.prority > 0 ? '(priority ' + p.priority + ')' : ''}
+    ${p.priority > 0 ? '(priority ' + p.priority + ')' : ''}
     (connect_pads ${p.connect_pads}
       (clearance ${p.pad_clearance})
     )
     (min_thickness ${p.min_thickness})
     (filled_areas_thickness no)
-    (fill 
+    (fill
       ${p.fill_type == 'solid' ? 'yes' : '(mode ' + p.fill_type + ')'}
       (thermal_gap ${p.thermal_gap})
       (thermal_bridge_width ${p.thermal_bridge_width})
