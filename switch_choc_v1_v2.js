@@ -349,7 +349,7 @@ module.exports = {
     `
 
     const hotswap_back_pad_full = `
-    (pad "1" smd rect (at -3.275 -5.95 ${p.r}) (size 2.6 2.6) (layers "B.Cu" "B.Paste" "B.Mask") ${p.from.str})
+    (pad "1" smd rect (at -3.275 -5.95 ${p.r}) (size 2.6 2.6) (layers "B.Cu" "B.Paste" "B.Mask") ${p.hotswap_pads_same_side ? p.to.str : p.from.str})
     `
 
     const hotswap_back = `
