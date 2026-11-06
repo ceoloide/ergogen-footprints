@@ -132,10 +132,10 @@ module.exports = {
       (pad "2" smd rect (at 1.75 0 ${p.r}) (size 0.9 1.2) (layers "F.Cu" "F.Paste" "F.Mask") ${p.from.str})
         `
     const back_silk = `
-      (fp_line (start -2.4 0.75) (end 2.4 0.75) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
-      (fp_line (start -2.4 -0.75) (end 2.4 -0.75) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
-      (fp_line (start -2.4 0.75) (end -2.4 -0.75) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
-      (fp_line (start 2.4 0.75) (end 2.4 -0.75) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
+      (fp_line (start -2.4 0.8) (end 2.4 0.8) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
+      (fp_line (start -2.4 -0.8) (end 2.4 -0.8) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
+      (fp_line (start -2.4 0.8) (end -2.4 -0.8) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
+      (fp_line (start 2.4 0.8) (end 2.4 -0.8) (layer "B.SilkS") (stroke (width 0.1) (type solid)))
         `
     const back_smd_pads = `
       (pad "1" smd rect (at -1.75 0 ${p.r}) (size 0.9 1.2) (layers "B.Cu" "B.Paste" "B.Mask") ${p.to.str})
