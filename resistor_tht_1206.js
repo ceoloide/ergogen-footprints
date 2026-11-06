@@ -121,10 +121,10 @@ module.exports = {
       )
     `
     const front_silk = `
-      (fp_line (start -2.4 0.75) (end 2.4 0.75) (layer "F.SilkS") (stroke (width 0.1) (type solid)))
-      (fp_line (start -2.4 -0.75) (end 2.4 -0.75) (layer "F.SilkS") (stroke (width 0.1) (type solid)))
-      (fp_line (start -2.4 0.75) (end -2.4 -0.75) (layer "F.SilkS") (stroke (width 0.1) (type solid)))
-      (fp_line (start 2.4 0.75) (end 2.4 -0.75) (layer "F.SilkS") (stroke (width 0.1) (type solid)))
+      (fp_line (start -2.4 0.75) (end 2.4 0.8) (layer "F.SilkS") (stroke (width 0.1) (type solid)))
+      (fp_line (start -2.4 -0.75) (end 2.4 -0.8) (layer "F.SilkS") (stroke (width 0.1) (type solid)))
+      (fp_line (start -2.4 0.75) (end -2.4 -0.8) (layer "F.SilkS") (stroke (width 0.1) (type solid)))
+      (fp_line (start 2.4 0.75) (end 2.4 -0.8) (layer "F.SilkS") (stroke (width 0.1) (type solid)))
         `
 
     const front_smd_pads = `
